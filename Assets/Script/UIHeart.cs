@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class UIHeart: MonoBehaviour {
     public GameObject[] lifelove;
-    public int testcurrentHealth=12;     //test
+    public int testcurrentHealth=12;
     [SerializeField]
     private int lasttimehealth=12;
 
-    
-    Animator anim;
+    UIHeartDisappear uIHeartDisappear;
+
     void Update()           //test
     {
         if (testcurrentHealth != 12)
@@ -18,15 +18,14 @@ public class UIHeart: MonoBehaviour {
         }
     
     }
-
-    public void DecreaseLife(int playercurrentHealth)
-    {
+    public void DecreaseLife(int playercurrentHealth) {
         for (int i = lasttimehealth; i > playercurrentHealth; i--)
         {
-            anim = lifelove[i - 1].GetComponent<Animator>();
-            anim.SetTrigger("Disappear");
+            uIHeartDisappear = lifelove[i - 1].GetComponent<UIHeartDisappear>();
+            uIHeartDisappear.AnimControl();
+            //lifelove[i-1].SetActive(false);
         }
         lasttimehealth = playercurrentHealth;
     }
-
+        
 }
