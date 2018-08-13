@@ -5,7 +5,7 @@ using UnityEngine;
 public class AttackTest : MonoBehaviour
 {
 
-    public float timeBetweenAttacks = 4f;
+    public float timeBetweenAttacks = 2f;
     public int attackDamage = 1;
 
 

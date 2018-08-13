@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
     //設定方向狀態
-    public const int player_Up = 0;
-    public const int player_Right = 1;
-    public const int player_Down = 2;
-    public const int player_Left = 3;
+    enum State
+    {
+        player_Up,
+        player_Right,
+        player_Down,
+        player_Left
+    }
 
     //當前方向狀態
-    public int state;
+    State state;
+
     //移動速度
     public int moveSpeed = 2;
 
@@ -30,7 +34,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public void Awake()
     {
-        state = player_Up;
+        state = State.player_Up;
 
         playerRigibody = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
@@ -81,19 +85,19 @@ public class PlayerMovement : MonoBehaviour {
         //{
             if (keyVertical == 1)
             {
-                SetPlayerState(player_Up);
+                SetPlayerState(State.player_Up);
             }
             else if (keyVertical == -1)
             {
-                SetPlayerState(player_Down);
+                SetPlayerState(State.player_Down);
             }
             if (keyHorizontal == 1)
             {
-                SetPlayerState(player_Right);
+                SetPlayerState(State.player_Right);
             }
             else if (keyHorizontal == -1)
             {
-                SetPlayerState(player_Left);
+                SetPlayerState(State.player_Left);
             }
         //}
         //else isWalking = false;
@@ -106,7 +110,7 @@ public class PlayerMovement : MonoBehaviour {
         
     }
 
-    void SetPlayerState(int newState)
+    void SetPlayerState(State newState)
     {
         //計算旋轉角度
         int rotateValue = (newState - state) * 90;
@@ -118,16 +122,16 @@ public class PlayerMovement : MonoBehaviour {
         //移動的位置數值
         switch (newState)
         {
-            case player_Up:
+            case State.player_Up:
                 transformValue = Vector3.forward * Time.deltaTime;
                 break;
-            case player_Down:
+            case State.player_Down:
                 transformValue = (-Vector3.forward) * Time.deltaTime;
                 break;
-            case player_Left:
+            case State.player_Left:
                 transformValue = Vector3.left * Time.deltaTime;
                 break;
-            case player_Right:
+            case State.player_Right:
                 transformValue = (-Vector3.left) * Time.deltaTime;
                 break;
         }
