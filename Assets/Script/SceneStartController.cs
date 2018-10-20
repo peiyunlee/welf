@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneStartController : MonoBehaviour {
-    
-    protected void OnBtnStart()
+
+    public void OnStartBtn()
     {
-       // SceneManager.LoadScene(Home);
+        SceneManager.LoadScene("Home");
+    }
+    public void OnExitBtn()
+    {
+        Application.Quit();
     }
 }
