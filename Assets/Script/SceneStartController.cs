@@ -7,7 +7,7 @@ public class SceneStartController : MonoBehaviour {
 
     public void OnStartBtn()
     {
-        SceneManager.LoadScene("Home");
+        SceneManager.LoadScene("HomeMama");
     }
     public void OnExitBtn()
     {
