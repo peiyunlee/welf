@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     static GameManager instance;
+    public GameObject Setmenu; 
     void Awake()
     {
         if (instance == null)   //當第一個GameManager出現不要destroy
@@ -17,7 +18,11 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    
+    private void Start()
+    {
+        Setmenu = GameObject.Find("Setmenu");
+        Setmenu.SetActive(false);
+    }
     void Update()
     {
         if(Input.GetKeyDown("escape"))   //當按下esc要出現設定介面canvas
@@ -26,9 +31,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    private void LoadSetCanvas()  //出現設定介面(設定透明度)
+    private void LoadSetCanvas()  //出現設定介面
     {
-        
+        Setmenu.SetActive(true);
     }
 
 
