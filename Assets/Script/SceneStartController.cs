@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneStartController : MonoBehaviour {
     [SerializeField]
     private bool isgamestart=false;
+    [SerializeField]
     private bool isgameexit= false;
 
     /*public void OnStartBtn()

@@ -10,8 +10,12 @@ public class GameManager : MonoBehaviour {
     public GameObject Exitagree;
 
     [SerializeField]
-    private bool issetmenu;
+    private bool issetmenu = false;
+    [SerializeField]
     private bool isgameexit = false;
+    [SerializeField]
+    private bool isexitagree = false;
+    public int ihidespeed;
 
     void Awake()
     {
@@ -27,27 +31,37 @@ public class GameManager : MonoBehaviour {
     }
     private void Start()
     {
-        Setmenu = GameObject.Find("Setmenu");
-        Setmenu.SetActive(false);
+        Setmenu.transform.position += new Vector3(-ihidespeed, 0f, 0f); //隱藏Setmenu
+        Exitagree.transform.position += new Vector3(-ihidespeed, 0f, 0f); //隱藏Exitagree
     }
     void Update()
     {
         if(Input.GetKeyDown("escape"))   //當按下esc要出現設定介面canvas
         {
+            issetmenu = !issetmenu;
             LoadSetCanvas();
         }
-        else if (isgameexit)     //choose 確認退出 become true
+        if (isexitagree)
+        {
+            Exitagree.transform.position -= new Vector3(-ihidespeed, 0f, 0f); //顯示Exitagree
+            Debug.Log("aa");
+        }
+        if (isgameexit)     //choose 確認退出 become true
         {
             Application.Quit();
         }
         else if (!isgameexit)   //choose 取消退出 become false 回到選單
         {
-            Exitagree.SetActive(false);
+            Exitagree.transform.position += new Vector3(-ihidespeed, 0f, 0f); //隱藏Exitagree
         }
+        
     }
     private void LoadSetCanvas()  //出現設定介面
     {
-        Setmenu.SetActive(true);
+        if(issetmenu)
+            Setmenu.transform.position -= new Vector3(-ihidespeed, 0f, 0f); //顯示Setmenu
+        else
+            Setmenu.transform.position += new Vector3(-ihidespeed, 0f, 0f); //隱藏Setmenu
     }
 
     /*//Button
