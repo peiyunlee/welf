@@ -74,9 +74,9 @@ public class PlayerMovement : MonoBehaviour {
         if (newState != state)
         {
             Debug.Log("y");
-            Vector2 temp = 
-            temp.x *= -1;
-            state = newState;
+            //Vector2 temp = 
+            //temp.x *= -1;
+            //state = newState;
         }
     }
 
