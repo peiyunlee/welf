@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
     private bool isbeingshowagreemenu = false;
     [SerializeField]
     private bool isexitagreemenu = false;   //exitagreemenu出現
+    [SerializeField]
+    private bool isclick = false;   //暫時判斷確認退出的判斷按鈕按下
     public float fhidespeed;
 
     void Awake()
@@ -55,9 +57,14 @@ public class GameManager : MonoBehaviour {
     private void LoadSetCanvas()  //出現設定介面
     {
         if(issetmenu)
+        {
             Setmenu.transform.position = new Vector3(0.0f, 0.0f, 0.0f); //顯示Setmenu
+        }
         else
+        {
             Setmenu.transform.position = new Vector3(-fhidespeed, 0f, 0f); //隱藏Setmenu
+            Debug.Log("ee");
+        }
     }
     private void LoadExitagreeCanvas()  //出現是否退出的介面
     {
@@ -66,14 +73,17 @@ public class GameManager : MonoBehaviour {
     }
     private void Exitagree()  //確認退出的判斷
     {
-        if (isgameexit)     //choose 確認退出 become true
+        if (isgameexit&&isclick)     //choose 確認退出 become true
         {
             Application.Quit();
+            Debug.Log("bb");
         }
-        else if (!isgameexit)   //choose 取消退出 become false 回到選單
+        else if ((!isgameexit) && isclick)   //choose 取消退出 become false 回到選單
         {
             Exitagreemenu.transform.position += new Vector3(-fhidespeed, 0f, 0f); //隱藏Exitagree
+            Debug.Log("aa");
             isexitagreemenu = false;
+            isbeingshowagreemenu = false;
         }
     }
 
