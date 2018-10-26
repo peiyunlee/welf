@@ -49,12 +49,14 @@ public class SetmenuController : MonoBehaviour {
         else
         {
             Setmenu.transform.position = new Vector3(-fhidespeed, 0f, 0f); //隱藏Setmenu
-            Debug.Log("ee");
+            Exitagreemenu.transform.position = new Vector3(-fhidespeed, 0f, 0f); //隱藏Exitagree
+            isexitagreemenu = false;
+            isbeingshowagreemenu = false;
         }
     }
     private void LoadExitagreeCanvas()  //出現是否退出的介面
     {
-        Exitagreemenu.transform.position += new Vector3(fhidespeed, 0f, 0f); //顯示Exitagree
+        Exitagreemenu.transform.position = new Vector3(fhidespeed/5f, 0f, 0f); //顯示Exitagree
         isbeingshowagreemenu = true;    //已經顯示Exitagree
     }
     private void Exitagree()  //確認退出的判斷
@@ -62,12 +64,10 @@ public class SetmenuController : MonoBehaviour {
         if (isgameexit && isclick)     //choose 確認退出 become true
         {
             Application.Quit();
-            Debug.Log("bb");
         }
         else if ((!isgameexit) && isclick)   //choose 取消退出 become false 回到選單
         {
             Exitagreemenu.transform.position += new Vector3(-fhidespeed, 0f, 0f); //隱藏Exitagree
-            Debug.Log("aa");
             isexitagreemenu = false;
             isbeingshowagreemenu = false;
         }
