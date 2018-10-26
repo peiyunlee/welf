@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AllSceneController : MonoBehaviour {
+public class AllSceneController : MonoBehaviour
+{
     [SerializeField]
     private bool toprescene=false;
     [SerializeField]
     private bool tonextscene = false;
     [SerializeField]
     private int iscenenumber=1;
+    [SerializeField]
+    private GameObject chooseElfmenu;
 
     /*public void OnStartBtn()
     {
@@ -39,13 +42,24 @@ public class AllSceneController : MonoBehaviour {
             SceneManager.LoadScene(iscenenumber);
             toprescene = !toprescene;
         }
-        else if(tonextscene)     
+        else if(tonextscene)    
         {
             iscenenumber += 1;
-            SceneManager.LoadScene(iscenenumber);
+            if (iscenenumber==6|| iscenenumber == 8)
+            {
+                ChooseElfMenu();
+            }
+            else
+            {
+                SceneManager.LoadScene(iscenenumber);
+            }
             tonextscene = !tonextscene;
         }
-    } 
-        
-    
+    }
+    private void ChooseElfMenu()
+    {
+
+    }
+
+
 }

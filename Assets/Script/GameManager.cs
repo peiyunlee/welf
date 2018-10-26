@@ -6,10 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     
     static GameManager instance;
-    
-
-    
-
+   
     void Awake()
     {
         if (instance == null)   //當第一個GameManager出現不要destroy

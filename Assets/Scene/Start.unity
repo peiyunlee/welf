@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e152d5f61c45ff244b4c7b97f8fc4626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isgamestart: 1
+  isgamestart: 0
   isgameexit: 0
 --- !u!4 &1127668534
 Transform:
