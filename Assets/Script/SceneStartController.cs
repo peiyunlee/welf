@@ -18,6 +18,18 @@ public class SceneStartController : MonoBehaviour {
         Application.Quit();
     }*/
 
+    enum SCENE{
+        START,
+        HomeMama,
+        Forest,
+        VillageOne,
+        HomeDad,
+        VillageTwo,
+        LaboratoryOne,
+        LaboratoryTwo,
+        LaboratoryThree,
+    }
+
     private void Update()
     {
         if (isgamestart)    //choose button start become true
@@ -28,7 +40,6 @@ public class SceneStartController : MonoBehaviour {
         {
             Application.Quit();
         }
-
     } 
         
     
