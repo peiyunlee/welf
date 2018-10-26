@@ -56,7 +56,7 @@ public class SetmenuController : MonoBehaviour {
     }
     private void LoadExitagreeCanvas()  //出現是否退出的介面
     {
-        Exitagreemenu.transform.position = new Vector3(fhidespeed/5f, 0f, 0f); //顯示Exitagree
+        Exitagreemenu.transform.position = new Vector3(0f, 1f, 0f); //顯示Exitagree
         isbeingshowagreemenu = true;    //已經顯示Exitagree
     }
     private void Exitagree()  //確認退出的判斷
