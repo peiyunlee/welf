@@ -11,3 +11,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/HomeMama.unity
     guid: 8c9ad16aacb1fed4cbe7c690871b6ad1
+  - enabled: 1
+    path: Assets/Scene/Forest.unity
+    guid: 20f1b7ed7b7bb7c4d95084a908deeaf0
+  - enabled: 1
+    path: Assets/Scene/VillageOne.unity
+    guid: 42630483c03b30048b6a92a50d493efc
+  - enabled: 1
+    path: Assets/Scene/HomeDad.unity
+    guid: cfb38aa1ce25709409bbe5be4134aa80
+  - enabled: 1
+    path: Assets/Scene/VillageTwo.unity
+    guid: 0bec98d946fd1b4469510486f200f2a7
+  - enabled: 1
+    path: Assets/Scene/LaboratoryOne.unity
+    guid: 2ff44466c33727f42a1d4b30bec78fc5
+  - enabled: 1
+    path: Assets/Scene/LaboratoryTwo.unity
+    guid: 5a305a20b09f20d49940bd73d33a41a5
+  - enabled: 1
+    path: Assets/Scene/LaboratoryThree.unity
+    guid: d76b3339769665d4da73473494e3bb7e
