@@ -14,9 +14,11 @@ public class PlayerMovement : MonoBehaviour {
 
     State state;
 
-    //移動速度
+    //數值設定
     public float moveSpeed = 10;
-    public float jumpSpeed = 10;
+    public float jumpSpeed = 5000;
+    public int jumpNum = 2;
+    public int jumpCount = 0;
 
     //設定按鍵
     private float keyVertical;
@@ -26,8 +28,8 @@ public class PlayerMovement : MonoBehaviour {
 
     //條件判斷
     private bool isWalking = false;
-    private bool isJumping = false;
-    private bool onGround = true;
+    private bool isGround = true;
+    private bool canJumping = true;
 
     Rigidbody2D playerRigidbody;
     Animator playerAnim;
@@ -44,6 +46,8 @@ public class PlayerMovement : MonoBehaviour {
 	void Update ()
     {
         GetKey();
+
+        ToJump();
 
         Animating();
 	}
@@ -65,43 +69,78 @@ public class PlayerMovement : MonoBehaviour {
     //移動
     void Move()
     {
-        Vector2 transformValue = new Vector2();
+        Vector2 transformValue = new Vector2(keyHorizontal * moveSpeed, playerRigidbody.velocity.y);
 
         if (keyHorizontal == 1)
         {
             SetPlayerState(State.playerRight);
-            transformValue = Vector2.right * moveSpeed;
         }
 
         if (keyHorizontal == -1)
         {
             SetPlayerState(State.playerLeft);
-            transformValue = Vector2.left * moveSpeed;
         }
 
         if (keyHorizontal == 0)
         {
             isWalking = false;
         }
-        
+
         playerRigidbody.velocity = transformValue;
+    }
+
+    void ToJump()
+    {
+        if (jumpCount >= jumpNum)
+        {
+            canJumping = false;
+        }
     }
 
     void Jump()
     {
-        if (keyJump == true)
+        if (keyJump && canJumping)
         {
             Debug.Log("Jump");
-            Vector2 jump = new Vector2(0f, jumpSpeed);
-            playerRigidbody.AddForce(jump);
-            isJumping = true;
+            playerRigidbody.AddForce(new Vector2(0f, jumpSpeed));
+            jumpCount++;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D floor)
+    {
+        if (floor.gameObject.CompareTag("Floor"))
+        {
+            canJumping=true;
+
+            jumpCount = 0;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D floor)
+    {
+        if (floor.gameObject.CompareTag("Floor"))
+        {
+            isGround = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D floor)
+    {
+        if (floor.gameObject.CompareTag("Floor"))
+        {
+            isGround = false;
         }
     }
 
     //判斷轉向
     void SetPlayerState(State newState)
     {
-        isWalking = true;
+        if (isGround == true)
+        {
+            isWalking = true;
+        }
+        else isWalking = false;
 
         if (newState != state)
         {
@@ -114,9 +153,9 @@ public class PlayerMovement : MonoBehaviour {
 
     //動畫
     void Animating()
-    {
-        playerAnim.SetBool("isWalking", isWalking);
+    {       
+          playerAnim.SetBool("isWalking", isWalking);
 
-       // playerAnim.SetBool("isJumping", isJumping);
+          //playerAnim.SetBool("isJumping", !isGround);
     }
 }
