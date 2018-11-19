@@ -73,22 +73,26 @@ public class PlayerMovement : MonoBehaviour {
 
         if (keyHorizontal == 1)
         {
+            playerAnim.SetTrigger("IdWa");
             SetPlayerState(State.playerRight);
         }
 
         if (keyHorizontal == -1)
         {
+            playerAnim.SetTrigger("IdWa");
             SetPlayerState(State.playerLeft);
         }
 
         if (keyHorizontal == 0)
         {
+            playerAnim.SetTrigger("WaId");
             isWalking = false;
         }
 
         playerRigidbody.velocity = transformValue;
     }
 
+    //判斷二段跳條件
     void ToJump()
     {
         if (jumpCount >= jumpNum)
@@ -97,6 +101,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    //跳躍
     void Jump()
     {
         if (keyJump && canJumping)
@@ -104,9 +109,14 @@ public class PlayerMovement : MonoBehaviour {
             Debug.Log("Jump");
             playerRigidbody.AddForce(new Vector2(0f, jumpSpeed));
             jumpCount++;
+            if (playerRigidbody.velocity.y < 0)
+            {
+                playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
+            }
         }
     }
 
+    //進入地面
     private void OnCollisionEnter2D(Collision2D floor)
     {
         if (floor.gameObject.CompareTag("Floor"))
@@ -117,6 +127,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    //在地面上
     private void OnCollisionStay2D(Collision2D floor)
     {
         if (floor.gameObject.CompareTag("Floor"))
@@ -125,6 +136,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    //離開地面
     private void OnCollisionExit2D(Collision2D floor)
     {
         if (floor.gameObject.CompareTag("Floor"))
@@ -136,6 +148,7 @@ public class PlayerMovement : MonoBehaviour {
     //判斷轉向
     void SetPlayerState(State newState)
     {
+        //判斷是否在地上
         if (isGround == true)
         {
             isWalking = true;
