@@ -10,9 +10,7 @@ public class AllSceneController : MonoBehaviour
     [SerializeField]
     private bool tonextscene = false;
     [SerializeField]
-    private int iscenenumber=1;
-    [SerializeField]
-    private GameObject chooseElfmenu;
+    protected int iscenenumber=1;
 
     /*public void OnStartBtn()
     {
@@ -47,7 +45,7 @@ public class AllSceneController : MonoBehaviour
             iscenenumber += 1;
             if (iscenenumber==6|| iscenenumber == 8)
             {
-                ChooseElfMenu();
+                SceneManager.LoadScene("ChooseElfMenu");
             }
             else
             {
@@ -55,10 +53,6 @@ public class AllSceneController : MonoBehaviour
             }
             tonextscene = !tonextscene;
         }
-    }
-    private void ChooseElfMenu()
-    {
-
     }
 
 

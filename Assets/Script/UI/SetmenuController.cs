@@ -70,6 +70,7 @@ public class SetmenuController : MonoBehaviour {
             Exitagreemenu.transform.position += new Vector3(-fhidespeed, 0f, 0f); //隱藏Exitagree
             isexitagreemenu = false;
             isbeingshowagreemenu = false;
+            isclick = false;
         }
     }
 
