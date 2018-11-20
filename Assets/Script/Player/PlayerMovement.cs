@@ -99,6 +99,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             canJumping = false;
         }
+        //Debug.Log("canjump");
     }
 
     //跳躍
