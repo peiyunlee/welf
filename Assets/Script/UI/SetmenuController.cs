@@ -73,14 +73,19 @@ public class SetmenuController : MonoBehaviour {
         }
     }
 
-    /*//Button
-    public void OnYesExitBtn() //確認退出
+    //Button
+    public void OnExitGameBtnClick() //取消退出
     {
-        Application.Quit();
+        isexitagreemenu = true;
     }
-    public void OnNoExitBtn() //取消退出
+    public void OnYesExitBtnClick() //確認退出
     {
-        //回到設定介面
+        isgameexit = true;
+        isclick = true;
     }
-    */
+    public void OnCancelExitBtnClick() //取消退出
+    {
+        isclick = true;
+    }
+    
 }

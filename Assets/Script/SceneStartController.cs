@@ -41,6 +41,12 @@ public class SceneStartController : MonoBehaviour {
             Application.Quit();
         }
     } 
-        
-    
+    public void OnStartBtnClick()
+    {
+        isgamestart = true;
+    }
+    public void OnExitBtnClick()
+    {
+        isgameexit = true;
+    }
 }
