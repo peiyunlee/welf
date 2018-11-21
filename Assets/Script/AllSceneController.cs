@@ -10,7 +10,7 @@ public class AllSceneController : MonoBehaviour
     [SerializeField]
     private bool tonextscene = false;
     [SerializeField]
-    protected int iscenenumber=1;
+    public static int iscenenumber=1;
 
     /*public void OnStartBtn()
     {

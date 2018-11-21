@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChooseElfController : AllSceneController
+public class ChooseElfController : MonoBehaviour
 {
     public GameObject Chooseagreemenu;
     [SerializeField]
@@ -12,10 +12,11 @@ public class ChooseElfController : AllSceneController
     [SerializeField]
     int[] chooseelf= new int[2];
     [SerializeField]
-    int count=0;
+    int count = 0;
+
     enum ELF
     {
-        Tender = 0,
+        Tender = 1,
         Acute,
         Vigorous,
     }
@@ -30,27 +31,31 @@ public class ChooseElfController : AllSceneController
 	}
     public void OnElfBtnClick(int elfnumber)  //當任一按鈕被按下傳送該按鈕號碼
     {
-        if (isbeingchoosed[elfnumber]&&count<2)  //已被選擇過且沒滿
+        if (isbeingchoosed[elfnumber-1]&&count<2)  //已被選擇過且沒滿
         {
             count--;
-            isbeingchoosed[elfnumber] = false;
+            isbeingchoosed[elfnumber-1] = false;
+            for (int i = 0; i <2; i++)
+            {
+                if (chooseelf[i] == elfnumber) chooseelf[i] = 0;
+            }
             //取消選擇
         }
-        else if (!isbeingchoosed[elfnumber] && count < 2) //還沒被選擇過且沒滿
+        else if (!isbeingchoosed[elfnumber-1] && count < 2) //還沒被選擇過且沒滿
         {
             count++;
-            isbeingchoosed[elfnumber] = true;
+            isbeingchoosed[elfnumber-1] = true;
+            chooseelf[count - 1] = elfnumber;
             //選擇
         }
-        else if (count==2)
+        if (count==2)
         {
-            count++;
             Chooseagreemenu.transform.position += new Vector3(1000, 0f, 0f); //顯示chooseagree
         }
     }
     public void OnYesBtnClick()
     {
-        SceneManager.LoadScene(iscenenumber);
+        SceneManager.LoadScene(AllSceneController.iscenenumber);
     }
     public void OnBackBtnClick()
     {
@@ -59,6 +64,7 @@ public class ChooseElfController : AllSceneController
         for (int i = 0; i < 3; i++)
         {
             isbeingchoosed[i] = false;//重置所有選擇
+            if(i<2) chooseelf[i] = 0;
             //取消所有選擇
         }
        
