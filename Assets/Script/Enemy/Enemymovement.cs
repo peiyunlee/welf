@@ -22,16 +22,28 @@ using UnityEngine;
     */
     void Attack() {
 
-        playerRigidbody.velocity= new Vector2(3, 0);
+       /* playerRigidbody.velocity= new Vector2(3, 0);*/
 
-        if (Vector2.Distance(transform.position, main.position) <= followDis)//跟随距离
+        if (Vector2.Distance(transform.position, main.position) <= followDis&&(main.position.x-transform.position.x>0))//跟随距离
         {
            
-            Vector2 transformValue = new Vector2(main.position.x-transform.position.x-10, 0);
+            Vector2 transformValue = new Vector2(10, 0);
+            
+            
             playerRigidbody.velocity = transformValue;
 
         }
-    
+
+
+
+        if (Vector2.Distance(transform.position, main.position) <= followDis && (main.position.x - transform.position.x < 0))//跟随距离
+        {
+
+            Vector2 transformValue = new Vector2(-10, 0);
+           
+            playerRigidbody.velocity = transformValue;
+
+        }
     }
 
 
