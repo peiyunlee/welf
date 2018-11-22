@@ -2,24 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemymovement : MonoBehaviour {
-    public Transform Player;
-    private UnityEngine.AI.NavMeshAgent nav;
+    public class Enemymovement : MonoBehaviour {
+    public Transform main;
+
+    private float moveSpeed = 5.0f;
+
+    private float rotateSpeed = 5.0f;
+
+    private Transform mytransform;//自己
+    Transform target = GameObject.FindGameObjectWithTag("main").transform;
+
 
 
     void Awake()
     {
-        Player =GameObject.FindGameObjectWithTag("Player").transform;
-        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        Transform target = GameObject.FindGameObjectWithTag("main").transform;
+
     }
 
 
     void Update()
     {
+        Debug.DrawLine(target.transform.position, this.transform.position, Color.yellow);
 
-        nav.SetDestination(Player.position);
-        
-        
+
+        mytransform.rotation = Quaternion.Slerp(mytransform.rotation, Quaternion.LookRotation(target.position - mytransform.position), rotateSpeed * Time.deltaTime);
+
+
+        mytransform.position += mytransform.forward * moveSpeed * Time.deltaTime;
+
 
 
 
