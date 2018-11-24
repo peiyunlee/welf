@@ -17,7 +17,7 @@ public class SetmenuController : MonoBehaviour {
     private bool isexitagreemenu = false;   //exitagreemenu出現
     [SerializeField]
     private bool isclick = false;   //暫時判斷確認退出的判斷按鈕按下
-    public float fhidespeed;
+    public float fhidespeed=300f;
 
     private void Start()
     {

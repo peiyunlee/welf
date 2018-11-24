@@ -45,6 +45,10 @@ public class SceneStartController : MonoBehaviour {
     {
         isgamestart = true;
     }
+    public void OnContinueBtnClick()
+    {
+        
+    }
     public void OnExitBtnClick()
     {
         isgameexit = true;

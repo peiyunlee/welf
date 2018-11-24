@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ChooseElfController : MonoBehaviour
 {
+    //public GameObject GameManager;
     public GameObject Chooseagreemenu;
     [SerializeField]
     bool[] isbeingchoosed = new bool[3];  //水精靈已被選擇
@@ -12,6 +13,7 @@ public class ChooseElfController : MonoBehaviour
     int[] chooseelf= new int[2];
     [SerializeField]
     int count = 0;
+    //private int scenenumber;
 
     enum ELF
     {
@@ -21,7 +23,7 @@ public class ChooseElfController : MonoBehaviour
     }
     // Use this for initialization
     void Start () {
-       Chooseagreemenu.transform.position += new Vector3(-1000, 0f, 0f); //隱藏chooseagree
+        Chooseagreemenu.transform.position += new Vector3(-1000, 0f, 0f); //隱藏chooseagree
     }
 	
 	// Update is called once per frame
@@ -55,6 +57,7 @@ public class ChooseElfController : MonoBehaviour
     public void OnYesBtnClick()
     {
         SceneManager.LoadScene(AllSceneController.iscenenumber);
+        Debug.Log(AllSceneController.iscenenumber);
     }
     public void OnBackBtnClick()
     {

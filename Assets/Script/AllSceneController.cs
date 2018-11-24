@@ -20,6 +20,7 @@ public class AllSceneController : MonoBehaviour
     {
         Application.Quit();
     }*/
+
     enum SCENE
     {
         START=0,
@@ -39,6 +40,7 @@ public class AllSceneController : MonoBehaviour
             iscenenumber -= 1;
             SceneManager.LoadScene(iscenenumber);
             toprescene = !toprescene;
+
         }
         else if(tonextscene)    
         {
