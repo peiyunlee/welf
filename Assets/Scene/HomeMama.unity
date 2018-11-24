@@ -144,7 +144,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.2, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 106819824}
   - component: {fileID: 106819823}
   m_Layer: 5
-  m_Name: Setmenu
+  m_Name: storyMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,7 +497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &653150820
 Transform:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ RectTransform:
   m_LocalScale: {x: 1.0000135, y: 1.0000135, z: 1.0000135}
   m_Children: []
   m_Father: {fileID: 1943548028}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -754,7 +754,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.2, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -867,7 +867,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157132902}
+      - m_Target: {fileID: 0}
         m_MethodName: OnYesExitBtnClick
         m_Mode: 1
         m_Arguments:
@@ -994,10 +994,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1157132900}
-  - component: {fileID: 1157132901}
+  - component: {fileID: 1157132904}
   - component: {fileID: 1157132903}
   - component: {fileID: 1157132902}
-  - component: {fileID: 1157132904}
+  - component: {fileID: 1157132901}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -1027,17 +1027,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1157132899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2fd8bac8a8cc6d4b95a8dfc9e69faee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1157132902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1157132899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5560bf3e32178694bb244626d591b696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1049,7 +1038,7 @@ MonoBehaviour:
   isexitagreemenu: 0
   isclick: 0
   fhidespeed: 300
---- !u!114 &1157132903
+--- !u!114 &1157132902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1062,6 +1051,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toprescene: 0
   tonextscene: 0
+--- !u!114 &1157132903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1157132899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2fd8bac8a8cc6d4b95a8dfc9e69faee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1157132904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1073,14 +1073,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80743a9bf80bd8f4981e5d8cab7306da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 1157132899}
-  StoryMenu: {fileID: 2122349138}
+  StoryMenu: {fileID: 106819821}
   StoryMenuBtn: {fileID: 1771099097}
   ExitStoryimg: {fileID: 736280316}
   OpenStoryimg: {fileID: 2105151884}
+  vr0: {x: 0, y: 0, z: 0}
+  vr1: {x: 0, y: 0, z: 0}
   fhidespeed: 300
   isstorymenu: 0
-  scenenumber: 7
+  count: 0
 --- !u!1 &1226582516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1158,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157132902}
+      - m_Target: {fileID: 0}
         m_MethodName: OnCancelExitBtnClick
         m_Mode: 1
         m_Arguments:
@@ -1279,7 +1280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157132902}
+      - m_Target: {fileID: 0}
         m_MethodName: OnExitGameBtnClick
         m_Mode: 1
         m_Arguments:
@@ -1664,7 +1665,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157132902}
+      - m_Target: {fileID: 0}
         m_MethodName: OnExitGameBtnClick
         m_Mode: 1
         m_Arguments:
@@ -1739,7 +1740,7 @@ RectTransform:
   m_LocalScale: {x: 1.6375674, y: 1.4531697, z: 1.0000411}
   m_Children: []
   m_Father: {fileID: 1943548028}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2045,9 +2046,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3619751, y: 0.3619751, z: 0.3619751}
   m_Children:
+  - {fileID: 1771099098}
   - {fileID: 2105151885}
   - {fileID: 736280317}
-  - {fileID: 1771099098}
   - {fileID: 2122349139}
   - {fileID: 653150820}
   m_Father: {fileID: 1157132900}
@@ -2190,7 +2191,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1157132902}
+      - m_Target: {fileID: 0}
         m_MethodName: OnExitGameBtnClick
         m_Mode: 1
         m_Arguments:
@@ -2264,7 +2265,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1943548028}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2318,7 +2319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2122349139
 Transform:
   m_ObjectHideFlags: 0
