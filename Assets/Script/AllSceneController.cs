@@ -34,7 +34,7 @@ public class AllSceneController : MonoBehaviour
     }
     private void Update()
     {
-        if (iscenenumber>(int)SCENE.VillageTwo&&toprescene)    //在關卡VillageTwo前沒有回到前一個場景的機制
+        if (iscenenumber>(int)SCENE.LaboratoryOne&& toprescene)    //在關卡LaboratoryOne前沒有回到前一個場景的機制
         {
             iscenenumber -= 1;
             SceneManager.LoadScene(iscenenumber);
