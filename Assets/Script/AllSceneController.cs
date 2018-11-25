@@ -6,20 +6,12 @@ using UnityEngine.SceneManagement;
 public class AllSceneController : MonoBehaviour
 {
     [SerializeField]
-    private bool toprescene=false;
+    public static bool toprescene=false;
     [SerializeField]
-    private bool tonextscene = false;
+    public static bool tonextscene = false;
     [SerializeField]
-    public static int iscenenumber=1;
-
-    /*public void OnStartBtn()
-    {
-        SceneManager.LoadScene("HomeMama");
-    }
-    public void OnExitBtn()
-    {
-        Application.Quit();
-    }*/
+    public static int iscenenumber;
+    private Scene scene;
 
     enum SCENE
     {
@@ -32,6 +24,11 @@ public class AllSceneController : MonoBehaviour
         LaboratoryOne,
         LaboratoryTwo,
         LaboratoryThree,
+    }
+    private void Start()
+    {
+        scene = SceneManager.GetActiveScene();
+        iscenenumber = scene.buildIndex;
     }
     private void Update()
     {
