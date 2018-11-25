@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
     
     static GameManager instance;
-   
+    [SerializeField]
+    public static int[] chooseelf = new int[2];
     void Awake()
     {
         if (instance == null)   //當第一個GameManager出現不要destroy

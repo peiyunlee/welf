@@ -10,8 +10,6 @@ public class ChooseElfController : MonoBehaviour
     [SerializeField]
     bool[] isbeingchoosed = new bool[3];  //水精靈已被選擇
     [SerializeField]
-    int[] chooseelf= new int[2];
-    [SerializeField]
     int count = 0;
     //private int scenenumber;
 
@@ -38,7 +36,7 @@ public class ChooseElfController : MonoBehaviour
             isbeingchoosed[elfnumber-1] = false;
             for (int i = 0; i <2; i++)
             {
-                if (chooseelf[i] == elfnumber) chooseelf[i] = 0;
+                if (GameManager.chooseelf[i] == elfnumber) GameManager.chooseelf[i] = 0;
             }
             //取消選擇
         }
@@ -46,7 +44,7 @@ public class ChooseElfController : MonoBehaviour
         {
             count++;
             isbeingchoosed[elfnumber-1] = true;
-            chooseelf[count - 1] = elfnumber;
+            GameManager.chooseelf[count - 1] = elfnumber;
             //選擇
         }
         if (count==2)
@@ -66,7 +64,7 @@ public class ChooseElfController : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             isbeingchoosed[i] = false;//重置所有選擇
-            if(i<2) chooseelf[i] = 0;
+            if(i<2) GameManager.chooseelf[i] = 0;
             //取消所有選擇
         }
        

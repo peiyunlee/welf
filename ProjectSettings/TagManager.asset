@@ -42,15 +42,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: setmenu
-    uniqueID: 1601906029
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: floor
+    uniqueID: 2248609775
     locked: 0
   - name: Player
     uniqueID: 3355243175
     locked: 0
-  - name: floor
-    uniqueID: 2248609775
+  - name: storymenu
+    uniqueID: 2985343757
+    locked: 0
+  - name: escmenu
+    uniqueID: 1601906029
     locked: 0
