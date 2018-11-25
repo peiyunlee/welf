@@ -13,6 +13,9 @@ namespace Fungus
     [System.Serializable]
     public class StringVariable : VariableBase<string>
     {
+        public static readonly CompareOperator[] compareOperators = { CompareOperator.Equals, CompareOperator.NotEquals };
+        public static readonly SetOperator[] setOperators = { SetOperator.Assign };
+
         public virtual bool Evaluate(CompareOperator compareOperator, string stringValue)
         {
             string lhs = Value;
@@ -22,16 +25,31 @@ namespace Fungus
 
             switch (compareOperator)
             {
-            case CompareOperator.Equals:
-                condition = lhs == rhs;
-                break;
-            case CompareOperator.NotEquals:
-            default:
-                condition = lhs != rhs;
-                break;
+                case CompareOperator.Equals:
+                    condition = lhs == rhs;
+                    break;
+                case CompareOperator.NotEquals:
+                    condition = lhs != rhs;
+                    break;
+                default:
+                    Debug.LogError("The " + compareOperator.ToString() + " comparison operator is not valid.");
+                    break;
             }
 
             return condition;
+        }
+
+        public override void Apply(SetOperator setOperator, string value)
+        {
+            switch (setOperator)
+            {
+                case SetOperator.Assign:
+                    Value = value;
+                    break;
+                default:
+                    Debug.LogError("The " + setOperator.ToString() + " set operator is not valid.");
+                    break;
+            }
         }
     }
 

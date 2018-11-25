@@ -7,6 +7,10 @@ public class CameraFollow : MonoBehaviour {
     private Vector3 offset;         //Private variable to store the offset distance between the player and camera
     [SerializeField]
     private Vector3 addvector;
+    [SerializeField]
+    private Vector3 maxvector;
+    [SerializeField]
+    private Vector3 minvector;
     // Use this for initialization
     void Start()
     {
@@ -15,9 +19,23 @@ public class CameraFollow : MonoBehaviour {
     }
 
     // LateUpdate is called after Update each frame
-    void LateUpdate()
+    void Update()
     {
-        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         transform.position = player.transform.position + offset;
+        if (transform.position.x >= maxvector.x)
+        {
+            maxvector.y = player.transform.position.y+1.5f*addvector.y;
+            transform.position = maxvector;
+        }
+        else if(transform.position.x <= minvector.x)
+        {
+            minvector.y = player.transform.position.y + 1.5f * addvector.y;
+            transform.position = minvector;
+        }
+        else
+        {
+            transform.position = player.transform.position + offset;
+        }
+        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.       
     }
 }
