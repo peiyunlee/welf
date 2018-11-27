@@ -17,7 +17,8 @@ public class SetmenuController : MonoBehaviour {
     private bool isexitagreemenu = false;   //exitagreemenu出現
     [SerializeField]
     private bool isclick = false;   //暫時判斷確認退出的判斷按鈕按下
-    public float fhidespeed=300f;
+    private float fhidespeed=300f;
+    private float fz = 10f;
 
     private void Start()
     {
@@ -44,19 +45,19 @@ public class SetmenuController : MonoBehaviour {
     {
         if (issetmenu)
         {
-            Setmenu.transform.position = new Vector3(0.0f, 0.0f, 0.0f); //顯示Setmenu
+            Setmenu.transform.position = new Vector3(0.0f, 0.0f, fz); //顯示Setmenu
         }
         else
         {
-            Setmenu.transform.position = new Vector3(-fhidespeed, 0f, 0f); //隱藏Setmenu
-            Exitagreemenu.transform.position = new Vector3(-fhidespeed, 0f, 0f); //隱藏Exitagree
+            Setmenu.transform.position = new Vector3(-fhidespeed, 0f, fz); //隱藏Setmenu
+            Exitagreemenu.transform.position = new Vector3(-fhidespeed, 0f, fz); //隱藏Exitagree
             isexitagreemenu = false;
             isbeingshowagreemenu = false;
         }
     }
     private void LoadExitagreeCanvas()  //出現是否退出的介面
     {
-        Exitagreemenu.transform.position = new Vector3(0f, 1f, 0f); //顯示Exitagree
+        Exitagreemenu.transform.position = new Vector3(0f, 1f, fz); //顯示Exitagree
         isbeingshowagreemenu = true;    //已經顯示Exitagree
     }
     private void Exitagree()  //確認退出的判斷
@@ -67,7 +68,7 @@ public class SetmenuController : MonoBehaviour {
         }
         else if ((!isgameexit) && isclick)   //choose 取消退出 become false 回到選單
         {
-            Exitagreemenu.transform.position += new Vector3(-fhidespeed, 0f, 0f); //隱藏Exitagree
+            Exitagreemenu.transform.position += new Vector3(-fhidespeed, 0f, fz); //隱藏Exitagree
             isexitagreemenu = false;
             isbeingshowagreemenu = false;
             isclick = false;
