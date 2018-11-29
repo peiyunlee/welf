@@ -34,7 +34,7 @@ public class StoryMenuController : MonoBehaviour
     void Start()
     {
         vr0= StoryMenuBtn.transform.position;
-        vr1 = StoryMenuBtn.transform.position + new Vector3(-fhidespeed, 0f, 0f);
+        vr1 = StoryMenuBtn.transform.position + new Vector3(-4f*fhidespeed, 0f, 0f);
         StoryMenu.transform.position += new Vector3(-fhidespeed, 0.0f, 0.0f); //隱藏StoryMenu
         StoryMenuBtn.transform.position = vr1; //隱藏StoryMenuBtn
     }
