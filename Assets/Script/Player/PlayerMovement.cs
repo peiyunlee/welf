@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         GetKey();
 
-        ToJump();
+        //ToJump();
 
         Animating();
 	}
@@ -93,14 +93,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     //判斷二段跳條件
-    void ToJump()
-    {
-        if (jumpCount <= jumpNum)
-        {
-            canJumping = true;
-        }
-        //Debug.Log("canjump");
-    }
+    //void ToJump()
+    //{
+    //    if (jumpCount <= jumpNum)
+    //    {
+    //        canJumping = true;
+    //    }
+    //    //Debug.Log("canjump");
+    //}
 
     //跳躍
     void Jump()
@@ -115,6 +115,10 @@ public class PlayerMovement : MonoBehaviour {
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
             }
             canJumping = false;
+        }
+        if (jumpCount < jumpNum)
+        {
+            canJumping = true;
         }
     }
 
