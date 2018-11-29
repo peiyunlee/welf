@@ -8,7 +8,6 @@ public class SceneStartController : MonoBehaviour {
     private bool isgamestart=false;
     [SerializeField]
     private bool isgameexit= false;
-
     /*public void OnStartBtn()
     {
         SceneManager.LoadScene("HomeMama");
