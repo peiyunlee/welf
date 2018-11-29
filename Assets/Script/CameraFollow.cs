@@ -22,20 +22,20 @@ public class CameraFollow : MonoBehaviour {
     void Update()
     {
         transform.position = player.transform.position + offset;
-        if (transform.position.x >= maxvector.x)
-        {
-            maxvector.y = player.transform.position.y+1.5f*addvector.y;
-            transform.position = maxvector;
-        }
-        else if(transform.position.x <= minvector.x)
-        {
-            minvector.y = player.transform.position.y + 1.5f * addvector.y;
-            transform.position = minvector;
-        }
-        else
-        {
-            transform.position = player.transform.position + offset;
-        }
+        //if (transform.position.x >= maxvector.x)
+        //{
+        //    maxvector.y = player.transform.position.y+1.5f*addvector.y;
+        //    transform.position = maxvector;
+        //}
+        //else if(transform.position.x <= minvector.x)
+        //{
+        //    minvector.y = player.transform.position.y + 1.5f * addvector.y;
+        //    transform.position = minvector;
+        //}
+        //else
+        //{
+        //    transform.position = player.transform.position + offset;
+        //}
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.       
     }
 }

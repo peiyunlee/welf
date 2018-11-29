@@ -95,9 +95,9 @@ public class PlayerMovement : MonoBehaviour {
     //判斷二段跳條件
     void ToJump()
     {
-        if (jumpCount >= jumpNum)
+        if (jumpCount <= jumpNum)
         {
-            canJumping = false;
+            canJumping = true;
         }
         //Debug.Log("canjump");
     }
@@ -114,6 +114,7 @@ public class PlayerMovement : MonoBehaviour {
             {
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
             }
+            canJumping = false;
         }
     }
 
