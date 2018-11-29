@@ -20,7 +20,10 @@ using UnityEngine;
 
     private bool isAttact = false;//是否攻击
     */
-    void Attack() {
+    private float speed = 0.1f;
+    private float enemyposition;
+    public int enemyinitiallocat;
+    void follow() {
 
        /* playerRigidbody.velocity= new Vector2(3, 0);*/
 
@@ -53,12 +56,43 @@ using UnityEngine;
         Transform target = GameObject.FindGameObjectWithTag("main").transform;
 
     }
+    
+    int time = 0;
+    void move()
+    {
+        
+          this.gameObject.transform.position += new Vector3(speed, 0f, 0f);
+        time++;
+        if (time==100)
+        {
 
+            speed = speed * -1;
+            time = 0;
+
+        }
+
+
+        
+        
+    }
 
     void Update()
     {
+        /*Debug.Log(speed);
+        Debug.Log(enemyposition);*/
 
-        Attack();
+        enemyposition = this.gameObject.transform.position.x;
+      
+        if ((Vector2.Distance(transform.position, main.position) <= followDis && (main.position.x - transform.position.x > 0)))
+        {
+            follow();
+        }
+        else
+        {
+            move();
+
+
+        }
 
 
     }
