@@ -896,7 +896,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1719340612}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25bbc20e3346f45478df8d8a61d80286, type: 3}
   m_Name: 
@@ -904,7 +904,7 @@ MonoBehaviour:
   onStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 656939150}
         m_MethodName: Select
         m_Mode: 1
         m_Arguments:
