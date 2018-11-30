@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fungus;
 
 public class MomTalk : MonoBehaviour {
     private bool isclickZ=false;
@@ -13,6 +14,8 @@ public class MomTalk : MonoBehaviour {
     private Vector3 vr0;
     [SerializeField]
     private Vector3 vr1;
+    [SerializeField]
+    private Flowchart flowchart;
     // Use this for initialization
     void Start () {
         vr0 = talkimage.transform.position;
@@ -26,7 +29,12 @@ public class MomTalk : MonoBehaviour {
         {
             isclickZ = true;
         }
-	}
+        if (flowchart.GetBooleanVariable("isend") == true)
+        {
+            isclickZ = false;
+            isfungus = false;
+        }
+    }
     void OnTriggerStay2D(Collider2D collision)
     {
         if (isclickZ==false&&isfungus == false)

@@ -419,9 +419,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 102825776}
+  - {fileID: 102825767}
   selectedCommands:
-  - {fileID: 102825779}
+  - {fileID: 102825770}
   variables:
   - {fileID: 102825778}
   description: 
@@ -520,11 +520,11 @@ MonoBehaviour:
   hideIfVisited: 0
   interactable:
     booleanRef: {fileID: 0}
-    booleanVal: 0
+    booleanVal: 1
   setMenuDialog: {fileID: 2036473340}
   hideThisOption:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
 --- !u!114 &102825773
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -626,7 +626,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &102825778
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 102825765}
@@ -640,7 +640,7 @@ MonoBehaviour:
   value: 0
 --- !u!114 &102825779
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 102825765}
@@ -1244,7 +1244,6 @@ GameObject:
   - component: {fileID: 757138788}
   - component: {fileID: 757138787}
   - component: {fileID: 757138786}
-  - component: {fileID: 757138785}
   m_Layer: 5
   m_Name: OptionButton0
   m_TagString: Untagged
@@ -1272,26 +1271,6 @@ RectTransform:
   m_AnchoredPosition: {x: 760, y: -350.00006}
   m_SizeDelta: {x: 269, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &757138785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 11472142, guid: 9bb64c8df70904eecac3f71f81bf339b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 757138783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 1
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: 100
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!114 &757138786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1305,7 +1284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 1
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -1416,7 +1395,7 @@ Prefab:
     - target: {fileID: 224248174117100254, guid: 349e9328cd98db74a95b6f0584514025,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224248174117100254, guid: 349e9328cd98db74a95b6f0584514025,
         type: 2}
@@ -1546,6 +1525,23 @@ Prefab:
       propertyPath: m_FontData.m_MinSize
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1953472882660056, guid: 349e9328cd98db74a95b6f0584514025, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1535121085298018, guid: 349e9328cd98db74a95b6f0584514025, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1530422042168446, guid: 349e9328cd98db74a95b6f0584514025, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114974368392717166, guid: 349e9328cd98db74a95b6f0584514025,
+        type: 2}
+      propertyPath: m_IgnoreLayout
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 349e9328cd98db74a95b6f0584514025, type: 2}
   m_IsPrefabAsset: 0
@@ -1591,7 +1587,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4343117466802344, guid: 5d77f0918a8fe0d4bb0d649e3dbb3795, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 223871204297503276, guid: 5d77f0918a8fe0d4bb0d649e3dbb3795,
         type: 2}
@@ -1717,7 +1713,7 @@ RectTransform:
   - {fileID: 2036473339}
   - {fileID: 101409344}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2004,7 +2000,6 @@ GameObject:
   - component: {fileID: 1433400933}
   - component: {fileID: 1433400932}
   - component: {fileID: 1433400931}
-  - component: {fileID: 1433400930}
   m_Layer: 5
   m_Name: OptionButton1
   m_TagString: Untagged
@@ -2032,26 +2027,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1158, y: -350}
   m_SizeDelta: {x: 269, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1433400930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 11472136, guid: 9bb64c8df70904eecac3f71f81bf339b,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1433400928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 1
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: 100
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!114 &1433400931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2376,7 +2351,7 @@ Transform:
   - {fileID: 1777292803}
   - {fileID: 1847993087}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1731200498
 GameObject:
@@ -2549,6 +2524,7 @@ MonoBehaviour:
   fhidespeed: 300
   vr0: {x: 0, y: 0, z: 0}
   vr1: {x: 0, y: 0, z: 0}
+  flowchart: {fileID: 102825768}
 --- !u!61 &1777292805
 BoxCollider2D:
   m_ObjectHideFlags: 0
