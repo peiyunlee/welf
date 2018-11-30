@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MomTalk : MonoBehaviour {
     private bool isclickZ=false;
+    private bool isfungus= false;
     [SerializeField]
     private GameObject talkimage;
     [SerializeField]
@@ -28,7 +29,7 @@ public class MomTalk : MonoBehaviour {
 	}
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (isclickZ == false)
+        if (isclickZ==false&&isfungus == false)
         {
             talkimage.transform.position = vr0; //顯示talkimage
         }
@@ -36,6 +37,8 @@ public class MomTalk : MonoBehaviour {
         {
             talkimage.transform.position = vr1; //隱藏talkimage
             Fungus.Flowchart.BroadcastFungusMessage("MOMTALK");
+            isfungus = true;
+            //主角不行動
         }
     }
 }
