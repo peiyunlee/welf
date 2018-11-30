@@ -8,6 +8,9 @@ TagManager:
   - Floor
   - Tender
   - main
+  - border
+  - borderleft
+  - enemylongborder
   layers:
   - Default
   - TransparentFX

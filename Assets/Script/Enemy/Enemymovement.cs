@@ -11,43 +11,48 @@ using UnityEngine;
     public Transform trackCharacterDistance;
     private CharacterController con;//怪物的角色控制器
     bool border_right_tag=false;
+    bool enemy_long_tag = false;
+    bool border_left_tag = false;
 
-    public float followDis = 100f;//达到这个距离开始跟随
-    /*public float attackDis = 2f;//达到这个距离开始攻击
-
-    public float thinkTime = 3f;//思考的时间
-    public float currentThinkTime = 0f;//记录思考的时间
-
-    public float walkTime = 5f;//走的时间
-    public float currentWalkTime = 0;//记录走的时间
-
-    private bool isAttact = false;//是否攻击
-    */
-    private float speed = 0.1f;
+    public float followDis = 100f;//达到这个距离开始跟随
+    public float speed = 0.5f;
     private float enemyposition;
     public int enemyinitiallocat;
-    void OnTriggerEnter2D(Collider2D borderright)
+    void OnTriggerEnter2D(Collider2D border)
     {
         Debug.Log("sdfsdf");
-        if (borderright.gameObject.CompareTag("border"))
+        if (border.gameObject.CompareTag("border"))
         {
             border_right_tag = true;
 
 
         }
+        if (border.gameObject.CompareTag("enemylongborder"))
+        {
+            enemy_long_tag = true;
 
+
+        }
+        if (border.gameObject.CompareTag("borderleft"))
+        {
+            border_left_tag = true;
+
+
+        }
 
     }
-    void follow() {
+    
+    void follow()
+    {
 
-       /* playerRigidbody.velocity= new Vector2(3, 0);*/
+        /* playerRigidbody.velocity= new Vector2(3, 0);*/
 
-        if (Vector2.Distance(transform.position, main.position) <= followDis&&(main.position.x-transform.position.x>0))//跟随距离
+        if (Vector2.Distance(transform.position, main.position) <= followDis && (main.position.x - transform.position.x > 0))//跟随距离
         {
-           
+
             Vector2 transformValue = new Vector2(10, 0);
-            
-            
+
+
             playerRigidbody.velocity = transformValue;
 
         }
@@ -58,12 +63,25 @@ using UnityEngine;
         {
 
             Vector2 transformValue = new Vector2(-10, 0);
-           
+
             playerRigidbody.velocity = transformValue;
 
         }
-    }
+        if (enemy_long_tag == true)
+        {
+            Debug.Log("20");
+            while (border_left_tag!=true)
+            {
+                Vector2 transformValue = new Vector2(-10, 0);
 
+            }
+            enemy_long_tag = false;
+            border_left_tag = false;
+
+
+        }
+
+    }
 
     void Awake()
     {
@@ -81,7 +99,7 @@ using UnityEngine;
         this.gameObject.transform.position += new Vector3(speed, 0f, 0f);
         if (border_right_tag==true)
         {
-            Debug.Log("1");
+            /*Debug.Log("1");*/
             speed = speed * -1;
 
             border_right_tag = false;
@@ -91,24 +109,35 @@ using UnityEngine;
         
         
     }
+   /* void reset()
+    {
 
+
+
+
+    }*/
     void Update()
     {
         /*Debug.Log(speed);
         Debug.Log(enemyposition);*/
 
-        enemyposition = this.gameObject.transform.position.x; 
-        
-        /*if ((Vector2.Distance(transform.position, main.position) <= followDis && (main.position.x - transform.position.x > 0)))
+        enemyposition = this.gameObject.transform.position.x;
+        /*if (enemy_long_tag == true)
+        {
+            reset();
+        }*/
+
+        if ((Vector2.Distance(transform.position, main.position) <= followDis && (main.position.x - transform.position.x > 0))&&(enemyposition<8))
         {
             follow();
-        }*/
-        /*else
-        {*/
+           
+        }
+        else
+        {
             move();
 
 
-       /* }*/
+        }
        
     }
    
