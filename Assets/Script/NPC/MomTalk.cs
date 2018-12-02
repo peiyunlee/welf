@@ -33,6 +33,7 @@ public class MomTalk : MonoBehaviour {
         {
             isclickZ = false;
             isfungus = false;
+            Debug.Log("AA");
         }
     }
     void OnTriggerStay2D(Collider2D collision)
@@ -40,6 +41,7 @@ public class MomTalk : MonoBehaviour {
         if (isclickZ==false&&isfungus == false)
         {
             talkimage.transform.position = vr0; //顯示talkimage
+            Debug.Log("cc");
         }
         else
         {
@@ -48,5 +50,12 @@ public class MomTalk : MonoBehaviour {
             isfungus = true;
             //主角不行動
         }
+    }
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        isfungus = false;
+        isclickZ = false;
+        talkimage.transform.position = vr1; //隱藏talkimage
+        
     }
 }
