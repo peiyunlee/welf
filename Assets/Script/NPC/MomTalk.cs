@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class MomTalk : MonoBehaviour {
-    private bool isclickZ=false;
-    private bool isfungus= false;
+public class MomTalk : MonoBehaviour
+{
+    private bool isclickZ;
+    private bool isfungus;
     [SerializeField]
     private GameObject talkimage;
     [SerializeField]
@@ -25,10 +26,7 @@ public class MomTalk : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown("z"))
-        {
-            isclickZ = true;
-        }
+        
         if (flowchart.GetBooleanVariable("isend") == true)
         {
             isclickZ = false;
@@ -38,6 +36,11 @@ public class MomTalk : MonoBehaviour {
     }
     void OnTriggerStay2D(Collider2D collision)
     {
+        if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)
+        {
+            isclickZ = true;
+            Debug.Log("GetKeyDown z");
+        }
         if (isclickZ==false&&isfungus == false)
         {
             talkimage.transform.position = vr0; //顯示talkimage
@@ -46,7 +49,8 @@ public class MomTalk : MonoBehaviour {
         else
         {
             talkimage.transform.position = vr1; //隱藏talkimage
-            Fungus.Flowchart.BroadcastFungusMessage("MOMTALK");
+            if(isfungus==false)
+                Fungus.Flowchart.BroadcastFungusMessage("MOMTALK");
             isfungus = true;
             //主角不行動
         }
