@@ -9,7 +9,7 @@ using UnityEngine;
 
 
     bool border_tag=false;//是否碰到限制範圍
-    public float followDis = 100f;//達到此距離開始攻擊
+    public float followDis = 100f;//達到此距離開始跟隨
     public float idle_speed = 10f;//移動速度
     public float follow_speed = 15f;//跟隨速度
     private EnemyHealth enemyHealth;
@@ -72,6 +72,13 @@ using UnityEngine;
 
     }
 
+    void Attack()
+    {
+
+
+
+
+    }
 
     void Awake()
     {
