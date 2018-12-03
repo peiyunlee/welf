@@ -24,13 +24,14 @@ public class PlayerMovement : MonoBehaviour {
     private float keyVertical;
     private float keyHorizontal;
     private bool keyJump;
-    public bool keyMenu;
 
     //條件判斷
     private bool isWalking = false;
     private bool isGround = true;
     private bool canJumping = true;
+    public bool isMenu = false;
 
+    PlayerAttack playerAttack;
     Rigidbody2D playerRigidbody;
     Animator playerAnim;
 
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
         state = State.playerRight;
 
+        playerAttack = GetComponent<PlayerAttack>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
     }
@@ -47,16 +49,17 @@ public class PlayerMovement : MonoBehaviour {
     {
         GetKey();
 
-        //ToJump();
-
         Animating();
 	}
 
     void FixedUpdate()
     {
-        Move();
+        //if (!isMenu)
+        //{
+            Move();
 
-        Jump();
+            Jump();
+        //}      
     }
 
     //讀取按鍵
@@ -91,16 +94,6 @@ public class PlayerMovement : MonoBehaviour {
 
         playerRigidbody.velocity = transformValue;
     }
-
-    //判斷二段跳條件
-    //void ToJump()
-    //{
-    //    if (jumpCount <= jumpNum)
-    //    {
-    //        canJumping = true;
-    //    }
-    //    //Debug.Log("canjump");
-    //}
 
     //跳躍
     void Jump()
