@@ -12,8 +12,6 @@ TagManager:
   - borderleft
   - enemylongborder
   - bullet
-  - playerAttack
-  - Enemy
   layers:
   - Default
   - TransparentFX
