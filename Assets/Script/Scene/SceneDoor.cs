@@ -15,8 +15,9 @@ public class SceneDoor : MonoBehaviour {
     {
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTrigger2D(Collision2D collision)
     {
+        Debug.Log("3");
         if (this.name == "NextSceneDoor")
         {
             AllSceneController.tonextscene = true;
@@ -25,8 +26,8 @@ public class SceneDoor : MonoBehaviour {
         else if (this.name == "PreSceneDoor")
         {
             AllSceneController.toprescene = true;
-            Debug.Log(AllSceneController.tonextscene);
+            Debug.Log(AllSceneController.toprescene);
         }
-        Debug.Log("3");
+        
     }
 }
