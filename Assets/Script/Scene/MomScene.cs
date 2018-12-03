@@ -5,11 +5,16 @@ using UnityEngine;
 public class MomScene : MonoBehaviour {
     [SerializeField]
     private Fungus.Flowchart flowchart;
+    [SerializeField]
+    private GameObject target;
+    [SerializeField]
+    private bool bistrigger;
     void Update()
     {
         if (flowchart.GetBooleanVariable("isstoryCGend") == true)
         {
-            AllSceneController.tonextscene = true;
+            target.GetComponent<BoxCollider2D>().isTrigger = true;
+            Debug.Log("Trigger");
         }
     }
 }
