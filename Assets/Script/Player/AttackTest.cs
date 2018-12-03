@@ -7,13 +7,13 @@ public class AttackTest : MonoBehaviour {
     public int attackDamage = 1;
 
     GameObject player;
-    PlayerHealth playerHealth;
+    HealthTest healthTest;
     bool playerInRange;
     float timer;
 	// Use this for initialization
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = player.GetComponent<PlayerHealth>();
+        player = GameObject.FindGameObjectWithTag("Enemy");
+        healthTest = player.GetComponent<HealthTest>();
 	}
 	
 	// Update is called once per frame
@@ -47,9 +47,9 @@ public class AttackTest : MonoBehaviour {
     {
         timer = 0;
 
-        if (playerHealth.currentHealth > 0)
+        if (healthTest.currentHealth > 0)
         {
-            playerHealth.TakeDamage(attackDamage);
+            healthTest.TakeDamage(attackDamage);
             //Debug.Log("attack.attack");
         }
     }
