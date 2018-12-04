@@ -1,41 +1,71 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
-    public GameObject player;       //Public variable to store a reference to the player game object
-    private Vector3 offset;         //Private variable to store the offset distance between the player and camera
-    [SerializeField]
-    private Vector3 addvector;
-    [SerializeField]
-    private Vector3 maxvector;
-    [SerializeField]
-    private Vector3 minvector;
-    // Use this for initialization
-    void Start()
-    {
-        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-        offset = transform.position - player.transform.position+ addvector;
-    }
 
-    // LateUpdate is called after Update each frame
-    void Update()
-    {
-        transform.position = player.transform.position + offset;
-        if (transform.position.x >= maxvector.x)
+    // 這個程式會附加到撥放器main Camera內，這裡死區deadZone設置為0，可以在unity內調到想要的效果
+    [SerializeField]
+    private GameObject target;
+
+    [SerializeField]
+    private float deadZone = 0;
+    [SerializeField]
+    private bool followVertical = true;
+    [SerializeField]
+    private bool followHorizontal = true;
+    [SerializeField]
+    private float addy;
+    [SerializeField]
+    private float miny;
+    [SerializeField]
+    private float maxvector;
+    [SerializeField]
+    private float minvector;
+    void Start () {
+    }
+	
+	void Update () {
+
+
+        if (target.transform.position.x < minvector)
         {
-            maxvector.y = player.transform.position.y + 1.5f * addvector.y;
-            transform.position = maxvector;
+            if (target.transform.position.y < 0.164999f)
+            {
+                transform.position = new Vector3(minvector, miny, transform.position.z);
+                Debug.Log("a");
+            }
+            else
+            {
+                transform.position = new Vector3(minvector, target.transform.position.y, transform.position.z);
+                Debug.Log("b");
+            }
         }
-        else if (transform.position.x <= minvector.x)
+        else if (target.transform.position.x > maxvector)
         {
-            minvector.y = player.transform.position.y + 1.5f * addvector.y;
-            transform.position = minvector;
-        }
+            if (target.transform.position.y < 0.164999f)
+            {
+                transform.position = new Vector3(maxvector, miny, transform.position.z);
+                Debug.Log("c");
+            }
+            else
+            {
+                transform.position = new Vector3(maxvector, transform.position.y, transform.position.z);
+                Debug.Log("d");
+            }
+        
+    }
         else
         {
-            transform.position = player.transform.position + offset;
+            if (target.transform.position.y < 0.164999f)
+            {
+                transform.position = new Vector3(target.transform.position.x, miny, transform.position.z);
+                Debug.Log("e");
+            }
+            else
+            { 
+                transform.position = new Vector3(target.transform.position.x, target.transform.position.y + addy, transform.position.z);
+                Debug.Log("f");
+            }
         }
-        //Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-    }
+	}
 }
