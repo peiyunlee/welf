@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool isWalking = false;
     private bool isGround = true;
     private bool canJumping = true;
-    public bool isMenu = false;
+    public static bool isMenu = false;
 
     PlayerAttack playerAttack;
     Rigidbody2D playerRigidbody;

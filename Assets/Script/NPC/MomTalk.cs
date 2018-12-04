@@ -52,7 +52,7 @@ public class MomTalk : MonoBehaviour
             if(isfungus==false)
                 Fungus.Flowchart.BroadcastFungusMessage("MOMTALK");
             isfungus = true;
-            //主角不行動
+            PlayerMovement.isMenu = true;//主角不行動
         }
     }
     void OnTriggerExit2D(Collider2D collision)

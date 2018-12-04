@@ -7,7 +7,7 @@ public class StoryMenuController : MonoBehaviour
     public GameObject StoryMenu;
     public GameObject StoryMenuBtn;
     [SerializeField]
-    private Vector3 vr0;
+    public Vector3 vr0;
     [SerializeField]
     private Vector3 vr1;
     public float fhidespeed = 300f;
@@ -53,6 +53,7 @@ public class StoryMenuController : MonoBehaviour
     }
     public void OnStoryMenuBtnClick()
     {
+        Debug.Log("3");
         isstorymenu = !isstorymenu;
         if (isstorymenu)
         {

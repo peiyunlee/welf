@@ -19,12 +19,14 @@ public class SetmenuController : MonoBehaviour {
     private bool isclick = false;   //暫時判斷確認退出的判斷按鈕按下
     [SerializeField]
     private float fhidespeed=500f;
-    private float fz = 10f;
-
+    [SerializeField]
+    public Vector3 v0,v1;
     private void Start()
     {
-        Setmenu.transform.position += new Vector3(-fhidespeed, 0f, 0f); //隱藏Setmenu
-        Exitagreemenu.transform.position += new Vector3(-fhidespeed, 0f, 0f); //隱藏Exitagree
+        v0= Setmenu.transform.position; //顯示Setmenu
+        v1 = v0+ new Vector3(fhidespeed, 0f, 0f);//隱藏Setmenu
+        Setmenu.transform.position = v1;//隱藏Setmenu
+        Exitagreemenu.transform.position = v1; //隱藏Exitagree
     }
     void Update()
     {
@@ -46,19 +48,20 @@ public class SetmenuController : MonoBehaviour {
     {
         if (issetmenu)
         {
-            Setmenu.transform.position = new Vector3(0.0f, 0.0f, fz); //顯示Setmenu
+            Setmenu.transform.position = v0; //顯示Setmenu
+            Exitagreemenu.transform.position = v1;
         }
         else
         {
-            Setmenu.transform.position = new Vector3(-fhidespeed, 0f, fz); //隱藏Setmenu
-            Exitagreemenu.transform.position = new Vector3(-fhidespeed, 0f, fz); //隱藏Exitagree
+            Setmenu.transform.position = v1; //隱藏Setmenu
+            Exitagreemenu.transform.position = v1; //隱藏Exitagree
             isexitagreemenu = false;
             isbeingshowagreemenu = false;
         }
     }
     private void LoadExitagreeCanvas()  //出現是否退出的介面
     {
-        Exitagreemenu.transform.position = new Vector3(0.0f, 0.0f, fz); //顯示Exitagree
+        Exitagreemenu.transform.position = v0; //顯示Exitagree
         isbeingshowagreemenu = true;    //已經顯示Exitagree
     }
     private void Exitagree()  //確認退出的判斷
@@ -69,7 +72,7 @@ public class SetmenuController : MonoBehaviour {
         }
         else if ((!isgameexit) && isclick)   //choose 取消退出 become false 回到選單
         {
-            Exitagreemenu.transform.position += new Vector3(-fhidespeed, 0f, fz); //隱藏Exitagree
+            Exitagreemenu.transform.position = v1; //隱藏Exitagree
             isexitagreemenu = false;
             isbeingshowagreemenu = false;
             isclick = false;
