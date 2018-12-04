@@ -20,15 +20,13 @@ public class SceneDoor : MonoBehaviour {
         if (this.name == "NextSceneDoor")
         {
             AllSceneController.tonextscene = true;
-            Debug.Log("a");
             Debug.Log(AllSceneController.tonextscene);
         }
         else if (this.name == "PreSceneDoor")
         {
             AllSceneController.toprescene = true;
-            Debug.Log("b");
             Debug.Log(AllSceneController.tonextscene);
         }
-        
+        Debug.Log("3");
     }
 }
