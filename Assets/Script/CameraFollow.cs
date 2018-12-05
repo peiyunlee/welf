@@ -27,12 +27,10 @@ public class CameraFollow : MonoBehaviour {
             if (target.transform.position.y < jumphigh)
             {
                 transform.position = new Vector3(minvector, miny, transform.position.z);
-                Debug.Log("a");
             }
             else
             {
                 transform.position = new Vector3(minvector, target.transform.position.y + addy, transform.position.z);
-                Debug.Log("b");
             }
         }
         else if (target.transform.position.x > maxvector)
@@ -40,12 +38,10 @@ public class CameraFollow : MonoBehaviour {
             if (target.transform.position.y < jumphigh)
             {
                 transform.position = new Vector3(maxvector, miny, transform.position.z);
-                Debug.Log("c");
             }
             else
             {
                 transform.position = new Vector3(maxvector, target.transform.position.y + addy, transform.position.z);
-                Debug.Log("d");
             }
         
     }
@@ -54,12 +50,10 @@ public class CameraFollow : MonoBehaviour {
             if (target.transform.position.y < jumphigh)
             {
                 transform.position = new Vector3(target.transform.position.x, miny, transform.position.z);
-                Debug.Log("e");
             }
             else
             { 
                 transform.position = new Vector3(target.transform.position.x, target.transform.position.y+addy, transform.position.z);
-                Debug.Log("f");
             }
         }
 	}
