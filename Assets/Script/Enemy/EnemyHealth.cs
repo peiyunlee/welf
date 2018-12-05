@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
     //遊戲開始時小怪的初始血量
-    public int startingHealth = 10;
+    public int startingHealth = 100;
     //遊戲過程中記錄小怪血量
     public int currentHealth;
     //怪物死亡數目
@@ -40,7 +40,6 @@ public class EnemyHealth : MonoBehaviour {
     {
         Debug.Log("Dead");
         isDead = true;
-        capsuleCollider.isTrigger = true;
         anim.SetTrigger("Dead");
         enemy_dead++;
         
