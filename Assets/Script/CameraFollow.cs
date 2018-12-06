@@ -17,11 +17,16 @@ public class CameraFollow : MonoBehaviour {
     [SerializeField]
     private float minvector;
     void Start () {
+
     }
 	
 	void Update () {
 
-
+        if (GameManager.DestroyGameManager == true)
+        {
+            target = GameObject.FindWithTag("Player");
+            GameManager.DestroyGameManager = false;
+        }
         if (target.transform.position.x < minvector)
         {
             if (target.transform.position.y < jumphigh)

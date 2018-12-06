@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
     static GameManager instance;
     [SerializeField]
     public static int[] chooseelf = new int[2];
+    [SerializeField]
+    public static bool DestroyGameManager;
     void Awake()
     {
         if (instance == null)   //當第一個GameManager出現不要destroy
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour {
         }
         else if (this != instance)  //當第二個GameManager出現刪除
         {
+            DestroyGameManager = true;
             Destroy(gameObject);
         }
     }

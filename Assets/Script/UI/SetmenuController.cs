@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SetmenuController : MonoBehaviour {
     //設定介面未做
-    public GameObject Setmenu;
-    public GameObject Exitagreemenu;
-
+    [SerializeField]
+    private GameObject Setmenu;
+    [SerializeField]
+    private GameObject Exitagreemenu;
     [SerializeField]
     private bool issetmenu = false;
     [SerializeField]
@@ -14,19 +15,13 @@ public class SetmenuController : MonoBehaviour {
     [SerializeField]
     private bool isbeingshowagreemenu = false;
     [SerializeField]
-    private bool isexitagreemenu = false;   //exitagreemenu出現
+    private static bool isexitagreemenu = false;   //exitagreemenu出現
     [SerializeField]
     private bool isclick = false;   //暫時判斷確認退出的判斷按鈕按下
-    [SerializeField]
-    private float fhidespeed=500f;
-    [SerializeField]
-    public Vector3 v0,v1;
     private void Start()
     {
-        v0= Setmenu.transform.position; //顯示Setmenu
-        v1 = v0+ new Vector3(fhidespeed, 0f, 0f);//隱藏Setmenu
-        Setmenu.transform.position = v1;//隱藏Setmenu
-        Exitagreemenu.transform.position = v1; //隱藏Exitagree
+        Setmenu.SetActive(false);
+        Exitagreemenu.SetActive(false);
     }
     void Update()
     {
@@ -48,20 +43,20 @@ public class SetmenuController : MonoBehaviour {
     {
         if (issetmenu)
         {
-            Setmenu.transform.position = v0; //顯示Setmenu
-            Exitagreemenu.transform.position = v1;
+            Setmenu.SetActive(true);
+            Exitagreemenu.SetActive(false);
         }
         else
         {
-            Setmenu.transform.position = v1; //隱藏Setmenu
-            Exitagreemenu.transform.position = v1; //隱藏Exitagree
+            Setmenu.SetActive(false); //隱藏Setmenu
+            Exitagreemenu.SetActive(false); //隱藏Exitagree
             isexitagreemenu = false;
             isbeingshowagreemenu = false;
         }
     }
     private void LoadExitagreeCanvas()  //出現是否退出的介面
     {
-        Exitagreemenu.transform.position = v0; //顯示Exitagree
+        Exitagreemenu.SetActive(true); //顯示Exitagree
         isbeingshowagreemenu = true;    //已經顯示Exitagree
     }
     private void Exitagree()  //確認退出的判斷
@@ -72,7 +67,7 @@ public class SetmenuController : MonoBehaviour {
         }
         else if ((!isgameexit) && isclick)   //choose 取消退出 become false 回到選單
         {
-            Exitagreemenu.transform.position = v1; //隱藏Exitagree
+            Exitagreemenu.SetActive(false); //隱藏Exitagree
             isexitagreemenu = false;
             isbeingshowagreemenu = false;
             isclick = false;
