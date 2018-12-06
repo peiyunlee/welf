@@ -4,28 +4,37 @@ using UnityEngine;
 
 public class UIHeart: MonoBehaviour {
     public GameObject[] lifelove;
-    public int testcurrentHealth = 12;     //test
+    public GameObject[] lifeloveout;
+    public int testcurrentHealth = 20;     //test
     [SerializeField]
-    private int lasttimehealth=12;
-
+    public bool testishurt = false;
+    [SerializeField]
+    public bool testisbox = false;
     Animator anim;
-
-    void Update()           //test
+    void Update()
     {
-        if (testcurrentHealth != 12)
+        if (testishurt)  //test  生命上限
         {
+            testcurrentHealth--;
             DecreaseLife(testcurrentHealth);
+            testishurt = false;
         }
-    
+        if (testisbox)  //test
+        {
+            testcurrentHealth++;
+            AddLife(testcurrentHealth);
+            testisbox = false;
+        }
     }
     public void DecreaseLife(int playercurrentHealth)
     {
-        for (int i = lasttimehealth; i > playercurrentHealth; i--)
-        {
-            anim = lifelove[i - 1].GetComponent<Animator>();
-            anim.SetTrigger("Disappear");
-        }
-        lasttimehealth = playercurrentHealth;
+        anim = lifelove[playercurrentHealth].GetComponent<Animator>();
+        anim.SetTrigger("Disappear");
+    }
+    public void AddLife(int playercurrentHealth)
+    {
+        anim = lifelove[playercurrentHealth-1].GetComponent<Animator>();
+        anim.SetTrigger("Add");
     }
 
 }
