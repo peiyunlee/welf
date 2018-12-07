@@ -33,8 +33,10 @@ public class UIHeart: MonoBehaviour {
     }
     public void AddLife(int playercurrentHealth)
     {
-        anim = lifelove[playercurrentHealth-1].GetComponent<Animator>();
+        testcurrentHealth++;  //test
+        anim = lifelove[playercurrentHealth].GetComponent<Animator>();
         anim.SetTrigger("Add");
+        Debug.Log("AddLife");
     }
 
 }
