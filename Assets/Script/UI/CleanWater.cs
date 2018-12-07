@@ -14,10 +14,8 @@ public class CleanWater : MonoBehaviour {
     private bool istrigger;   //test
     [SerializeField]
     private bool isuse;   //test
-
     void Start () {
         cleanwatercount = 0;
-        
     }
 
     private void Update()   //test
