@@ -9,6 +9,8 @@ public class CleanWater : MonoBehaviour {
     [SerializeField]
     private int usecleanwater;
     [SerializeField]
+    private GameObject textgameobject;
+    [SerializeField]
     private Text cleanwatercounttext;
     [SerializeField]
     private bool istrigger;   //test
@@ -16,6 +18,8 @@ public class CleanWater : MonoBehaviour {
     private bool isuse;   //test
     void Start () {
         cleanwatercount = 0;
+        textgameobject = GameObject.Find("CleanWatertext");
+        cleanwatercounttext = textgameobject.GetComponent<Text>();
     }
 
     private void Update()   //test

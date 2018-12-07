@@ -5,8 +5,15 @@ using UnityEngine.UI;
 
 public class CleanWaterThing : MonoBehaviour
 {
+    public GameObject gameobject;
+    public CleanWater cleanwater;
+    private void Start()
+    {
+        gameobject = GameObject.Find("CleanWaterThing");
+        cleanwater = gameobject.GetComponent<CleanWater>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       //AddCleanWater();
+        cleanwater.AddCleanWater();
     }
 }
