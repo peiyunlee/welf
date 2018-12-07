@@ -531,6 +531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cleanwatercount: 0
   usecleanwater: 5
+  textgameobject: {fileID: 0}
   cleanwatercounttext: {fileID: 830525610}
   istrigger: 0
   isuse: 0
@@ -800,6 +801,10 @@ Prefab:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4195300704304972, guid: f2c5354ba46c5d24b93deb70e91d3b74, type: 2}
+      propertyPath: m_LocalScale.x
+      value: -0.615
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c5354ba46c5d24b93deb70e91d3b74, type: 2}
   m_IsPrefabAsset: 0
@@ -879,6 +884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cleanwatercount: 0
   usecleanwater: 0
+  textgameobject: {fileID: 0}
   cleanwatercounttext: {fileID: 0}
   istrigger: 0
   isuse: 0

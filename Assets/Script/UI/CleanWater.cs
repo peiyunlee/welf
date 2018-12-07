@@ -20,11 +20,11 @@ public class CleanWater : MonoBehaviour {
         cleanwatercount = 0;
         textgameobject = GameObject.Find("CleanWatertext");
         cleanwatercounttext = textgameobject.GetComponent<Text>();
+        Render();
     }
 
     private void Update()   //test
     {
-        cleanwatercounttext.text = "" + cleanwatercount;
         if (istrigger)
         {
             AddCleanWater();
@@ -40,10 +40,17 @@ public class CleanWater : MonoBehaviour {
     public void AddCleanWater ()
     {
         cleanwatercount++;
+        Render();
+        Debug.Log("bb");
     }
 
     public void DecreaseCleanWater()
     {
         cleanwatercount-= usecleanwater;
+        Render();
+    }
+    private void Render()
+    {
+        cleanwatercounttext.text = "" + cleanwatercount;
     }
 }

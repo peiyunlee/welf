@@ -9,11 +9,12 @@ public class CleanWaterThing : MonoBehaviour
     public CleanWater cleanwater;
     private void Start()
     {
-        gameobject = GameObject.Find("CleanWaterThing");
+        gameobject = GameObject.Find("CleanWater");
         cleanwater = gameobject.GetComponent<CleanWater>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         cleanwater.AddCleanWater();
+        Debug.Log("aa");
     }
 }
