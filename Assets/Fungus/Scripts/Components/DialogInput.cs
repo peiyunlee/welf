@@ -18,9 +18,7 @@ namespace Fungus
         /// <summary> Click anywhere on Say Dialog to advance. </summary>
         ClickOnDialog,
         /// <summary> Click on continue button to advance. </summary>
-        ClickOnButton,
-        //ClickOnZ,
-        ClickOnZ,
+        ClickOnButton
     }
 
     /// <summary>
@@ -30,6 +28,7 @@ namespace Fungus
     {
         [Tooltip("Click to advance story")]
         [SerializeField] protected ClickMode clickMode;
+
         [Tooltip("Delay between consecutive clicks. Useful to prevent accidentally clicking through story.")]
         [SerializeField] protected float nextClickDelay = 0f;
 
@@ -54,7 +53,6 @@ namespace Fungus
             writer = GetComponent<Writer>();
 
             CheckEventSystem();
-            
         }
 
         // There must be an Event System in the scene for Say and Menu input to work.
@@ -110,12 +108,6 @@ namespace Fungus
                 {
                     SetNextLineFlag();
                     dialogClickedFlag = false;
-                }
-                break;
-            case ClickMode.ClickOnZ:
-                if (Input.GetKeyDown("z"))
-                {
-                    SetNextLineFlag();
                 }
                 break;
             }

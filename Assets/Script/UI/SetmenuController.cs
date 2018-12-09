@@ -27,6 +27,7 @@ public class SetmenuController : MonoBehaviour {
     {
         if (Input.GetKeyDown("escape"))   //當按下esc要出現設定介面canvas
         {
+            Time.timeScale = 0f;
             issetmenu = !issetmenu;
             LoadSetCanvas();
         }
@@ -48,6 +49,7 @@ public class SetmenuController : MonoBehaviour {
         }
         else
         {
+            Time.timeScale = 1f;
             Setmenu.SetActive(false); //隱藏Setmenu
             Exitagreemenu.SetActive(false); //隱藏Exitagree
             isexitagreemenu = false;
