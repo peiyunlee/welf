@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4018218713875580}
   - component: {fileID: 114431509731110178}
   m_Layer: 0
-  m_Name: 'leftBullet '
+  m_Name: leftBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
