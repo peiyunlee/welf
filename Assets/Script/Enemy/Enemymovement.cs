@@ -75,7 +75,7 @@ using UnityEngine;
     void Attack()
     {
 
-
+    
 
 
     }
@@ -85,6 +85,7 @@ using UnityEngine;
         playerRigidbody = GetComponent<Rigidbody2D>();
         Transform target = GameObject.FindGameObjectWithTag("main").transform;
         enemyHealth = GetComponent<EnemyHealth>();
+        
     }
     
    

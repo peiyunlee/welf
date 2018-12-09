@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4.5
-  enemy1: {fileID: 4929976715190440, guid: 0bcacc06fe8e8da43813e3d273d03409, type: 2}
+  enemy1: {fileID: 4016132037276026, guid: 0bcacc06fe8e8da43813e3d273d03409, type: 2}
   attackRange: 20
 --- !u!212 &212051407183396522
 SpriteRenderer:

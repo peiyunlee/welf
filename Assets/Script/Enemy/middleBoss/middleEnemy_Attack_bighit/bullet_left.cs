@@ -5,7 +5,7 @@ using UnityEngine;
 public class bullet_left : MonoBehaviour {
     public float speed;//子彈的速度
     public Transform enemy1;
-    public float attackRange = 20f;
+    float attackRange = 20f;
 
     // Update is called once per frame
     void Update()
