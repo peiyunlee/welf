@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour {
 
     //條件判斷
     private bool isWalking = false;
-    private bool isGround = true;
+    public bool isGround = true;
     private bool canJumping = true;
     public static bool isMenu = false;
 
@@ -121,6 +121,8 @@ public class PlayerMovement : MonoBehaviour {
         if (floor.gameObject.CompareTag("Floor"))
         {
             canJumping=true;
+
+            playerAnim.SetTrigger("WaId");
 
             jumpCount = 0;
         }
