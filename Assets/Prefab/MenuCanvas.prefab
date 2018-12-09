@@ -473,6 +473,8 @@ GameObject:
   - component: {fileID: 223006310810149324}
   - component: {fileID: 114252615491512582}
   - component: {fileID: 114910174391861246}
+  - component: {fileID: 114877761411129094}
+  - component: {fileID: 114444264708645926}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -902,7 +904,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114444264708645926}
         m_MethodName: OnCancelExitBtnClick
         m_Mode: 1
         m_Arguments:
@@ -954,7 +956,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114877761411129094}
         m_MethodName: OnStoryMenuBtnClick
         m_Mode: 1
         m_Arguments:
@@ -967,6 +969,23 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114444264708645926
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847795293344942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5560bf3e32178694bb244626d591b696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Setmenu: {fileID: 1739889768160972}
+  Exitagreemenu: {fileID: 1354701503823768}
+  issetmenu: 0
+  isgameexit: 0
+  isbeingshowagreemenu: 0
+  isclick: 0
 --- !u!114 &114475982627276182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1006,7 +1025,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114877761411129094}
         m_MethodName: OnStoryMenuBtnClick
         m_Mode: 1
         m_Arguments:
@@ -1253,7 +1272,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114444264708645926}
         m_MethodName: OnExitGameBtnClick
         m_Mode: 1
         m_Arguments:
@@ -1331,18 +1350,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114735092462520594}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OnExitGameBtnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114735092462520594
@@ -1439,7 +1447,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114444264708645926}
         m_MethodName: OnYesExitBtnClick
         m_Mode: 1
         m_Arguments:
@@ -1479,6 +1487,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114877761411129094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847795293344942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80743a9bf80bd8f4981e5d8cab7306da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StoryMenu: {fileID: 1668080378817812}
+  StoryMenuBtn: {fileID: 1131006842340922}
+  isstorymenu: 0
+  count: 0
 --- !u!114 &114910174391861246
 MonoBehaviour:
   m_ObjectHideFlags: 1

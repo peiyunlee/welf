@@ -44,6 +44,7 @@ public class StoryMenuController : MonoBehaviour
         else
         {
             StoryMenuBtn.SetActive(true); //顯示StoryMenuBtn
+
         }
     }
     public void OnStoryMenuBtnClick()
@@ -51,10 +52,12 @@ public class StoryMenuController : MonoBehaviour
         isstorymenu = !isstorymenu;
         if (isstorymenu)
         {
+            Time.timeScale = 0f;
             StoryMenu.SetActive(true); //顯示StoryMenu
         }
         else
         {
+            Time.timeScale = 1f;
             StoryMenu.SetActive(false); //隱藏StoryMenu
         }
         

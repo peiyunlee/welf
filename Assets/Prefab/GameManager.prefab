@@ -19,10 +19,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4791813702537010}
-  - component: {fileID: 114730020672693952}
   - component: {fileID: 114441653501225366}
   - component: {fileID: 114229690386782572}
-  - component: {fileID: 114314711428352780}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -54,23 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7984956988a80c04cb84c5077eb8f2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114314711428352780
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1041817656145358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5560bf3e32178694bb244626d591b696, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Setmenu: {fileID: 0}
-  Exitagreemenu: {fileID: 0}
-  issetmenu: 0
-  isgameexit: 0
-  isbeingshowagreemenu: 0
-  isclick: 0
 --- !u!114 &114441653501225366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,18 +63,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2fd8bac8a8cc6d4b95a8dfc9e69faee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114730020672693952
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1041817656145358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80743a9bf80bd8f4981e5d8cab7306da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StoryMenu: {fileID: 0}
-  StoryMenuBtn: {fileID: 0}
-  isstorymenu: 0
-  count: 0

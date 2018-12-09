@@ -12,6 +12,7 @@ TagManager:
   - borderleft
   - enemylongborder
   - bullet
+  - Wall
   layers:
   - Default
   - TransparentFX

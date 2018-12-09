@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour {
     [SerializeField]
     private float minvector;
     void Start () {
-
+        target = GameObject.Find("Player");
     }
 	
 	void Update () {
