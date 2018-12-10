@@ -339,11 +339,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 20880593158205222, guid: e1555c32ce7079644bd0df766352c591,
     type: 2}
   m_PrefabInternal: {fileID: 776290630}
---- !u!1 &795833131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1431006514958546, guid: 5e35b11cee155d540acedce9580e7f20,
-    type: 2}
-  m_PrefabInternal: {fileID: 1772892105}
 --- !u!1 &837265103
 GameObject:
   m_ObjectHideFlags: 1
@@ -705,16 +700,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114906874955651414, guid: f2c5354ba46c5d24b93deb70e91d3b74,
-        type: 2}
-      propertyPath: gameobject
-      value: 
-      objectReference: {fileID: 795833131}
-    - target: {fileID: 212814379516165188, guid: f2c5354ba46c5d24b93deb70e91d3b74,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d3715a72338254745ae7f9b69f7fbdf7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2c5354ba46c5d24b93deb70e91d3b74, type: 2}
   m_IsPrefabAsset: 0
