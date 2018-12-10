@@ -31,6 +31,7 @@ public class MomTalk : MonoBehaviour
         {
             isclickZ = false;
             isfungus = false;
+            PlayerMovement.isMenu = false;   //主角行動
             Debug.Log("AA");
         }
     }
