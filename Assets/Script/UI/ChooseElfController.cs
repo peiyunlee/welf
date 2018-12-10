@@ -54,8 +54,9 @@ public class ChooseElfController : MonoBehaviour
     }
     public void OnYesBtnClick()
     {
-        SceneManager.LoadScene(AllSceneController.iscenenumber);
-        Debug.Log(AllSceneController.iscenenumber);
+        AllSceneController.tonextscene = true;
+        //SceneManager.LoadScene(AllSceneController.iscenenumber++);
+        //Debug.Log(AllSceneController.iscenenumber++);
     }
     public void OnBackBtnClick()
     {

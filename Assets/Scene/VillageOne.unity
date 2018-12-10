@@ -210,6 +210,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 223439652163300872, guid: 7102043f07465504a94da548e9cf9d09,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1546546413}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7102043f07465504a94da548e9cf9d09, type: 2}
   m_IsPrefabAsset: 0
@@ -595,7 +600,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1546546413}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -898,6 +903,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1555c32ce7079644bd0df766352c591, type: 2}
   m_IsPrefabAsset: 0
+--- !u!20 &1546546413 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20880593158205222, guid: e1555c32ce7079644bd0df766352c591,
+    type: 2}
+  m_PrefabInternal: {fileID: 1546546412}
 --- !u!1 &1551782103
 GameObject:
   m_ObjectHideFlags: 0

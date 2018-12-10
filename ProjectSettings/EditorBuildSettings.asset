@@ -24,14 +24,15 @@ EditorBuildSettings:
     path: Assets/Scene/VillageTwo.unity
     guid: 0bec98d946fd1b4469510486f200f2a7
   - enabled: 1
+    path: Assets/Scene/ChooseElfMenu.unity
+    guid: 9c7b1fb1e24f5d543a0e7e49966fa823
+  - enabled: 1
     path: Assets/Scene/LaboratoryOne.unity
     guid: 2ff44466c33727f42a1d4b30bec78fc5
   - enabled: 1
     path: Assets/Scene/LaboratoryTwo.unity
     guid: 5a305a20b09f20d49940bd73d33a41a5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/LaboratoryThree.unity
     guid: d76b3339769665d4da73473494e3bb7e
-  - enabled: 1
-    path: Assets/Scene/ChooseElfMenu.unity
-    guid: 9c7b1fb1e24f5d543a0e7e49966fa823
+  m_configObjects: {}
