@@ -6,6 +6,8 @@ public class SceneDoor : MonoBehaviour {
     [SerializeField]
     private GameObject[] Turn;
     [SerializeField]
+    private GameObject choosecanvas;
+    [SerializeField]
     Animator anim0;
     [SerializeField]
     Animator anim1;
@@ -34,7 +36,7 @@ public class SceneDoor : MonoBehaviour {
 
         anim0.SetTrigger("Isdown");
         anim1.SetTrigger("Isup");
-        if (this.name == "NextSceneDoor")
+        if (this.name == "NextSceneDoor"&& AllSceneController.iscenenumber!=5&& AllSceneController.iscenenumber != 7)
         {
             Invoke("Tonextscene", 1.0f);
             
@@ -42,6 +44,12 @@ public class SceneDoor : MonoBehaviour {
         else if (this.name == "PreSceneDoor")
         {
             Invoke("Toprescene", 1.0f);
+        }
+        else if (this.name == "NextSceneDoor" && (AllSceneController.iscenenumber == 5|| AllSceneController.iscenenumber == 7))
+        {
+            choosecanvas.SetActive(true);
+            Invoke("Tonextscene", 1.0f);
+
         }
     }
     void Tonextscene()

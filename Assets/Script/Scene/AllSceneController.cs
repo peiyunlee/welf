@@ -42,14 +42,7 @@ public class AllSceneController : MonoBehaviour
         else if(tonextscene)    
         {
             iscenenumber += 1;
-            if (iscenenumber==6|| iscenenumber == 8)
-            {
-                SceneManager.LoadScene("ChooseElfMenu");
-            }
-            else
-            {
-                SceneManager.LoadScene(iscenenumber);
-            }
+            SceneManager.LoadScene(iscenenumber);
             tonextscene = !tonextscene;
         }
     }
