@@ -13,7 +13,6 @@ public class MomScene : MonoBehaviour
         if (flowchart.GetBooleanVariable("isstoryCGend") == true)
         {
             target.GetComponent<BoxCollider2D>().isTrigger = true;
-            Debug.Log(target.GetComponent<BoxCollider2D>().isTrigger);
         }
     }
 }
