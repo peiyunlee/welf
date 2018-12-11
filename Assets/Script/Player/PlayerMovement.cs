@@ -54,12 +54,12 @@ public class PlayerMovement : MonoBehaviour {
 
     void FixedUpdate()
     {
-        //if (!isMenu)
-        //{
+        if (!isMenu)
+        {
             Move();
 
             Jump();
-        //}      
+        }
     }
 
     //讀取按鍵
