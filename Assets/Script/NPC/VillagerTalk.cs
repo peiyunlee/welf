@@ -27,7 +27,6 @@ public class VillagerTalk : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(PlayerMovement.isMenu);
         if (flowchart.GetBooleanVariable("isend") == true)
         {
             isclickZ = false;
