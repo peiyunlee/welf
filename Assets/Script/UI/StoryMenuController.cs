@@ -39,7 +39,6 @@ public class StoryMenuController : MonoBehaviour
         if (AllSceneController.iscenenumber < (int)SCENE.LaboratoryOne)
         {
             StoryMenuBtn.SetActive(false); //隱藏StoryMenuBtn
-            Debug.Log(AllSceneController.iscenenumber);
         }
         else
         {

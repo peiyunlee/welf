@@ -15,6 +15,6 @@ public class CleanWaterThing : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         cleanwater.AddCleanWater();
-        Debug.Log("aa");
+        Destroy(this.gameObject);
     }
 }

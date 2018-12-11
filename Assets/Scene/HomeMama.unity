@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 102825798}
   - component: {fileID: 102825800}
   - component: {fileID: 102825801}
+  - component: {fileID: 102825799}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -362,9 +363,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 102825767}
-  selectedCommands:
-  - {fileID: 102825770}
+  - {fileID: 102825775}
+  selectedCommands: []
   variables:
   - {fileID: 102825780}
   - {fileID: 102825781}
@@ -456,6 +456,7 @@ MonoBehaviour:
   - {fileID: 102825791}
   - {fileID: 102825792}
   - {fileID: 102825782}
+  - {fileID: 102825799}
   - {fileID: 102825779}
   - {fileID: 102825798}
   - {fileID: 102825797}
@@ -1103,7 +1104,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 831124555}
   stateName:
     stringRef: {fileID: 0}
     stringVal: runrunrun
@@ -1128,7 +1129,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
+    gameObjectVal: {fileID: 831124554}
   _tweenName:
     stringRef: {fileID: 0}
     stringVal: 
@@ -1190,6 +1191,31 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 2
   durationOLD: 0
+--- !u!114 &102825799
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 102825765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5316d953c7abe498799575550c973535, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 48
+  indentLevel: 0
+  animator:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 831124555}
+  stateName:
+    stringRef: {fileID: 0}
+    stringVal: Idle
+  layer:
+    integerRef: {fileID: 0}
+    integerVal: -1
+  time:
+    floatRef: {fileID: 0}
+    floatVal: 0
 --- !u!114 &102825800
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2586,6 +2612,16 @@ Prefab:
 --- !u!4 &831124553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4682104191197762, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+    type: 2}
+  m_PrefabInternal: {fileID: 831124552}
+--- !u!1 &831124554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1472618838718074, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+    type: 2}
+  m_PrefabInternal: {fileID: 831124552}
+--- !u!95 &831124555 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95521767301265188, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
     type: 2}
   m_PrefabInternal: {fileID: 831124552}
 --- !u!1 &957981055

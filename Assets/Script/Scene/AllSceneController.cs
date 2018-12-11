@@ -41,10 +41,15 @@ public class AllSceneController : MonoBehaviour
         }
         else if(tonextscene)    
         {
+            Store();
             iscenenumber += 1;
             SceneManager.LoadScene(iscenenumber);
             tonextscene = !tonextscene;
         }
+    }
+    void Store()
+    {
+        GameManager.cleanwatercount = CleanWater.cleanwatercount;
     }
 
 

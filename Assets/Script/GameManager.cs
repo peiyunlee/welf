@@ -7,7 +7,11 @@ public class GameManager : MonoBehaviour {
     
     static GameManager instance;
     [SerializeField]
-    public static int[] chooseelf = new int[2];
+    public static int[] chooseelf = new int[2];   //儲存選擇的水精靈
+    [SerializeField]
+    public static int playercurrenhealth;   //儲存主角血量
+    [SerializeField]
+    public static int cleanwatercount;   //儲存碎片數量
     [SerializeField]
     public static bool DestroyGameManager;
     void Awake()
@@ -22,5 +26,9 @@ public class GameManager : MonoBehaviour {
             DestroyGameManager = true;
             Destroy(gameObject);
         }
+    }
+    private void Start()
+    {
+        playercurrenhealth = 20;
     }
 }

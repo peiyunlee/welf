@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CleanWater : MonoBehaviour {
     [SerializeField]
-    private int cleanwatercount;
+    public static int cleanwatercount;
     [SerializeField]
     private int usecleanwater;
     [SerializeField]
@@ -13,11 +13,9 @@ public class CleanWater : MonoBehaviour {
     [SerializeField]
     private Text cleanwatercounttext;
     [SerializeField]
-    private bool istrigger;   //test
-    [SerializeField]
     private bool isuse;   //test
     void Start () {
-        cleanwatercount = 0;
+        cleanwatercount = GameManager.cleanwatercount;
         textgameobject = GameObject.Find("CleanWatertext");
         cleanwatercounttext = textgameobject.GetComponent<Text>();
         Render();
@@ -25,11 +23,6 @@ public class CleanWater : MonoBehaviour {
 
     private void Update()   //test
     {
-        if (istrigger)
-        {
-            AddCleanWater();
-            istrigger = false;
-        }
         if (isuse)
         {
             DecreaseCleanWater();
@@ -41,7 +34,6 @@ public class CleanWater : MonoBehaviour {
     {
         cleanwatercount++;
         Render();
-        Debug.Log("bb");
     }
 
     public void DecreaseCleanWater()

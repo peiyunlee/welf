@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour {
     public float moveSpeed = 10;
     public float jumpSpeed = 5000;
     public int jumpNum = 2;
-    public int jumpCount = 0;
+    public static int jumpCount = 0;
 
     //設定按鍵
     private float keyVertical;
