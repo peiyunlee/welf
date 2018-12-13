@@ -22,7 +22,6 @@ public class HealthTest : MonoBehaviour {
 
         //Debug.Log("health.take");
         Debug.Log(currentHealth);
-
         }
     }
 

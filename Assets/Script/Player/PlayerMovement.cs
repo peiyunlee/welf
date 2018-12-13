@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     private float keyVertical;
     private float keyHorizontal;
     private bool keyJump;
+    private bool keyMenu;
 
     //條件判斷
     private bool isWalking = false;
@@ -67,6 +68,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         keyHorizontal = Input.GetAxisRaw("Horizontal");
         keyJump = Input.GetButtonDown("Jump");
+        keyMenu = Input.GetKeyDown(KeyCode.B);
     }
 
     //移動
@@ -109,9 +111,13 @@ public class PlayerMovement : MonoBehaviour {
             }
             canJumping = false;
         }
-        if (jumpCount < jumpNum)
+        if ((jumpCount < jumpNum))
         {
-            canJumping = true;
+            canJumping = false;
+            if (playerRigidbody.velocity.y < 10)
+            {
+                canJumping = true;
+            }
         }
     }
 
@@ -167,7 +173,11 @@ public class PlayerMovement : MonoBehaviour {
 
     //動畫
     void Animating()
-    {       
+    {
+        if (isMenu)
+        {
+            isWalking = false;
+        }
           playerAnim.SetBool("isWalking", isWalking);
 
           //playerAnim.SetBool("isJumping", !isGround);
