@@ -13,7 +13,7 @@ public class AttackDetect : MonoBehaviour {
     }
     void Start () {
         isTouch = false;      
-        healthTest = GetComponent<HealthTest>();
+        
         Debug.Log("adst");
     }
 	
@@ -22,19 +22,23 @@ public class AttackDetect : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        //if (other.gameObject.CompareTag("EnemyTest"))
-        //{
-        //    isTouch = true;
-        //}
+        if (other.CompareTag("EnemyTest"))
+        {
+            isTouch = true;
+
+            healthTest = other.GetComponent<HealthTest>();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        //if (other.gameObject.CompareTag("EnemyTest"))
-        //{
-        //    isTouch = false;
-        //}
+        if (other.CompareTag("EnemyTest"))
+        {
+            isTouch = false;
+
+            healthTest = null;
+        }
     }
 }
