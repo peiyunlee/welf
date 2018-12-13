@@ -1423,7 +1423,6 @@ MonoBehaviour:
   moveSpeed: 10
   jumpSpeed: 5000
   jumpNum: 2
-  jumpCount: 0
   isGround: 1
 --- !u!95 &1856909109
 Animator:
@@ -1525,7 +1524,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -939724121
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a6b42e1acd086b84a97264659de16d1e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1694,11 +1693,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8fb2f4c9933c640a6ffcfc4b49977b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cleanwatercount: 0
   usecleanwater: 5
   textgameobject: {fileID: 0}
   cleanwatercounttext: {fileID: 1291276774}
-  istrigger: 0
   isuse: 0
 --- !u!114 &2065859578
 MonoBehaviour:

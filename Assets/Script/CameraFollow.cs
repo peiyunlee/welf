@@ -16,6 +16,8 @@ public class CameraFollow : MonoBehaviour {
     private float maxvector;
     [SerializeField]
     private float minvector;
+    [SerializeField]
+    private float maxy;
     void Start () {
         target = GameObject.Find("Player");
     }
@@ -33,6 +35,10 @@ public class CameraFollow : MonoBehaviour {
             {
                 transform.position = new Vector3(minvector, miny, transform.position.z);
             }
+            else if(target.transform.position.y > maxy)
+            {
+                transform.position = new Vector3(minvector, maxy + addy, transform.position.z);
+            }
             else
             {
                 transform.position = new Vector3(minvector, target.transform.position.y + addy, transform.position.z);
@@ -43,6 +49,10 @@ public class CameraFollow : MonoBehaviour {
             if (target.transform.position.y < jumphigh)
             {
                 transform.position = new Vector3(maxvector, miny, transform.position.z);
+            }
+            else if (target.transform.position.y > maxy)
+            {
+                transform.position = new Vector3(maxvector, maxy + addy, transform.position.z);
             }
             else
             {
@@ -55,6 +65,10 @@ public class CameraFollow : MonoBehaviour {
             if (target.transform.position.y < jumphigh)
             {
                 transform.position = new Vector3(target.transform.position.x, miny, transform.position.z);
+            }
+            else if (target.transform.position.y > maxy)
+            {
+                transform.position = new Vector3(target.transform.position.x, maxy + addy, transform.position.z);
             }
             else
             { 
