@@ -14,17 +14,18 @@ using UnityEngine;
     public float follow_speed = 15f;//跟隨速度
     private EnemyHealth enemyHealth;
 
+    
     //判斷是否碰到所限制的範圍
-    void OnTriggerEnter2D(Collider2D border)
+  /*  void OnCollisionEnter2D(Collision2D border)
     {
        
-        if (border.gameObject.CompareTag("border"))
+        if (border.gameObject.CompareTag("Player"))
         {
-            border_tag = true;
+            Debug.Log("trigger");
 
 
         }
-     }
+     }*/
 
     //跟隨函式
     void follow()

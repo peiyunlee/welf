@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class middleEnemy_Attack_shock : MonoBehaviour {
-
+    Animator anim;
     Rigidbody2D playerRigidbody;
     public Transform main;//要跟随英雄
     private EnemyAttack_manager EnemyAttack_manager;
@@ -24,6 +24,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
 
     private void normalAttack_hit()
     {
+       
         timer += Time.deltaTime;
 
         if (timer>=0.5f&&timer<=1.5f)//暫停時間
@@ -57,6 +58,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
     private float initialposition;
     private void Start()
     {
+        anim = GetComponent<Animator>();
         initialposition = transform.position.x;
         playerRigidbody = GetComponent<Rigidbody2D>();
         Transform target = GameObject.FindGameObjectWithTag("main").transform;
@@ -67,15 +69,23 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
     private void Update()
     {
 
-        Debug.Log(EnemyAttack_manager.shockhit_state);
+       
         if (overState==false&& EnemyAttack_manager.shockhit_state==true)
         {
-
+            anim.SetBool("middle_enemy_shock_start ", true);
             normalAttack_hit();
+          
             state = true;
         }
 
+        Debug.Log(overState);
+        if (overState == true)
+        {
 
+            anim.SetBool("middle_enemy_shock_start ", false);
+
+    
+        }
     }
 
 }

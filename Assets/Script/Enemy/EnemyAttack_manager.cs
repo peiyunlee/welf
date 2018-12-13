@@ -12,13 +12,17 @@ public class EnemyAttack_manager : MonoBehaviour {
     public static bool bighit_state_left = false;
     public static bool normalhit_state = false;
     public static bool shockhit_state = false;
+
+    private int change_attack ;
     // Use this for initialization
     void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {//記得加swithcase後 所有enemymovement的state全都要refresh
+    int test = 1;
+
+    // Update is called once per frame
+    void Update () {//記得加swithcase後 所有enemymovement的state全都要refresh
+      
 
         //bighit開始攻擊
 
@@ -34,7 +38,7 @@ public class EnemyAttack_manager : MonoBehaviour {
 
             bighit_state_left = true;
 
-
+        
         }*/
 
         //normalhit
@@ -49,9 +53,13 @@ public class EnemyAttack_manager : MonoBehaviour {
         if (Vector2.Distance(transform.position, main.position) <= attackDis_shock && (main.position.x - transform.position.x > 0))
         {
             shockhit_state = true;
+            
 
         }
 
+       
+
 
     }
+
 }
