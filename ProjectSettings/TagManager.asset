@@ -62,6 +62,9 @@ TagManager:
   - name: Thing
     uniqueID: 963550693
     locked: 0
+  - name: Enemy
+    uniqueID: 3482396853
+    locked: 0
   - name: Player
     uniqueID: 3355243175
     locked: 0
