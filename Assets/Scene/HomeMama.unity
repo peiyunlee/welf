@@ -363,7 +363,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 102825775}
+  - {fileID: 102825767}
   selectedCommands: []
   variables:
   - {fileID: 102825780}
@@ -2977,7 +2977,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1309623539
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8d0a1ab9483480548bad9ac9c6effb84, type: 3}
   m_Color: {r: 1, g: 0, b: 0.91280556, a: 1}
@@ -3353,7 +3353,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1309623539
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8d0a1ab9483480548bad9ac9c6effb84, type: 3}
   m_Color: {r: 1, g: 0.99862754, b: 0, a: 1}
