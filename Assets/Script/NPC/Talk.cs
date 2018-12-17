@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class MomTalk : MonoBehaviour
+public class Talk : MonoBehaviour
 {
     private bool isclickZ;
     private bool isfungus;
@@ -51,7 +51,7 @@ public class MomTalk : MonoBehaviour
         {
             talkimage.transform.position = vr1; //隱藏talkimage
             if(isfungus==false)
-                Fungus.Flowchart.BroadcastFungusMessage("MOMTALK");
+                Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
             isfungus = true;
             PlayerMovement.isMenu = true;//主角不行動
         }

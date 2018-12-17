@@ -565,7 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 102825767}
-  message: MOMTALK
+  message: Mom
 --- !u!114 &102825775
 MonoBehaviour:
   m_ObjectHideFlags: 2
