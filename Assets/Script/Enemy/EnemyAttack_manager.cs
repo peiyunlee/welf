@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public class EnemyAttack_manager : MonoBehaviour {
-  
+    Animator anim;
     public Transform main;//要跟随英雄
      float attackDis = 40f;//達到此距離開始攻擊
      float attackDis_shock = 40f;//達到此距離開始攻擊_shock
@@ -12,13 +12,18 @@ public class EnemyAttack_manager : MonoBehaviour {
     public static bool bighit_state_left = false;
     public static bool normalhit_state = false;
     public static bool shockhit_state = false;
-
+   
     private int change_attack ;
     // Use this for initialization
-    void Start () {
-		
-	}
+   
     int test = 1;
+    float timer=0;
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+      
+
+    }
 
     // Update is called once per frame
     void Update () {//記得加swithcase後 所有enemymovement的state全都要refresh
@@ -28,17 +33,40 @@ public class EnemyAttack_manager : MonoBehaviour {
 
         if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
         {
-            bighit_state_right = true;
-            
+            timer += Time.deltaTime;
+            bighit_state_left = true;
+
+            if (timer > 0f && timer < 1f)
+            {
+                anim.SetBool("middle_enemy_bighit_start", true);
+            }
+
+            Debug.Log(timer);
+
+            if (timer > 2f && timer < 3f)
+            {
+                anim.SetBool("middle_enemy_bighit_start", false);
+            }
+
 
 
         }
         if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))//跟随距离
         {
-
+            timer += Time.deltaTime;
             bighit_state_left = true;
 
-        
+            if (timer > 0f && timer < 1f)
+            {
+                anim.SetBool("middle_enemy_bighit_start", true);
+            }
+
+            Debug.Log(timer);
+
+            if (timer > 2f && timer < 3f)
+            {
+                anim.SetBool("middle_enemy_bighit_start", false);
+            }
         }
 
         //normalhit
@@ -59,7 +87,7 @@ public class EnemyAttack_manager : MonoBehaviour {
 
         }*/
 
-       
+
 
 
     }

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212232194417870670}
   - component: {fileID: 114023043824884600}
   - component: {fileID: 58094348053125548}
+  - component: {fileID: 95821730515390076}
   m_Layer: 0
   m_Name: enemyBullet_left
   m_TagString: Untagged
@@ -51,12 +52,30 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.03, y: -1.15}
   serializedVersion: 2
   m_Radius: 5.44
+--- !u!95 &95821730515390076
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1237070143637136}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dced456f3528fdc47ae590e7a73789d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114023043824884600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582699979ce9a504182311777d0aa513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
+  speed: 20
   enemy1: {fileID: 4016132037276026, guid: 0bcacc06fe8e8da43813e3d273d03409, type: 2}
 --- !u!212 &212232194417870670
 SpriteRenderer:

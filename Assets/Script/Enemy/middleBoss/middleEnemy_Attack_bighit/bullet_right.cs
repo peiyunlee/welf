@@ -11,7 +11,7 @@ public class bullet_right: MonoBehaviour {
         transform.Translate(Vector3.right * speed * Time.deltaTime);
         if ((transform.position.x - enemy1.position.x) > attackRange)
         {
-           Debug.Log("destroy");
+           /*Debug.Log("destroy");*/
             Destroy(this.gameObject);
 
         }
