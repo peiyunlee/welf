@@ -13,6 +13,8 @@ public class PlayerAttack : AttackDetect {
     int hurt;
     int attackCount = 0;
     bool keyAttack;
+    bool keySkill;
+    bool isSkill;
 
     //動畫名稱
     private const string idleState = "Idle";
@@ -37,7 +39,10 @@ public class PlayerAttack : AttackDetect {
 
         Animating();
 
-        SetAttack();
+        if (!PlayerMovement.isMenu)
+        {
+            SetAttack();
+        }
     }
 
     int Hurt(Attack attack)
@@ -59,7 +64,9 @@ public class PlayerAttack : AttackDetect {
  
     void SetAttack()
     {
+        //讀取player動畫狀態
         animSta = playerAnim.GetCurrentAnimatorStateInfo(0);
+        //返回idle狀態
         if (!animSta.IsName(idleState)&&animSta.normalizedTime>1.0f)
         {
             if (isTouch)
@@ -69,8 +76,10 @@ public class PlayerAttack : AttackDetect {
             attackCount = 0;
             playerAnim.SetInteger("Attack", attackCount);
         }
+        //攻擊
         if (keyAttack && playerMovement.isGround)
         {
+            //一段攻擊
             if ((animSta.IsName(idleState)|| animSta.IsName(runState)) && attackCount == 0)
             {
                 if (isTouch)
@@ -80,6 +89,7 @@ public class PlayerAttack : AttackDetect {
                 attackCount = 1;
                 playerAnim.SetInteger("Attack", attackCount);
             }
+            //二段攻擊
             if (animSta.IsName(attack1State) && attackCount == 1 && animSta.normalizedTime > 0.5f)
             {
                 if (isTouch)
@@ -90,15 +100,21 @@ public class PlayerAttack : AttackDetect {
                 playerAnim.SetInteger("Attack", attackCount);
             } 
         }
+
+        if (keySkill)
+        {
+            playerAnim.SetTrigger("isSkill");
+        }
     }
 
     void GetKey()
     {
-        keyAttack = Input.GetButtonDown("Attack");       
+        keyAttack = Input.GetButtonDown("Attack");
+        keySkill = Input.GetButtonDown("Skill");
     }
 
     void Animating()
     {
-
+       
     }
 }

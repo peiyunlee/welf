@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     private float keyVertical;
     private float keyHorizontal;
     private bool keyJump;
+    private bool keyMenu;
 
     //條件判斷
     private bool isWalking = false;
@@ -50,6 +51,11 @@ public class PlayerMovement : MonoBehaviour {
         GetKey();
 
         Animating();
+
+        if (keyMenu)
+        {
+            isMenu = !isMenu;
+        }
 	}
 
     void FixedUpdate()
@@ -67,6 +73,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         keyHorizontal = Input.GetAxisRaw("Horizontal");
         keyJump = Input.GetButtonDown("Jump");
+        keyMenu = Input.GetKeyDown(KeyCode.B);
     }
 
     //移動
@@ -98,21 +105,26 @@ public class PlayerMovement : MonoBehaviour {
     //跳躍
     void Jump()
     {
-        if (keyJump && canJumping)
-        {
-            Debug.Log("Jump");
-            playerRigidbody.AddForce(new Vector2(0f, jumpSpeed));
-            jumpCount++;
-            if (playerRigidbody.velocity.y < 0)
-            {
-                playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
-            }
-            canJumping = false;
-        }
         if (jumpCount < jumpNum)
         {
-            canJumping = true;
+            if (playerRigidbody.velocity.y < 5)
+            {
+                canJumping = true;
+            }        
         }
+        if (keyJump && canJumping)
+        {
+            //Debug.Log("Jump");
+            playerRigidbody.AddForce(new Vector2(0f, jumpSpeed));
+            jumpCount++;
+            if (playerRigidbody.velocity.y < -1)
+            {
+                playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
+            }       
+        }
+        canJumping = false;
+               
+        //Debug.Log(jumpCount);
     }
 
     //進入地面
@@ -167,7 +179,11 @@ public class PlayerMovement : MonoBehaviour {
 
     //動畫
     void Animating()
-    {       
+    {
+        if (isMenu)
+        {
+            isWalking = false;
+        }
           playerAnim.SetBool("isWalking", isWalking);
 
           //playerAnim.SetBool("isJumping", !isGround);

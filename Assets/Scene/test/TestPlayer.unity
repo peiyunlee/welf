@@ -234,7 +234,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4891874350637252, guid: 423cacddac3e0154c8f9edc0a342b655, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15.4
+      value: -39.43
       objectReference: {fileID: 0}
     - target: {fileID: 4891874350637252, guid: 423cacddac3e0154c8f9edc0a342b655, type: 2}
       propertyPath: m_LocalPosition.y
@@ -337,12 +337,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1245028443020082, guid: 7e22f090fa070b846bd786048457d8a7, type: 2}
-      propertyPath: m_TagString
-      value: EnemyTest
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114417197920022214, guid: 7e22f090fa070b846bd786048457d8a7, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e22f090fa070b846bd786048457d8a7, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1261229683
@@ -392,24 +387,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1363624401 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1245028443020082, guid: 7e22f090fa070b846bd786048457d8a7,
+--- !u!114 &1363624402 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114245041551674592, guid: 7e22f090fa070b846bd786048457d8a7,
     type: 2}
   m_PrefabInternal: {fileID: 1019091078}
---- !u!114 &1363624402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1363624401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd696d7c502ecf944b70bce00c68f77a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 5
-  currentHealth: 0
 --- !u!1 &1438643670
 GameObject:
   m_ObjectHideFlags: 0
