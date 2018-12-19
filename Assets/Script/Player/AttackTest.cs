@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackTest : MonoBehaviour {
+public class AttackTest : MonoBehaviour
+{
     public float timeBetweenAttacks = 2f;
     public int attackDamage = 1;
 
@@ -10,14 +11,16 @@ public class AttackTest : MonoBehaviour {
     PlayerHealth playerHealth;
     bool playerInRange;
     float timer;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         player = GameObject.FindGameObjectWithTag("Player");
         playerHealth = player.GetComponent<PlayerHealth>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         timer += Time.deltaTime;
 
         if (timer >= timeBetweenAttacks && playerInRange)
@@ -25,7 +28,7 @@ public class AttackTest : MonoBehaviour {
             Attack();
             //Debug.Log("attack.update");
         }
-	}
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {

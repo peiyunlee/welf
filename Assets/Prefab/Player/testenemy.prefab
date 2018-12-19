@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4606141943720132}
   - component: {fileID: 212799864870271802}
   - component: {fileID: 61284760660724184}
-  - component: {fileID: 114245041551674592}
+  - component: {fileID: 114569263233489960}
   m_Layer: 0
   m_Name: testenemy
   m_TagString: EnemyTest
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6, y: 20}
   m_EdgeRadius: 0
---- !u!114 &114245041551674592
+--- !u!114 &114569263233489960
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

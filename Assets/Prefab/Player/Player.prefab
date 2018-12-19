@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4273474383892692}
-  - component: {fileID: 114562198221539648}
+  - component: {fileID: 114516062509748198}
   m_Layer: 0
   m_Name: Welf
   m_TagString: Untagged
@@ -43,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1377970843823990
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4074855916748412}
   - component: {fileID: 212029347378429760}
   - component: {fileID: 61277714844680492}
-  - component: {fileID: 114114011759874620}
+  - component: {fileID: 114597266122158832}
   m_Layer: 0
   m_Name: detect
   m_TagString: Untagged
@@ -91,8 +91,8 @@ GameObject:
   - component: {fileID: 50114354485375526}
   - component: {fileID: 61893795632695242}
   - component: {fileID: 95521767301265188}
-  - component: {fileID: 114164231693537320}
-  - component: {fileID: 114612393042106600}
+  - component: {fileID: 114543868811093340}
+  - component: {fileID: 114433391727325952}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -109,6 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4059037096680764}
   - component: {fileID: 212329443882728394}
+  - component: {fileID: 61728566480046682}
   m_Layer: 0
   m_Name: welf3
   m_TagString: Untagged
@@ -253,7 +254,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -267,7 +268,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!61 &61637412619780822
 BoxCollider2D:
@@ -278,7 +279,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -292,7 +293,32 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &61728566480046682
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1545260478426212}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!61 &61893795632695242
 BoxCollider2D:
@@ -337,20 +363,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114114011759874620
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1381350806741482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e178b4d1a48867b4a8df07009915cef9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTouch: 0
-  healthTest: {fileID: 0}
---- !u!114 &114164231693537320
+--- !u!114 &114433391727325952
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,7 +378,7 @@ MonoBehaviour:
   jumpSpeed: 5000
   jumpNum: 2
   isGround: 1
---- !u!114 &114562198221539648
+--- !u!114 &114516062509748198
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -381,10 +394,9 @@ MonoBehaviour:
   - {fileID: 1377970843823990}
   - {fileID: 1545260478426212}
   iWelfCount: 0
-  testWelf: 0100000002000000
-  gameManager: {fileID: 114441653501225366, guid: 2aa7240346a6f994f9459281e33fc3b7,
-    type: 2}
---- !u!114 &114612393042106600
+  testWelf: 0000000002000000
+  gameManager: {fileID: 0}
+--- !u!114 &114543868811093340
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -393,6 +405,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cca183cd6ef71184fb142a350aa1f149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTouch: 0
+  healthTest: {fileID: 0}
+--- !u!114 &114597266122158832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381350806741482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e178b4d1a48867b4a8df07009915cef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isTouch: 0

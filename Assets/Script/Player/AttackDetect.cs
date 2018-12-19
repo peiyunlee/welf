@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackDetect : MonoBehaviour {
+public class AttackDetect : MonoBehaviour
+{
     public bool isTouch;
 
     public HealthTest healthTest;
@@ -11,16 +12,18 @@ public class AttackDetect : MonoBehaviour {
     {
         Debug.Log("adaw");
     }
-    void Start () {
-        isTouch = false;      
-        
+    void Start()
+    {
+        isTouch = false;
+
         Debug.Log("adst");
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour {
+public class PlayerHealth : MonoBehaviour
+{
     //血量
     public int startingHealth = 5;
     public int currentHealth;
@@ -13,20 +14,22 @@ public class PlayerHealth : MonoBehaviour {
 
     testplayermove playerMovement;
     Animator playerAnim;
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         playerMovement = GetComponent<testplayermove>();
         playerAnim = GetComponent<Animator>();
 
         currentHealth = startingHealth;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         isDamaged = false;
         //Debug.Log("health.update");
         Animating();
-	}
+    }
 
     public void TakeDamage(int amount)
     {
@@ -44,7 +47,7 @@ public class PlayerHealth : MonoBehaviour {
             Death();
         }
     }
-    
+
     void Death()
     {
         isDead = true;

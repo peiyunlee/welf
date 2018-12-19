@@ -56,9 +56,9 @@ public class testplayermove : MonoBehaviour
 
     void FixedUpdate()
     {
-            Move();
+        Move();
 
-            Jump(); 
+        Jump();
     }
 
     //讀取按鍵

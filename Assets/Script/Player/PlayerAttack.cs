@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : AttackDetect {
+public class PlayerAttack : AttackDetect
+{
     public enum Attack
     {
         idle,
-        normal=1,
+        normal = 1,
         skill
     }
 
@@ -22,19 +23,21 @@ public class PlayerAttack : AttackDetect {
     private const string attack1State = "Attack1";
     private const string attack2State = "Attack2";
 
-    PlayerMovement playerMovement; 
+    PlayerMovement playerMovement;
     Animator playerAnim;
     AnimatorStateInfo animSta;
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         playerAnim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
 
         hurt = 0;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         GetKey();
 
         Animating();
@@ -61,17 +64,17 @@ public class PlayerAttack : AttackDetect {
         }
         return hurt;
     }
- 
+
     void SetAttack()
     {
         //讀取player動畫狀態
         animSta = playerAnim.GetCurrentAnimatorStateInfo(0);
         //返回idle狀態
-        if (!animSta.IsName(idleState)&&animSta.normalizedTime>1.0f)
+        if (!animSta.IsName(idleState) && animSta.normalizedTime > 1.0f)
         {
             if (isTouch)
             {
-               healthTest.TakeDamage(Hurt(Attack.idle));
+                healthTest.TakeDamage(Hurt(Attack.idle));
             }
             attackCount = 0;
             playerAnim.SetInteger("Attack", attackCount);
@@ -80,7 +83,7 @@ public class PlayerAttack : AttackDetect {
         if (keyAttack && playerMovement.isGround)
         {
             //一段攻擊
-            if ((animSta.IsName(idleState)|| animSta.IsName(runState)) && attackCount == 0)
+            if ((animSta.IsName(idleState) || animSta.IsName(runState)) && attackCount == 0)
             {
                 if (isTouch)
                 {
@@ -98,7 +101,7 @@ public class PlayerAttack : AttackDetect {
                 }
                 attackCount = 2;
                 playerAnim.SetInteger("Attack", attackCount);
-            } 
+            }
         }
 
         if (keySkill)
@@ -115,6 +118,6 @@ public class PlayerAttack : AttackDetect {
 
     void Animating()
     {
-       
+
     }
 }
