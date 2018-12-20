@@ -9,7 +9,7 @@ using UnityEngine;
 
 
     bool border_tag=false;//是否碰到限制範圍
-    float followDis = 20f;//達到此距離開始跟隨
+    float followDis = 30f;//達到此距離開始跟隨
     float attackDis = 20f;
     public float idle_speed = 10f;//移動速度
     public float follow_speed = 15f;//跟隨速度
@@ -17,18 +17,8 @@ using UnityEngine;
 
    public  float timer = 0;
     
-    //判斷是否碰到所限制的範圍
-  /*  void OnCollisionEnter2D(Collision2D border)
-    {
-        Debug.Log("trigger");
-        border_tag = true;
-        if (border.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("trigger");
-           
-
-        }
-     }**/
+  
+  
 
     //跟隨函式
     void follow()
@@ -104,9 +94,7 @@ using UnityEngine;
   
     void Update()
     {
-       /* Debug.Log("shock.State_right=" + shock.State_right);
-        Debug.Log("shock.State_left=" + shock.State_left);*/
-        Debug.Log(Vector2.Distance(transform.position, main.position));
+        
         if (enemyHealth.isDead)
         {
             Vector2 transformValue = new Vector2(0, 0);
@@ -114,54 +102,49 @@ using UnityEngine;
 
         }
         else {
-          
-            /*if (Vector2.Distance(transform.position, main.position) <= followDis)*/
-            {
-                
 
-                if ((Vector2.Distance(transform.position, main.position)<=attackDis))
+            if ((Vector2.Distance(transform.position, main.position) <= followDis)) {
+
+                if ((Vector2.Distance(transform.position, main.position) <= attackDis))
                 {
-                 
-                 
-                    if (((main.position.x> transform.position.x)|| shock.State_right==true)&& shock.State_left==false) {
+
+
+                    if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false)
+                    {
                         shock.State_right = true;
-                        shock.timer = 0;
                         timer += Time.deltaTime;
                         shock.normalAttack_hit_right();
-                       
+
 
                     }
-                   
-                   
-                    else if(((main.position.x < transform.position.x)||shock.State_left==true)&& shock.State_right==false)
+
+
+                    else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false)
                     {
                         shock.State_left = true;
-                        shock.timer = 0;
                         timer += Time.deltaTime;
                         shock.normalAttack_hit_left();
-                       
+
                     }
-                   
+
 
                 }
 
-               /* else (Vector2.Distance(transform.position, main.position) > attackDis)
+                else if((Vector2.Distance(transform.position, main.position) > attackDis))
                 {
-                    Debug.Log("follow");
+
                     follow();
-                    initialx = transform.position.x;
-
-
-                }*/
-
-             }
-         /*   else
+                }
+            }
+                
+            
+            else if((Vector2.Distance(transform.position, main.position) > attackDis))
             {
                 idle();
 
 
-            }*/
-
+            }
+        
         }
 
     }
