@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
     public class Enemymovement : MonoBehaviour {
+    public Animator anim;
     private littleEnemy_Attack_shock shock;
     Rigidbody2D playerRigidbody;
     public Transform main;//要跟随英雄
@@ -84,7 +85,8 @@ using UnityEngine;
         Transform target = GameObject.FindGameObjectWithTag("main").transform;
         enemyHealth = GetComponent<EnemyHealth>();
         shock = GetComponent<littleEnemy_Attack_shock>();
-        
+        anim = GetComponent<Animator>();
+
     }
 
 
@@ -114,6 +116,8 @@ using UnityEngine;
                         shock.State_right = true;
                         timer += Time.deltaTime;
                         shock.normalAttack_hit_right();
+                     
+                        anim.SetBool("littleEnemy_hit_left",true);
 
 
                     }
@@ -124,7 +128,8 @@ using UnityEngine;
                         shock.State_left = true;
                         timer += Time.deltaTime;
                         shock.normalAttack_hit_left();
-
+                       
+                        anim.SetBool("littleEnemy_hit_left", true);
                     }
 
 
@@ -140,6 +145,7 @@ using UnityEngine;
             
             else if((Vector2.Distance(transform.position, main.position) > attackDis))
             {
+               anim.SetBool("littleEnemy_hit_left", false);
                 idle();
 
 

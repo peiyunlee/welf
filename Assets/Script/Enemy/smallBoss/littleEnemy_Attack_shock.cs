@@ -29,10 +29,10 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
         }
         else if (Enemymovement.timer >= 0.8f)//返回時間
         {
-         
+            
             State_right = false;
             Enemymovement.timer = 0;
-
+           
         }
        
         else
@@ -63,6 +63,7 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
            
             State_left = false;
             Enemymovement.timer = 0;
+           
         }
      
         else
