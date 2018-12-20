@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canJumping = true;
     public static bool isMenu = false;
 
+    PlayerHealth playerHealth;
     PlayerAttack playerAttack;
     Rigidbody2D playerRigidbody;
     Animator playerAnim;
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     {
         state = State.playerRight;
 
+        playerHealth = GetComponent<PlayerHealth>();
         playerAttack = GetComponent<PlayerAttack>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<Animator>();
@@ -109,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (jumpCount < jumpNum)
         {
-            if (playerRigidbody.velocity.y < 5)
+            if (playerRigidbody.velocity.y < 11.5f)
             {
                 canJumping = true;
             }

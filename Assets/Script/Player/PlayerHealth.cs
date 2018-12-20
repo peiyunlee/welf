@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     //血量
-    public int startingHealth = 5;
+    public int startingHealth = 20;
     public int currentHealth;
 
     //條件判斷
@@ -37,15 +37,16 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth -= amount;
 
-        playerAnim.SetBool("isDamaged", isDamaged);
+        playerAnim.SetTrigger("isDamaged");
 
         //Debug.Log("health.take");
         Debug.Log(currentHealth);
 
-        if (currentHealth <= 0 && !isDead)
-        {
-            Death();
-        }
+        //isDamaged = false;
+        //if (currentHealth <= 0 && !isDead)
+        //{
+        //    Death();
+        //}
     }
 
     void Death()
@@ -61,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Animating()
     {
-        playerAnim.SetBool("isDamaged", isDamaged);
+        //playerAnim.SetBool("isDamaged", isDamaged);
         //Debug.Log("health.anim");
     }
 }
