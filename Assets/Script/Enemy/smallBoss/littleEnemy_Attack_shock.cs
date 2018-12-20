@@ -6,7 +6,7 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
    // private Enemymovement enemymovement;
     Rigidbody2D playerRigidbody;
     public Transform main;//要跟随英雄
-    private EnemyAttack_manager EnemyAttack_manager;
+    private Enemymovement Enemymovement;
     public bool state = false;
     float speed = 100f;//衝擊速度
     float shockRange = 10f;
@@ -25,19 +25,20 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
 
     public void normalAttack_hit_right()
     {
-       State_right = true;
+        State_right = true;
         timer += Time.deltaTime;
        
-        if (timer >= 0.5f && timer <= 1.5f)//暫停時間
+        if (Enemymovement.timer >= 0.5f && Enemymovement.timer <= 1.5f)//暫停時間
         {
             Vector2 transformValue = new Vector2(0, 0);
            // playerRigidbody.velocity = transformValue;
 
         }
-        else if (timer >= 1.5f && timer <= 2f)//返回時間
+        else if (Enemymovement.timer >= 1.5f && Enemymovement.timer <= 2f)//返回時間
         {
             /* transform.Translate(Vector3.left * speed * Time.deltaTime);*/
             State_right = false;
+            Debug.Log("  State_right = false");
 
         }
        /* else if (timer >= 2f)
@@ -72,7 +73,7 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
         {
            /* transform.Translate(Vector3.right * speed * Time.deltaTime);*/
             State_left = false;
-
+           
         }
        /* else if (timer >= 2f)
         {
@@ -98,24 +99,12 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
         initialposition = transform.position.x;
         playerRigidbody = GetComponent<Rigidbody2D>();
         Transform target = GameObject.FindGameObjectWithTag("main").transform;
-        //EnemyAttack_manager = GetComponent<EnemyAttack_manager>(); //與外部判斷是否fire做連結
+        Enemymovement = GetComponent<Enemymovement>(); //與外部判斷是否fire做連結
       //  enemymovement = GetComponent<Enemymovement>();
     }
 
 
-    private void Update()
-    {
-
-        Debug.Log(EnemyAttack_manager.shockhit_state);
-        if (State_right == false && EnemyAttack_manager.shockhit_state == true)
-        {
-
-            normalAttack_hit_right();
-            state = true;
-        }
-
-
-    }
+   
 
 
 }

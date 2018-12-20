@@ -500,6 +500,7 @@ MonoBehaviour:
   attackDis: 50
   idle_speed: 10
   follow_speed: 15
+  timer: 0
 --- !u!114 &660492101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -945,6 +946,7 @@ MonoBehaviour:
   attackDis: 50
   idle_speed: 10
   follow_speed: 15
+  timer: 0
 --- !u!50 &1075181582
 Rigidbody2D:
   serializedVersion: 4
@@ -1047,7 +1049,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1075181577}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.6, y: 0.7, z: 0}
+  m_LocalPosition: {x: -31.1, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 79100080}
@@ -1294,7 +1296,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4154564753861462, guid: b7ff5a70346d93d438db6f8b1fad51e6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 49.4
+      value: 32.7
       objectReference: {fileID: 0}
     - target: {fileID: 4154564753861462, guid: b7ff5a70346d93d438db6f8b1fad51e6, type: 2}
       propertyPath: m_LocalPosition.y

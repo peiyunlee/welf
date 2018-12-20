@@ -9,13 +9,13 @@ using UnityEngine;
 
 
     bool border_tag=false;//是否碰到限制範圍
-    public float followDis = 100f;//達到此距離開始跟隨
-    public float attackDis = 50f;
+    public float followDis = 20f;//達到此距離開始跟隨
+    public float attackDis = 5f;
     public float idle_speed = 10f;//移動速度
     public float follow_speed = 15f;//跟隨速度
     private EnemyHealth enemyHealth;
 
-    float timer = 0;
+   public  float timer = 0;
     
     //判斷是否碰到所限制的範圍
   /*  void OnCollisionEnter2D(Collision2D border)
@@ -62,7 +62,7 @@ using UnityEngine;
         Vector2 transformValue = new Vector2(idle_speed, 0);
         i++;
         playerRigidbody.velocity = transformValue;
-        if (i==150)
+        if (i==100)
         {
 
             idle_speed = idle_speed * -1;
@@ -112,7 +112,7 @@ using UnityEngine;
     void Update()
     {
 
-        
+        /*Debug.Log(Vector2.Distance(transform.position, main.position));*/
         if (enemyHealth.isDead)
         {
             Vector2 transformValue = new Vector2(0, 0);
@@ -120,47 +120,53 @@ using UnityEngine;
 
         }
         else {
+            Debug.Log(Vector2.Distance(transform.position, main.position));
             if (Vector2.Distance(transform.position, main.position) <= followDis)
             {
-                if (Vector2.Distance(transform.position, main.position) > attackDis)
+                
+
+                if ((Vector2.Distance(transform.position, main.position)<=attackDis))
                 {
-
-                    follow();
-                    initialx = transform.position.x;
-
-
-                }
-
-                if (Vector2.Distance(transform.position, main.position)<=attackDis)
-                {
-                   
-                    if ((main.position.x> transform.position.x+1) || shock.State_left != true/*&&shock.State_left!=true*/) {
+                    Debug.Log("attack1");
+                   /* if (((main.position.x> transform.position.x) || shock.State_right== true)&& shock.State_left != true) {
                       
                         shock.timer = 0;
-                        shock.normalAttack_hit_right();
-                        Debug.Log(shock.State_right);
+                        
+                      
 
-                    }
-                   
-                   
-                    else /*((main.position.x < transform.position.x + 1) || shock.State_right != true)*//* if(main.position.x < transform.position.x) *///if(main.position.x < transform.position.x&&shock.State_right != true)
-                    {
-                        Debug.Log("left go");
-                        shock.timer = 0;
-                        shock.normalAttack_hit_left();
+                        timer += Time.deltaTime;
+                        shock.normalAttack_hit_right();
                        
 
                     }
+                   
+                   
+                    else if(((main.position.x < transform.position.x) || shock.State_left == true)&& shock.State_right != true)
+                    {
+                      
+                        shock.timer = 0;
+                        shock.normalAttack_hit_left();
+                       
+                    }*/
 
                 }
-            
+
+                else/* (Vector2.Distance(transform.position, main.position) > attackDis)*/
+                {
+                    Debug.Log("follow");
+                   /* follow();
+                    initialx = transform.position.x;*/
+
+
+                }
+
             }
-            else
+         /*   else
             {
                 idle();
 
 
-            }
+            }*/
 
         }
 
