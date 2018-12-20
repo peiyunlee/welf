@@ -134,7 +134,7 @@ using UnityEngine;
                 if (Vector2.Distance(transform.position, main.position)<=attackDis)
                 {
                    
-                    if ((main.position.x> transform.position.x+1) && shock.State_left != true/*&&shock.State_left!=true*/) {
+                    if ((main.position.x> transform.position.x+1) || shock.State_left != true/*&&shock.State_left!=true*/) {
                       
                         shock.timer = 0;
                         shock.normalAttack_hit_right();
