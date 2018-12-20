@@ -24,7 +24,7 @@ public class HealthTest : MonoBehaviour
         currentHealth -= amount;
 
         //Debug.Log("health.take");
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
 
     }
 }

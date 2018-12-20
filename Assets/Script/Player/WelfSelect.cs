@@ -33,7 +33,7 @@ public class WelfSelect : MonoBehaviour
     {
         ChangeCharacter();
 
-        Debug.Log(mpMainWelf);
+        //Debug.Log(mpMainWelf);
 
     }
 
