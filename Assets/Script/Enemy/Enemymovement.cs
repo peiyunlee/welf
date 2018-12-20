@@ -17,9 +17,9 @@ using UnityEngine;
     private EnemyHealth enemyHealth;
 
    public  float timer = 0;
-    
-  
-  
+
+    float timer_dead = 0;
+
 
     //跟隨函式
     void follow()
@@ -92,15 +92,28 @@ using UnityEngine;
 
     float initialx;
 
-   
+    bool stat_dead = false;
   
     void Update()
     {
-        
+        if (stat_dead == false&& enemyHealth.isDead)
+        {
+            anim.SetBool("littleEneny_dead", true);
+            stat_dead = true;
+        }
+
         if (enemyHealth.isDead)
         {
+            timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
+            
+            
+           if (timer_dead>1f) {
+                Destroy(this.gameObject);
+
+            }
+
 
         }
         else {
