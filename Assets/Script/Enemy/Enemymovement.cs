@@ -55,7 +55,9 @@ using UnityEngine;
         playerRigidbody.velocity = transformValue;
         if (i==100)
         {
-
+            Vector2 temp = transform.localScale;
+            temp.x *= -1;
+            transform.localScale = temp;
             idle_speed = idle_speed * -1;
             i = 0;
         }
@@ -86,6 +88,9 @@ using UnityEngine;
         enemyHealth = GetComponent<EnemyHealth>();
         shock = GetComponent<littleEnemy_Attack_shock>();
         anim = GetComponent<Animator>();
+        Vector2 temp = transform.localScale;
+        temp.x *= -1;
+        transform.localScale = temp;
 
     }
 
@@ -109,10 +114,10 @@ using UnityEngine;
             playerRigidbody.velocity = transformValue;
             
             
-           if (timer_dead>1f) {
+           /*if (timer_dead>1f) {
                 Destroy(this.gameObject);
 
-            }
+            }*/
 
 
         }
