@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour {
             DestroyGameManager = true;
             Destroy(gameObject);
         }
+
+        //TEST
+        chooseelf[0] = 2;
+        chooseelf[1] = 3;
+        Debug.Log(chooseelf[0] + ":" + chooseelf[1]);
     }
     private void Start()
     {
