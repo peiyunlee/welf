@@ -9,8 +9,8 @@ using UnityEngine;
 
 
     bool border_tag=false;//是否碰到限制範圍
-    public float followDis = 20f;//達到此距離開始跟隨
-    public float attackDis = 5f;
+    float followDis = 20f;//達到此距離開始跟隨
+    float attackDis = 20f;
     public float idle_speed = 10f;//移動速度
     public float follow_speed = 15f;//跟隨速度
     private EnemyHealth enemyHealth;
@@ -87,14 +87,7 @@ using UnityEngine;
 
     }
 
-    void Attack()
-    {
-
-    
-
-
-    }
-
+  
     void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
@@ -111,9 +104,9 @@ using UnityEngine;
   
     void Update()
     {
-        Debug.Log("shock.State_right=" + shock.State_right);
-        Debug.Log("shock.State_left=" + shock.State_left);
-        /*Debug.Log(Vector2.Distance(transform.position, main.position));*/
+       /* Debug.Log("shock.State_right=" + shock.State_right);
+        Debug.Log("shock.State_left=" + shock.State_left);*/
+        Debug.Log(Vector2.Distance(transform.position, main.position));
         if (enemyHealth.isDead)
         {
             Vector2 transformValue = new Vector2(0, 0);
@@ -130,8 +123,8 @@ using UnityEngine;
                 {
                  
                  
-                    if ((main.position.x> transform.position.x) /*|| shock.State_right== true)&& shock.State_left != true*/) {
-                      
+                    if (((main.position.x> transform.position.x)|| shock.State_right==true)&& shock.State_left==false) {
+                        shock.State_right = true;
                         shock.timer = 0;
                         timer += Time.deltaTime;
                         shock.normalAttack_hit_right();
@@ -140,8 +133,9 @@ using UnityEngine;
                     }
                    
                    
-                    else if((main.position.x < transform.position.x) /*|| shock.State_left == true)&& shock.State_right != true*/)
+                    else if(((main.position.x < transform.position.x)||shock.State_left==true)&& shock.State_right==false)
                     {
+                        shock.State_left = true;
                         shock.timer = 0;
                         timer += Time.deltaTime;
                         shock.normalAttack_hit_left();
