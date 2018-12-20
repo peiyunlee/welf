@@ -111,7 +111,8 @@ using UnityEngine;
   
     void Update()
     {
-
+        Debug.Log("shock.State_right=" + shock.State_right);
+        Debug.Log("shock.State_left=" + shock.State_left);
         /*Debug.Log(Vector2.Distance(transform.position, main.position));*/
         if (enemyHealth.isDead)
         {
@@ -120,20 +121,18 @@ using UnityEngine;
 
         }
         else {
-            Debug.Log(Vector2.Distance(transform.position, main.position));
-            if (Vector2.Distance(transform.position, main.position) <= followDis)
+          
+            /*if (Vector2.Distance(transform.position, main.position) <= followDis)*/
             {
                 
 
                 if ((Vector2.Distance(transform.position, main.position)<=attackDis))
                 {
-                    Debug.Log("attack1");
-                   /* if (((main.position.x> transform.position.x) || shock.State_right== true)&& shock.State_left != true) {
+                 
+                 
+                    if ((main.position.x> transform.position.x) /*|| shock.State_right== true)&& shock.State_left != true*/) {
                       
                         shock.timer = 0;
-                        
-                      
-
                         timer += Time.deltaTime;
                         shock.normalAttack_hit_right();
                        
@@ -141,26 +140,27 @@ using UnityEngine;
                     }
                    
                    
-                    else if(((main.position.x < transform.position.x) || shock.State_left == true)&& shock.State_right != true)
+                    else if((main.position.x < transform.position.x) /*|| shock.State_left == true)&& shock.State_right != true*/)
                     {
-                      
                         shock.timer = 0;
+                        timer += Time.deltaTime;
                         shock.normalAttack_hit_left();
                        
-                    }*/
+                    }
+                   
 
                 }
 
-                else/* (Vector2.Distance(transform.position, main.position) > attackDis)*/
+               /* else (Vector2.Distance(transform.position, main.position) > attackDis)
                 {
                     Debug.Log("follow");
-                   /* follow();
-                    initialx = transform.position.x;*/
+                    follow();
+                    initialx = transform.position.x;
 
 
-                }
+                }*/
 
-            }
+             }
          /*   else
             {
                 idle();

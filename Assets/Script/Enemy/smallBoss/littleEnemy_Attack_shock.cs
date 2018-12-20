@@ -38,7 +38,7 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
         {
             /* transform.Translate(Vector3.left * speed * Time.deltaTime);*/
             State_right = false;
-            Debug.Log("  State_right = false");
+          
 
         }
        /* else if (timer >= 2f)
@@ -63,13 +63,13 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
     {
         timer += Time.deltaTime;
         State_left = true;
-        if (timer >= 0.5f && timer <= 1.5f)//暫停時間
+        if (Enemymovement.timer >= 0.5f && Enemymovement.timer <= 1.5f)//暫停時間
         {
             Vector2 transformValue = new Vector2(0, 0);
             // playerRigidbody.velocity = transformValue;
 
         }
-        else if (timer >= 1.5f && timer <= 2f)//返回時間
+        else if (Enemymovement.timer >= 1.5f && Enemymovement.timer <= 2f)//返回時間
         {
            /* transform.Translate(Vector3.right * speed * Time.deltaTime);*/
             State_left = false;
