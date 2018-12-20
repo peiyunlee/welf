@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isMenu&&!playerHealth.isDamaged)
+        if (!isMenu)
         {
             Move();
 
@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (jumpCount < jumpNum)
         {
-            if (playerRigidbody.velocity.y < 10)
+            if (playerRigidbody.velocity.y < 11.5f)
             {
                 canJumping = true;
             }
