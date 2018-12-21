@@ -30,7 +30,7 @@ public class WELFUI : MonoBehaviour {
 	void Update () {
         if (whitchelf == 1)
         {
-            gameobject[0].anim.SetTrigger();
+            anim[0].SetTrigger("");
         }
 	}
 }
