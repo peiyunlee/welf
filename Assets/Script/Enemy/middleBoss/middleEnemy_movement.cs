@@ -96,9 +96,9 @@ public class middleEnemy_movement : MonoBehaviour {
 
 
     float initialx;
-
     bool stat_dead = false;
-
+    int attack_sytle;
+    float attack_timer = 0;
     void Update()
     {
        /* if (stat_dead == false && enemyHealth.isDead)
@@ -125,12 +125,80 @@ public class middleEnemy_movement : MonoBehaviour {
         else
         {*/
 
+
+            
+
             if ((Vector2.Distance(transform.position, main.position) <= followDis))
             {
 
                 if ((Vector2.Distance(transform.position, main.position) <= attackDis))
                 {
+              
+                attack_timer += Time.deltaTime;
+                if ((int)attack_timer%4==0)
+                {
+                    attack_sytle = Random.Range(1, 3);
 
+                }
+              
+                Debug.Log(attack_sytle);
+
+                switch (attack_sytle)
+                {
+                      
+                    case 1:
+                        if (shock.State_left == false&& shock.State_right == false) {
+                            if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
+                            {
+                                anim.SetBool("middle_enemy_normalhit_start", true);
+
+
+                            }
+                            else if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))
+                            {
+                                anim.SetBool("middle_enemy_normalhit_start", true);
+
+
+
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                     
+                        
+
+
+                    case 2:
+                        if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false)
+                        {
+                            shock.State_right = true;
+                            timer += Time.deltaTime;
+                            shock.normalAttack_hit_right();
+
+                            anim.SetBool("middle_enemy_shock_start ", true);
+
+
+                        }
+
+
+                        else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false)
+                        {
+                            shock.State_left = true;
+                            timer += Time.deltaTime;
+                            shock.normalAttack_hit_left();
+
+                            anim.SetBool("middle_enemy_shock_start ", true);
+                        }
+                        break;
+                  
+                        
+                  
+
+
+                }
 
 
 

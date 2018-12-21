@@ -11,6 +11,7 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
     private EnemyAttack_manager EnemyAttack_manager;
     public bool state=false;
     float timer=0;
+
     void middleBoss_hit()
     {
         hit_flag = true;
@@ -28,7 +29,7 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
       
         if (state==false&&EnemyAttack_manager.normalhit_state==true) {
             timer +=Time.deltaTime;
@@ -50,5 +51,5 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
 
 
         }
-    }
+    }*/
 }
