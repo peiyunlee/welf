@@ -41,6 +41,7 @@ public class middleEnemy_movement : MonoBehaviour {
             Vector2 transformValue = new Vector2(-10, 0);
             playerRigidbody.velocity = transformValue;
 
+
         }
     }
 
@@ -131,29 +132,49 @@ public class middleEnemy_movement : MonoBehaviour {
                 {
 
 
-                    if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false)
-                    {
-                        shock.State_right = true;
-                        timer += Time.deltaTime;
-                        shock.normalAttack_hit_right();
-
-                        anim.SetBool("middle_enemy_shock_start ", true);
 
 
-                    }
 
-
-                    else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false)
-                    {
-                        shock.State_left = true;
-                        timer += Time.deltaTime;
-                        shock.normalAttack_hit_left();
-
-                        anim.SetBool("middle_enemy_shock_start ", true);
-                    }
+                //中怪普攻
+                /*
+                if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
+                {
+                    anim.SetBool("middle_enemy_normalhit_start", true);
 
 
                 }
+                else if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))
+                {
+                    anim.SetBool("middle_enemy_normalhit_start", true);
+                   
+
+
+                }*/
+
+                //中怪衝擊
+                /*  if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false)
+                  {
+                      shock.State_right = true;
+                      timer += Time.deltaTime;
+                      shock.normalAttack_hit_right();
+
+                      anim.SetBool("middle_enemy_shock_start ", true);
+
+
+                  }
+
+
+                  else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false)
+                  {
+                      shock.State_left = true;
+                      timer += Time.deltaTime;
+                      shock.normalAttack_hit_left();
+
+                      anim.SetBool("middle_enemy_shock_start ", true);
+                  }
+                  */
+
+            }
 
                 else if ((Vector2.Distance(transform.position, main.position) > attackDis))
                 {
@@ -166,62 +187,13 @@ public class middleEnemy_movement : MonoBehaviour {
             else if ((Vector2.Distance(transform.position, main.position) > attackDis))
             {
                 anim.SetBool("middle_enemy_shock_start ", false);
-                idle();
+            anim.SetBool("middle_enemy_normalhit_start", false);
+            idle();
 
 
             }
 
-       /* }*/
-
-
-        //if ((Vector2.Distance(transform.position, main.position) <= followDis))
-        //{
-
-        //    if ((Vector2.Distance(transform.position, main.position) <= attackDis))
-        //    {
-
-
-        //        if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false)
-        //        {
-        //            shock.State_right = true;
-        //            timer += Time.deltaTime;
-        //            shock.normalAttack_hit_right();
-
-        //            anim.SetBool("middle_enemy_shock_start ", true);
-
-
-        //        }
-
-
-        //        else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false)
-        //        {
-        //            shock.State_left = true;
-        //            timer += Time.deltaTime;
-        //            shock.normalAttack_hit_left();
-
-        //            anim.SetBool("middle_enemy_shock_start ", true);
-        //        }
-
-
-        //    }
-
-        //    else if ((Vector2.Distance(transform.position, main.position) > attackDis))
-        //    {
-
-        //        follow();
-        //    }
-        //}
-
-
-
-
-        //else if ((Vector2.Distance(transform.position, main.position) > attackDis))
-        //{
-        //    anim.SetBool("middle_enemy_shock_start ", false);
-        //    idle();
-
-
-        //}
+      
 
 
 
