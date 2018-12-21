@@ -900,7 +900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 74.3, y: -24}
+  m_AnchoredPosition: {x: 73.8, y: -29.1}
   m_SizeDelta: {x: 61, y: 61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445274558
@@ -923,7 +923,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 2ee83a54ea2123d47850a15cd4e8420b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a7b38bb0a0443884287d7f01cf3be98b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1024,6 +1024,7 @@ GameObject:
   - component: {fileID: 1747970588}
   - component: {fileID: 1747970591}
   - component: {fileID: 1747970590}
+  - component: {fileID: 1747970589}
   m_Layer: 5
   m_Name: WELF1
   m_TagString: Untagged
@@ -1051,6 +1052,24 @@ RectTransform:
   m_AnchoredPosition: {x: -15.800001, y: 45}
   m_SizeDelta: {x: 290.09, y: 216.67}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1747970589
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1747970587}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4ed805f80af0784e98bf9bd590bb5f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1747970590
 MonoBehaviour:
   m_ObjectHideFlags: 0
