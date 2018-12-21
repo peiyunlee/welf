@@ -950,6 +950,7 @@ GameObject:
   - component: {fileID: 1712443396}
   - component: {fileID: 1712443399}
   - component: {fileID: 1712443398}
+  - component: {fileID: 1712443397}
   m_Layer: 5
   m_Name: WELF2
   m_TagString: Untagged
@@ -977,6 +978,24 @@ RectTransform:
   m_AnchoredPosition: {x: 14.1, y: 44.9}
   m_SizeDelta: {x: 220.65, y: 164.8}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1712443397
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1712443395}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3b2c74b3ec48d94299b5eda8b3d317f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1712443398
 MonoBehaviour:
   m_ObjectHideFlags: 0
