@@ -172,26 +172,30 @@ public class middleEnemy_movement : MonoBehaviour {
 
 
                     case 2:
-                        if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false)
-                        {
-                            shock.State_right = true;
-                            timer += Time.deltaTime;
-                            shock.normalAttack_hit_right();
+                      
+                            if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false)
+                            {
+                                shock.State_right = true;
+                                timer += Time.deltaTime;
+                                shock.normalAttack_hit_right();
 
-                            anim.SetBool("middle_enemy_shock_start ", true);
-
-
-                        }
+                                anim.SetBool("middle_enemy_shock_start ", true);
 
 
-                        else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false)
-                        {
-                            shock.State_left = true;
-                            timer += Time.deltaTime;
-                            shock.normalAttack_hit_left();
+                            }
 
-                            anim.SetBool("middle_enemy_shock_start ", true);
-                        }
+
+                            else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false)
+                            {
+                                shock.State_left = true;
+                                timer += Time.deltaTime;
+                                shock.normalAttack_hit_left();
+
+                                anim.SetBool("middle_enemy_shock_start ", true);
+                            }
+
+                        
+                      
                         break;
                   
                         
