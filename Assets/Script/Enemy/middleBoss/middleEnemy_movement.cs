@@ -100,13 +100,13 @@ public class middleEnemy_movement : MonoBehaviour {
 
     void Update()
     {
-        if (stat_dead == false && enemyHealth.isDead)
+       /* if (stat_dead == false && enemyHealth.isDead)
         {
             anim.SetBool("littleEneny_dead", true);
             stat_dead = true;
-        }
+        }*/
 
-        if (enemyHealth.isDead)
+       /* if (enemyHealth.isDead)
         {
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
@@ -122,7 +122,7 @@ public class middleEnemy_movement : MonoBehaviour {
 
         }
         else
-        {
+        {*/
 
             if ((Vector2.Distance(transform.position, main.position) <= followDis))
             {
@@ -171,7 +171,7 @@ public class middleEnemy_movement : MonoBehaviour {
 
             }
 
-        }
+       /* }*/
 
 
         //if ((Vector2.Distance(transform.position, main.position) <= followDis))
