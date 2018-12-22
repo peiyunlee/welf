@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LaboratoryTwo : MonoBehaviour {
-    bool isbossdie;  //boss
-    public int enemycount=20;  //小怪 只要有一隻死掉enemycount--
+    public bool testisbossdie;  //testboss
+    public int testenemycount = 20;  //小怪 只要有一隻死掉enemycount--   test
     [SerializeField]
     private bool gamefinish = false;
     [SerializeField]
@@ -19,11 +19,11 @@ public class LaboratoryTwo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (isbossdie)    //boss死掉
+        if (testisbossdie)    //boss死掉
         {
-            flowchart.SetBooleanVariable("bosscantalk", true);
+            BossTalk.bosscantalk = true;
         }
-        if (isbossdie && enemycount == 0)
+        if (testenemycount == 0&& flowchart.GetBooleanVariable("bosshastalk"))
         {
             gamefinish = true;
             for (int i = 0; i < 2; i++)

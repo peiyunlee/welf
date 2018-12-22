@@ -88,7 +88,7 @@ public class SkillCoolDown : MonoBehaviour {
                     if (currentCoolDown[i] > coolDown)
                     {
                         //testcanuseskill[i] = true;  //test
-                        iscoolskill[i] = true;  //結束冷卻
+                        iscoolskill[i] = false;  //結束冷卻
                     }
                     // 显示冷却动画
                     icon[i].fillAmount = (coolDown - currentCoolDown[i]) / coolDown;
