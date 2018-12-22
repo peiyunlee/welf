@@ -111,6 +111,7 @@ public class ChooseElfController : MonoBehaviour
     }
     public void OnOKBtnClick()
     {
+        Debug.Log(GameManager.chooseelf[0] + "AA" + GameManager.chooseelf[1]);
         AllSceneController.tonextscene = true;
 
     }

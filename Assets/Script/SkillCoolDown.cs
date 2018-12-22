@@ -17,7 +17,7 @@ public class SkillCoolDown : MonoBehaviour {
     [SerializeField]
     private bool[] iscoolskill;      //換水精靈暫停冷卻
 
-    //public bool [] testbool;         //test
+    public bool[] testbool;         //test
     //public bool[] testcanuseskill;      //test 現在有無冷卻可否使用
 
     public void UseSkill(int whitchelf)
@@ -49,6 +49,7 @@ public class SkillCoolDown : MonoBehaviour {
         currentCoolDown = new float[2];
         whitchelfpause = new bool[2];
         iscoolskill = new bool[2];
+        testbool = new bool[2];
         //testcanuseskill = new bool[2];   //test
         for (int i = 0; i < 2; i++)
         {
@@ -61,24 +62,24 @@ public class SkillCoolDown : MonoBehaviour {
     }
     void Update()
     {
-        ///////////////////////////////test///////////////////////////////////////////
-        //if (testbool[0])
-        //{
-        //    UseSkill(1);
-        //    testbool[0] = false;
-        //}
-        //else if (testbool[1])
-        //{
-        //    UseSkill(2);
-        //    testbool[1] = false;
-        //}
-        //////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////test///////////////////////////////////////////
+        if (testbool[0])
+        {
+            UseSkill(1);
+            testbool[0] = false;
+        }
+        else if (testbool[1])
+        {
+            UseSkill(2);
+            testbool[1] = false;
+        }
+        ////////////////////////////////////////////////////////////////////////////
 
         for (int i = 0; i < 2; i++)
         {
             switch (iscoolskill[i])
             {
-                case false:
+                case true:
                     if (currentCoolDown[i] < coolDown)
                     {
                         if(!whitchelfpause[i])// 更新冷却
@@ -92,7 +93,7 @@ public class SkillCoolDown : MonoBehaviour {
                     // 显示冷却动画
                     icon[i].fillAmount = (coolDown - currentCoolDown[i]) / coolDown;
                     break;
-                case true:
+                case false:
                     break;
 
             }

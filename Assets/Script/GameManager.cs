@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
         {
             instance = this;
             DontDestroyOnLoad(this);
+            playercurrenhealth = 20;
         }
         else if (this != instance)  //當第二個GameManager出現刪除
         {
@@ -27,11 +28,11 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        //TEST
-        chooseelf[0] = 2;
-        chooseelf[1] = 3;
-        Debug.Log(chooseelf[0] + ":" + chooseelf[1]);
-        playercurrenhealth = 15;
-        Debug.Log(playercurrenhealth);
+        ////TEST
+        //chooseelf[0] = 2;
+        ////chooseelf[1] = 3;
+        //Debug.Log(chooseelf[0] + ":" + chooseelf[1]);
+        //playercurrenhealth = 15;
+        //Debug.Log(playercurrenhealth);
     }
 }
