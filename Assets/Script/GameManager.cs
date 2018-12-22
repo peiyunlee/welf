@@ -31,9 +31,7 @@ public class GameManager : MonoBehaviour {
         chooseelf[0] = 2;
         chooseelf[1] = 3;
         Debug.Log(chooseelf[0] + ":" + chooseelf[1]);
-    }
-    private void Start()
-    {
-        playercurrenhealth = 20;
+        playercurrenhealth = 15;
+        Debug.Log(playercurrenhealth);
     }
 }

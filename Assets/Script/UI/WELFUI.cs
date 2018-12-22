@@ -16,46 +16,56 @@ public class WELFUI : MonoBehaviour {
     public int whitchelftest;  //test player use whitchelf
     [SerializeField]
     public bool ischangetest;  //test
+    private SkillCoolDown skillcooldown;
     // Use this for initialization
     void Start () {
         anim[0]=gameobject[0].GetComponent<Animator>();
         anim[1] = gameobject[1].GetComponent<Animator>();
-        mychooseelf[0] = 3;
-        mychooseelf[1] = 2;
-        ischangetest = true;
-        whitchelftest = 1;
+        //mychooseelf[0] = GameManager.chooseelf[0];
+        //mychooseelf[1] = GameManager.chooseelf[1];
         anim[0].SetTrigger(mychooseelf[0] + "tobig");
         anim[1].SetTrigger(mychooseelf[1] + "tosmall");
+
+        ////////////////////////////////////////////////TEST////////////////////////////////
+        mychooseelf[0] = 3;        
+        mychooseelf[1] = 2;
+        ischangetest = false;
+        whitchelftest = 1;
+        ///////////////////////////////////////////////////////////////////////////////////
+
+
         //myImage[0].sprite = Resources.Load("Images/UI/遊戲頭像/" + mychooseelf[0] + "_C", typeof(Sprite)) as Sprite;
         //myImage[1].sprite = Resources.Load("Images/UI/遊戲頭像/" + mychooseelf[1] + "_H", typeof(Sprite)) as Sprite;
         //myImage[2].sprite = Resources.Load("Images/UI/遊戲頭像/" + mychooseelf[0] + "_CS", typeof(Sprite)) as Sprite;
         //myImage[3].sprite = Resources.Load("Images/UI/遊戲頭像/ALL_N", typeof(Sprite)) as Sprite;
+
+        skillcooldown = gameObject.GetComponent<SkillCoolDown>();//test
     }
 	
-	// Update is called once per frame
 	void Update () {
+        ////////////////////////////////////////////////TEST////////////////////////////////
         if (ischangetest)
         {
-            ExcuteAnime(ref whitchelftest);
+            skillcooldown.PauseSkillCoolDown(whitchelftest);   //先暫停切換前該水精靈技能
+            whitchelftest = (whitchelftest % 2)+1;   //換哪隻水精靈
+            ExecuteAnime(whitchelftest);     //呼叫切換頭向動畫
+            skillcooldown.StartSkillCoolDown(whitchelftest);     //開始計時切換後該水精靈技能
             ischangetest = false;
         }
-        
+        ///////////////////////////////////////////////////////////////////////////////////
+
     }
-    void ExcuteAnime(ref int whitchelf)
+    void ExecuteAnime(int whitchelf)
     {
         if (whitchelf == 1)
         {
             anim[0].SetTrigger(mychooseelf[0] + "tobig");
             anim[1].SetTrigger(mychooseelf[1] + "tosmall");
-            whitchelf = 2;
-            Debug.Log("1");
         }
         else if (whitchelf == 2)
         {
             anim[0].SetTrigger(mychooseelf[0] + "tosmall");
             anim[1].SetTrigger(mychooseelf[1] + "tobig");
-            whitchelf = 1;
-            Debug.Log("2");
         }
     }
 }

@@ -1,16 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIHeart: MonoBehaviour {
     public GameObject[] lifelove;
     public GameObject[] lifeloveout;
-    public int testcurrentHealth = 20;     //test
+    public int testcurrentHealth = 20;    //test
+    public int Scenestarthealth;    
     [SerializeField]
-    public bool testishurt = false;
+    public bool testishurt = false;   //test
     [SerializeField]
-    public bool testisbox = false;
+    public bool testisbox = false;   //test
     Animator anim;
+    private void Start()
+    {
+        Scenestarthealth = GameManager.playercurrenhealth;    //TEST
+        for (int i = 20; i > Scenestarthealth; i--)
+        {
+            anim = lifelove[i-1].GetComponent<Animator>();
+            anim.SetTrigger("notshow");
+        }
+        Debug.Log(Scenestarthealth);
+    }
     void Update()
     {
         if (testishurt)  //test  生命上限

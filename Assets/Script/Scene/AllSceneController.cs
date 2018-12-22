@@ -34,6 +34,7 @@ public class AllSceneController : MonoBehaviour
     {
         if (iscenenumber>(int)SCENE.LaboratoryOne&& toprescene)    //在關卡LaboratoryOne前沒有回到前一個場景的機制
         {
+            Store();
             iscenenumber -= 1;
             SceneManager.LoadScene(iscenenumber);
             toprescene = !toprescene;
@@ -50,6 +51,7 @@ public class AllSceneController : MonoBehaviour
     void Store()
     {
         GameManager.cleanwatercount = CleanWater.cleanwatercount;
+        //GameManager.playercurrenhealth = PlayerHealth.;   //儲存主角血量
     }
 
 
