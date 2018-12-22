@@ -5,6 +5,7 @@ using UnityEngine;
 public class middleEnemy_movement : MonoBehaviour {
     public Animator anim;
     private middleEnemy_Attack_shock shock;
+    private middleEnemy_Attack_hit hit;
     Rigidbody2D playerRigidbody;
     public Transform main;//要跟随英雄
 
@@ -88,6 +89,7 @@ public class middleEnemy_movement : MonoBehaviour {
         Transform target = GameObject.FindGameObjectWithTag("main").transform;
         enemyHealth = GetComponent<middleEnemy_health>();
         shock = GetComponent<middleEnemy_Attack_shock>();
+        hit = GetComponent<middleEnemy_Attack_hit>();
         anim = GetComponent<Animator>();
         Vector2 temp = transform.localScale;
         temp.x *= -1;
@@ -101,72 +103,74 @@ public class middleEnemy_movement : MonoBehaviour {
     float attack_timer = 0;
     void Update()
     {
-       /* if (stat_dead == false && enemyHealth.isDead)
-        {
-            anim.SetBool("littleEneny_dead", true);
-            stat_dead = true;
-        }*/
+        Debug.Log("hit.normalhit_state=" + hit.normalhit_state);
+        /* if (stat_dead == false && enemyHealth.isDead)
+         {
+             anim.SetBool("littleEneny_dead", true);
+             stat_dead = true;
+         }*/
 
-       /* if (enemyHealth.isDead)
-        {
-            timer_dead += Time.deltaTime;
-            Vector2 transformValue = new Vector2(0, 0);
-            playerRigidbody.velocity = transformValue;
-
-
-            if (timer_dead > 1f)
-            {
-                Destroy(this.gameObject);
-
-            }
+        /* if (enemyHealth.isDead)
+         {
+             timer_dead += Time.deltaTime;
+             Vector2 transformValue = new Vector2(0, 0);
+             playerRigidbody.velocity = transformValue;
 
 
-        }
-        else
-        {*/
+             if (timer_dead > 1f)
+             {
+                 Destroy(this.gameObject);
+
+             }
 
 
-            
+         }
+         else
+         {*/
 
-            if ((Vector2.Distance(transform.position, main.position) <= followDis))
+
+
+
+        if ((Vector2.Distance(transform.position, main.position) <= followDis))
             {
 
                 if ((Vector2.Distance(transform.position, main.position) <= attackDis))
                 {
               
                 attack_timer += Time.deltaTime;
-                if ((int)attack_timer%4==0)
+                if ((int)attack_timer%4==0&& shock.State_left == false && shock.State_right == false&&hit.normalhit_state==false)
                 {
                     attack_sytle = Random.Range(1, 3);
 
                 }
-              
-                Debug.Log(attack_sytle);
+                Debug.Log("timer="+(int)attack_timer);
+                Debug.Log("attack_style="+attack_sytle);
+               /* Debug.Log("shock.State_left=" + shock.State_left);
+                Debug.Log(" shock.State_right=" + shock.State_right);*/
+                Debug.Log("hit.normalhit_state=" + hit.normalhit_state);
 
                 switch (attack_sytle)
                 {
                       
                     case 1:
-                        if (shock.State_left == false&& shock.State_right == false) {
+                       
                             if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
                             {
                                 anim.SetBool("middle_enemy_normalhit_start", true);
+                                hit.middleBoss_hit();
+                                hit.normalhit_state = true;
 
 
                             }
                             else if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))
                             {
                                 anim.SetBool("middle_enemy_normalhit_start", true);
+                                hit.middleBoss_hit();
+                                hit.normalhit_state = true;
 
 
-
-                            }
-                            break;
                         }
-                        else
-                        {
                             break;
-                        }
                      
                         
 

@@ -11,12 +11,16 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
     private EnemyAttack_manager EnemyAttack_manager;
     public bool state=false;
     float timer=0;
+    public bool normalhit_state =false;
 
-    void middleBoss_hit()
+    public void middleBoss_hit()
     {
-        hit_flag = true;
-        Debug.Log("hit_flag=" + hit_flag);
+        timer += Time.deltaTime;
+        if (timer>4f)
+        {
+            normalhit_state = false;
 
+        }
 
     }
 
