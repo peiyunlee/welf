@@ -106,7 +106,7 @@ public class middleEnemy_movement : MonoBehaviour {
 
     float initialx;
     bool stat_dead = false;
-    int attack_sytle;
+    public int attack_sytle;
     float attack_timer = 0;
     void Update()
     {
@@ -148,15 +148,11 @@ public class middleEnemy_movement : MonoBehaviour {
                 if ((int)attack_timer%4==0&& shock.State_left == false && shock.State_right == false&&hit.normalhit_state==false && bighit_state == false)
                 {
                     attack_sytle = Random.Range(1, 4);
+                  
+                  
 
                 }
-               /* Debug.Log("timer="+(int)attack_timer);*/
-                /*Debug.Log("attack_style="+attack_sytle);*/
-                /* Debug.Log("shock.State_left=" + shock.State_left);
-                 Debug.Log(" shock.State_right=" + shock.State_right);*/
-                /*Debug.Log("hit.normalhit_state=" + hit.normalhit_state);*/
-
-
+                
                 //自動轉換攻擊
                 switch (attack_sytle)
                 {
@@ -242,63 +238,7 @@ public class middleEnemy_movement : MonoBehaviour {
                 }
                 
 
-                //中怪前腳踏地衝擊波
-
-               /* if ((main.position.x - transform.position.x > 0))
-                {
-                    
-                    bighit_state = true;
-                    bighit.bighit();
-                  
-
-
-                }
-                if ((main.position.x - transform.position.x < 0))//跟随距离
-                {
-                  
-                    bighit_state = true;
-                    bighit.bighit();
-                 
-                }*/
-
-                //中怪普攻
-                /*
-                if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
-                {
-                    anim.SetBool("middle_enemy_normalhit_start", true);
-
-
-                }
-                else if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))
-                {
-                    anim.SetBool("middle_enemy_normalhit_start", true);
-                   
-
-
-                }*/
-
-                //中怪衝擊
-                /*  if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false)
-                  {
-                      shock.State_right = true;
-                      timer += Time.deltaTime;
-                      shock.normalAttack_hit_right();
-
-                      anim.SetBool("middle_enemy_shock_start ", true);
-
-
-                  }
-
-
-                  else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false)
-                  {
-                      shock.State_left = true;
-                      timer += Time.deltaTime;
-                      shock.normalAttack_hit_left();
-
-                      anim.SetBool("middle_enemy_shock_start ", true);
-                  }
-                  */
+              
 
             }
 
@@ -314,7 +254,7 @@ public class middleEnemy_movement : MonoBehaviour {
             {
                 anim.SetBool("middle_enemy_shock_start ", false);
                 anim.SetBool("middle_enemy_normalhit_start", false);
-            anim.SetBool("middle_enemy_shock_start ", false);
+                anim.SetBool("middle_enemy_bighit_start ", false);
             idle();
 
 

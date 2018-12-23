@@ -5,7 +5,7 @@ using UnityEngine;
 public class rightBulletController : MonoBehaviour {
     public float rate = 3; //發子彈的速率
     public GameObject bullet;//取得子彈的gameobject
-    bool state = false;
+    public bool state = false;
     private middleEnemy_movement movement;
    
     // Use this for initialization
@@ -20,7 +20,7 @@ public class rightBulletController : MonoBehaviour {
        if (state == false&& EnemyAttack_manager.bighit_state_right == true) {  //判斷是否開火，state則確保僅開火一次
             
             fire();
-            state = true;
+           state = true;
         }
      
     }

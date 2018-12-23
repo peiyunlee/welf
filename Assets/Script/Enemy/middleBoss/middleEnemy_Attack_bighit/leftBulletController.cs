@@ -12,7 +12,7 @@ public class leftBulletController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         movement = GetComponent<middleEnemy_movement>(); //與外部判斷是否fire做連結
-
+        
        
 
     }

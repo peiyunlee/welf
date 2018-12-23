@@ -13,6 +13,8 @@ public class EnemyAttack_manager : MonoBehaviour {
     public static bool normalhit_state = false;
     public static bool shockhit_state = false;
     private middleEnemy_movement movement;
+    private rightBulletController right;
+    private leftBulletController left;
     private int change_attack ;
     // Use this for initialization
    
@@ -22,10 +24,18 @@ public class EnemyAttack_manager : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         movement = GetComponent<middleEnemy_movement>();
+        right = GetComponent<rightBulletController>();
+        left = GetComponent<leftBulletController>();
 
     }
 
     // Update is called once per 
+    public void refresh()
+    {
+        right.state = false;
+        left.state = false;
+
+    }
 
      public void bighit()
     {
@@ -35,7 +45,7 @@ public class EnemyAttack_manager : MonoBehaviour {
         {
             timer += Time.deltaTime;
             bighit_state_right = true;
-            Debug.Log(timer);
+            
             if (timer > 0f && timer < 1f)
             {
                 anim.SetBool("middle_enemy_bighit_start", true);
@@ -56,7 +66,7 @@ public class EnemyAttack_manager : MonoBehaviour {
         {
             timer += Time.deltaTime;
             bighit_state_left = true;
-            Debug.Log(timer);
+           
             if (timer > 0f && timer < 1f)
             {
                 anim.SetBool("middle_enemy_bighit_start", true);
