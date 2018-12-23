@@ -56,9 +56,6 @@ TagManager:
   - name: bg
     uniqueID: 327658059
     locked: 0
-  - name: Welf
-    uniqueID: 2918889949
-    locked: 0
   - name: floor
     uniqueID: 2248609775
     locked: 0
@@ -71,8 +68,14 @@ TagManager:
   - name: Enemy
     uniqueID: 3482396853
     locked: 0
+  - name: Welf
+    uniqueID: 2918889949
+    locked: 0
   - name: Player
     uniqueID: 3355243175
+    locked: 0
+  - name: attack
+    uniqueID: 3430573977
     locked: 0
   - name: door
     uniqueID: 3431377923

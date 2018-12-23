@@ -1560,7 +1560,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2046357521
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 664e81aecec934457ba681b378fe5dfc, type: 3}
   m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
@@ -1657,7 +1657,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2046357521
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 664e81aecec934457ba681b378fe5dfc, type: 3}
   m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
@@ -2173,7 +2173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &603738480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3213,7 +3213,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2046357521
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 664e81aecec934457ba681b378fe5dfc, type: 3}
   m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
@@ -3314,11 +3314,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4682104191197762, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.5
+      value: -8.605
       objectReference: {fileID: 0}
     - target: {fileID: 4682104191197762, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.5
+      value: -7.478
       objectReference: {fileID: 0}
     - target: {fileID: 4682104191197762, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3480,7 +3480,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 624805751
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: efc4da414af1ce94b83e67a7d0eb73ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

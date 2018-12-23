@@ -9,6 +9,9 @@ public class VillageTwo : MonoBehaviour
     private Fungus.Flowchart flowchart;
     [SerializeField]
     private GameObject [] target;
+    [SerializeField]
+    public GameObject Playerwelf;
+    public GameObject [] UIcanvas;
     // Use this for initialization
     void Start()
     {
@@ -30,6 +33,12 @@ public class VillageTwo : MonoBehaviour
             PlayerMovement.isMenu = true;
             target[0].GetComponent<BoxCollider2D>().isTrigger = true;
             target[1].GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+        if (flowchart.GetBooleanVariable("getwelf") == true)
+        {
+            Playerwelf.SetActive(true);
+            UIcanvas[0].SetActive(false);
+            UIcanvas[1].SetActive(true);
         }
     }
 }
