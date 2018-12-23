@@ -21,7 +21,7 @@ public class middleEnemy_movement : MonoBehaviour
     float attackDis = 30f;
     public float idle_speed = 20f;//移動速度
     public float follow_speed = 15f;//跟隨速度
-    private middleEnemy_Health enemyHealth;
+    private middleEnemy_health enemyHealth;
 
     public float timer = 0;
     public float timer_bighit = 0;
@@ -92,8 +92,9 @@ public class middleEnemy_movement : MonoBehaviour
     void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
-        Transform target = GameObject.FindGameObjectWithTag("main").transform;
-        enemyHealth = GetComponent<middleEnemy_Health>();
+        main = GameObject.FindGameObjectWithTag("Player").transform;
+        Transform target = GameObject.FindGameObjectWithTag("Player").transform;
+        enemyHealth = GetComponent<middleEnemy_health>();
         shock = GetComponent<middleEnemy_Attack_shock>();
         hit = GetComponent<middleEnemy_Attack_hit>();
         right = GetComponent<rightBulletController>();
@@ -288,7 +289,7 @@ public class middleEnemy_movement : MonoBehaviour
             {
                 anim.SetBool("middle_enemy_shock_start ", false);
                 anim.SetBool("middle_enemy_normalhit_start", false);
-                anim.SetBool("middle_enemy_bighit_start ", false);
+                //anim.SetBool("middle_enemy_bighit_start ", false);
                 idle();
 
 

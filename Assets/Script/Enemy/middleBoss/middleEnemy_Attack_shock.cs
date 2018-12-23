@@ -84,7 +84,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
     {
         initialposition = transform.position.x;
         playerRigidbody = GetComponent<Rigidbody2D>();
-        Transform target = GameObject.FindGameObjectWithTag("main").transform;
+        //Transform target = GameObject.FindGameObjectWithTag("main").transform;
         Enemymovement = GetComponent<middleEnemy_movement>(); //與外部判斷是否fire做連結
 
     }
