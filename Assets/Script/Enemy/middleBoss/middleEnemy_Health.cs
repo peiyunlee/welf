@@ -14,7 +14,7 @@ public class middleEnemy_Health : MonoBehaviour {
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
-    public bool isDead;
+    public bool isDead=false;
     bool isSinking;
     bool bullet_tag = false;
     // Use this for initialization

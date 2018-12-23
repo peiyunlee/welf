@@ -166,6 +166,7 @@ MonoBehaviour:
   rate: 3
   bullet: {fileID: 1237070143637136, guid: 7aa8d389eab0b274c83965b057d8ee51, type: 2}
   state: 0
+  movement: {fileID: 0}
 --- !u!114 &114452052261196562
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rate: 3
   bullet: {fileID: 1683738802114466, guid: b1f41dd7147d19040bbb769950debf64, type: 2}
+  state: 0
 --- !u!114 &114529345334893204
 MonoBehaviour:
   m_ObjectHideFlags: 1
