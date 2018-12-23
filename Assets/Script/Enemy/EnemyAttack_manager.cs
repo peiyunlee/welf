@@ -25,23 +25,23 @@ public class EnemyAttack_manager : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
-    void Update () {//記得加swithcase後 所有enemymovement的state全都要refresh
+    // Update is called once per 
 
+     public void bighit()
+    {
 
-        //bighit開始攻擊
 
         if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
         {
             timer += Time.deltaTime;
-            bighit_state_left = true;
+            bighit_state_right = true;
 
             if (timer > 0f && timer < 1f)
             {
                 anim.SetBool("middle_enemy_bighit_start", true);
             }
 
-            Debug.Log(timer);
+            
 
             if (timer > 2f && timer < 3f)
             {
@@ -61,13 +61,60 @@ public class EnemyAttack_manager : MonoBehaviour {
                 anim.SetBool("middle_enemy_bighit_start", true);
             }
 
-            Debug.Log(timer);
+         
 
             if (timer > 2f && timer < 3f)
             {
                 anim.SetBool("middle_enemy_bighit_start", false);
             }
         }
+
+    }
+
+
+
+    void Update () {//記得加swithcase後 所有enemymovement的state全都要refresh
+
+
+        //bighit開始攻擊
+
+      /*  if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
+        {
+            timer += Time.deltaTime;
+            bighit_state_right = true;
+
+            if (timer > 0f && timer < 1f)
+            {
+                anim.SetBool("middle_enemy_bighit_start", true);
+            }
+
+            
+
+            if (timer > 2f && timer < 3f)
+            {
+                anim.SetBool("middle_enemy_bighit_start", false);
+            }
+
+
+
+        }
+        if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))//跟随距离
+        {
+            timer += Time.deltaTime;
+            bighit_state_left = true;
+
+            if (timer > 0f && timer < 1f)
+            {
+                anim.SetBool("middle_enemy_bighit_start", true);
+            }
+
+           
+
+            if (timer > 2f && timer < 3f)
+            {
+                anim.SetBool("middle_enemy_bighit_start", false);
+            }
+        }*/
 
         //normalhit
         /*

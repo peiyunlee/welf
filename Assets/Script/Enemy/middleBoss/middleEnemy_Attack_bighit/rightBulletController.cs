@@ -6,12 +6,12 @@ public class rightBulletController : MonoBehaviour {
     public float rate = 3; //發子彈的速率
     public GameObject bullet;//取得子彈的gameobject
     bool state = false;
-    private EnemyAttack_manager EnemyAttack_manager;
+    private middleEnemy_movement movement;
    
     // Use this for initialization
     void Start()
     {
-        EnemyAttack_manager = GetComponent<EnemyAttack_manager>(); //與外部判斷是否fire做連結
+        movement = GetComponent<middleEnemy_movement>(); //與外部判斷是否fire做連結
     }
 
 
