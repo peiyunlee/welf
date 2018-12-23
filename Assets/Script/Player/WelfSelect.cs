@@ -7,6 +7,7 @@ public class WelfSelect : MonoBehaviour
     public GameObject[] mainWelf;//所有水精靈
 
     private GameObject mpMainWelf;//主要角色
+    private GameObject spMainWelf;
 
     [SerializeField]
     private int iWelfCount = 0;//計算第幾隻水精靈
@@ -15,9 +16,16 @@ public class WelfSelect : MonoBehaviour
 
     private int[] chooseWelf = new int[2];//存放玩家所選的水精靈
 
+    private bool canChange = true;
+    private bool isChange=false;
+    private float timer = 0;
+    public float changeTime = 2.0f;
+
+    Transform mainTrans;
     [SerializeField]
     GameManager gameManager;
-
+    [SerializeField]
+    SkillSet skillSet;
     // Use this for initialization
     void Start()
     {
@@ -26,14 +34,22 @@ public class WelfSelect : MonoBehaviour
             //chooseWelf[i] = GameManager.chooseelf[i];
             chooseWelf[i] = testWelf[i];
         }//設定玩家選哪幾隻elf
+
+        mainTrans = GameObject.FindWithTag("Player").transform;
+
+        spMainWelf = null;
+        isChange = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ChangeCharacter();
+        
+            ChangeCharacter();
+ 
 
-        //Debug.Log(mpMainWelf);
+        isChange = false;
+        //Debug.Log(canChange);
 
     }
 
@@ -47,6 +63,7 @@ public class WelfSelect : MonoBehaviour
                 iWelfCount = 0;
             }
             mpMainWelf = null;
+            isChange = true;
         }
 
         switch (iWelfCount)
@@ -70,11 +87,19 @@ public class WelfSelect : MonoBehaviour
                 }
                 break;
         }
-        for (int i = 0; i < mainWelf.Length; i++)
+        //for (int i = 0; i < mainWelf.Length; i++)
+        //{
+        //    mainWelf[i].SetActive(false);
+        //}
+        //mpMainWelf.SetActive(true);
+        //設定主要Welf為active 
+        if (isChange)
         {
-            mainWelf[i].SetActive(false);
+            for (int i = 0; i < mainWelf.Length; i++)
+            {
+                DestroyImmediate(GameObject.FindGameObjectWithTag("Welf"), true);
+            }
+            Instantiate(mpMainWelf, mainTrans);
         }
-        mpMainWelf.SetActive(true);
-        //設定主要Welf為active
     }
 }

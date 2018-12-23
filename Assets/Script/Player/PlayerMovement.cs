@@ -16,10 +16,12 @@ public class PlayerMovement : MonoBehaviour
     State state;
 
     //數值設定
+    public float skillSpeed = 5000;
     public float moveSpeed = 10;
     public float jumpSpeed = 5000;
     public int jumpNum = 2;
     public static int jumpCount = 0;
+    Vector2 transformValue;
 
     //設定按鍵
     private float keyVertical;
@@ -83,27 +85,27 @@ public class PlayerMovement : MonoBehaviour
     //移動
     void Move()
     {
-        Vector2 transformValue = new Vector2(keyHorizontal * moveSpeed, playerRigidbody.velocity.y);
+            transformValue = new Vector2(keyHorizontal * moveSpeed, playerRigidbody.velocity.y);
 
-        if (keyHorizontal == 1)
-        {
-            playerAnim.SetTrigger("IdWa");
-            SetPlayerState(State.playerRight);
-        }
+            if (keyHorizontal == 1)
+                {
+                    playerAnim.SetTrigger("IdWa");
+                    SetPlayerState(State.playerRight);
+                }
 
-        if (keyHorizontal == -1)
-        {
-            playerAnim.SetTrigger("IdWa");
-            SetPlayerState(State.playerLeft);
-        }
+            if (keyHorizontal == -1)
+            {
+                playerAnim.SetTrigger("IdWa");
+                SetPlayerState(State.playerLeft);
+            }
 
-        if (keyHorizontal == 0)
-        {
-            playerAnim.SetTrigger("WaId");
-            isWalking = false;
-        }
-
-        playerRigidbody.velocity = transformValue;
+            if (keyHorizontal == 0)
+            {
+                playerAnim.SetTrigger("WaId");
+                isWalking = false;
+            }
+         
+            playerRigidbody.velocity = transformValue;       
     }
 
     //跳躍
@@ -189,7 +191,5 @@ public class PlayerMovement : MonoBehaviour
             isWalking = false;
         }
         playerAnim.SetBool("isWalking", isWalking);
-
-        //playerAnim.SetBool("isJumping", !isGround);
     }
 }

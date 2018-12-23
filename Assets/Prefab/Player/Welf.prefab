@@ -56,5 +56,5 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   iWelfCount: 0
-  gameManager: {fileID: 114441653501225366, guid: 2aa7240346a6f994f9459281e33fc3b7,
-    type: 2}
+  testWelf: 0000000002000000
+  gameManager: {fileID: 0}
