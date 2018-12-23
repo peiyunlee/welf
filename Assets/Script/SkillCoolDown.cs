@@ -15,7 +15,7 @@ public class SkillCoolDown : MonoBehaviour {
     [SerializeField]
     private bool[] whitchelfpause;      //換水精靈暫停冷卻
     [SerializeField]
-    private bool[] iscoolskill;      //換水精靈暫停冷卻
+    public bool[] iscoolskill;      //換水精靈暫停冷卻
 
     public bool[] testbool;         //test
     //public bool[] testcanuseskill;      //test 現在有無冷卻可否使用

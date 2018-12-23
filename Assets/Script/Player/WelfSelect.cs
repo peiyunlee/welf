@@ -10,9 +10,10 @@ public class WelfSelect : MonoBehaviour
     private GameObject spMainWelf;
     public GameObject welfuiobject;
     private WELFUI welfui;
+    private SkillCoolDown skillcooldown;
 
     [SerializeField]
-    private int iWelfCount = 1;//計算第幾隻水精靈
+    public static int iWelfCount = 1;//計算第幾隻水精靈
     //[SerializeField]
     //private int[] testWelf = new int[2];//GameManager的傳值測試
 
@@ -22,7 +23,7 @@ public class WelfSelect : MonoBehaviour
     private bool isChange=false;
     private float timer = 0;
     public float changeTime = 2.0f;
-
+    [SerializeField]
     Transform mainTrans;
     [SerializeField]
     SkillSet skillSet;
@@ -39,10 +40,11 @@ public class WelfSelect : MonoBehaviour
 
         spMainWelf = null;
         isChange = true;
+        iWelfCount = 1;
 
-        welfui=welfuiobject.GetComponent<WELFUI>();
-        Debug.Log("aaaa" + GameManager.chooseelf[0] + "aaaaa" + GameManager.chooseelf[1]);
-        Debug.Log("bbbb" + chooseWelf[0] + "bbbb" + chooseWelf[1]);
+        welfuiobject = GameObject.FindWithTag("WelfUI");
+        welfui =welfuiobject.GetComponent<WELFUI>();
+        skillcooldown = welfuiobject.GetComponent<SkillCoolDown>();
     }
 
     // Update is called once per frame
@@ -61,12 +63,14 @@ public class WelfSelect : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
+            skillcooldown.PauseSkillCoolDown(iWelfCount);
             iWelfCount++;
             if (iWelfCount >= 3)
             {
                 iWelfCount = 1;
             }
             welfui.ExecuteAnime(iWelfCount);
+            skillcooldown.StartSkillCoolDown(iWelfCount);
             mpMainWelf = null;
             isChange = true;
         }
@@ -104,6 +108,7 @@ public class WelfSelect : MonoBehaviour
             {
                 DestroyImmediate(GameObject.FindGameObjectWithTag("Welf"), true);
             }
+            //Debug.Log(mpMainWelf.name);
             Instantiate(mpMainWelf, mainTrans);
         }
     }

@@ -9604,7 +9604,7 @@ GameObject:
   m_IsActive: 1
 --- !u!114 &1064157735
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064157734}
@@ -9661,7 +9661,7 @@ MonoBehaviour:
   - {fileID: 1064157747}
 --- !u!114 &1064157737
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064157734}
@@ -9678,7 +9678,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &1064157738
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064157734}
@@ -9691,7 +9691,7 @@ MonoBehaviour:
   message: DoorOpen
 --- !u!114 &1064157739
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064157734}
@@ -9817,7 +9817,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 1665957816}
   stateName:
     stringRef: {fileID: 0}
     stringVal: Idle
@@ -9842,7 +9842,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
+    gameObjectVal: {fileID: 1665957815}
   _tweenName:
     stringRef: {fileID: 0}
     stringVal: 
@@ -9876,7 +9876,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 1665957816}
   stateName:
     stringRef: {fileID: 0}
     stringVal: runrunrun
@@ -9888,7 +9888,7 @@ MonoBehaviour:
     floatVal: 0
 --- !u!114 &1064157747
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064157734}
@@ -9964,7 +9964,7 @@ MonoBehaviour:
   waitForFrames: 30
 --- !u!114 &1064157749
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064157734}
@@ -9984,7 +9984,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &1064157750
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064157734}
@@ -15258,6 +15258,10 @@ Prefab:
       propertyPath: m_FillAmount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1293950405101140, guid: ee4180d7e7f80784abc4ddc6a90c783d, type: 2}
+      propertyPath: m_TagString
+      value: WelfUI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee4180d7e7f80784abc4ddc6a90c783d, type: 2}
   m_IsPrefabAsset: 0
@@ -16465,6 +16469,11 @@ Prefab:
       propertyPath: welfuiobject
       value: 
       objectReference: {fileID: 1559018689}
+    - target: {fileID: 114331975343718892, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+        type: 2}
+      propertyPath: mainTrans
+      value: 
+      objectReference: {fileID: 1665957814}
     m_RemovedComponents:
     - {fileID: 114543868811093340, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
@@ -16477,6 +16486,11 @@ Transform:
 --- !u!1 &1665957815 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1472618838718074, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1665957813}
+--- !u!95 &1665957816 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95521767301265188, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
     type: 2}
   m_PrefabInternal: {fileID: 1665957813}
 --- !u!1 &1679362374
@@ -17216,7 +17230,7 @@ GameObject:
   - component: {fileID: 1770796722}
   - component: {fileID: 1770796723}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PlayerAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

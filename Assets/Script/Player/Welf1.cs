@@ -20,27 +20,32 @@ public class Welf1 : SkillSet {
     [SerializeField]
     GameObject water;
     HealthTest healthTest;
+    public GameObject welfuiobject;
+    private SkillCoolDown skillcooldown;
     // Use this for initialization
     void Start () {
         healthTest = null;
         player = GameObject.FindWithTag("Player");
         playAnim = player.GetComponent<Animator>();
 
-        welfAnim = GetComponent<Animator>();    
+        welfAnim = GetComponent<Animator>();
+
+        welfuiobject = GameObject.FindWithTag("WelfUI");
+        skillcooldown = welfuiobject.GetComponent<SkillCoolDown>();
     }
 	
 	// Update is called once per frame
 	void Update () {
         GetKey();
         
-        if (keySkill&&!isSkill)
+        if (keySkill&&!isSkill&& !skillcooldown.iscoolskill[WelfSelect.iWelfCount-1])
         {
             isSkill = true;
             if (isTouch)
             {
                 healthTest.TakeDamage(hurt);
             }
-
+            skillcooldown.UseSkill(WelfSelect.iWelfCount);
         }
 
         if (isSkill)
