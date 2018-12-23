@@ -38,9 +38,11 @@ GameObject:
   - component: {fileID: 212774348041999008}
   - component: {fileID: 61240027895698498}
   - component: {fileID: 50497421258626232}
+  - component: {fileID: 114260112812288802}
   - component: {fileID: 114441414141742446}
   - component: {fileID: 114030374349524348}
   - component: {fileID: 114171259977254700}
+  - component: {fileID: 114664680665542514}
   - component: {fileID: 95385528052245256}
   m_Layer: 0
   m_Name: middleEnemy
@@ -72,7 +74,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477962759163456}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.4, y: 5, z: 0}
+  m_LocalPosition: {x: 7.1, y: -3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4944019397985532}
@@ -85,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1745617971327030}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 4.6, z: 0}
+  m_LocalPosition: {x: -2.3, y: -2.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4944019397985532}
@@ -97,9 +99,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1541264432672646}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.10432, y: 3.869998, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 86.9, y: -12.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4736308736178354}
   - {fileID: 4223302808085476}
@@ -142,7 +144,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.29, y: 19.5}
+    oldSize: {x: 17.4, y: 17.8}
     newSize: {x: 17.4, y: 17.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -180,13 +182,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15e17be3e3265b478d610995494d40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 95385528052245256}
+  anim: {fileID: 0}
   main: {fileID: 0}
-  bighit_state_left: 0
-  idle_speed: -10
+  check: 1
+  bighit_state: 0
+  idle_speed: 10
   follow_speed: 15
-  timer: 5.73239
+  timer: 0
   timer_bighit: 0
+  attack_sytle: 0
+  gethurt: 0
 --- !u!114 &114171259977254700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,6 +207,18 @@ MonoBehaviour:
   hit_flag: 0
   state: 0
   normalhit_state: 0
+--- !u!114 &114260112812288802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541264432672646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628647d98611fff488e1fd82869e9707, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  main: {fileID: 0}
 --- !u!114 &114281247458897178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,6 +233,7 @@ MonoBehaviour:
   rate: 3
   bullet: {fileID: 1237070143637136, guid: 7aa8d389eab0b274c83965b057d8ee51, type: 2}
   state: 0
+  movement: {fileID: 0}
 --- !u!114 &114291382548289972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,7 +246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 3
-  bullet: {fileID: 1683738802114466, guid: b1f41dd7147d19040bbb769950debf64, type: 2}
+  bullet: {fileID: 0}
+  state: 0
 --- !u!114 &114441414141742446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,6 +264,21 @@ MonoBehaviour:
   timer: 0
   State_right: 0
   State_left: 0
+--- !u!114 &114664680665542514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1541264432672646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4667a9f8b1dad0c46836242db5509e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 50
+  currentHealth: 0
+  enemy_dead: 0
+  isDead: 0
 --- !u!212 &212774348041999008
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -280,7 +314,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7b136023553ae5a42a0d149720e10aa6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8bac16f3eb8633842a2f787a93556bb4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
