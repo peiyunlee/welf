@@ -14,6 +14,8 @@ TagManager:
   - bullet
   - Wall
   - EnemyTest
+  - Welf
+  - Water
   layers:
   - Default
   - TransparentFX

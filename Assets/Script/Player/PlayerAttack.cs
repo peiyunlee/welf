@@ -14,8 +14,6 @@ public class PlayerAttack : AttackDetect
     int hurt;
     int attackCount = 0;
     bool keyAttack;
-    bool keySkill;
-    bool isSkill;
 
     //動畫名稱
     private const string idleState = "Idle";
@@ -103,21 +101,15 @@ public class PlayerAttack : AttackDetect
                 playerAnim.SetInteger("Attack", attackCount);
             }
         }
-
-        if (keySkill)
-        {
-            playerAnim.SetTrigger("isSkill");
-        }
     }
 
     void GetKey()
     {
         keyAttack = Input.GetButtonDown("Attack");
-        keySkill = Input.GetButtonDown("Skill");
     }
 
     void Animating()
     {
-
+            
     }
 }

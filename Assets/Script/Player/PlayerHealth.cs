@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
         playerAnim.SetTrigger("isDamaged");
 
         //Debug.Log("health.take");
-        Debug.Log(currentHealth);
+        //Debug.Log(currentHealth);
 
         //isDamaged = false;
         //if (currentHealth <= 0 && !isDead)
