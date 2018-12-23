@@ -55,7 +55,7 @@ public class WELFUI : MonoBehaviour {
         ///////////////////////////////////////////////////////////////////////////////////
 
     }
-    void ExecuteAnime(int whitchelf)
+    public void ExecuteAnime(int whitchelf)
     {
         if (whitchelf == 1)
         {

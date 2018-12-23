@@ -8,11 +8,13 @@ public class WelfSelect : MonoBehaviour
 
     private GameObject mpMainWelf;//主要角色
     private GameObject spMainWelf;
+    public GameObject welfuiobject;
+    private WELFUI welfui;
 
     [SerializeField]
-    private int iWelfCount = 0;//計算第幾隻水精靈
-    [SerializeField]
-    private int[] testWelf = new int[2];//GameManager的傳值測試
+    private int iWelfCount = 1;//計算第幾隻水精靈
+    //[SerializeField]
+    //private int[] testWelf = new int[2];//GameManager的傳值測試
 
     private int[] chooseWelf = new int[2];//存放玩家所選的水精靈
 
@@ -23,22 +25,24 @@ public class WelfSelect : MonoBehaviour
 
     Transform mainTrans;
     [SerializeField]
-    GameManager gameManager;
-    [SerializeField]
     SkillSet skillSet;
     // Use this for initialization
     void Start()
     {
         for (int i = 0; i < 2; i++)
         {
-            //chooseWelf[i] = GameManager.chooseelf[i];
-            chooseWelf[i] = testWelf[i];
+            chooseWelf[i] = GameManager.chooseelf[i];
+            //chooseWelf[i] = testWelf[i];
         }//設定玩家選哪幾隻elf
 
         mainTrans = GameObject.FindWithTag("Player").transform;
 
         spMainWelf = null;
         isChange = true;
+
+        welfui=welfuiobject.GetComponent<WELFUI>();
+        Debug.Log("aaaa" + GameManager.chooseelf[0] + "aaaaa" + GameManager.chooseelf[1]);
+        Debug.Log("bbbb" + chooseWelf[0] + "bbbb" + chooseWelf[1]);
     }
 
     // Update is called once per frame
@@ -58,30 +62,31 @@ public class WelfSelect : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             iWelfCount++;
-            if (iWelfCount >= 2)
+            if (iWelfCount >= 3)
             {
-                iWelfCount = 0;
+                iWelfCount = 1;
             }
+            welfui.ExecuteAnime(iWelfCount);
             mpMainWelf = null;
             isChange = true;
         }
 
         switch (iWelfCount)
         {
-            case 0:
-                {
-                    if (mpMainWelf == null)
-                    {
-                        mpMainWelf = mainWelf[chooseWelf[0]];
-                        //設定主要Welf為第一隻
-                    }
-                }
-                break;
             case 1:
                 {
                     if (mpMainWelf == null)
                     {
-                        mpMainWelf = mainWelf[chooseWelf[1]];
+                        mpMainWelf = mainWelf[chooseWelf[0]-1];
+                        //設定主要Welf為第一隻
+                    }
+                }
+                break;
+            case 2:
+                {
+                    if (mpMainWelf == null)
+                    {
+                        mpMainWelf = mainWelf[chooseWelf[1]-1];
                         //設定主要Welf為第二隻
                     }
                 }

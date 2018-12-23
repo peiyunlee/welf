@@ -21,14 +21,15 @@ public class PlayerAttack : AttackDetect
     private const string attack1State = "Attack1";
     private const string attack2State = "Attack2";
 
+    public GameObject player;
     PlayerMovement playerMovement;
     Animator playerAnim;
     AnimatorStateInfo animSta;
     // Use this for initialization
     void Start()
     {
-        playerAnim = GetComponent<Animator>();
-        playerMovement = GetComponent<PlayerMovement>();
+        playerAnim = player.GetComponent<Animator>();
+        playerMovement = player.GetComponent<PlayerMovement>();
 
         hurt = 0;
     }

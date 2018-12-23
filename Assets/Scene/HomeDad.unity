@@ -207,8 +207,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 5242548}
-  selectedCommands: []
+  - {fileID: 5242550}
+  selectedCommands:
+  - {fileID: 5242574}
   variables:
   - {fileID: 5242536}
   - {fileID: 5242546}
@@ -409,7 +410,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 475753207}
   stateName:
     stringRef: {fileID: 0}
     stringVal: Idle
@@ -434,7 +435,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
+    gameObjectVal: {fileID: 475753203}
   _tweenName:
     stringRef: {fileID: 0}
     stringVal: 
@@ -468,7 +469,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 475753207}
   stateName:
     stringRef: {fileID: 0}
     stringVal: runrunrun
@@ -1301,7 +1302,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 475753207}
   stateName:
     stringRef: {fileID: 0}
     stringVal: runrunrun
@@ -1326,7 +1327,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
+    gameObjectVal: {fileID: 475753203}
   _tweenName:
     stringRef: {fileID: 0}
     stringVal: 
@@ -1377,7 +1378,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 475753207}
   stateName:
     stringRef: {fileID: 0}
     stringVal: Idle
@@ -1402,7 +1403,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 475753207}
   stateName:
     stringRef: {fileID: 0}
     stringVal: Idle
@@ -1896,26 +1897,26 @@ Prefab:
     - target: {fileID: 224166248181156422, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224154906587042948, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224834486147963312, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224624879578017384, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1847795293344942, guid: adcf0461d6695ab44a2bf28fc935c82e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1847795293344942, guid: adcf0461d6695ab44a2bf28fc935c82e, type: 2}
       propertyPath: m_Name
@@ -2177,6 +2178,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &475753203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1472618838718074, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1239771088}
+--- !u!95 &475753207 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95521767301265188, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1239771088}
 --- !u!1 &521407284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2654,6 +2665,11 @@ Prefab:
     - target: {fileID: 4682104191197762, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.84999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 114543868811093340, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}

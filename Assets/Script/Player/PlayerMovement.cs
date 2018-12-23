@@ -58,10 +58,10 @@ public class PlayerMovement : MonoBehaviour
 
         Animating();
 
-        if (keyMenu)
-        {
-            isMenu = !isMenu;
-        }
+        //if (keyMenu)
+        //{
+        //    isMenu = !isMenu;
+        //}
     }
 
     void FixedUpdate()

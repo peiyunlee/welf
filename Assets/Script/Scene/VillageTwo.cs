@@ -12,7 +12,9 @@ public class VillageTwo : MonoBehaviour
     [SerializeField]
     public GameObject Playerwelf;
     public GameObject [] UIcanvas;
-    // Use this for initialization
+    public GameObject playerattackscript;
+    private PlayerAttack playerattack;
+    // Use this for initializationl
     void Start()
     {
         target[0].GetComponent<BoxCollider2D>().isTrigger = true;
@@ -36,9 +38,9 @@ public class VillageTwo : MonoBehaviour
         }
         if (flowchart.GetBooleanVariable("getwelf") == true)
         {
-            Playerwelf.SetActive(true);
             UIcanvas[0].SetActive(false);
             UIcanvas[1].SetActive(true);
+            playerattackscript.SetActive(true);
         }
     }
 }
