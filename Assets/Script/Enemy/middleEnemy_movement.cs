@@ -16,7 +16,7 @@ public class middleEnemy_movement : MonoBehaviour {
     bool border_tag = false;//是否碰到限制範圍
     public bool bighit_state = false;
     float followDis = 30f;//達到此距離開始跟隨
-    float attackDis = 20f;
+    float attackDis = 30f;
     public float idle_speed = 20f;//移動速度
     public float follow_speed = 15f;//跟隨速度
     private middleEnemy_health enemyHealth;
@@ -102,7 +102,7 @@ public class middleEnemy_movement : MonoBehaviour {
         temp.x *= -1;
         transform.localScale = temp;
     }
-
+    
 
     float initialx;
     bool stat_dead = false;
@@ -145,25 +145,25 @@ public class middleEnemy_movement : MonoBehaviour {
                 {
               
                 attack_timer += Time.deltaTime;
-                if ((int)attack_timer%4==0&& shock.State_left == false && shock.State_right == false&&hit.normalhit_state==false)
+                if ((int)attack_timer%4==0&& shock.State_left == false && shock.State_right == false&&hit.normalhit_state==false && bighit_state == false)
                 {
-                    attack_sytle = Random.Range(1, 3);
+                    attack_sytle = Random.Range(1, 4);
 
                 }
                /* Debug.Log("timer="+(int)attack_timer);*/
-                Debug.Log("attack_style="+attack_sytle);
+                /*Debug.Log("attack_style="+attack_sytle);*/
                 /* Debug.Log("shock.State_left=" + shock.State_left);
                  Debug.Log(" shock.State_right=" + shock.State_right);*/
                 /*Debug.Log("hit.normalhit_state=" + hit.normalhit_state);*/
 
 
                 //自動轉換攻擊
-                /*switch (attack_sytle)
+                switch (attack_sytle)
                 {
                       
                     case 1:
 
-                        if (shock.State_left == false && shock.State_right == false)
+                        if (shock.State_left == false && shock.State_right == false && bighit_state == false)
                         {
                             if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
                             {
@@ -188,7 +188,7 @@ public class middleEnemy_movement : MonoBehaviour {
 
                     case 2:
                       
-                            if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false&& hit.normalhit_state == false)
+                            if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false&& hit.normalhit_state == false && bighit_state == false)
                             {
                                 shock.State_right = true;
                                 timer += Time.deltaTime;
@@ -200,7 +200,7 @@ public class middleEnemy_movement : MonoBehaviour {
                             }
 
 
-                            else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false && hit.normalhit_state == false)
+                            else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false && hit.normalhit_state == false&&bighit_state==false)
                             {
                                 shock.State_left = true;
                                 timer += Time.deltaTime;
@@ -214,54 +214,52 @@ public class middleEnemy_movement : MonoBehaviour {
                         break;
 
                     case 3:
+                        if (shock.State_left == false && shock.State_right == false&& hit.normalhit_state == false) {
+                            if ((main.position.x - transform.position.x > 0))
+                            {
+
+                                bighit_state = true;
+                                bighit.bighit();
+
+
+
+                            }
+                            else if ((main.position.x - transform.position.x < 0))//跟随距离
+                            {
+
+                                bighit_state = true;
+                                bighit.bighit();
+
+                            }
+                            break;
+                        }
+                        
 
                         break;   
                   
 
 
                 }
-                */
+                
 
                 //中怪前腳踏地衝擊波
 
-                if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
+               /* if ((main.position.x - transform.position.x > 0))
                 {
-                    timer_bighit  += Time.deltaTime;
-                    bighit_state = true;
-                    bighit.bighit();
-                    /*
-                    if (timer_bighit > 0f && timer_bighit < 1f)
-                    {
-                        anim.SetBool("middle_enemy_bighit_start", true);
-                    }
-
                     
-
-                    if (timer_bighit > 2f && timer_bighit < 3f)
-                    {
-                        anim.SetBool("middle_enemy_bighit_start", false);
-                    }
-                    */
-
-
-                }
-                if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))//跟随距离
-                {
-                    timer_bighit += Time.deltaTime;
                     bighit_state = true;
                     bighit.bighit();
-                    /*if (timer_bighit > 0f && timer_bighit < 1f)
-                    {
-                        anim.SetBool("middle_enemy_bighit_start", true);
-                    }
+                  
 
-                   
 
-                    if (timer_bighit > 2f && timer_bighit < 3f)
-                    {
-                        anim.SetBool("middle_enemy_bighit_start", false);
-                    }*/
                 }
+                if ((main.position.x - transform.position.x < 0))//跟随距离
+                {
+                  
+                    bighit_state = true;
+                    bighit.bighit();
+                 
+                }*/
 
                 //中怪普攻
                 /*
@@ -307,7 +305,7 @@ public class middleEnemy_movement : MonoBehaviour {
                 else if ((Vector2.Distance(transform.position, main.position) > attackDis))
                 {
 
-                    /*follow();*/
+                    follow();
                 }
             }
 
@@ -316,7 +314,8 @@ public class middleEnemy_movement : MonoBehaviour {
             {
                 anim.SetBool("middle_enemy_shock_start ", false);
                 anim.SetBool("middle_enemy_normalhit_start", false);
-            /*idle();*/
+            anim.SetBool("middle_enemy_shock_start ", false);
+            idle();
 
 
             }
