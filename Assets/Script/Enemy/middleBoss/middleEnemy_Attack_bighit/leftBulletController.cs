@@ -6,9 +6,9 @@ public class leftBulletController : MonoBehaviour {
    
     public float rate = 3; //發子彈的速率
     public GameObject bullet;//取得子彈的gameobject
-   public bool state = false;
+    public bool state = false;
     public middleEnemy_movement movement;
-    
+    PlayerHealth playerHealth;
     // Use this for initialization
     void Start () {
         movement = GetComponent<middleEnemy_movement>(); //與外部判斷是否fire做連結
@@ -32,6 +32,15 @@ public class leftBulletController : MonoBehaviour {
          }
        
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHealth = collision.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(2);
+
+        }
     }
 
     public void fire()

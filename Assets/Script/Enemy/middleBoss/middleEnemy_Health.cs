@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class middleEnemy_Health : MonoBehaviour {
     //遊戲開始時小怪的初始血量
-    public int startingHealth = 100;
+    public int startingHealth = 5;
     //遊戲過程中記錄小怪血量
     public int currentHealth;
     //怪物死亡數目

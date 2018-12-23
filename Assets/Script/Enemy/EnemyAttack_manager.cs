@@ -22,6 +22,7 @@ public class EnemyAttack_manager : MonoBehaviour {
     float timer=0;
     void Start()
     {
+        main = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
         movement = GetComponent<middleEnemy_movement>();
         right = GetComponent<rightBulletController>();

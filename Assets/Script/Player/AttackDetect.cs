@@ -8,6 +8,7 @@ public class AttackDetect : MonoBehaviour
 
     public HealthTest healthTest;
     public EnemyHealth enemyHealth;
+    public middleEnemy_Health middleHealth;
     // Use this for initialization
     private void Awake()
     {
@@ -40,6 +41,13 @@ public class AttackDetect : MonoBehaviour
 
             enemyHealth = other.GetComponent<EnemyHealth>();
         }
+
+        if (other.CompareTag("middlemain"))
+        {
+            isTouch = true;
+
+            middleHealth = other.GetComponent<middleEnemy_Health>();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -55,6 +63,13 @@ public class AttackDetect : MonoBehaviour
             isTouch = false;
 
             enemyHealth = null;
+        }
+
+        if (other.CompareTag("middlemain"))
+        {
+            isTouch = false;
+
+            middleHealth = null;
         }
     }
 }

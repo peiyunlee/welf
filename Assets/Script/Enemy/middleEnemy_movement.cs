@@ -21,13 +21,13 @@ public class middleEnemy_movement : MonoBehaviour
     float attackDis = 30f;
     public float idle_speed = 20f;//移動速度
     public float follow_speed = 15f;//跟隨速度
-    private middleEnemy_health enemyHealth;
+    private middleEnemy_Health enemyHealth;
 
     public float timer = 0;
     public float timer_bighit = 0;
     float timer_dead = 0;
 
-
+    PlayerHealth playerHealth;
     //跟隨函式
     void follow()
     {
@@ -91,10 +91,11 @@ public class middleEnemy_movement : MonoBehaviour
 
     void Awake()
     {
+        playerHealth = null;
         playerRigidbody = GetComponent<Rigidbody2D>();
         main = GameObject.FindGameObjectWithTag("Player").transform;
         Transform target = GameObject.FindGameObjectWithTag("Player").transform;
-        enemyHealth = GetComponent<middleEnemy_health>();
+        enemyHealth = GetComponent<middleEnemy_Health>();
         shock = GetComponent<middleEnemy_Attack_shock>();
         hit = GetComponent<middleEnemy_Attack_hit>();
         right = GetComponent<rightBulletController>();
@@ -113,7 +114,7 @@ public class middleEnemy_movement : MonoBehaviour
     float attack_timer = 0;
     float hurt_timer = 0;
     public bool gethurt = false;
-
+    
 
 
 
@@ -128,6 +129,13 @@ public class middleEnemy_movement : MonoBehaviour
             hurt_timer += Time.deltaTime;
             Invoke("shotdowm", 0.5f);
 
+        }
+
+        if (border.gameObject.CompareTag("Player"))
+        {
+            playerHealth = border.GetComponent<PlayerHealth>();
+
+            playerHealth.TakeDamage(1);
         }
     }
 

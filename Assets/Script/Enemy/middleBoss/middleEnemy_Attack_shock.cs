@@ -12,8 +12,17 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
     public float timer = 0;
     public bool State_right = false;
     public bool State_left = false;
+    PlayerHealth playerHealth;
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHealth = collision.GetComponent<PlayerHealth>();
 
 
+        }
+    }
 
     public void normalAttack_hit_right()
     {
@@ -28,7 +37,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
         }
         else if (Enemymovement.timer >= 0.8f)//返回時間
         {
-
+            playerHealth.TakeDamage(1);
             State_right = false;
             Enemymovement.anim.SetBool("middle_enemy_shock_start ", false);
             Enemymovement.timer = 0;
@@ -60,7 +69,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
         }
         else if (Enemymovement.timer >= 0.8f)//返回時間
         {
-
+            playerHealth.TakeDamage(1);
             State_left = false;
             Enemymovement.anim.SetBool("middle_enemy_shock_start ", false);
             Enemymovement.timer = 0;
@@ -86,7 +95,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
         playerRigidbody = GetComponent<Rigidbody2D>();
         //Transform target = GameObject.FindGameObjectWithTag("main").transform;
         Enemymovement = GetComponent<middleEnemy_movement>(); //與外部判斷是否fire做連結
-
+        playerHealth = null;
     }
 
 

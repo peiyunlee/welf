@@ -18,6 +18,7 @@ TagManager:
   - Water
   - WelfUI
   - lifeIndicator
+  - middlemain
   layers:
   - Default
   - TransparentFX
