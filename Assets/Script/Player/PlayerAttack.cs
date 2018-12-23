@@ -74,7 +74,7 @@ public class PlayerAttack : AttackDetect
         {
             if (isTouch)
             {
-                healthTest.TakeDamage(Hurt(Attack.idle));
+                enemyHealth.TakeDamage(Hurt(Attack.idle));
             }
             attackCount = 0;
             playerAnim.SetInteger("Attack", attackCount);
@@ -87,7 +87,7 @@ public class PlayerAttack : AttackDetect
             {
                 if (isTouch)
                 {
-                    healthTest.TakeDamage(Hurt(Attack.normal));
+                    enemyHealth.TakeDamage(Hurt(Attack.normal));
                 }
                 attackCount = 1;
                 playerAnim.SetInteger("Attack", attackCount);
@@ -97,11 +97,12 @@ public class PlayerAttack : AttackDetect
             {
                 if (isTouch)
                 {
-                    healthTest.TakeDamage(Hurt(Attack.normal));
+                    enemyHealth.TakeDamage(Hurt(Attack.normal));
                 }
                 attackCount = 2;
                 playerAnim.SetInteger("Attack", attackCount);
-            }
+                attackCount = 0;
+            } 
         }
     }
 

@@ -20,7 +20,7 @@ using UnityEngine;
 
     float timer_dead = 0;
 
-
+    PlayerHealth playerHealth;
     //跟隨函式
     void follow()
     {
@@ -84,21 +84,35 @@ using UnityEngine;
     void Awake()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
-        Transform target = GameObject.FindGameObjectWithTag("main").transform;
+        main = GameObject.FindGameObjectWithTag("Player").transform;
+        Transform target = GameObject.FindGameObjectWithTag("Player").transform;
         enemyHealth = GetComponent<EnemyHealth>();
         shock = GetComponent<littleEnemy_Attack_shock>();
         anim = GetComponent<Animator>();
         Vector2 temp = transform.localScale;
         temp.x *= -1;
         transform.localScale = temp;
-
     }
 
 
     float initialx;
 
     bool stat_dead = false;
-  
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+
+            playerHealth.TakeDamage(1);
+
+        }
+    }
+
+
+
     void Update()
     {
         if (stat_dead == false&& enemyHealth.isDead)

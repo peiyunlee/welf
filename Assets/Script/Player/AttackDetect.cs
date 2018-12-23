@@ -7,16 +7,16 @@ public class AttackDetect : MonoBehaviour
     public bool isTouch;
 
     public HealthTest healthTest;
+    public EnemyHealth enemyHealth;
     // Use this for initialization
     private void Awake()
     {
-        Debug.Log("adaw");
+       // Debug.Log("adaw");
     }
     void Start()
     {
         isTouch = false;
 
-        Debug.Log("adst");
     }
 
     // Update is called once per frame
@@ -33,6 +33,13 @@ public class AttackDetect : MonoBehaviour
 
             healthTest = other.GetComponent<HealthTest>();
         }
+
+        if (other.CompareTag("main"))
+        {
+            isTouch = true;
+
+            enemyHealth = other.GetComponent<EnemyHealth>();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -42,6 +49,12 @@ public class AttackDetect : MonoBehaviour
             isTouch = false;
 
             healthTest = null;
+        }
+        if (other.CompareTag("main"))
+        {
+            isTouch = false;
+
+            enemyHealth = null;
         }
     }
 }

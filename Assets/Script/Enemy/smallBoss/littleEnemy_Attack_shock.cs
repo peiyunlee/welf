@@ -8,7 +8,7 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
     public Transform main;//要跟随英雄
     private Enemymovement Enemymovement;
     public bool state = false;
-    float speed = 100f;//衝擊速度
+    float speed = 50f;//衝擊速度
     float shockRange = 10f;
     public float timer = 0;
     public bool State_right = false;
