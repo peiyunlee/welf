@@ -30,6 +30,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
         {
 
             State_right = false;
+            Enemymovement.anim.SetBool("middle_enemy_shock_start ", false);
             Enemymovement.timer = 0;
 
         }
@@ -61,6 +62,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
         {
 
             State_left = false;
+            Enemymovement.anim.SetBool("middle_enemy_shock_start ", false);
             Enemymovement.timer = 0;
 
         }

@@ -8,7 +8,7 @@ public class bullet_right: MonoBehaviour {
      float attackRange = 100f;
     // Update is called once per frame
     void Update () {
-        transform.Translate(Vector3.right * speed * Time.deltaTime);
+        transform.Translate(Vector3.right * 50 * Time.deltaTime);
         if ((transform.position.x - enemy1.position.x) > attackRange)
         {
            /*Debug.Log("destroy");*/

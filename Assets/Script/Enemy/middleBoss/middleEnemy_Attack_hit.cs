@@ -12,15 +12,19 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
     public bool state=false;
     float timer=0;
     public bool normalhit_state =false;
+  
 
     public void middleBoss_hit()
     {
         normalhit_state = true;
+        movement.anim.SetBool("middle_enemy_shock_start ", false);
+        movement.anim.SetBool("middle_enemy_normalhit_start", true);
         timer += Time.deltaTime;
         if (timer>4f)
         {
             normalhit_state = false;
             timer = 0;
+            movement.anim.SetBool("middle_enemy_normalhit_start", false);
         }
 
     }
