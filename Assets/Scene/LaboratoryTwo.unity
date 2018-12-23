@@ -796,7 +796,7 @@ MonoBehaviour:
   wall:
   - {fileID: 0}
   - {fileID: 0}
-  flowchart: {fileID: 0}
+  flowchart: {fileID: 1780178399}
 --- !u!4 &65036590
 Transform:
   m_ObjectHideFlags: 0
@@ -5187,6 +5187,10 @@ Prefab:
     - target: {fileID: 1100298558630006, guid: 5e35b11cee155d540acedce9580e7f20, type: 2}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598501810761000, guid: 5e35b11cee155d540acedce9580e7f20, type: 2}
+      propertyPath: m_TagString
+      value: lifeIndicator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e35b11cee155d540acedce9580e7f20, type: 2}
@@ -16982,6 +16986,7 @@ GameObject:
   - component: {fileID: 1780178410}
   - component: {fileID: 1780178405}
   - component: {fileID: 1780178413}
+  - component: {fileID: 1780178414}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -17230,7 +17235,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 1814927855}
   stateName:
     stringRef: {fileID: 0}
     stringVal: Idle
@@ -17255,7 +17260,7 @@ MonoBehaviour:
   indentLevel: 0
   _targetObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
+    gameObjectVal: {fileID: 1814927856}
   _tweenName:
     stringRef: {fileID: 0}
     stringVal: 
@@ -17289,7 +17294,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 1814927855}
   stateName:
     stringRef: {fileID: 0}
     stringVal: runrunrun
@@ -17331,6 +17336,7 @@ MonoBehaviour:
   - {fileID: 1780178392}
   - {fileID: 1780178385}
   - {fileID: 1780178412}
+  - {fileID: 1780178414}
 --- !u!114 &1780178399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17356,9 +17362,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1780178403}
-  selectedCommands:
-  - {fileID: 1780178406}
+  - {fileID: 1780178398}
+  selectedCommands: []
   variables:
   - {fileID: 1780178387}
   - {fileID: 1780178401}
@@ -17680,7 +17685,7 @@ MonoBehaviour:
   indentLevel: 0
   animator:
     animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
+    animatorVal: {fileID: 1814927855}
   stateName:
     stringRef: {fileID: 0}
     stringVal: Idle
@@ -17784,6 +17789,69 @@ MonoBehaviour:
   booleanData:
     booleanRef: {fileID: 0}
     booleanVal: 1
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  animatorData:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 0}
+  audioSourceData:
+    audioSourceRef: {fileID: 0}
+    audioSourceVal: {fileID: 0}
+  colorData:
+    colorRef: {fileID: 0}
+    colorVal: {r: 0, g: 0, b: 0, a: 0}
+  gameObjectData:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 0}
+  materialData:
+    materialRef: {fileID: 0}
+    materialVal: {fileID: 0}
+  objectData:
+    objectRef: {fileID: 0}
+    objectVal: {fileID: 0}
+  rigidbody2DData:
+    rigidbody2DRef: {fileID: 0}
+    rigidbody2DVal: {fileID: 0}
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  textureData:
+    textureRef: {fileID: 0}
+    textureVal: {fileID: 0}
+  transformData:
+    transformRef: {fileID: 0}
+    transformVal: {fileID: 0}
+  vector2Data:
+    vector2Ref: {fileID: 0}
+    vector2Val: {x: 0, y: 0}
+  vector3Data:
+    vector3Ref: {fileID: 0}
+    vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &1780178414
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1780178384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 43
+  indentLevel: 0
+  variable: {fileID: 1780178387}
+  setOperator: 0
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
   integerData:
     integerRef: {fileID: 0}
     integerVal: 0
@@ -18652,12 +18720,26 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.62645
       objectReference: {fileID: 0}
+    - target: {fileID: 1555111851570492, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &1814927854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4682104191197762, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1814927853}
+--- !u!95 &1814927855 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95521767301265188, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1814927853}
+--- !u!1 &1814927856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1472618838718074, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
     type: 2}
   m_PrefabInternal: {fileID: 1814927853}
 --- !u!1 &1818831280

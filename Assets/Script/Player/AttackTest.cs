@@ -50,7 +50,7 @@ public class AttackTest : MonoBehaviour
     {
         timer = 0;
 
-        if (playerHealth.currentHealth > 0)
+        if (PlayerHealth.currentHealth > 0)
         {
             playerHealth.TakeDamage(attackDamage);
             //Debug.Log("attack.attack");

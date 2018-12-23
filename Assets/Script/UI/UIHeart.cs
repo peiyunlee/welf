@@ -15,7 +15,7 @@ public class UIHeart: MonoBehaviour {
     Animator anim;
     private void Start()
     {
-        Scenestarthealth = GameManager.playercurrenhealth;    //TEST
+        Scenestarthealth = GameManager.playercurrenthealth;    
         for (int i = 20; i > Scenestarthealth; i--)
         {
             anim = lifelove[i-1].GetComponent<Animator>();

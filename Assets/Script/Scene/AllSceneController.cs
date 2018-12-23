@@ -51,7 +51,7 @@ public class AllSceneController : MonoBehaviour
     void Store()
     {
         GameManager.cleanwatercount = CleanWater.cleanwatercount;
-        //GameManager.playercurrenhealth = PlayerHealth.;   //儲存主角血量
+        GameManager.playercurrenthealth = PlayerHealth.currentHealth;   //儲存主角血量
     }
 
 

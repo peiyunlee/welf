@@ -31,5 +31,12 @@ public class LaboratoryTwo : MonoBehaviour {
                 wall[i].isTrigger = true;
             }
         }
+        if (flowchart.GetBooleanVariable("isstart") == true)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                wall[i].isTrigger = false;
+            }
+        }
     }
 }

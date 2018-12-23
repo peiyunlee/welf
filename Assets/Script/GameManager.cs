@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     public static int[] chooseelf = new int[2];   //儲存選擇的水精靈
     [SerializeField]
-    public static int playercurrenhealth;   //儲存主角血量
+    public static int playercurrenthealth;   //儲存主角血量
     [SerializeField]
     public static int cleanwatercount;   //儲存碎片數量
     [SerializeField]
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour {
         {
             instance = this;
             DontDestroyOnLoad(this);
-            playercurrenhealth = 20;
+            playercurrenthealth = 20;
         }
         else if (this != instance)  //當第二個GameManager出現刪除
         {
