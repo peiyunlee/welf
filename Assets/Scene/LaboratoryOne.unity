@@ -12822,37 +12822,20 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 776290631}
-    - target: {fileID: 1668080378817812, guid: adcf0461d6695ab44a2bf28fc935c82e, type: 2}
-      propertyPath: m_IsActive
+    - target: {fileID: 224975093359128178, guid: adcf0461d6695ab44a2bf28fc935c82e,
+        type: 2}
+      propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224166248181156422, guid: adcf0461d6695ab44a2bf28fc935c82e,
+    - target: {fileID: 224975093359128178, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224154906587042948, guid: adcf0461d6695ab44a2bf28fc935c82e,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224834486147963312, guid: adcf0461d6695ab44a2bf28fc935c82e,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224624879578017384, guid: adcf0461d6695ab44a2bf28fc935c82e,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1425363097439722, guid: adcf0461d6695ab44a2bf28fc935c82e, type: 2}
-      propertyPath: m_IsActive
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1847795293344942, guid: adcf0461d6695ab44a2bf28fc935c82e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 224975093359128178, guid: adcf0461d6695ab44a2bf28fc935c82e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adcf0461d6695ab44a2bf28fc935c82e, type: 2}
@@ -17307,6 +17290,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTouch: 0
   healthTest: {fileID: 0}
+  enemyHealth: {fileID: 0}
+  middleHealth: {fileID: 0}
   player: {fileID: 1665957815}
 --- !u!1001 &1772892105
 Prefab:
@@ -17416,7 +17401,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4634480632073606, guid: 5e35b11cee155d540acedce9580e7f20, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224213237503594304, guid: 5e35b11cee155d540acedce9580e7f20,
         type: 2}
@@ -17431,7 +17416,7 @@ Prefab:
     - target: {fileID: 224326439528318670, guid: 5e35b11cee155d540acedce9580e7f20,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224213237503594304, guid: 5e35b11cee155d540acedce9580e7f20,
         type: 2}
