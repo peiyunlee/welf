@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 114543868811093340}
   - component: {fileID: 114433391727325952}
   - component: {fileID: 114159438330214638}
-  - component: {fileID: 114292983820402006}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -88,8 +87,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472618838718074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: -9.5, y: -7.5, z: 30}
+  m_LocalScale: {x: -0.91698, y: 0.83300006, z: 0.85}
   m_Children:
   - {fileID: 4759452563836884}
   - {fileID: 4281188091344798}
@@ -211,21 +210,6 @@ MonoBehaviour:
   isTouch: 0
   healthTest: {fileID: 0}
 --- !u!114 &114159438330214638
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1472618838718074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d6ad19904709104d9d18393afb4b45d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 20
-  currentHealth: 0
-  isDamaged: 0
-  isDead: 0
---- !u!114 &114292983820402006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
