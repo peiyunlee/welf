@@ -28,6 +28,7 @@ public class PlayerAttack : AttackDetect
     // Use this for initialization
     void Start()
     {
+        player=GameObject.FindGameObjectWithTag("Player");
         playerAnim = player.GetComponent<Animator>();
         playerMovement = player.GetComponent<PlayerMovement>();
 

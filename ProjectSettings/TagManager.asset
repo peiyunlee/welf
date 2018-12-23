@@ -17,6 +17,7 @@ TagManager:
   - Welf
   - Water
   - WelfUI
+  - lifeIndicator
   layers:
   - Default
   - TransparentFX

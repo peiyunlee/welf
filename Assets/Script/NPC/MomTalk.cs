@@ -32,7 +32,6 @@ public class MomTalk : MonoBehaviour
             isclickZ = false;
             isfungus = false;
             PlayerMovement.isMenu = false;   //主角行動
-            Debug.Log("AA");
         }
     }
     void OnTriggerStay2D(Collider2D collision)
@@ -40,12 +39,10 @@ public class MomTalk : MonoBehaviour
         if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)
         {
             isclickZ = true;
-            Debug.Log("GetKeyDown z");
         }
         if (isclickZ==false&&isfungus == false)
         {
             talkimage.transform.position = vr0; //顯示talkimage
-            Debug.Log("cc");
         }
         else
         {
