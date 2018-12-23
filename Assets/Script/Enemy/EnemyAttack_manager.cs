@@ -12,7 +12,7 @@ public class EnemyAttack_manager : MonoBehaviour {
     public static bool bighit_state_left = false;
     public static bool normalhit_state = false;
     public static bool shockhit_state = false;
-   
+    private middleEnemy_movement movement;
     private int change_attack ;
     // Use this for initialization
    
@@ -21,7 +21,7 @@ public class EnemyAttack_manager : MonoBehaviour {
     void Start()
     {
         anim = GetComponent<Animator>();
-      
+        movement = GetComponent<middleEnemy_movement>();
 
     }
 
@@ -35,7 +35,7 @@ public class EnemyAttack_manager : MonoBehaviour {
         {
             timer += Time.deltaTime;
             bighit_state_right = true;
-
+            Debug.Log(timer);
             if (timer > 0f && timer < 1f)
             {
                 anim.SetBool("middle_enemy_bighit_start", true);
@@ -43,9 +43,10 @@ public class EnemyAttack_manager : MonoBehaviour {
 
             
 
-            if (timer > 2f && timer < 3f)
+            if (timer > 2f )
             {
                 anim.SetBool("middle_enemy_bighit_start", false);
+                movement.bighit_state = false;
             }
 
 
@@ -55,7 +56,7 @@ public class EnemyAttack_manager : MonoBehaviour {
         {
             timer += Time.deltaTime;
             bighit_state_left = true;
-
+            Debug.Log(timer);
             if (timer > 0f && timer < 1f)
             {
                 anim.SetBool("middle_enemy_bighit_start", true);
@@ -63,9 +64,10 @@ public class EnemyAttack_manager : MonoBehaviour {
 
          
 
-            if (timer > 2f && timer < 3f)
+            if (timer > 2f)
             {
                 anim.SetBool("middle_enemy_bighit_start", false);
+                movement.bighit_state = false;
             }
         }
 
@@ -73,70 +75,5 @@ public class EnemyAttack_manager : MonoBehaviour {
 
 
 
-    void Update () {//記得加swithcase後 所有enemymovement的state全都要refresh
-
-
-        //bighit開始攻擊
-
-      /*  if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
-        {
-            timer += Time.deltaTime;
-            bighit_state_right = true;
-
-            if (timer > 0f && timer < 1f)
-            {
-                anim.SetBool("middle_enemy_bighit_start", true);
-            }
-
-            
-
-            if (timer > 2f && timer < 3f)
-            {
-                anim.SetBool("middle_enemy_bighit_start", false);
-            }
-
-
-
-        }
-        if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))//跟随距离
-        {
-            timer += Time.deltaTime;
-            bighit_state_left = true;
-
-            if (timer > 0f && timer < 1f)
-            {
-                anim.SetBool("middle_enemy_bighit_start", true);
-            }
-
-           
-
-            if (timer > 2f && timer < 3f)
-            {
-                anim.SetBool("middle_enemy_bighit_start", false);
-            }
-        }*/
-
-        //normalhit
-        /*
-        if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
-        {
-            Debug.Log("no");
-            normalhit_state = true;
-           
-       }*/
-
-        //shockhit
-
-        /*if (Vector2.Distance(transform.position, main.position) <= attackDis_shock && (main.position.x - transform.position.x > 0))
-        {
-            shockhit_state = true;
-            
-
-        }*/
-
-
-
-
-    }
-
+  
 }
