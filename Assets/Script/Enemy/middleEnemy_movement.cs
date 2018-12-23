@@ -110,10 +110,39 @@ public class middleEnemy_movement : MonoBehaviour
     bool stat_dead = false;
     public int attack_sytle;
     float attack_timer = 0;
-    void Update()
+    float hurt_timer = 0;
+    public bool gethurt = false;
+
+
+
+
+    void OnTriggerEnter2D(Collider2D border)
     {
 
-        
+        if (border.gameObject.CompareTag("bullet"))
+        {
+            anim.SetBool("middleEnemy_hurt", true);
+            gethurt = true;
+           
+            hurt_timer += Time.deltaTime;
+            Invoke("shotdowm", 0.5f);
+
+        }
+    }
+
+    void shotdowm()
+    {
+        anim.SetBool("middleEnemy_hurt", false);
+      
+        CancelInvoke();
+
+    }
+
+
+    void Update()
+    {
+      
+
         if (stat_dead == false && enemyHealth.isDead)
         {
             anim.SetTrigger("middleEnemy_Dead");
@@ -127,19 +156,20 @@ public class middleEnemy_movement : MonoBehaviour
             playerRigidbody.velocity = transformValue;
 
 
-            /*if (timer_dead > 1f)
+            if (timer_dead > 1f)
             {
                 Destroy(this.gameObject);
 
-            }*/
+            }
 
 
         }
+
+        
+
+
         else
         {
-
-
-
 
             if ((Vector2.Distance(transform.position, main.position) <= followDis))
             {
