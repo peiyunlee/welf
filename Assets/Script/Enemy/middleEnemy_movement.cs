@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class middleEnemy_movement : MonoBehaviour {
+public class middleEnemy_movement : MonoBehaviour
+{
     public Animator anim;
     private middleEnemy_Attack_shock shock;
     private middleEnemy_Attack_hit hit;
+    
     private rightBulletController right;
     private leftBulletController left;
     private EnemyAttack_manager bighit;
@@ -19,7 +21,7 @@ public class middleEnemy_movement : MonoBehaviour {
     float attackDis = 30f;
     public float idle_speed = 20f;//移動速度
     public float follow_speed = 15f;//跟隨速度
-    private middleEnemy_health enemyHealth;
+    private middleEnemy_Health enemyHealth;
 
     public float timer = 0;
     public float timer_bighit = 0;
@@ -42,7 +44,7 @@ public class middleEnemy_movement : MonoBehaviour {
 
         if (Vector2.Distance(transform.position, main.position) <= followDis && (main.position.x - transform.position.x < 0))//跟随距离
         {
-               
+
             Vector2 transformValue = new Vector2(-10, 0);
             playerRigidbody.velocity = transformValue;
 
@@ -91,7 +93,7 @@ public class middleEnemy_movement : MonoBehaviour {
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         Transform target = GameObject.FindGameObjectWithTag("main").transform;
-        enemyHealth = GetComponent<middleEnemy_health>();
+        enemyHealth = GetComponent<middleEnemy_Health>();
         shock = GetComponent<middleEnemy_Attack_shock>();
         hit = GetComponent<middleEnemy_Attack_hit>();
         right = GetComponent<rightBulletController>();
@@ -102,7 +104,7 @@ public class middleEnemy_movement : MonoBehaviour {
         temp.x *= -1;
         transform.localScale = temp;
     }
-    
+
 
     float initialx;
     bool stat_dead = false;
@@ -110,81 +112,82 @@ public class middleEnemy_movement : MonoBehaviour {
     float attack_timer = 0;
     void Update()
     {
-     
-        /* if (stat_dead == false && enemyHealth.isDead)
-         {
-             anim.SetBool("littleEneny_dead", true);
-             stat_dead = true;
-         }*/
 
-        /* if (enemyHealth.isDead)
-         {
-             timer_dead += Time.deltaTime;
-             Vector2 transformValue = new Vector2(0, 0);
-             playerRigidbody.velocity = transformValue;
+        
+        if (stat_dead == false && enemyHealth.isDead)
+        {
+            anim.SetTrigger("middleEnemy_Dead");
+            stat_dead = true;
+        }
 
-
-             if (timer_dead > 1f)
-             {
-                 Destroy(this.gameObject);
-
-             }
+        if (enemyHealth.isDead)
+        {
+            timer_dead += Time.deltaTime;
+            Vector2 transformValue = new Vector2(0, 0);
+            playerRigidbody.velocity = transformValue;
 
 
-         }
-         else
-         {*/
+            /*if (timer_dead > 1f)
+            {
+                Destroy(this.gameObject);
+
+            }*/
+
+
+        }
+        else
+        {
 
 
 
 
-        if ((Vector2.Distance(transform.position, main.position) <= followDis))
+            if ((Vector2.Distance(transform.position, main.position) <= followDis))
             {
 
                 if ((Vector2.Distance(transform.position, main.position) <= attackDis))
                 {
-              
-                attack_timer += Time.deltaTime;
-                if ((int)attack_timer%4==0&& shock.State_left == false && shock.State_right == false&&hit.normalhit_state==false && bighit_state == false)
-                {
-                    attack_sytle = Random.Range(1, 4);
-                  
-                  
 
-                }
-                
-                //自動轉換攻擊
-                switch (attack_sytle)
-                {
-                      
-                    case 1:
+                    attack_timer += Time.deltaTime;
+                    if ((int)attack_timer % 4 == 0 && shock.State_left == false && shock.State_right == false && hit.normalhit_state == false && bighit_state == false)
+                    {
+                        attack_sytle = Random.Range(1, 4);
 
-                        if (shock.State_left == false && shock.State_right == false && bighit_state == false)
-                        {
-                            if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
+
+
+                    }
+
+                    //自動轉換攻擊
+                    switch (attack_sytle)
+                    {
+
+                        case 1:
+
+                            if (shock.State_left == false && shock.State_right == false && bighit_state == false)
                             {
-                                anim.SetBool("middle_enemy_normalhit_start", true);
-                                hit.middleBoss_hit();
+                                if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
+                                {
+                                    anim.SetBool("middle_enemy_normalhit_start", true);
+                                    hit.middleBoss_hit();
 
 
+
+                                }
+                                else if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))
+                                {
+                                    anim.SetBool("middle_enemy_normalhit_start", true);
+                                    hit.middleBoss_hit();
+
+                                }
+                                break;
 
                             }
-                            else if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))
-                            {
-                                anim.SetBool("middle_enemy_normalhit_start", true);
-                                hit.middleBoss_hit();
 
-                            }
+
                             break;
 
-                        }
+                        case 2:
 
-
-                        break;
-
-                    case 2:
-                      
-                            if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false&& hit.normalhit_state == false && bighit_state == false)
+                            if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false && hit.normalhit_state == false && bighit_state == false)
                             {
                                 shock.State_right = true;
                                 timer += Time.deltaTime;
@@ -196,7 +199,7 @@ public class middleEnemy_movement : MonoBehaviour {
                             }
 
 
-                            else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false && hit.normalhit_state == false&&bighit_state==false)
+                            else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false && hit.normalhit_state == false && bighit_state == false)
                             {
                                 shock.State_left = true;
                                 timer += Time.deltaTime;
@@ -205,42 +208,43 @@ public class middleEnemy_movement : MonoBehaviour {
                                 anim.SetBool("middle_enemy_shock_start ", true);
                             }
 
-                        
-                      
-                        break;
-
-                    case 3:
-                        if (shock.State_left == false && shock.State_right == false&& hit.normalhit_state == false) {
-                            if ((main.position.x - transform.position.x > 0))
-                            {
-
-                                bighit_state = true;
-                                bighit.bighit();
 
 
-
-                            }
-                            else if ((main.position.x - transform.position.x < 0))//跟随距离
-                            {
-
-                                bighit_state = true;
-                                bighit.bighit();
-
-                            }
                             break;
-                        }
-                        
 
-                        break;   
-                  
+                        case 3:
+                            if (shock.State_left == false && shock.State_right == false && hit.normalhit_state == false)
+                            {
+                                if ((main.position.x - transform.position.x > 0))
+                                {
+
+                                    bighit_state = true;
+                                    bighit.bighit();
+
+
+
+                                }
+                                else if ((main.position.x - transform.position.x < 0))//跟随距离
+                                {
+
+                                    bighit_state = true;
+                                    bighit.bighit();
+
+                                }
+                                break;
+                            }
+
+
+                            break;
+
+
+
+                    }
+
+
 
 
                 }
-                
-
-              
-
-            }
 
                 else if ((Vector2.Distance(transform.position, main.position) > attackDis))
                 {
@@ -255,15 +259,16 @@ public class middleEnemy_movement : MonoBehaviour {
                 anim.SetBool("middle_enemy_shock_start ", false);
                 anim.SetBool("middle_enemy_normalhit_start", false);
                 anim.SetBool("middle_enemy_bighit_start ", false);
-            idle();
+                idle();
 
 
             }
 
-      
 
 
+
+
+        }
 
     }
-
 }
