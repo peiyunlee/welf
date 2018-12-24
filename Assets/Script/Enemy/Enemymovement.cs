@@ -106,7 +106,7 @@ using UnityEngine;
         {
             playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
 
-            playerHealth.TakeDamage(1);
+            /*playerHealth.TakeDamage(1);*/
 
         }
     }

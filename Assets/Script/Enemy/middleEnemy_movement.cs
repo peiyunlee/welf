@@ -18,7 +18,7 @@ public class middleEnemy_movement : MonoBehaviour
     bool border_tag = false;//是否碰到限制範圍
     public bool bighit_state = false;
     float followDis = 30f;//達到此距離開始跟隨
-    float attackDis = 30f;
+    float attackDis = 20f;
     public float idle_speed = 20f;//移動速度
     public float follow_speed = 15f;//跟隨速度
     private middleEnemy_Health enemyHealth;
@@ -172,7 +172,7 @@ public class middleEnemy_movement : MonoBehaviour
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
-            Invoke("resetanim",1.1f);
+            Invoke("resetanim",2f);
         
 
 
@@ -189,7 +189,8 @@ public class middleEnemy_movement : MonoBehaviour
 
                 if ((Vector2.Distance(transform.position, main.position) <= attackDis))
                 {
-
+                    Vector2 transformValue = new Vector2(0, 0);
+                    playerRigidbody.velocity = transformValue;
                     attack_timer += Time.deltaTime;
                     if ((int)attack_timer % 4 == 0 && shock.State_left == false && shock.State_right == false && hit.normalhit_state == false && bighit_state == false)
                     {
@@ -292,7 +293,7 @@ public class middleEnemy_movement : MonoBehaviour
                 else if ((Vector2.Distance(transform.position, main.position) > attackDis))
                 {
 
-                    follow();
+                    follow(); Debug.Log("follow");
                 }
             }
 
@@ -303,7 +304,7 @@ public class middleEnemy_movement : MonoBehaviour
                 anim.SetBool("middle_enemy_normalhit_start", false);
                 //anim.SetBool("middle_enemy_bighit_start ", false);
                 idle();
-
+                Debug.Log("idle");
 
             }
 
