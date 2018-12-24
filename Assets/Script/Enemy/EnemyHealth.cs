@@ -17,17 +17,24 @@ public class EnemyHealth : MonoBehaviour {
     public bool isDead;
     bool isSinking;
     bool bullet_tag=false;
+    
     // Use this for initialization
 
     //傷害
-    public void TakeDamage(int amount = 10)
+    void resetanim()
     {
-        Debug.Log("damaged");
-        if (isDead)
-            return;
+        anim.SetBool("littleEnemy_hurt", false);
+        CancelInvoke ("resetanim");
+    }
 
+
+    public void TakeDamage(int amount = 1)
+    {
+       /* Debug.Log("damaged");*/
+        anim.SetBool("littleEnemy_hurt",true);
         currentHealth -= amount;
-        Debug.Log(currentHealth);
+        /*Debug.Log(currentHealth);*/
+        Invoke("resetanim", 0.5f);
         if (currentHealth <= 0)
         {
             Death();
@@ -65,8 +72,8 @@ public class EnemyHealth : MonoBehaviour {
 
 
     void Start () {
-       
-       
+
+        anim = GetComponent<Animator>();
         currentHealth = startingHealth;
     }
 	

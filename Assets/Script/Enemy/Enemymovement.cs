@@ -111,6 +111,12 @@ using UnityEngine;
         }
     }
 
+    void resetanim()
+    {
+        Destroy(this.gameObject);
+        anim.SetBool("littleEnemy_hurt", false);
+        CancelInvoke("resetanim");
+    }
 
 
     void Update()
@@ -126,12 +132,9 @@ using UnityEngine;
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
-            
-            
-           /*if (timer_dead>1f) {
-                Destroy(this.gameObject);
+            Invoke("resetanim", 1f);
 
-            }*/
+            
 
 
         }

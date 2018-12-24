@@ -48,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= amount;
 
         playerAnim.SetTrigger("isDamaged");
-
+        
         //uiheart.DecreaseLife(currentHealth);
         //Debug.Log("health.take");
         Debug.Log("player"+currentHealth);
