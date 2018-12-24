@@ -134,8 +134,8 @@ public class middleEnemy_movement : MonoBehaviour
         if (border.gameObject.CompareTag("Player"))
         {
             playerHealth = border.GetComponent<PlayerHealth>();
-
-            playerHealth.TakeDamage(1);
+            
+            /*playerHealth.TakeDamage(1);*/
         }
     }
 
@@ -146,30 +146,34 @@ public class middleEnemy_movement : MonoBehaviour
         CancelInvoke();
 
     }
+    void resetanim()
+    {
+       Destroy(this.gameObject);
+     anim.SetBool("middleEnemy_Dead", false);
+        CancelInvoke("resetanim");
+    }
+
 
 
     void Update()
     {
       
 
-        if (stat_dead == false && enemyHealth.isDead)
+       if (stat_dead == false && enemyHealth.isDead)
         {
-            anim.SetTrigger("middleEnemy_Dead");
+            anim.SetBool("middleEnemy_hurt", false);
+            anim.SetBool("middleEnemy_Dead", true);
             stat_dead = true;
         }
 
         if (enemyHealth.isDead)
         {
+           
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
-
-
-            if (timer_dead > 1f)
-            {
-                Destroy(this.gameObject);
-
-            }
+            Invoke("resetanim",1.1f);
+        
 
 
         }

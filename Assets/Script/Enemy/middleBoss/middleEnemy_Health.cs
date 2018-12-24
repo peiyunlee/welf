@@ -20,14 +20,16 @@ public class middleEnemy_Health : MonoBehaviour {
     // Use this for initialization
 
     //傷害
-    public void TakeDamage(int amount = 10)
+    void resetanim()
     {
-        Debug.Log("damaged");
-        if (isDead)
-            return;
-
-      
-        Debug.Log(currentHealth);
+        anim.SetBool("middleEnemy_hurt", false);
+        CancelInvoke("resetanim");
+    }
+public void TakeDamage(int amount = 1)
+    {
+        
+        anim.SetBool("middleEnemy_hurt", true);
+        Invoke("resetanim", 0.5f);
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
@@ -41,7 +43,6 @@ public class middleEnemy_Health : MonoBehaviour {
     {
         Debug.Log("Dead");
         isDead = true;
-        capsuleCollider.isTrigger = true;
         anim.SetTrigger("Dead");
         enemy_dead++;
 
@@ -72,7 +73,7 @@ public class middleEnemy_Health : MonoBehaviour {
         hitParticles = GetComponentInChildren<ParticleSystem>();
         capsuleCollider = GetComponent<CapsuleCollider>();
         */
-
+        anim = GetComponent<Animator>();
         currentHealth = startingHealth;
     }
 

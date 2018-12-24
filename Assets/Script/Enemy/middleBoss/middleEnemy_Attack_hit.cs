@@ -22,7 +22,7 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
         timer += Time.deltaTime;
         if (timer>4f)
         {
-            playerHealth.TakeDamage(1);
+            /*playerHealth.TakeDamage(1);*/
             normalhit_state = false;
             timer = 0;
             movement.anim.SetBool("middle_enemy_normalhit_start", false);
