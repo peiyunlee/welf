@@ -408,11 +408,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4627919481973930, guid: e596414eaed27294b8cf0070f80c3ae0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 124.6
+      value: 115
       objectReference: {fileID: 0}
     - target: {fileID: 4627919481973930, guid: e596414eaed27294b8cf0070f80c3ae0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -17.2
+      value: -15.7
       objectReference: {fileID: 0}
     - target: {fileID: 4627919481973930, guid: e596414eaed27294b8cf0070f80c3ae0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -672,11 +672,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4627919481973930, guid: e596414eaed27294b8cf0070f80c3ae0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 107
+      value: 126.8
       objectReference: {fileID: 0}
     - target: {fileID: 4627919481973930, guid: e596414eaed27294b8cf0070f80c3ae0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -17.4
+      value: -16.3
       objectReference: {fileID: 0}
     - target: {fileID: 4627919481973930, guid: e596414eaed27294b8cf0070f80c3ae0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -728,11 +728,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4944019397985532, guid: 9e0c580a268e61e41b1acb34e8cb0854, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 4944019397985532, guid: 9e0c580a268e61e41b1acb34e8cb0854, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.1
+      value: 4.1
       objectReference: {fileID: 0}
     - target: {fileID: 4944019397985532, guid: 9e0c580a268e61e41b1acb34e8cb0854, type: 2}
       propertyPath: m_LocalPosition.z
@@ -762,6 +762,11 @@ Prefab:
       propertyPath: m_Name
       value: middleEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114030374349524348, guid: 9e0c580a268e61e41b1acb34e8cb0854,
+        type: 2}
+      propertyPath: main
+      value: 
+      objectReference: {fileID: 1965556341}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e0c580a268e61e41b1acb34e8cb0854, type: 2}
   m_IsPrefabAsset: 0

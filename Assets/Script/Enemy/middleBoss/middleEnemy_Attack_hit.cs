@@ -22,7 +22,7 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
         timer += Time.deltaTime;
         if (timer>4f)
         {
-            /*playerHealth.TakeDamage(1);*/
+            playerHealth.TakeDamage(1);
             normalhit_state = false;
             timer = 0;
             movement.anim.SetBool("middle_enemy_normalhit_start", false);
@@ -47,28 +47,5 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
         movement = GetComponent<middleEnemy_movement>(); //與外部判斷是否fire做連結
     }
 	
-	// Update is called once per frame
-	/*void Update () {
-      
-        if (state==false&&EnemyAttack_manager.normalhit_state==true) {
-            timer +=Time.deltaTime;
-            anim.SetBool("middle_enemy_normalhit_start", true);
-            middleBoss_hit();
-
-            if (timer>1f) {
-                state = true;
-
-            }
-
-
-        }
-
-        if (state == true)
-        {
-
-            anim.SetBool("middle_enemy_normalhit_start", false);
-
-
-        }
-    }*/
+	
 }

@@ -135,7 +135,7 @@ public class middleEnemy_movement : MonoBehaviour
         {
             playerHealth = border.GetComponent<PlayerHealth>();
             
-            /*playerHealth.TakeDamage(1);*/
+            playerHealth.TakeDamage(1);
         }
     }
 

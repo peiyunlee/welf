@@ -68,11 +68,7 @@ public void TakeDamage(int amount = 1)
 
     void Start()
     {
-        /*anim = GetComponent<Animator>();
-        enemyAudio = GetComponent<AudioSource>();
-        hitParticles = GetComponentInChildren<ParticleSystem>();
-        capsuleCollider = GetComponent<CapsuleCollider>();
-        */
+     
         anim = GetComponent<Animator>();
         currentHealth = startingHealth;
     }
