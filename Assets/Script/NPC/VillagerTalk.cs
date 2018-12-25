@@ -28,28 +28,44 @@ public class VillagerTalk : MonoBehaviour {
     void Update()
     {
         if (flowchart.GetBooleanVariable("isend") == true)
-        {
-            isclickZ = false;
+        { 
             isfungus = false;
+            isclickZ = false;
+            talkimage.transform.position = vr0;
             flowchart.SetBooleanVariable("isend",false);
+
         }
+        
+        
     }
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)
+        if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)  //未對話時才可按下z
         {
             isclickZ = true;
         }
-        else if (isclickZ == false && isfungus == false&& flowchart.GetBooleanVariable("isplayer") == true)
+        else if (isclickZ == false && isfungus == false&& flowchart.GetBooleanVariable("isplayer") == true)  //進入未動作
         {
             talkimage.transform.position = vr0; //顯示talkimage
         }
-        else
+        
+        else if(isclickZ==true&&isfungus==false)  //對話
         {
             talkimage.transform.position = vr1; //隱藏talkimage
-            if (isfungus == false)
-                Fungus.Flowchart.BroadcastFungusMessage(this.gameObject.name);
+            Fungus.Flowchart.BroadcastFungusMessage(this.gameObject.name);
             isfungus = true;
+            isclickZ = false;
+        }
+        else if (isfungus == true && isclickZ == false && flowchart.GetBooleanVariable("isplayer") == true)
+        {
+            talkimage.transform.position = vr0;
+            isfungus = false;
+            Debug.Log(isfungus + ":" + isclickZ + ":" + flowchart.GetBooleanVariable("isplayer"));
+        }
+        else
+        {
+
+            
         }
     }
     void OnTriggerExit2D(Collider2D collision)
