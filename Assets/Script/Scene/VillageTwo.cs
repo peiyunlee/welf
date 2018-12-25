@@ -9,10 +9,12 @@ public class VillageTwo : MonoBehaviour
     private Fungus.Flowchart flowchart;
     [SerializeField]
     private GameObject [] target;
+    public GameObject StoryMenu;
     [SerializeField]
     public GameObject Playerwelf;
     public GameObject [] UIcanvas;
     public GameObject playerattackscript;
+    public static bool getwelf;
     private PlayerAttack playerattack;
     // Use this for initializationl
     void Start()
@@ -38,6 +40,7 @@ public class VillageTwo : MonoBehaviour
         }
         if (flowchart.GetBooleanVariable("getwelf") == true)
         {
+            getwelf = true;
             UIcanvas[0].SetActive(false);
             UIcanvas[1].SetActive(true);
             playerattackscript.SetActive(true);

@@ -40,7 +40,7 @@ public class VillagerTalk : MonoBehaviour {
         {
             isclickZ = true;
         }
-        else if (isclickZ == false && isfungus == false)
+        else if (isclickZ == false && isfungus == false&& flowchart.GetBooleanVariable("isplayer") == true)
         {
             talkimage.transform.position = vr0; //顯示talkimage
         }

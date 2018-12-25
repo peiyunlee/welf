@@ -36,7 +36,7 @@ public class StoryMenuController : MonoBehaviour
 
     void Update()
     {
-        if (AllSceneController.iscenenumber < (int)SCENE.LaboratoryOne)
+        if (AllSceneController.iscenenumber < (int)SCENE.LaboratoryOne&&!VillageTwo.getwelf)
         {
             StoryMenuBtn.SetActive(false); //隱藏StoryMenuBtn
         }
