@@ -37,7 +37,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
         }
         else if (Enemymovement.timer >= 0.8f)//返回時間
         {
-            playerHealth.TakeDamage(1);
+            /*playerHealth.TakeDamage(1);*/
             State_right = false;
             Enemymovement.anim.SetBool("middle_enemy_shock_start ", false);
             Enemymovement.timer = 0;
@@ -69,7 +69,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
         }
         else if (Enemymovement.timer >= 0.8f)//返回時間
         {
-            playerHealth.TakeDamage(1);
+           /* playerHealth.TakeDamage(1);*/
             State_left = false;
             Enemymovement.anim.SetBool("middle_enemy_shock_start ", false);
             Enemymovement.timer = 0;

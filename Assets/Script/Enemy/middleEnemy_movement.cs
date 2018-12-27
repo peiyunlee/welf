@@ -135,7 +135,7 @@ public class middleEnemy_movement : MonoBehaviour
         {
             playerHealth = border.GetComponent<PlayerHealth>();
             
-            playerHealth.TakeDamage(1);
+            /*playerHealth.TakeDamage(1);*/
         }
     }
 
@@ -189,6 +189,7 @@ public class middleEnemy_movement : MonoBehaviour
 
                 if ((Vector2.Distance(transform.position, main.position) <= attackDis))
                 {
+                    anim.SetBool("middleEnemy_idle", false);
                     Vector2 transformValue = new Vector2(0, 0);
                     playerRigidbody.velocity = transformValue;
                     attack_timer += Time.deltaTime;
@@ -199,7 +200,7 @@ public class middleEnemy_movement : MonoBehaviour
 
 
                     }
-
+                   
                     //自動轉換攻擊
                     switch (attack_sytle)
                     {
@@ -293,7 +294,7 @@ public class middleEnemy_movement : MonoBehaviour
                 else if ((Vector2.Distance(transform.position, main.position) > attackDis))
                 {
 
-                    follow(); Debug.Log("follow");
+                    follow(); /*ebug.Log("follow");*/
                 }
             }
 
@@ -302,9 +303,10 @@ public class middleEnemy_movement : MonoBehaviour
             {
                 anim.SetBool("middle_enemy_shock_start ", false);
                 anim.SetBool("middle_enemy_normalhit_start", false);
-                //anim.SetBool("middle_enemy_bighit_start ", false);
+                /*anim.SetBool("middle_enemy_bighit_start ", false);*/
+                anim.SetBool("middleEnemy_idle", true);
                 idle();
-                Debug.Log("idle");
+                
 
             }
 

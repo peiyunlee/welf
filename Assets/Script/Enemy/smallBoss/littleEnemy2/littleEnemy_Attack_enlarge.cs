@@ -5,7 +5,7 @@ using UnityEngine;
 public class littleEnemy_Attack_enlarge : MonoBehaviour {
     Rigidbody2D playerRigidbody;
     public Transform main;//要跟随英雄
-
+    int i = 0;
     void normalAttack_enlarge()
     {
 
@@ -27,17 +27,19 @@ public class littleEnemy_Attack_enlarge : MonoBehaviour {
 
     // Update is called once per frame
     float timer;
+  
 	void Update () {
         timer += Time.deltaTime;
-
+        
         if (((timer%5)>1)&& ((timer % 5) < 3)) {
+        this.gameObject.transform.localScale+= new Vector3 (0.008f, 0.008f, 0f);
+            /*normalAttack_enlarge();*/
 
-            normalAttack_enlarge();
-
-        }
+       }
 
         else if(((timer % 5) > 3) && ((timer % 5) < 5)) {
-            normalAttack_shrink();
+            this.gameObject.transform.localScale += new Vector3(-0.008f, -0.008f, 0f);
+            // normalAttack_shrink();
         }
     }
 }
