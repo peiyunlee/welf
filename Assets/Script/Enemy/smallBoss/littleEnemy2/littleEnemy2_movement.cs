@@ -114,8 +114,8 @@ public class littleEnemy2_movement : MonoBehaviour {
 
     void resetanim()
     {
-       /* Destroy(this.gameObject);
-        anim.SetBool("littleEnemy2_hurt", false);*/
+        Destroy(this.gameObject);
+        anim.SetBool("littleEnemy2_hurt", false);
         CancelInvoke("resetanim");
     }
     
@@ -133,7 +133,7 @@ public class littleEnemy2_movement : MonoBehaviour {
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
-            Invoke("resetanim", 2f);
+            Invoke("resetanim", 1f);
 
 
 
