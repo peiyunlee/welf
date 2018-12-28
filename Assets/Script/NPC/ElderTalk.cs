@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-public class DadTalk : MonoBehaviour
+public class ElderTalk : MonoBehaviour
 {
     private bool isclickZ;
+    private bool odeliahasjump;
     private bool isfungus;
     [SerializeField]
     private GameObject talkimage;
@@ -24,32 +25,33 @@ public class DadTalk : MonoBehaviour
         vr1 = talkimage.transform.position + new Vector3(-fhidespeed, 0f, 0f);
         talkimage.transform.position = vr1; //隱藏talkimage
     }
-
     // Update is called once per frame
     void Update()
     {
-
-        //if (flowchart.GetBooleanVariable("isend") == true)
-        //{
-        //    isclickZ = false;
-        //    isfungus = false;
-        //    PlayerMovement.isMenu = false;   //主角行動
-        //    Debug.Log("AA");
-        //}
+        if (flowchart.GetBooleanVariable("isplayer") == true)
+        {
+            PlayerMovement.isMenu = false;
+        }
+        else
+        {
+            PlayerMovement.isMenu = true;
+        }
+        if(flowchart.GetBooleanVariable("odeliahasjump") == true)
+        {
+            odeliahasjump = true;
+        }
     }
     void OnTriggerStay2D(Collider2D collision)
     {
-        if(flowchart.GetBooleanVariable("ismaptalk") == true)
+        if (odeliahasjump)
         {
             if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)
             {
                 isclickZ = true;
-                Debug.Log("GetKeyDown z");
             }
             if (isclickZ == false && isfungus == false)
             {
                 talkimage.transform.position = vr0; //顯示talkimage
-                Debug.Log("cc");
             }
             else
             {
@@ -58,19 +60,15 @@ public class DadTalk : MonoBehaviour
                 {
                     Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
                     isfungus = true;
-                    PlayerMovement.isMenu = true;//主角不行動
                 }
-                Debug.Log("dd");
             }
         }
+        
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(flowchart.GetBooleanVariable("ismaptalk") == true&&isfungus==false)
-        {
-            isclickZ = false;
-            talkimage.transform.position = vr1; //隱藏talkimage
-            Debug.Log("aa");
-        }
+        
+        isclickZ = false;
+        talkimage.transform.position = vr1; //隱藏talkimage
     }
 }
