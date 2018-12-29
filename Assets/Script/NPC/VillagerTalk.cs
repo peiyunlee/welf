@@ -33,7 +33,7 @@ public class VillagerTalk : MonoBehaviour {
             isclickZ = false;
             talkimage.transform.position = vr0;
             flowchart.SetBooleanVariable("isend",false);
-
+            Debug.Log("d");
         }
         
         
@@ -43,10 +43,12 @@ public class VillagerTalk : MonoBehaviour {
         if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)  //未對話時才可按下z
         {
             isclickZ = true;
+            Debug.Log("c");
         }
         else if (isclickZ == false && isfungus == false&& flowchart.GetBooleanVariable("isplayer") == true)  //進入未動作
         {
             talkimage.transform.position = vr0; //顯示talkimage
+            Debug.Log("b");
         }
         
         else if(isclickZ==true&&isfungus==false)  //對話
@@ -55,17 +57,16 @@ public class VillagerTalk : MonoBehaviour {
             Fungus.Flowchart.BroadcastFungusMessage(this.gameObject.name);
             isfungus = true;
             isclickZ = false;
+            Debug.Log("a");
         }
         else if (isfungus == true && isclickZ == false && flowchart.GetBooleanVariable("isplayer") == true)
         {
-            talkimage.transform.position = vr0;
-            isfungus = false;
-            Debug.Log(isfungus + ":" + isclickZ + ":" + flowchart.GetBooleanVariable("isplayer"));
-        }
-        else
-        {
-
-            
+            if (gameObject.name != "Odeliaspecial")
+            {
+                talkimage.transform.position = vr0;
+                isfungus = false;
+                Debug.Log(":");
+            }
         }
     }
     void OnTriggerExit2D(Collider2D collision)
@@ -73,5 +74,6 @@ public class VillagerTalk : MonoBehaviour {
         isfungus = false;
         isclickZ = false;
         talkimage.transform.position = vr1; //隱藏talkimage
+        Debug.Log("f");
     }
 }

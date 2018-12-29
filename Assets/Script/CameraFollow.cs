@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Fungus;
 
 public class CameraFollow : MonoBehaviour {
 
     // 這個程式會附加到撥放器main Camera內，這裡死區deadZone設置為0，可以在unity內調到想要的效果
+    [SerializeField]
+    private Flowchart flowchart;
     [SerializeField]
     private GameObject target;
     [SerializeField]
@@ -18,12 +21,13 @@ public class CameraFollow : MonoBehaviour {
     private float minvector;
     [SerializeField]
     private float maxy;
+    bool camerastop;
     void Start () {
         target = GameObject.Find("Player");
     }
 	
 	void Update () {
-
+        camerastop = flowchart.GetBooleanVariable("camerastop");
         if (GameManager.DestroyGameManager == true)
         {
             target = GameObject.FindWithTag("Player");
@@ -64,7 +68,9 @@ public class CameraFollow : MonoBehaviour {
         {
             if (target.transform.position.y < jumphigh)
             {
-                transform.position = new Vector3(target.transform.position.x, miny, transform.position.z);
+                if (camerastop != true)
+                    transform.position = new Vector3(target.transform.position.x, miny, transform.position.z);
+                
             }
             else if (target.transform.position.y > maxy)
             {
