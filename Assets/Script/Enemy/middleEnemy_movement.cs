@@ -28,9 +28,47 @@ public class middleEnemy_movement : MonoBehaviour
     float timer_dead = 0;
 
     PlayerHealth playerHealth;
+
+    void detectScale()
+    {
+        if (main.position.x - transform.position.x > 0)
+        {
+            this.gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
+
+        }
+
+        else
+        {
+
+            this.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+
+
+
+
+        }
+
+    }
+
+    void detectIdle()
+    {
+        if (idle_speed > 0)
+        {
+            this.gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
+
+        }
+        else
+        {
+
+            this.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+
+        }
+
+
+    }
     //跟隨函式
     void follow()
     {
+        detectScale();
         //當於怪物的右側
         if (Vector2.Distance(transform.position, main.position) <= followDis && (main.position.x - transform.position.x > 0))//跟随距离
         {
@@ -57,6 +95,7 @@ public class middleEnemy_movement : MonoBehaviour
     int i = 0;
     void idle()
     {
+        detectIdle();
         timer += Time.deltaTime;
         Vector2 transformValue = new Vector2(idle_speed, 0);
         i++;
@@ -102,9 +141,7 @@ public class middleEnemy_movement : MonoBehaviour
         left = GetComponent<leftBulletController>();
         bighit = GetComponent<EnemyAttack_manager>();
         anim = GetComponent<Animator>();
-        Vector2 temp = transform.localScale;
-        temp.x *= -1;
-        transform.localScale = temp;
+        
     }
 
 
@@ -186,9 +223,10 @@ public class middleEnemy_movement : MonoBehaviour
 
             if ((Vector2.Distance(transform.position, main.position) <= followDis))
             {
-
+                detectScale();
                 if ((Vector2.Distance(transform.position, main.position) <= attackDis))
                 {
+                    detectScale();
                     anim.SetBool("middleEnemy_idle", false);
                     Vector2 transformValue = new Vector2(0, 0);
                     playerRigidbody.velocity = transformValue;

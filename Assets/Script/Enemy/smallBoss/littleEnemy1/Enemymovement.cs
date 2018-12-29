@@ -21,6 +21,46 @@ using UnityEngine;
     float timer_dead = 0;
 
     PlayerHealth playerHealth;
+
+    //判斷轉向
+    void detectScale()
+    {
+        if (main.position.x-transform.position.x>0)
+        {
+            this.gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
+
+        }
+
+        else
+        {
+           
+                this.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+
+            
+
+
+        }
+
+    }
+
+    void detectIdle()
+    {
+        if (idle_speed>0)
+        {
+            this.gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
+
+        }
+        else
+        {
+
+            this.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
+
+        }
+
+
+    }
+
+
     //跟隨函式
     void follow()
     {
@@ -49,15 +89,15 @@ using UnityEngine;
     int i=0;
     void idle()
     {
+        detectIdle();
         timer += Time.deltaTime;
         Vector2 transformValue = new Vector2(idle_speed, 0);
+        
         i++;
         playerRigidbody.velocity = transformValue;
         if (i==100)
         {
-            Vector2 temp = transform.localScale;
-            temp.x *= -1;
-            transform.localScale = temp;
+        
             idle_speed = idle_speed * -1;
             i = 0;
         }
@@ -121,6 +161,8 @@ using UnityEngine;
 
     void Update()
     {
+
+       
         if (stat_dead == false&& enemyHealth.isDead)
         {
             anim.SetBool("littleEneny_dead", true);
@@ -141,10 +183,11 @@ using UnityEngine;
         else {
 
             if ((Vector2.Distance(transform.position, main.position) <= followDis)) {
+                detectScale();
 
                 if ((Vector2.Distance(transform.position, main.position) <= attackDis))
                 {
-
+                    detectScale();
 
                     if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false)
                     {
@@ -172,7 +215,7 @@ using UnityEngine;
 
                 else if((Vector2.Distance(transform.position, main.position) > attackDis))
                 {
-
+                    detectScale();
                     follow();
                 }
             }
