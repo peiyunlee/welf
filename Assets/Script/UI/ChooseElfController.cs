@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Fungus;
 
 public class ChooseElfController : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class ChooseElfController : MonoBehaviour
     private GameObject welf;
     [SerializeField]
     private Toggle toggle;
+    [SerializeField]
+    private Flowchart flowchart;
+    [SerializeField]
+    int itime = 0;
     //private int scenenumber;
 
     enum ELF
@@ -111,9 +116,11 @@ public class ChooseElfController : MonoBehaviour
     }
     public void OnOKBtnClick()
     {
-        Debug.Log(GameManager.chooseelf[0] + "AA" + GameManager.chooseelf[1]);
-        AllSceneController.tonextscene = true;
-
+        if (itime <= 0)
+            Fungus.Flowchart.BroadcastFungusMessage("skillteach2");
+        else
+            AllSceneController.tonextscene = true;
+        itime++;
     }
     //public void OnBackBtnClick()
     //{
