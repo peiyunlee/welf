@@ -16,6 +16,7 @@ public class VillagerTalk : MonoBehaviour {
     private Vector3 vr1;
     [SerializeField]
     private Flowchart flowchart;
+    bool hastalk;
     // Use this for initialization
     void Start()
     {
@@ -28,12 +29,15 @@ public class VillagerTalk : MonoBehaviour {
     void Update()
     {
         if (flowchart.GetBooleanVariable("isend") == true)
-        { 
-            isfungus = false;
-            isclickZ = false;
-            talkimage.transform.position = vr0;
+        {
+            if (hastalk != true)
+            {
+                isfungus = false;
+                isclickZ = false;
+                talkimage.transform.position = vr0;
+            }
             flowchart.SetBooleanVariable("isend",false);
-            Debug.Log("d");
+            Debug.Log("a");
         }
         
         
@@ -43,21 +47,27 @@ public class VillagerTalk : MonoBehaviour {
         if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)  //未對話時才可按下z
         {
             isclickZ = true;
-            Debug.Log("c");
         }
         else if (isclickZ == false && isfungus == false&& flowchart.GetBooleanVariable("isplayer") == true)  //進入未動作
         {
-            talkimage.transform.position = vr0; //顯示talkimage
-            Debug.Log("b");
+            if (gameObject.tag!= "specialodelia")
+            {
+                talkimage.transform.position = vr0; //顯示talkimage
+            }
         }
         
         else if(isclickZ==true&&isfungus==false)  //對話
         {
-            talkimage.transform.position = vr1; //隱藏talkimage
-            Fungus.Flowchart.BroadcastFungusMessage(this.gameObject.name);
-            isfungus = true;
-            isclickZ = false;
-            Debug.Log("a");
+            if (hastalk != true)
+            {
+                talkimage.transform.position = vr1; //隱藏talkimage
+                Fungus.Flowchart.BroadcastFungusMessage(this.gameObject.name);
+                isfungus = true;
+                if(gameObject.name == "Odeliaspecial")
+                    hastalk = true;
+                isclickZ = false;
+                Debug.Log("S");
+            }
         }
         else if (isfungus == true && isclickZ == false && flowchart.GetBooleanVariable("isplayer") == true)
         {
@@ -65,15 +75,15 @@ public class VillagerTalk : MonoBehaviour {
             {
                 talkimage.transform.position = vr0;
                 isfungus = false;
-                Debug.Log(":");
+                Debug.Log("D");
             }
+            Debug.Log("E");
         }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        isfungus = false;
         isclickZ = false;
         talkimage.transform.position = vr1; //隱藏talkimage
-        Debug.Log("f");
+        Debug.Log("F");
     }
 }

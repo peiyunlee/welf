@@ -19,6 +19,7 @@ TagManager:
   - WelfUI
   - lifeIndicator
   - middlemain
+  - specialodelia
   layers:
   - Default
   - TransparentFX

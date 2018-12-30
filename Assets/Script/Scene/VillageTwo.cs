@@ -5,6 +5,7 @@ using Fungus;
 
 public class VillageTwo : MonoBehaviour
 {
+    public bool test;
     [SerializeField]
     private Fungus.Flowchart flowchart;
     [SerializeField]
@@ -44,6 +45,14 @@ public class VillageTwo : MonoBehaviour
             UIcanvas[0].SetActive(false);
             UIcanvas[1].SetActive(true);
             playerattackscript.SetActive(true);
+        }
+        if (flowchart.GetBooleanVariable("isteach") == true)
+        {
+            if (/*PlayerMovement.keyAttack*/test)
+            {
+                flowchart.SetBooleanVariable("isteach", false);
+                Fungus.Flowchart.BroadcastFungusMessage("welfteach2");
+            }
         }
     }
 }
