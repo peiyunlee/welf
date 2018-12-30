@@ -88,6 +88,7 @@ public class SetmenuController : MonoBehaviour {
     }
     public void OnCancelExitBtnClick() //取消退出
     {
+        isgameexit = false;
         isclick = true;
     }
     

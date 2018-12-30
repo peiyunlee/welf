@@ -5,7 +5,7 @@ using Fungus;
 
 public class VillageTwo : MonoBehaviour
 {
-    public bool test;
+    public bool [] test;
     [SerializeField]
     private Fungus.Flowchart flowchart;
     [SerializeField]
@@ -48,11 +48,25 @@ public class VillageTwo : MonoBehaviour
         }
         if (flowchart.GetBooleanVariable("isteach") == true)
         {
-            if (/*PlayerMovement.keyAttack*/test)
+            if (/*PlayerMovement.keyAttack*/test[0])
             {
                 flowchart.SetBooleanVariable("isteach", false);
                 Fungus.Flowchart.BroadcastFungusMessage("welfteach2");
             }
         }
+        if (flowchart.GetBooleanVariable("isteachskill") == true)
+        {
+            if (/*SkillSet.keySkill*/test[0])
+            {
+                flowchart.SetBooleanVariable("isteach", false);
+                Fungus.Flowchart.BroadcastFungusMessage("SkillTeach3");
+            }
+            else if (Input.GetKeyDown(KeyCode.A))
+            {
+                flowchart.SetBooleanVariable("isteach", false);
+                Fungus.Flowchart.BroadcastFungusMessage("SkillTeach4");
+            }
+        }
+
     }
 }
