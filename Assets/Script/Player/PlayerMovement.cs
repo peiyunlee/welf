@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGround = true;
     private bool canJumping = true;
     public static bool isMenu = false;
+    public static bool canMove = true;
 
     PlayerHealth playerHealth;
     PlayerAttack playerAttack;
@@ -66,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isMenu)
+        if (!isMenu && canMove)
         {
             Move();
 

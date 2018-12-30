@@ -28,8 +28,6 @@ public class Welf2 : SkillSet {
 	// Update is called once per frame
 	void Update () {
         GetKey();
-
-
 	}
     void GetKey()
     {

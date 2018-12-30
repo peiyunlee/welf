@@ -9,7 +9,6 @@ public class HealthTest : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Debug.Log("htst");
         currentHealth = startingHealth;
     }
 
@@ -24,7 +23,7 @@ public class HealthTest : MonoBehaviour
         currentHealth -= amount;
 
         //Debug.Log("health.take");
-        //Debug.Log(currentHealth);
+        Debug.Log(currentHealth);
 
     }
 }

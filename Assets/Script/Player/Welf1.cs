@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Welf1 : SkillSet {
-    public float setTime = 1;
-    private float clearTime = 2;
+    public float setTime = 0;
+    private float clearTime = 1;
+    private float timer=0;
 
     private bool canUseSkill = true;
-    private bool isTouch = false;
+    private bool istouch = false;
 
     //主角相關
     GameObject player;
@@ -19,7 +20,7 @@ public class Welf1 : SkillSet {
     //技能相關
     [SerializeField]
     GameObject water;
-    HealthTest healthTest;
+    private HealthTest healthTest;
     public GameObject welfuiobject;
     private SkillCoolDown skillcooldown;
     // Use this for initialization
@@ -30,43 +31,42 @@ public class Welf1 : SkillSet {
 
         welfAnim = GetComponent<Animator>();
 
-        welfuiobject = GameObject.FindWithTag("WelfUI");
-        skillcooldown = welfuiobject.GetComponent<SkillCoolDown>();
+        //welfuiobject = GameObject.FindWithTag("WelfUI");
+        //skillcooldown = welfuiobject.GetComponent<SkillCoolDown>();
     }
 	
 	// Update is called once per frame
 	void Update () {
         GetKey();
         
-        if (keySkill&&!isSkill&& !skillcooldown.iscoolskill[WelfSelect.iWelfCount-1])
+        if (keySkill&&!isSkill)//&& !skillcooldown.iscoolskill[WelfSelect.iWelfCount-1])
         {
             isSkill = true;
-            if (isTouch)
+            //water.SetActive(true);
+            if (istouch)
             {
                 healthTest.TakeDamage(hurt);
             }
-            skillcooldown.UseSkill(WelfSelect.iWelfCount);
+            //skillcooldown.UseSkill(WelfSelect.iWelfCount);
+            PlayerMovement.canMove = false;
         }
 
         if (isSkill)
         {
-            timer += Time.deltaTime;
-            
-        }
-
-        if (timer >= setTime)
-        {
-            water.SetActive(true);
+            timer += Time.deltaTime;        
         }
         if (timer >= clearTime)
         {
             isSkill = false;
 
-            water.SetActive(false);
+            //water.SetActive(false);
 
             timer = 0;
+
+            PlayerMovement.canMove = true;
         }
         Animation();
+        //isSkill = false;
         //Debug.Log(canUseSkill);
         //Debug.Log("touch");
     }
@@ -75,7 +75,7 @@ public class Welf1 : SkillSet {
     {
         if (other.CompareTag("EnemyTest"))
         {
-            isTouch = true;
+            istouch = true;
 
             healthTest = other.GetComponent<HealthTest>();
         }
@@ -84,7 +84,7 @@ public class Welf1 : SkillSet {
     {
         if (other.CompareTag("EnemyTest"))
         {
-            isTouch = false;
+            istouch = false;
 
             healthTest = null;
         }
