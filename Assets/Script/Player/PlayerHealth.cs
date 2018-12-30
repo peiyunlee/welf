@@ -11,8 +11,9 @@ public class PlayerHealth : MonoBehaviour
     public static int currentHealth;
 
     //條件判斷
-    public bool isDamaged;
-    public bool isDead;
+    public bool isProtect = false;
+    public bool isDamaged = false;
+    public bool isDead = false;
 
     testplayermove playerMovement;
     Animator playerAnim;
@@ -43,21 +44,24 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        isDamaged = true;
+        if (isProtect)
+        {
+            isDamaged = true;
 
-        currentHealth -= amount;
+            currentHealth -= amount;
 
-        playerAnim.SetTrigger("isDamaged");
-        
-        //uiheart.DecreaseLife(currentHealth);
-        //Debug.Log("health.take");
-        Debug.Log("player"+currentHealth);
+            playerAnim.SetTrigger("isDamaged");
 
-        //isDamaged = false;
-        //if (currentHealth <= 0 && !isDead)
-        //{
-        //    Death();
-        //}
+            //uiheart.DecreaseLife(currentHealth);
+            //Debug.Log("health.take");
+            Debug.Log("player" + currentHealth);
+
+            //isDamaged = false;
+            //if (currentHealth <= 0 && !isDead)
+            //{
+            //    Death();
+            //}
+        }
     }
 
     void Death()

@@ -9,15 +9,25 @@ public class AttackDetect : MonoBehaviour
     public HealthTest healthTest;
     public EnemyHealth enemyHealth;
     public middleEnemy_Health middleHealth;
+
+    public bool[] health;
+    
     // Use this for initialization
     private void Awake()
     {
-       // Debug.Log("adaw");
+        // Debug.Log("adaw");
+
+        health = new bool[3];
     }
     void Start()
     {
         isTouch = false;
 
+        for (int i = 0; i < 3; i++)
+        {
+            health[i] = false;
+        }
+        //health = null;
     }
 
     // Update is called once per frame
@@ -33,6 +43,8 @@ public class AttackDetect : MonoBehaviour
             isTouch = true;
 
             healthTest = other.GetComponent<HealthTest>();
+
+            health[0] = true;
         }
 
         if (other.CompareTag("main"))
@@ -40,6 +52,8 @@ public class AttackDetect : MonoBehaviour
             isTouch = true;
 
             enemyHealth = other.GetComponent<EnemyHealth>();
+
+            health[1] = true;
         }
 
         if (other.CompareTag("middlemain"))
@@ -47,6 +61,8 @@ public class AttackDetect : MonoBehaviour
             isTouch = true;
 
             middleHealth = other.GetComponent<middleEnemy_Health>();
+
+            health[2] = true;
         }
     }
 
@@ -57,12 +73,16 @@ public class AttackDetect : MonoBehaviour
             isTouch = false;
 
             healthTest = null;
+
+            health[0] = false;
         }
         if (other.CompareTag("main"))
         {
             isTouch = false;
 
             enemyHealth = null;
+
+            health[1] = false;
         }
 
         if (other.CompareTag("middlemain"))
@@ -70,6 +90,8 @@ public class AttackDetect : MonoBehaviour
             isTouch = false;
 
             middleHealth = null;
+
+            health[2] = false;
         }
     }
 }

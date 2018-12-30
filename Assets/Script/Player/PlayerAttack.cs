@@ -13,7 +13,7 @@ public class PlayerAttack : AttackDetect
 
     int hurt;
     int attackCount = 0;
-    bool keyAttack;
+    public static bool keyAttack;
 
     //動畫名稱
     private const string idleState = "Idle";
@@ -74,9 +74,18 @@ public class PlayerAttack : AttackDetect
         {
             if (isTouch)
             {
-                //enemyHealth.TakeDamage(Hurt(Attack.idle));
-
-                middleHealth.TakeDamage(Hurt(Attack.idle));
+                if (health[0])
+                {
+                    healthTest.TakeDamage(Hurt(Attack.idle));
+                }
+                if (health[1])
+                {
+                    enemyHealth.TakeDamage(Hurt(Attack.idle));
+                }
+                if (health[2])
+                {
+                    middleHealth.TakeDamage(Hurt(Attack.idle));
+                }
             }
             attackCount = 0;
             playerAnim.SetInteger("Attack", attackCount);
@@ -89,9 +98,18 @@ public class PlayerAttack : AttackDetect
             {
                 if (isTouch)
                 {
-                    //enemyHealth.TakeDamage(Hurt(Attack.normal));
-
-                    middleHealth.TakeDamage(Hurt(Attack.normal));
+                    if (health[0])
+                    {
+                        healthTest.TakeDamage(Hurt(Attack.normal));
+                    }
+                    if (health[1])
+                    {
+                        enemyHealth.TakeDamage(Hurt(Attack.normal));
+                    }
+                    if (health[2])
+                    {
+                        middleHealth.TakeDamage(Hurt(Attack.normal));
+                    }
                 }
                 attackCount = 1;
                 playerAnim.SetInteger("Attack", attackCount);
@@ -101,9 +119,18 @@ public class PlayerAttack : AttackDetect
             {
                 if (isTouch)
                 {
-                    //enemyHealth.TakeDamage(Hurt(Attack.normal));
-
-                    middleHealth.TakeDamage(Hurt(Attack.normal));
+                    if (health[0])
+                    {
+                        healthTest.TakeDamage(Hurt(Attack.normal));
+                    }
+                    if (health[1])
+                    {
+                        enemyHealth.TakeDamage(Hurt(Attack.normal));
+                    }
+                    if (health[2])
+                    {
+                        middleHealth.TakeDamage(Hurt(Attack.normal));
+                    }
                 }
                 attackCount = 2;
                 playerAnim.SetInteger("Attack", attackCount);
