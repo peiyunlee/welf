@@ -20,6 +20,7 @@ TagManager:
   - lifeIndicator
   - middlemain
   - specialodelia
+  - Box
   layers:
   - Default
   - TransparentFX

@@ -12011,6 +12011,11 @@ Prefab:
       propertyPath: mainTrans
       value: 
       objectReference: {fileID: 1255414691}
+    - target: {fileID: 114159438330214638, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+        type: 2}
+      propertyPath: startingHealth
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114543868811093340, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}

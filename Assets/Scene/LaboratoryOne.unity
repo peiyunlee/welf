@@ -1600,7 +1600,6 @@ GameObject:
   m_Component:
   - component: {fileID: 200752293}
   - component: {fileID: 200752295}
-  - component: {fileID: 200752294}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -1622,32 +1621,6 @@ Transform:
   m_Father: {fileID: 1012824080}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &200752294
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 61248867495509094, guid: d185951237c52da49a7573317f9bda0f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 200752292}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.018282175, y: -0.0000007748604}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.44, y: 2.22}
-    newSize: {x: 3.33, y: 3.33}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.781528, y: 2.7449632}
-  m_EdgeRadius: 0
 --- !u!212 &200752295
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9253,7 +9226,7 @@ GameObject:
   - component: {fileID: 1012824084}
   m_Layer: 0
   m_Name: Box
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9303,7 +9276,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.018282175, y: -0.0000007748604}
+  m_Offset: {x: 0.9487157, y: 1.5777459}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9314,7 +9287,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.781528, y: 2.7449632}
+  m_Size: {x: 13.06236, y: 10.786426}
   m_EdgeRadius: 0
 --- !u!212 &1012824083
 SpriteRenderer:
