@@ -32,8 +32,9 @@ public class WelfSelect : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            //chooseWelf[i] = GameManager.chooseelf[i];
+            chooseWelf[i] = GameManager.chooseelf[i];
             chooseWelf[i] = testWelf[i];
+            Debug.Log(chooseWelf[i]);
         }//設定玩家選哪幾隻elf
 
         mainTrans = GameObject.FindWithTag("Player").transform;
@@ -55,7 +56,7 @@ public class WelfSelect : MonoBehaviour
  
 
         isChange = false;
-        //Debug.Log(canChange);
+        
 
     }
 
@@ -81,7 +82,7 @@ public class WelfSelect : MonoBehaviour
                 {
                     if (mpMainWelf == null)
                     {
-                        mpMainWelf = mainWelf[chooseWelf[0]-1];
+                        mpMainWelf = mainWelf[chooseWelf[0]];
                         //設定主要Welf為第一隻
                     }
                 }
@@ -90,7 +91,7 @@ public class WelfSelect : MonoBehaviour
                 {
                     if (mpMainWelf == null)
                     {
-                        mpMainWelf = mainWelf[chooseWelf[1]-1];
+                        mpMainWelf = mainWelf[chooseWelf[1]];
                         //設定主要Welf為第二隻
                     }
                 }

@@ -14,7 +14,10 @@ public class CleanWaterThing : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        cleanwater.AddCleanWater();
-        Destroy(this.gameObject);
+        if (collision.tag == "Player")
+        {
+            cleanwater.AddCleanWater();
+            Destroy(this.gameObject);
+        }
     }
 }

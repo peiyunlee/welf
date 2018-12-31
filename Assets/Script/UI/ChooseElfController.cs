@@ -20,14 +20,10 @@ public class ChooseElfController : MonoBehaviour
     bool[] isbeingchoosed = new bool[3];  //水精靈已被選擇
     [SerializeField]
     int count = 0;
-    [SerializeField]
-    private GameObject welf;
-    [SerializeField]
-    private Toggle toggle;
-    [SerializeField]
-    private Flowchart flowchart;
-    [SerializeField]
-    int itime = 0;
+    public GameObject welf;
+    public Toggle toggle;
+    public Flowchart flowchart;
+    public int itime = 0;
     //private int scenenumber;
 
     enum ELF
@@ -116,12 +112,14 @@ public class ChooseElfController : MonoBehaviour
     }
     public void OnOKBtnClick()
     {
-        if (itime <= 0)
+        if (itime == 1)
+        {
             Fungus.Flowchart.BroadcastFungusMessage("skillteach2");
-        else
+        }
+        else if (itime == 2)
             AllSceneController.tonextscene = true;
-        itime++;
     }
+
     //public void OnBackBtnClick()
     //{
     //    count = 0;

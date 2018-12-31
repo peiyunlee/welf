@@ -21,22 +21,21 @@ public class UIHeart: MonoBehaviour {
             anim = lifelove[i-1].GetComponent<Animator>();
             anim.SetTrigger("notshow");
         }
-        Debug.Log(Scenestarthealth);
     }
     void Update()
     {
-        if (testishurt)  //test  生命上限
-        {
-            testcurrentHealth--;
-            DecreaseLife(testcurrentHealth);
-            testishurt = false;
-        }
-        if (testisbox)  //test
-        {
-            testcurrentHealth++;
-            AddLife(testcurrentHealth);
-            testisbox = false;
-        }
+        //if (testishurt)  //test  生命上限
+        //{
+        //    testcurrentHealth--;
+        //    DecreaseLife(testcurrentHealth);
+        //    testishurt = false;
+        //}
+        //if (testisbox)  //test
+        //{
+        //    testcurrentHealth++;
+        //    AddLife(testcurrentHealth);
+        //    testisbox = false;
+        //}
     }
     public void DecreaseLife(int playercurrentHealth)
     {
@@ -45,10 +44,10 @@ public class UIHeart: MonoBehaviour {
     }
     public void AddLife(int playercurrentHealth)
     {
-        testcurrentHealth++;  //test
+        //testcurrentHealth++;  //test
+        PlayerHealth.currentHealth++;
         anim = lifelove[playercurrentHealth].GetComponent<Animator>();
         anim.SetTrigger("Add");
-        Debug.Log("AddLife");
     }
 
 }

@@ -27,7 +27,7 @@ public class VillageTwo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (flowchart.GetBooleanVariable("isplayer") == true)
+        if (flowchart.GetBooleanVariable("isplayer") == true&&!flowchart.GetBooleanVariable("istwoend"))
         {
             PlayerMovement.isMenu = false;
             target[0].GetComponent<BoxCollider2D>().isTrigger = false;
@@ -67,6 +67,10 @@ public class VillageTwo : MonoBehaviour
                 Fungus.Flowchart.BroadcastFungusMessage("SkillTeach4");
             }
         }
-
+        if (flowchart.GetBooleanVariable("istwoend"))
+        {
+            target[0].GetComponent<BoxCollider2D>().isTrigger = true;
+            target[1].GetComponent<BoxCollider2D>().isTrigger = true;
+        }
     }
 }

@@ -26,7 +26,7 @@ public class CameraFollow : MonoBehaviour {
     }
 	
 	void Update () {
-        camerastop = flowchart.GetBooleanVariable("camerastop");
+            camerastop = flowchart.GetBooleanVariable("camerastop");
         if (GameManager.DestroyGameManager == true)
         {
             target = GameObject.FindWithTag("Player");

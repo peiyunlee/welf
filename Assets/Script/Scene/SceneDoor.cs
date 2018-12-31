@@ -48,7 +48,6 @@ public class SceneDoor : MonoBehaviour {
         else if (this.name == "NextSceneDoor" && (AllSceneController.iscenenumber == 5|| AllSceneController.iscenenumber == 7))
         {
             choosecanvas.SetActive(true);
-            Invoke("Tonextscene", 1.0f);
 
         }
     }
