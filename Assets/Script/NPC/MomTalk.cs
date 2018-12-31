@@ -7,7 +7,8 @@ public class MomTalk : MonoBehaviour
 {
     private bool isclickZ;
     private bool isfungus;
-    [SerializeField]
+    private bool hasseecg; 
+     [SerializeField]
     private GameObject talkimage;
     [SerializeField]
     private float fhidespeed = 300f;
@@ -33,6 +34,7 @@ public class MomTalk : MonoBehaviour
             isfungus = false;
             PlayerMovement.isMenu = false;   //主角行動
         }
+        Debug.Log(isclickZ+":"+isfungus);
     }
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -42,13 +44,17 @@ public class MomTalk : MonoBehaviour
         }
         if (isclickZ==false&&isfungus == false)
         {
-            talkimage.transform.position = vr0; //顯示talkimage
+            if(!hasseecg)
+                talkimage.transform.position = vr0; //顯示talkimage
         }
         else
         {
             talkimage.transform.position = vr1; //隱藏talkimage
-            if(isfungus==false)
+            if (isfungus == false)
+            {
                 Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
+                hasseecg = true;
+            }
             isfungus = true;
             PlayerMovement.isMenu = true;//主角不行動
         }

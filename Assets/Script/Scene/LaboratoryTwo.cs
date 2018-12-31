@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class LaboratoryTwo : MonoBehaviour {
     public bool testisbossdie;  //testboss
     public int testenemycount = 20;  //小怪 只要有一隻死掉enemycount--   test
-    public Button bossstorybtn;
+    //public Button bossstorybtn;
+    public GameObject bossstorybtn;
     [SerializeField]
     private bool gamefinish = false;
     [SerializeField]
@@ -24,7 +25,8 @@ public class LaboratoryTwo : MonoBehaviour {
         if (testisbossdie)    //boss死掉
         {
             BossTalk.bosscantalk = true;
-            bossstorybtn.interactable = true;
+            //bossstorybtn.interactable = true;
+            bossstorybtn.SetActive(true);
         }
         if (testenemycount == 0&& flowchart.GetBooleanVariable("bosshastalk"))
         {

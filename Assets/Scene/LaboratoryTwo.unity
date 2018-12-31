@@ -792,7 +792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testisbossdie: 0
   testenemycount: 20
-  bossstorybtn: {fileID: 0}
+  bossstorybtn: {fileID: 281637876}
   gamefinish: 0
   wall:
   - {fileID: 0}
@@ -1877,8 +1877,8 @@ Transform:
   - {fileID: 1583124015}
   - {fileID: 173013027}
   - {fileID: 270539670}
-  - {fileID: 1814927854}
   - {fileID: 1257345409}
+  - {fileID: 1814927854}
   - {fileID: 1505102510}
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -2552,40 +2552,78 @@ Prefab:
     - target: {fileID: 224975093359128178, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.5081004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224975093359128178, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224975093359128178, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224657580492139700, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224657580492139700, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224657580492139700, guid: adcf0461d6695ab44a2bf28fc935c82e,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: -17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1847795293344942, guid: adcf0461d6695ab44a2bf28fc935c82e, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224166248181156422, guid: adcf0461d6695ab44a2bf28fc935c82e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224154906587042948, guid: adcf0461d6695ab44a2bf28fc935c82e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224834486147963312, guid: adcf0461d6695ab44a2bf28fc935c82e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224624879578017384, guid: adcf0461d6695ab44a2bf28fc935c82e,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1425363097439722, guid: adcf0461d6695ab44a2bf28fc935c82e, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722558245747478, guid: adcf0461d6695ab44a2bf28fc935c82e, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114499062304073314, guid: adcf0461d6695ab44a2bf28fc935c82e,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adcf0461d6695ab44a2bf28fc935c82e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &281637876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1722558245747478, guid: adcf0461d6695ab44a2bf28fc935c82e,
+    type: 2}
+  m_PrefabInternal: {fileID: 281637875}
 --- !u!1 &284486669
 GameObject:
   m_ObjectHideFlags: 0
@@ -4141,6 +4179,11 @@ Prefab:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 114653439196390008, guid: e1555c32ce7079644bd0df766352c591,
+        type: 2}
+      propertyPath: flowchart
+      value: 
+      objectReference: {fileID: 1780178399}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1555c32ce7079644bd0df766352c591, type: 2}
   m_IsPrefabAsset: 0
@@ -4982,7 +5025,7 @@ Prefab:
       objectReference: {fileID: 1531044328}
     - target: {fileID: 1100298558630006, guid: 5e35b11cee155d540acedce9580e7f20, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4634480632073606, guid: 5e35b11cee155d540acedce9580e7f20, type: 2}
       propertyPath: m_RootOrder
@@ -12216,7 +12259,7 @@ Transform:
   - {fileID: 2118284856}
   - {fileID: 1827641202}
   m_Father: {fileID: 182576194}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1260956814
 GameObject:
@@ -17377,7 +17420,7 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1780178398}
+  - {fileID: 1780178403}
   selectedCommands: []
   variables:
   - {fileID: 1780178387}
