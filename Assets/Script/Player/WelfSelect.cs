@@ -82,7 +82,7 @@ public class WelfSelect : MonoBehaviour
                 {
                     if (mpMainWelf == null)
                     {
-                        mpMainWelf = mainWelf[chooseWelf[0]];
+                        mpMainWelf = mainWelf[chooseWelf[0]-1];
                         //設定主要Welf為第一隻
                     }
                 }
@@ -91,7 +91,7 @@ public class WelfSelect : MonoBehaviour
                 {
                     if (mpMainWelf == null)
                     {
-                        mpMainWelf = mainWelf[chooseWelf[1]];
+                        mpMainWelf = mainWelf[chooseWelf[1]-1];
                         //設定主要Welf為第二隻
                     }
                 }

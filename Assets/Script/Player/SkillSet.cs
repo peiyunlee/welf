@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkillSet : MonoBehaviour {
 
-    public bool isSkill = false;
+    public static bool isSkill = false;
 
     public static bool keySkill;
 

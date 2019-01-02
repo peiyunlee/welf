@@ -66,7 +66,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4281188091344798
 Transform:
   m_ObjectHideFlags: 1
@@ -87,8 +87,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472618838718074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.605, y: -7.478, z: 30}
-  m_LocalScale: {x: -0.9, y: 0.85, z: 0.85}
+  m_LocalPosition: {x: 0, y: -5, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4759452563836884}
   - {fileID: 4281188091344798}
@@ -102,8 +102,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1546675501435322}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 10, z: -10.4296875}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: -8, y: 10, z: 0}
+  m_LocalScale: {x: -1.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4682104191197762}
   m_RootOrder: 0
@@ -209,6 +209,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTouch: 0
   healthTest: {fileID: 0}
+  enemyHealth: {fileID: 0}
+  middleHealth: {fileID: 0}
+  health: 
 --- !u!114 &114159438330214638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,7 +224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 20
-  currentHealth: 0
   isDamaged: 0
   isDead: 0
 --- !u!114 &114331975343718892
@@ -239,10 +241,10 @@ MonoBehaviour:
   - {fileID: 1322407410969030, guid: 54765c0611a6d264db98d5f3cdca3789, type: 2}
   - {fileID: 1930213327966778, guid: 9331a3c7f1830d044bdcd3a7ffe75a56, type: 2}
   - {fileID: 1339290065288940, guid: 818853c3859c26648a96cd38aaacde2c, type: 2}
-  iWelfCount: 0
-  testWelf: 0000000001000000
+  welfuiobject: {fileID: 0}
+  testWelf: 0200000003000000
   changeTime: 2
-  gameManager: {fileID: 0}
+  mainTrans: {fileID: 0}
   skillSet: {fileID: 114549767038418412, guid: beb5745082ba7434ea0536a93f602102, type: 2}
 --- !u!114 &114433391727325952
 MonoBehaviour:
@@ -255,10 +257,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1556df4845217da4cb559a4d299fc77d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillSpeed: 20
+  state: 0
   moveSpeed: 10
   jumpSpeed: 5000
   jumpNum: 2
+  transformValue: {x: 0, y: 0}
   isGround: 1
 --- !u!114 &114543868811093340
 MonoBehaviour:
@@ -273,6 +276,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTouch: 0
   healthTest: {fileID: 0}
+  enemyHealth: {fileID: 0}
+  middleHealth: {fileID: 0}
+  health: 
+  player: {fileID: 0}
 --- !u!212 &212218012368797954
 SpriteRenderer:
   m_ObjectHideFlags: 1

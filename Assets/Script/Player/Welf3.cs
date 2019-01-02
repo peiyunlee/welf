@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Welf3 : SkillSet {
-    private float clearTime = 1;
+    private float clearTime = 2;
     private float timer = 0;
     //主角相關
     GameObject player;
@@ -32,16 +32,22 @@ public class Welf3 : SkillSet {
         {
             isSkill = true;
 
+            //PlayerMovement.canMove = false;
             //timer += Time.deltaTime;
         }
 
         if (isSkill)
         {
+            PlayerHealth.isProtect = true;
+
             timer += Time.deltaTime;
         }
 
         if (timer >= clearTime)
         {
+            PlayerHealth.isProtect = false;
+
+            //PlayerMovement.canMove = true;
             isSkill = false;
 
             timer = 0;

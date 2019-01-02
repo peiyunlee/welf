@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //方向狀態
-    enum State
+    public enum State
     {
         playerUp,
         playerDown,
@@ -13,15 +13,14 @@ public class PlayerMovement : MonoBehaviour
         playerRight
     }
 
-    State state;
+    public State state;
 
     //數值設定
-    public float skillSpeed = 5000;
     public float moveSpeed = 10;
     public float jumpSpeed = 5000;
     public int jumpNum = 2;
     public static int jumpCount = 0;
-    Vector2 transformValue;
+    public Vector2 transformValue;
 
     //設定按鍵
     private float keyVertical;
@@ -67,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!isMenu && canMove)
+        if (!isMenu && !SkillSet.isSkill)
         {
             Move();
 
@@ -91,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             if (keyHorizontal == 1)
                 {
                     playerAnim.SetTrigger("IdWa");
-                    SetPlayerState(State.playerRight);
+                    SetPlayerState(State.playerRight); 
                 }
 
             if (keyHorizontal == -1)

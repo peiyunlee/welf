@@ -97,12 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3369310557e5cc4a843e979b2153c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillTime: 0
-  timer: 0
-  hurt: 2
   isSkill: 0
-  keySkill: 0
-  keyHorizontal: 0
+  hurt: 2
   moveSpeed: 5
 --- !u!212 &212897856856034014
 SpriteRenderer:

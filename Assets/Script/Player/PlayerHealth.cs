@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public static int currentHealth;
 
     //條件判斷
-    public bool isProtect = false;
+    public static bool isProtect = false;
     public bool isDamaged = false;
     public bool isDead = false;
 
@@ -40,13 +40,17 @@ public class PlayerHealth : MonoBehaviour
         isDamaged = false;
         //Debug.Log("health.update");
         Animating();
+
+        PlayerMovement.canMove = true;
     }
 
     public void TakeDamage(int amount)
     {
-        if (isProtect)
+        if (!isProtect)
         {
             isDamaged = true;
+
+            PlayerMovement.canMove = false;
 
             currentHealth -= amount;
 
@@ -55,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
             //uiheart.DecreaseLife(currentHealth);
             //Debug.Log("health.take");
             Debug.Log("player" + currentHealth);
+
 
             //isDamaged = false;
             //if (currentHealth <= 0 && !isDead)
