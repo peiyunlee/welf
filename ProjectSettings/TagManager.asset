@@ -23,6 +23,7 @@ TagManager:
   - Box
   - Enemy
   - count
+  - main2
   layers:
   - Default
   - TransparentFX

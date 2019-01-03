@@ -9,6 +9,8 @@ public class AttackDetect : MonoBehaviour
     public HealthTest healthTest;
     public EnemyHealth enemyHealth;
     public middleEnemy_Health middleHealth;
+    public littleEnemy2_health littleEnemy;
+
 
     public bool[] health;
     
@@ -17,13 +19,13 @@ public class AttackDetect : MonoBehaviour
     {
         // Debug.Log("adaw");
 
-        health = new bool[3];
+        health = new bool[4];
     }
     void Start()
     {
         isTouch = false;
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             health[i] = false;
         }
@@ -64,6 +66,15 @@ public class AttackDetect : MonoBehaviour
 
             health[2] = true;
         }
+
+        if (other.CompareTag("main2"))
+        {
+            isTouch = true;
+
+            littleEnemy = other.GetComponent<littleEnemy2_health>();
+
+            health[3] = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -92,6 +103,14 @@ public class AttackDetect : MonoBehaviour
             middleHealth = null;
 
             health[2] = false;
+        }
+        if (other.CompareTag("main2"))
+        {
+            isTouch = false;
+
+            littleEnemy = null;
+
+            health[3] = false;
         }
     }
 }

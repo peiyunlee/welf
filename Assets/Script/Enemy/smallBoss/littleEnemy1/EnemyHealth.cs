@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour {
         anim.SetBool("littleEnemy_hurt",true);
         currentHealth -= amount;
         /*Debug.Log(currentHealth);*/
-        Invoke("resetanim", 0.5f);
+        //Invoke("resetanim", 0.5f);
         if (currentHealth <= 0)
         {
             Death();
@@ -76,8 +76,12 @@ public class EnemyHealth : MonoBehaviour {
         anim = GetComponent<Animator>();
         currentHealth = startingHealth;
     }
-	
-	// Update is called once per frame
-	
-  
+
+    private void Update()
+    {
+        anim.SetBool("littleEnemy_hurt", false);
+    }
+    // Update is called once per frame
+
+
 }

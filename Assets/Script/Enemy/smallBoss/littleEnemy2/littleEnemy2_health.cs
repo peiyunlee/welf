@@ -25,6 +25,7 @@ public class littleEnemy2_health : MonoBehaviour {
     void resetanim()
     {
         anim.SetBool("littleEnemy2_hurt", false);
+        Debug.Log("littleEnemy2_hurt=false");
         CancelInvoke("resetanim");
     }
 
@@ -34,7 +35,8 @@ public class littleEnemy2_health : MonoBehaviour {
         /* Debug.Log("damaged");*/
         anim.SetBool("littleEnemy2_hurt", true);
         currentHealth -= amount;
-        /*Debug.Log(currentHealth);*/
+        //anim.SetBool("littleEnemy2_hurt", false);
+        //Debug.Log(currentHealth);
         Invoke("resetanim", 0.5f);
         if (currentHealth <= 0)
         {

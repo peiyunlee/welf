@@ -51,7 +51,7 @@ public class littleEnemy2_movement : MonoBehaviour {
     int i = 0;
     void idle()
     {
-        timer += Time.deltaTime;
+        //timer += Time.deltaTime;
         Vector2 transformValue = new Vector2(idle_speed, 0);
         i++;
         playerRigidbody.velocity = transformValue;
@@ -63,6 +63,7 @@ public class littleEnemy2_movement : MonoBehaviour {
             idle_speed = idle_speed * -1;
             i = 0;
         }
+        //timer = 0;
         /*Debug.Log(i);*/
 
         /*
@@ -104,21 +105,28 @@ public class littleEnemy2_movement : MonoBehaviour {
     bool stat_dead = false;
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
 
-            playerHealth.TakeDamage(1);
+            timer += Time.deltaTime;
 
+            if (timer >= 1f)
+            {
+                playerHealth.TakeDamage(1);
+
+                timer = 0;
+            }  
         }
     }
 
     void resetanim()
     {
         Destroy(this.gameObject);
-        anim.SetBool("littleEnemy2_hurt", false);
+        //anim.SetBool("littleEnemy2_hurt", false);
+        //Debug.Log("littleEnemy2_hurt=false");
         CancelInvoke("resetanim");
     }
     

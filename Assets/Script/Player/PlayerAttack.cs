@@ -86,6 +86,10 @@ public class PlayerAttack : AttackDetect
                 {
                     middleHealth.TakeDamage(Hurt(Attack.idle));
                 }
+                if (health[3])
+                {
+                    littleEnemy.TakeDamage(Hurt(Attack.idle));
+                }
             }
             attackCount = 0;
             playerAnim.SetInteger("Attack", attackCount);
@@ -110,6 +114,10 @@ public class PlayerAttack : AttackDetect
                     {
                         middleHealth.TakeDamage(Hurt(Attack.normal));
                     }
+                    if (health[3])
+                    {
+                        littleEnemy.TakeDamage(Hurt(Attack.normal));
+                    }
                 }
                 attackCount = 1;
                 playerAnim.SetInteger("Attack", attackCount);
@@ -130,6 +138,10 @@ public class PlayerAttack : AttackDetect
                     if (health[2])
                     {
                         middleHealth.TakeDamage(Hurt(Attack.normal));
+                    }
+                    if (health[3])
+                    {
+                        littleEnemy.TakeDamage(Hurt(Attack.normal));
                     }
                 }
                 attackCount = 2;
