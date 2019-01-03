@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Welf2 : SkillSet {
-    public float moveSpeed = 1f;
+    public float moveSpeed = 2f;
     private float clearTime = 1f;
     private float timer = 0;
 

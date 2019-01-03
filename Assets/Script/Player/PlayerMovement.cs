@@ -29,6 +29,10 @@ public class PlayerMovement : MonoBehaviour
     private bool keyMenu;
 
     //條件判斷
+    public static bool faceRight = true;
+    private bool isTop = false;
+    private bool isFall = false;
+    private bool isJumping = false;
     private bool isWalking = false;
     public bool isGround = true;
     private bool canJumping = true;
@@ -121,12 +125,21 @@ public class PlayerMovement : MonoBehaviour
         if (keyJump && canJumping)
         {
             //Debug.Log("Jump");
-            playerRigidbody.AddForce(new Vector2(0f, jumpSpeed));
+            playerRigidbody.AddForce(new Vector2(0f, jumpSpeed*2f));
             jumpCount++;
             if (playerRigidbody.velocity.y < -1)
             {
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
             }
+            if(playerRigidbody.velocity.y == 0)
+            {
+                playerAnim.SetTrigger("isTop");
+            }
+            if (playerRigidbody.velocity.y < 0)
+            {
+                isFall = false;
+            }
+            isJumping = true;
         }
         canJumping = false;
 
@@ -143,6 +156,10 @@ public class PlayerMovement : MonoBehaviour
             playerAnim.SetTrigger("WaId");
 
             jumpCount = 0;
+
+            isJumping = false;
+
+            isFall = false;
         }
     }
 
@@ -180,6 +197,7 @@ public class PlayerMovement : MonoBehaviour
             temp.x *= -1;
             transform.localScale = temp;
             state = newState;
+            faceRight = !faceRight;
         }
     }
 
@@ -191,5 +209,9 @@ public class PlayerMovement : MonoBehaviour
             isWalking = false;
         }
         playerAnim.SetBool("isWalking", isWalking);
+
+        playerAnim.SetBool("isJumping", isJumping);
+
+        playerAnim.SetBool("isFall", isFall);
     }
 }
