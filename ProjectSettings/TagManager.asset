@@ -21,6 +21,8 @@ TagManager:
   - middlemain
   - specialodelia
   - Box
+  - Enemy
+  - count
   layers:
   - Default
   - TransparentFX

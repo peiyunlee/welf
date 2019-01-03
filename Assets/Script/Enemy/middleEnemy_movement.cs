@@ -13,6 +13,7 @@ public class middleEnemy_movement : MonoBehaviour
     private EnemyAttack_manager bighit;
     Rigidbody2D playerRigidbody;
     public Transform main;//要跟随英雄
+    public Transform count;
 
     public int check = 1;
     bool border_tag = false;//是否碰到限制範圍
@@ -28,6 +29,7 @@ public class middleEnemy_movement : MonoBehaviour
     float timer_dead = 0;
 
     PlayerHealth playerHealth;
+    public Enemy_count countAllEnemy1;
 
     void detectScale()
     {
@@ -141,7 +143,9 @@ public class middleEnemy_movement : MonoBehaviour
         left = GetComponent<leftBulletController>();
         bighit = GetComponent<EnemyAttack_manager>();
         anim = GetComponent<Animator>();
-        
+        count = GameObject.FindGameObjectWithTag("count").transform;
+        countAllEnemy1 = count.GetComponent<Enemy_count>();
+
     }
 
 
@@ -205,7 +209,7 @@ public class middleEnemy_movement : MonoBehaviour
 
         if (enemyHealth.isDead)
         {
-           
+            countAllEnemy1.middleEnemy_count--;
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;

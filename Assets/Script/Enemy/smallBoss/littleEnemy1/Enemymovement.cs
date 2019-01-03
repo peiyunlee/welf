@@ -7,7 +7,7 @@ using UnityEngine;
     private littleEnemy_Attack_shock shock;
     Rigidbody2D playerRigidbody;
     public Transform main;//要跟随英雄
-
+    public Transform count;
 
     bool border_tag=false;//是否碰到限制範圍
     float followDis = 30f;//達到此距離開始跟隨
@@ -16,11 +16,13 @@ using UnityEngine;
     public float follow_speed = 15f;//跟隨速度
     private EnemyHealth enemyHealth;
 
-   public  float timer = 0;
+    public  float timer = 0;
 
     float timer_dead = 0;
 
     PlayerHealth playerHealth;
+    public Enemy_count countAllEnemy1;
+
 
     //判斷轉向
     void detectScale()
@@ -132,6 +134,8 @@ using UnityEngine;
         Vector2 temp = transform.localScale;
         temp.x *= -1;
         transform.localScale = temp;
+        count = GameObject.FindGameObjectWithTag("count").transform;
+        countAllEnemy1 = count.GetComponent<Enemy_count>();
     }
 
 
@@ -153,6 +157,7 @@ using UnityEngine;
 
     void resetanim()
     {
+        Debug.Log("Destroy");
         Destroy(this.gameObject);
         anim.SetBool("littleEnemy_hurt", false);
         CancelInvoke("resetanim");
@@ -161,8 +166,8 @@ using UnityEngine;
 
     void Update()
     {
-
        
+
         if (stat_dead == false&& enemyHealth.isDead)
         {
             anim.SetBool("littleEneny_dead", true);
@@ -171,6 +176,8 @@ using UnityEngine;
 
         if (enemyHealth.isDead)
         {
+           
+            countAllEnemy1.littleEnemy1_count--;
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;

@@ -8,7 +8,7 @@ public class littleEnemy2_movement : MonoBehaviour {
    
     Rigidbody2D playerRigidbody;
     public Transform main;//要跟随英雄
-
+    public Transform count;
 
     bool border_tag = false;//是否碰到限制範圍
     float followDis = 30f;//達到此距離開始跟隨
@@ -22,6 +22,7 @@ public class littleEnemy2_movement : MonoBehaviour {
     float timer_dead = 0;
 
     PlayerHealth playerHealth;
+    public Enemy_count countAllEnemy1;
     //跟隨函式
     void follow()
     {
@@ -90,9 +91,11 @@ public class littleEnemy2_movement : MonoBehaviour {
         enemyHealth = GetComponent<littleEnemy2_health>();
         
         anim = GetComponent<Animator>();
-       /* Vector2 temp = transform.localScale;
-        temp.x *= -1;
-        transform.localScale = temp;*/
+        count = GameObject.FindGameObjectWithTag("count").transform;
+        countAllEnemy1 = count.GetComponent<Enemy_count>();
+        /* Vector2 temp = transform.localScale;
+         temp.x *= -1;
+         transform.localScale = temp;*/
     }
 
 
@@ -130,6 +133,7 @@ public class littleEnemy2_movement : MonoBehaviour {
 
         if (enemyHealth.isDead)
         {
+            countAllEnemy1.littleEnemy2_count--;
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
