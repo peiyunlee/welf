@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LaboratoryOne : MonoBehaviour {
+    bool enemyalldie;
     bool isbossdie;  //boss
-    public int testenemycount = 15;  //小怪 只要有一隻死掉enemycount--
     [SerializeField]
     private Fungus.Flowchart flowchart;
     [SerializeField]
@@ -14,12 +14,12 @@ public class LaboratoryOne : MonoBehaviour {
     void Start () {
         wall[0] = GameObject.Find("Rwall").GetComponent<Collider2D>();
         wall[1] = GameObject.Find("Lwall").GetComponent<Collider2D>();
-        
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (testenemycount == 0)
+        enemyalldie = Enemy_count.littleEnemy1_allDead && Enemy_count.littleEnemy2_allDead;
+        if (enemyalldie)
         {
             gamefinish = true;
             for (int i = 0; i < 2; i++)

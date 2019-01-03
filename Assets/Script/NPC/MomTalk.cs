@@ -33,8 +33,9 @@ public class MomTalk : MonoBehaviour
             isclickZ = false;
             isfungus = false;
             PlayerMovement.isMenu = false;   //主角行動
+            talkimage.transform.position = vr0;
+            flowchart.SetBooleanVariable("isend",false);
         }
-        Debug.Log(isclickZ+":"+isfungus);
     }
     void OnTriggerStay2D(Collider2D collision)
     {
@@ -44,7 +45,7 @@ public class MomTalk : MonoBehaviour
         }
         if (isclickZ==false&&isfungus == false)
         {
-            if(!hasseecg)
+            if(flowchart.GetBooleanVariable("hasseecg")==false)
                 talkimage.transform.position = vr0; //顯示talkimage
         }
         else
@@ -53,7 +54,6 @@ public class MomTalk : MonoBehaviour
             if (isfungus == false)
             {
                 Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
-                hasseecg = true;
             }
             isfungus = true;
             PlayerMovement.isMenu = true;//主角不行動
@@ -64,6 +64,5 @@ public class MomTalk : MonoBehaviour
         isfungus = false;
         isclickZ = false;
         talkimage.transform.position = vr1; //隱藏talkimage
-        
     }
 }
