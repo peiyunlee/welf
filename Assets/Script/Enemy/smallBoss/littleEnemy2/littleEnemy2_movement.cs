@@ -87,7 +87,7 @@ public class littleEnemy2_movement : MonoBehaviour {
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
         main = GameObject.FindGameObjectWithTag("Player").transform;
-        Transform target = GameObject.FindGameObjectWithTag("Player").transform;
+        //Transform target = GameObject.FindGameObjectWithTag("Player").transform;
         enemyHealth = GetComponent<littleEnemy2_health>();
         
         anim = GetComponent<Animator>();

@@ -133,11 +133,15 @@ public class PlayerMovement : MonoBehaviour
             }
             if(playerRigidbody.velocity.y == 0)
             {
-                playerAnim.SetTrigger("isTop");
+                isTop = true;
+                playerAnim.SetBool("isTop", isTop);
             }
             if (playerRigidbody.velocity.y < 0)
             {
+                isTop = false;
                 isFall = false;
+                playerAnim.SetBool("isTop", isTop);
+                playerAnim.SetBool("isFall", isFall);
             }
             isJumping = true;
         }
@@ -169,6 +173,7 @@ public class PlayerMovement : MonoBehaviour
         if (floor.gameObject.CompareTag("Floor"))
         {
             isGround = true;
+            isTop = false;
         }
     }
 
@@ -213,5 +218,7 @@ public class PlayerMovement : MonoBehaviour
         playerAnim.SetBool("isJumping", isJumping);
 
         playerAnim.SetBool("isFall", isFall);
+
+        playerAnim.SetBool("isTop", isTop);
     }
 }
