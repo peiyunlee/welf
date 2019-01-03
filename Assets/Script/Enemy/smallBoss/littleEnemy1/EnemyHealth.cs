@@ -33,7 +33,7 @@ public class EnemyHealth : MonoBehaviour {
        /* Debug.Log("damaged");*/
         anim.SetBool("littleEnemy_hurt",true);
         currentHealth -= amount;
-        /*Debug.Log(currentHealth);*/
+        Debug.Log(currentHealth);
         //Invoke("resetanim", 0.5f);
         if (currentHealth <= 0)
         {
