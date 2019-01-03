@@ -23,11 +23,13 @@ public class Welf1 : SkillSet {
     private HealthTest healthTest;
     public GameObject welfuiobject;
     private SkillCoolDown skillcooldown;
+    private AttackDetect attackDetect;
     // Use this for initialization
     void Start () {
         healthTest = null;
         player = GameObject.FindWithTag("Player");
         playAnim = player.GetComponent<Animator>();
+        attackDetect = player.GetComponent<AttackDetect>();
 
         welfAnim = GetComponent<Animator>();
 
@@ -43,9 +45,24 @@ public class Welf1 : SkillSet {
         {
             isSkill = true;
             //water.SetActive(true);
-            if (istouch)
+            if (attackDetect.isTouch)
             {
-                healthTest.TakeDamage(hurt);
+                if (attackDetect.health[0])
+                {
+                    healthTest.TakeDamage(2);
+                }
+                if (attackDetect.health[1])
+                {
+                    attackDetect.enemyHealth.TakeDamage(2);
+                }
+                if (attackDetect.health[2])
+                {
+                    attackDetect.middleHealth.TakeDamage(2);
+                }
+                if (attackDetect.health[3])
+                {
+                    attackDetect.littleEnemy.TakeDamage(2);
+                }
             }
             //skillcooldown.UseSkill(WelfSelect.iWelfCount);
             PlayerMovement.canMove = false;
@@ -73,21 +90,21 @@ public class Welf1 : SkillSet {
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.CompareTag("EnemyTest"))
-        {
-            istouch = true;
+        //if (other.CompareTag("EnemyTest"))
+        //{
+        //    istouch = true;
 
-            healthTest = other.GetComponent<HealthTest>();
-        }
+        //    healthTest = other.GetComponent<HealthTest>();
+        //}
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("EnemyTest"))
-        {
-            istouch = false;
+        //if (other.CompareTag("EnemyTest"))
+        //{
+        //    istouch = false;
 
-            healthTest = null;
-        }
+        //    healthTest = null;
+        //}
     }
 
     void GetKey()
