@@ -29,27 +29,29 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
 
         timer += Time.deltaTime;
 
-        /*if (timer >=1f && timer <= 2f)//暫停時間
+        if (timer >=0.4f && timer <= 1f)//暫停時間
         {
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
 
-        }*/
-     /*   else if (timer > 1f)//返回時間
+        }
+        else if (timer > 1f)//返回時間
         {
             playerHealth.TakeDamage(1);
             State_right = false;
             //Enemymovement.anim.SetBool("middle_enemy_shock_start ", false);
             timer = 0;
 
-        }*/
+        }
 
-       /* else
-        {*/
+        else
+
+        {
+            //Enemymovement.anim.SetBool("middle_enemy_shock_start", true);
             transform.Translate(Vector3.right * speed * Time.deltaTime);
 
 
-       /* }*/
+        }
 
 
 
@@ -61,27 +63,28 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
 
         timer += Time.deltaTime;
 
-      /*  if (timer >= 1f && timer <= 2f)//暫停時間
+       if (timer >= 0.4f && timer <= 1f)//暫停時間
         {
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
 
-        }*/
-       /* else if (timer > 1f)//返回時間
+        }
+        else if (timer > 1f)//返回時間
         {
            playerHealth.TakeDamage(1);
             State_left = false;
-            //Enemymovement.anim.SetBool("middle_enemy_shock_start ", false);
+            
             timer = 0;
 
-        }*/
+        }
 
-       /* else
-        {*/
+        else
+        {
+           // Enemymovement.anim.SetBool("middle_enemy_shock_start", true);
             transform.Translate(Vector3.left * speed * Time.deltaTime);
 
 
-       /* }*/
+       }
 
 
 
@@ -93,7 +96,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
     {
         initialposition = transform.position.x;
         playerRigidbody = GetComponent<Rigidbody2D>();
-        //Transform target = GameObject.FindGameObjectWithTag("main").transform;
+        
         Enemymovement = GetComponent<middleEnemy_movement>(); //與外部判斷是否fire做連結
         playerHealth = null;
     }

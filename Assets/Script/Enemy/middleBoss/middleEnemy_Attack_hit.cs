@@ -17,18 +17,18 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
     public void middleBoss_hit()
     {
         normalhit_state = true;
-        movement.anim.SetBool("middle_enemy_shock_start ", false);
-        movement.anim.SetBool("middle_enemy_normalhit_start", true);
+        //movement.anim.SetBool("middle_enemy_shock_start ", false);
+       // movement.anim.SetBool("middle_enemy_normalhit_start", true);
         timer += Time.deltaTime;
         
         if (timer>4f)
         {
             Debug.Log("normalhit_state = false");
-           /* playerHealth.TakeDamage(1);*/
+            playerHealth.TakeDamage(1);
             normalhit_state = false;
             timer = 0;
             Debug.Log(timer);
-            movement.anim.SetBool("middle_enemy_normalhit_start", false);
+            //movement.anim.SetBool("middle_enemy_normalhit_start", false);
         }
 
     }

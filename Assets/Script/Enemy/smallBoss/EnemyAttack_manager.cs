@@ -8,10 +8,10 @@ public class EnemyAttack_manager : MonoBehaviour {
     public Transform main;//要跟随英雄
      float attackDis = 40f;//達到此距離開始攻擊
      float attackDis_shock = 40f;//達到此距離開始攻擊_shock
-    public static bool bighit_state_right = false;
-    public static bool bighit_state_left = false;
-    public static bool normalhit_state = false;
-    public static bool shockhit_state = false;
+    public  bool bighit_state_right = false;
+    public  bool bighit_state_left = false;
+    public  bool normalhit_state = false;
+    public  bool shockhit_state = false;
     private middleEnemy_movement movement;
     private rightBulletController right;
     private leftBulletController left;
@@ -49,14 +49,14 @@ public class EnemyAttack_manager : MonoBehaviour {
             
             if (timer > 0f && timer < 1f)
             {
-                anim.SetBool("middle_enemy_bighit_start", true);
+                //anim.SetBool("middle_enemy_bighit_start", true);
             }
 
             
 
             if (timer > 2f )
             {
-                anim.SetBool("middle_enemy_bighit_start", false);
+                //anim.SetBool("middle_enemy_bighit_start", false);
                 movement.bighit_state = false;
             }
 
@@ -70,14 +70,14 @@ public class EnemyAttack_manager : MonoBehaviour {
            
             if (timer > 0f && timer < 1f)
             {
-                anim.SetBool("middle_enemy_bighit_start", true);
+              
             }
 
          
 
             if (timer > 2f)
             {
-                anim.SetBool("middle_enemy_bighit_start", false);
+              
                 movement.bighit_state = false;
             }
         }

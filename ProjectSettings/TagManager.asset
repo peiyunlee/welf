@@ -24,6 +24,8 @@ TagManager:
   - Enemy
   - count
   - main2
+  - rightbullet
+  - leftbullet
   layers:
   - Default
   - TransparentFX

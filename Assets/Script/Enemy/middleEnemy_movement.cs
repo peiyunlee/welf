@@ -8,18 +8,21 @@ public class middleEnemy_movement : MonoBehaviour
     private middleEnemy_Attack_shock shock;
     private middleEnemy_Attack_hit hit;
     
-    private rightBulletController right;
-    private leftBulletController left;
+    rightBulletController right;
+    leftBulletController left;
     private EnemyAttack_manager bighit;
     Rigidbody2D playerRigidbody;
     public Transform main;//要跟随英雄
     public Transform count;
+    public rightBulletController rightBullet;
+    public leftBulletController leftBullet;
 
+    EnemyAttack_manager manager;
     public int check = 1;
     bool border_tag = false;//是否碰到限制範圍
     public bool bighit_state = false;
-    float followDis = 20f;//達到此距離開始跟隨
-    float attackDis = 15f;
+    float followDis = 30f;//達到此距離開始跟隨
+    float attackDis = 22f;
     public float idle_speed = 20f;//移動速度
     public float follow_speed = 15f;//跟隨速度
     private middleEnemy_Health enemyHealth;
@@ -31,6 +34,8 @@ public class middleEnemy_movement : MonoBehaviour
 
     PlayerHealth playerHealth;
     public Enemy_count countAllEnemy1;
+
+    float timer_fire = 0f;
 
     void detectCharacFunc()//判斷是否位於同一平台
     {
@@ -155,13 +160,15 @@ public class middleEnemy_movement : MonoBehaviour
         enemyHealth = GetComponent<middleEnemy_Health>();
         shock = GetComponent<middleEnemy_Attack_shock>();
         hit = GetComponent<middleEnemy_Attack_hit>();
-        right = GetComponent<rightBulletController>();
-        left = GetComponent<leftBulletController>();
+       
         bighit = GetComponent<EnemyAttack_manager>();
         anim = GetComponent<Animator>();
         count = GameObject.FindGameObjectWithTag("count").transform;
         countAllEnemy1 = count.GetComponent<Enemy_count>();
+        manager = GetComponent<EnemyAttack_manager>();
 
+        rightBullet = GameObject.FindGameObjectWithTag("rightbullet").GetComponent<rightBulletController>();
+        leftBullet = GameObject.FindGameObjectWithTag("leftbullet").GetComponent<leftBulletController>();
     }
 
 
@@ -218,29 +225,36 @@ public class middleEnemy_movement : MonoBehaviour
         switch (state)
         {
 
-            case 1:  //hit anim
-                anim.SetBool("middle_enemy_shock_start ", true);
-                anim.SetBool("middle_enemy_normalhit_start", false);
-                anim.SetBool("middle_enemy_bighit_start ", false);
-                anim.SetBool("middleEnemy_idle", false);
-                break;
+           
 
-            case 2:  //hit anim
-                anim.SetBool("middle_enemy_shock_start ", false);
+            case 1:  //shock anim
+                manager.bighit_state_left = false;
+                manager.bighit_state_right = false;
+                anim.SetBool("middle_enemy_shock_start", true);
+                anim.SetBool("middle_enemy_normalhit_start", false);
+                anim.SetBool("middle_enemy_bighit_start", false);
+                anim.SetBool("middleEnemy_idle", false);
+                break;
+            case 2:  //bithit anim
+                anim.SetBool("middle_enemy_shock_start", false);
+                anim.SetBool("middle_enemy_normalhit_start", false);
+                anim.SetBool("middle_enemy_bighit_start", true);
+                anim.SetBool("middleEnemy_idle", false);
+                break;
+            case 3:  //normalhit anim
+                manager.bighit_state_left = false;
+                manager.bighit_state_right = false;
+                anim.SetBool("middle_enemy_shock_start", false);
                 anim.SetBool("middle_enemy_normalhit_start", true);
-                anim.SetBool("middle_enemy_bighit_start ", false);
+                anim.SetBool("middle_enemy_bighit_start", false);
                 anim.SetBool("middleEnemy_idle", false);
                 break;
-            case 3:  //hit anim
-                anim.SetBool("middle_enemy_shock_start ", false);
+            case 4:  //idle anim
+                manager.bighit_state_left = false;
+                manager.bighit_state_right = false;
+                anim.SetBool("middle_enemy_shock_start", false);
                 anim.SetBool("middle_enemy_normalhit_start", false);
-                anim.SetBool("middle_enemy_bighit_start ", true);
-                anim.SetBool("middleEnemy_idle", false);
-                break;
-            case 4:  //hit anim
-                anim.SetBool("middle_enemy_shock_start ", false);
-                anim.SetBool("middle_enemy_normalhit_start", false);
-                anim.SetBool("middle_enemy_bighit_start ", false);
+                anim.SetBool("middle_enemy_bighit_start", false);
                 anim.SetBool("middleEnemy_idle", true);
                 break;
 
@@ -251,17 +265,19 @@ public class middleEnemy_movement : MonoBehaviour
 
     void Update()
     {
+        
 
         detectCharacFunc();
-       if (stat_dead == false && enemyHealth.isDead)
+       /*if (stat_dead == false && enemyHealth.isDead)
         {
             //anim.SetBool("middleEnemy_hurt", false);
            // anim.SetBool("middleEnemy_Dead", true);
             stat_dead = true;
         }
-
+        */
         if (enemyHealth.isDead)
         {
+            anim.SetBool("middleEnemy_Dead", true);
             countAllEnemy1.middleEnemy_count--;
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
@@ -290,14 +306,14 @@ public class middleEnemy_movement : MonoBehaviour
                     attack_timer += Time.deltaTime;
                     if ((int)attack_timer % 4 == 0 && shock.State_left == false && shock.State_right == false && hit.normalhit_state == false && bighit_state == false)
                     {
-                        attack_sytle = Random.Range(1, 4);
+                        attack_sytle = Random.Range(1, 5);
 
 
 
                     }
                    
                     //自動轉換攻擊
-                    switch (2)
+                    switch (3)
                     {
 
                         case 1:
@@ -306,7 +322,8 @@ public class middleEnemy_movement : MonoBehaviour
                             {
                                 if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
                                 {
-                                   //anim.SetBool("middle_enemy_normalhit_start", true);
+                                    animatestate(3);
+                                    
                                     hit.middleBoss_hit();
 
 
@@ -314,7 +331,8 @@ public class middleEnemy_movement : MonoBehaviour
                                 }
                                 else if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))
                                 {
-                                    //anim.SetBool("middle_enemy_normalhit_start", true);
+                                    animatestate(3);
+                                   
                                     hit.middleBoss_hit();
 
                                 }
@@ -329,24 +347,28 @@ public class middleEnemy_movement : MonoBehaviour
 
                             if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false && hit.normalhit_state == false && bighit_state == false)
                             {
+                                animatestate(1);
                                 shock.State_right = true;
                                 timer += Time.deltaTime;
                                 shock.normalAttack_hit_right();
 
-                                //anim.SetBool("middle_enemy_shock_start ", true);
-                                animatestate(1);
+                               
+                               
+                               
 
                             }
 
 
                             else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false && hit.normalhit_state == false && bighit_state == false)
                             {
+                                animatestate(1);
                                 shock.State_left = true;
                                 timer += Time.deltaTime;
                                 shock.normalAttack_hit_left();
 
-                                // anim.SetBool("middle_enemy_shock_start ", true);
-                                animatestate(1);
+                                
+                               
+                               
 
                             }
 
@@ -355,22 +377,33 @@ public class middleEnemy_movement : MonoBehaviour
                             break;
 
                         case 3:
+                            timer_fire += Time.deltaTime;
                             if (shock.State_left == false && shock.State_right == false && hit.normalhit_state == false)
                             {
                                 if ((main.position.x - transform.position.x > 0))
                                 {
+                                    animatestate(2);
 
-                                    bighit_state = true;
-                                    bighit.bighit();
+                                    if (timer_fire>1f) {
+                                        rightBullet.fire();
+                                        timer_fire = 0;
+                                    }
+
+
 
 
 
                                 }
                                 else if ((main.position.x - transform.position.x < 0))//跟随距离
                                 {
+                                    animatestate(2);
 
-                                    bighit_state = true;
-                                    bighit.bighit();
+                                    if(timer_fire > 1f) {
+                                        leftBullet.fire();
+
+                                        timer_fire = 0;
+                                    }
+                                   
 
                                 }
                                 break;
@@ -398,13 +431,10 @@ public class middleEnemy_movement : MonoBehaviour
 
             else if ((Vector2.Distance(transform.position, main.position) > attackDis))
             {
-                //anim.SetBool("middle_enemy_shock_start ", false);
-                //anim.SetBool("middle_enemy_normalhit_start", false);
-                //anim.SetBool("middle_enemy_bighit_start ", false);
-                //anim.SetBool("middleEnemy_idle", true);
-               
-                idle();
                 
+                Debug.Log("idle");
+                idle();
+                animatestate(4);
 
             }
 
