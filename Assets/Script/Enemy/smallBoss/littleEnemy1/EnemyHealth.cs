@@ -14,41 +14,42 @@ public class EnemyHealth : MonoBehaviour {
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
+    Enemymovement enemymovement;
     public bool isDead;
     bool isSinking;
     bool bullet_tag=false;
+    float timer = 0f;
     
     // Use this for initialization
 
     //傷害
     void resetanim()
     {
-        anim.SetBool("littleEnemy_hurt", false);
+       
+        anim.SetBool("littleEnemy_behurt", false);
         CancelInvoke ("resetanim");
     }
 
 
     public void TakeDamage(int amount = 1)
     {
-       /* Debug.Log("damaged");*/
-        anim.SetBool("littleEnemy_hurt",true);
         currentHealth -= amount;
-        Debug.Log(currentHealth);
-        //Invoke("resetanim", 0.5f);
         if (currentHealth <= 0)
         {
             Death();
         }
+        
+        anim.SetBool("littleEnemy_behurt", true);
+        Invoke("resetanim", 0.1f);
+       
 
     }
 
     //死亡
     void Death()
     {
-        Debug.Log("Dead");
+       
         isDead = true;
-        /*capsuleCollider.isTrigger = true;*/
-        /*anim.SetTrigger("Dead");*/
         enemy_dead++;
         
     }
@@ -74,14 +75,10 @@ public class EnemyHealth : MonoBehaviour {
     void Start () {
 
         anim = GetComponent<Animator>();
+        enemymovement =GetComponent<Enemymovement>();
         currentHealth = startingHealth;
     }
 
-    private void Update()
-    {
-        anim.SetBool("littleEnemy_hurt", false);
-    }
-    // Update is called once per frame
-
+  
 
 }

@@ -11,7 +11,7 @@ public class littleEnemy2_movement : MonoBehaviour {
     public Transform count;
 
     bool border_tag = false;//是否碰到限制範圍
-    float followDis = 30f;//達到此距離開始跟隨
+    float followDis = 10f;//達到此距離開始跟隨
     float attackDis = 20f;
     public float idle_speed = 10f;//移動速度
     public float follow_speed = 15f;//跟隨速度
@@ -23,6 +23,25 @@ public class littleEnemy2_movement : MonoBehaviour {
 
     PlayerHealth playerHealth;
     public Enemy_count countAllEnemy1;
+    bool detectCharac;
+
+    void detectCharacFunc()//判斷是否位於同一平台
+    {
+        if ((main.position.y - transform.position.y) <= 3f && (main.position.y - transform.position.y) >= -10f)
+        {
+
+            detectCharac = true;
+        }
+        else
+        {
+            detectCharac = false;
+
+        }
+
+    }
+
+
+
     //跟隨函式
     void follow()
     {
@@ -125,23 +144,41 @@ public class littleEnemy2_movement : MonoBehaviour {
     void resetanim()
     {
         Destroy(this.gameObject);
-        //anim.SetBool("littleEnemy2_hurt", false);
-        //Debug.Log("littleEnemy2_hurt=false");
+        
         CancelInvoke("resetanim");
     }
-    
+    public void animatestate(int state)//control anim
+    {
+
+
+        switch (state)
+        {
+
+
+
+            case 1: //idle anim
+                
+                anim.SetBool("littleEnemy2_idle", true);
+                break;
+
+        }
+
+
+    }
+
     void Update()
     {
-        
-        if (stat_dead == false && enemyHealth.isDead)
+        detectCharacFunc();
+       /* if (stat_dead == false && enemyHealth.isDead)
         {
-            anim.SetBool("littleEnemy2_dead", true);
+            //anim.SetBool("littleEnemy2_dead", true);
             stat_dead = true;
-        }
+        }*/
 
         if (enemyHealth.isDead)
         {
             countAllEnemy1.littleEnemy2_count--;
+            anim.SetBool("littleEnemy2_dead", true);
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
@@ -153,11 +190,12 @@ public class littleEnemy2_movement : MonoBehaviour {
         }
         else
         {
+            animatestate(1);
 
 
-
-            if ((Vector2.Distance(transform.position, main.position) <= followDis))
+            if ((Vector2.Distance(transform.position, main.position) <= followDis) && detectCharac == true)
             {
+                
                 Vector2 transformValue = new Vector2(0, 0);
                 playerRigidbody.velocity = transformValue;
                 timer_enlarge += Time.deltaTime;
@@ -168,7 +206,7 @@ public class littleEnemy2_movement : MonoBehaviour {
 
                 }
 
-                else if (((timer_enlarge % 5) > 3) && ((timer_enlarge % 5) < 5))
+                else if (((timer_enlarge % 5) > 3) && ((timer_enlarge % 5) < 5) && detectCharac == true)
                 {
                     this.gameObject.transform.localScale += new Vector3(-0.01f, -0.01f, 0f);
 
@@ -189,6 +227,7 @@ public class littleEnemy2_movement : MonoBehaviour {
 
                 }
                 idle();
+                animatestate(1);
 
 
             }

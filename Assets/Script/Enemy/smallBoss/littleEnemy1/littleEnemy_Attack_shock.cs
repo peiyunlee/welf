@@ -13,21 +13,21 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
     public float timer = 0;
     public bool State_right = false;
     public bool State_left = false;
-    
 
+    float shock_time = 3.0f;
 
     public void normalAttack_hit_right()
     {
      
         timer += Time.deltaTime;
        
-        if (Enemymovement.timer >= 0.4f && Enemymovement.timer <= 0.8f)//暫停時間
+        if (Enemymovement.timer >= 0.4f && Enemymovement.timer <= shock_time)//暫停時間
         {
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
 
         }
-        else if (Enemymovement.timer >= 0.8f)//返回時間
+        else if (Enemymovement.timer >= shock_time)//返回時間
         {
             
             State_right = false;
@@ -52,13 +52,13 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
        
         timer += Time.deltaTime;
        
-        if (Enemymovement.timer >= 0.4f && Enemymovement.timer <= 0.8f)//暫停時間
+        if (Enemymovement.timer >= 0.4f && Enemymovement.timer <= shock_time)//暫停時間
         {
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
 
         }
-        else if (Enemymovement.timer >= 0.8f)//返回時間
+        else if (Enemymovement.timer >= shock_time)//返回時間
         {
            
             State_left = false;
