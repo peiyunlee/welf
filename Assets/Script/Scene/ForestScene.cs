@@ -25,13 +25,13 @@ public class ForestScene : MonoBehaviour {
                 flowchart.SetBooleanVariable("isteach1", false);
                 Fungus.Flowchart.BroadcastFungusMessage("TeachJump2");
             }
+            target.GetComponent<BoxCollider2D>().isTrigger = false;
         }
         else if (flowchart.GetBooleanVariable("isteach2") == true)
         {
             if (PlayerMovement.jumpCount == 2)
             {
                 flowchart.SetBooleanVariable("isteach2", false);
-                target.GetComponent<BoxCollider2D>().isTrigger = false;
             }
         }
     }

@@ -15,7 +15,7 @@ public class Cloudmove : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        gameObject.transform.position -=new Vector3( 0.5f,0f,0f);
+        gameObject.transform.position -=new Vector3( 0.05f,0f,0f);
         if (gameObject.transform.position.x < -205f && !hasinstantiate)
         {
             hasinstantiate = true;

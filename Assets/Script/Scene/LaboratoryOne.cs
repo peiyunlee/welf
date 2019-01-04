@@ -18,7 +18,7 @@ public class LaboratoryOne : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        enemyalldie = Enemy_count.littleEnemy1_allDead && Enemy_count.littleEnemy2_allDead;
+        //enemyalldie = Enemy_count.littleEnemy1_allDead && Enemy_count.littleEnemy2_allDead;
         if (enemyalldie)
         {
             gamefinish = true;
