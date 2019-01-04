@@ -21,7 +21,9 @@ public class bullet_right: MonoBehaviour {
     {
 
         playerhealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-      
+        Vector2 temp = transform.localScale;
+        temp.x *= -1;
+        transform.localScale = temp;
     }
     void Update () {
         transform.Translate(Vector3.right * 20 * Time.deltaTime);

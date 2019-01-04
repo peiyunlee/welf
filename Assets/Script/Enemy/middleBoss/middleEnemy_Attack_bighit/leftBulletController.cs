@@ -9,13 +9,12 @@ public class leftBulletController : MonoBehaviour {
     public bool state = false;
     public middleEnemy_movement movement;
     Transform middle;
-    EnemyAttack_manager manager;
+   
     PlayerHealth playerHealth;
     float timer = 0f;
     // Use this for initialization
     void Start () {
         movement = GetComponent<middleEnemy_movement>(); //與外部判斷是否fire做連結
-        manager = GetComponent<EnemyAttack_manager>();
        
 
     }

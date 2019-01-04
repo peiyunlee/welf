@@ -313,7 +313,7 @@ public class middleEnemy_movement : MonoBehaviour
                     }
                    
                     //自動轉換攻擊
-                    switch (3)
+                    switch (attack_sytle)
                     {
 
                         case 1:

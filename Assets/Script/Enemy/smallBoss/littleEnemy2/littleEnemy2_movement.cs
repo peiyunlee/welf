@@ -168,6 +168,7 @@ public class littleEnemy2_movement : MonoBehaviour {
 
     void Update()
     {
+       
         detectCharacFunc();
       
 
@@ -191,18 +192,19 @@ public class littleEnemy2_movement : MonoBehaviour {
 
             if ((Vector2.Distance(transform.position, main.position) <= followDis) && detectCharac == true)
             {
-                
+                timer_enlarge += Time.deltaTime;
+
                 Vector2 transformValue = new Vector2(0, 0);
                 playerRigidbody.velocity = transformValue;
-                timer_enlarge += Time.deltaTime;
-                if (((timer_enlarge % 5) > 1) && ((timer_enlarge % 5) < 3))
+                
+                if (((timer_enlarge % 5) > 0) && ((timer_enlarge % 5) < 2) && detectCharac == true && this.gameObject.transform.localScale.x<2)
                 {
                     this.gameObject.transform.localScale += new Vector3(0.01f, 0.01f, 0f);
 
 
                 }
 
-                else if (((timer_enlarge % 5) > 3) && ((timer_enlarge % 5) < 5) && detectCharac == true)
+                else if (((timer_enlarge % 5) > 2) && ((timer_enlarge % 5) < 4) && detectCharac == true && this.gameObject.transform.localScale.x > 1)
                 {
                     this.gameObject.transform.localScale += new Vector3(-0.01f, -0.01f, 0f);
 
@@ -216,10 +218,15 @@ public class littleEnemy2_movement : MonoBehaviour {
 
             else if ((Vector2.Distance(transform.position, main.position) > attackDis))
             {
-                timer_enlarge = 0;
-                if (this.gameObject.transform.localScale.x != 1f)
+                
+                if (this.gameObject.transform.localScale.x > 1f)
                 {
                     this.gameObject.transform.localScale += new Vector3(-0.01f, -0.01f, 0f);
+
+                }
+                if (this.gameObject.transform.localScale.x < 1f)
+                {
+                    this.gameObject.transform.localScale += new Vector3(0.01f, 0.01f, 0f);
 
                 }
                 idle();
