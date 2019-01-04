@@ -33,7 +33,7 @@ public class WelfSelect : MonoBehaviour
         for (int i = 0; i < 2; i++)
         {
             chooseWelf[i] = GameManager.chooseelf[i];
-            chooseWelf[i] = testWelf[i];
+            //chooseWelf[i] = testWelf[i];
             //Debug.Log(chooseWelf[i]);
         }//設定玩家選哪幾隻elf
 
@@ -43,9 +43,9 @@ public class WelfSelect : MonoBehaviour
         isChange = true;
         iWelfCount = 1;
 
-        //welfuiobject = GameObject.FindWithTag("WelfUI");
-        //welfui =welfuiobject.GetComponent<WELFUI>();
-        //skillcooldown = welfuiobject.GetComponent<SkillCoolDown>();
+        welfuiobject = GameObject.FindWithTag("WelfUI");
+        welfui =welfuiobject.GetComponent<WELFUI>();
+        skillcooldown = welfuiobject.GetComponent<SkillCoolDown>();
     }
 
     // Update is called once per frame
@@ -64,14 +64,14 @@ public class WelfSelect : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            //skillcooldown.PauseSkillCoolDown(iWelfCount);
+            skillcooldown.PauseSkillCoolDown(iWelfCount);
             iWelfCount++;
             if (iWelfCount >= 3)
             {
                 iWelfCount = 1;
             }
-            //welfui.ExecuteAnime(iWelfCount);
-            //skillcooldown.StartSkillCoolDown(iWelfCount);
+            welfui.ExecuteAnime(iWelfCount);
+            skillcooldown.StartSkillCoolDown(iWelfCount);
             mpMainWelf = null;
             isChange = true;
         }

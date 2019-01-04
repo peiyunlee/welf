@@ -15,6 +15,10 @@ public class SkillSet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //if(Welf3.isSkill|| Welf2.isSkill|| Welf1.isSkill)
+        //{
+        //    parisSkill = true;
+        //}
     }
     //public void GetKey()
     //{

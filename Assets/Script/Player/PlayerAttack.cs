@@ -42,10 +42,10 @@ public class PlayerAttack : AttackDetect
 
         Animating();
 
-        //if (!PlayerMovement.isMenu)
-        //{
+        if (!PlayerMovement.isMenu)
+        {
             SetAttack();
-        //}
+        }
     }
 
     int Hurt(Attack attack)

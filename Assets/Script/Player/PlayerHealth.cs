@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    //private GameObject lifeIndicator;
-    //private UIHeart uiheart;
+    private GameObject lifeIndicator;
+    private UIHeart uiheart;
     //血量
     public int startingHealth = 20;
     public static int currentHealth;
@@ -23,14 +23,14 @@ public class PlayerHealth : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerAnim = GetComponent<Animator>();
 
-        //if (AllSceneController.iscenenumber>=6)
-        //{
-        //    lifeIndicator = GameObject.FindWithTag("lifeIndicator");
-        //    uiheart = lifeIndicator.GetComponent<UIHeart>();
-        //}
+        if (AllSceneController.iscenenumber >= 6)
+        {
+            lifeIndicator = GameObject.FindWithTag("lifeIndicator");
+            uiheart = lifeIndicator.GetComponent<UIHeart>();
+        }
 
-        //startingHealth = GameManager.playercurrenthealth;
-        startingHealth = 20;
+        startingHealth = GameManager.playercurrenthealth;
+        //startingHealth = 20;
         currentHealth = startingHealth;
     }
 
@@ -56,7 +56,7 @@ public class PlayerHealth : MonoBehaviour
 
             playerAnim.SetTrigger("isDamaged");
 
-            //uiheart.DecreaseLife(currentHealth);
+            uiheart.DecreaseLife(currentHealth);
             //Debug.Log("health.take");
             Debug.Log("player" + currentHealth);
 

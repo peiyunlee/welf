@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Welf2 : SkillSet {
+    //public static bool isSkill = false;
     public float moveSpeed = 2f;
     private float clearTime = 1f;
     private float timer = 0;
@@ -13,6 +14,8 @@ public class Welf2 : SkillSet {
     PlayerMovement playerMovement;
     Rigidbody2D playerRigidbody;
     Transform playerTrans;
+    public GameObject welfuiobject;
+    private SkillCoolDown skillcooldown;
 
     //水精靈相關
     private bool isFast = false;
@@ -26,18 +29,23 @@ public class Welf2 : SkillSet {
         playerTrans = player.transform;
 
         welfAnim = GetComponent<Animator>();
+
+        welfuiobject = GameObject.FindWithTag("WelfUI");
+        skillcooldown = welfuiobject.GetComponent<SkillCoolDown>();
     }
 	
 	// Update is called once per frame
 	void Update () {
         GetKey();
 
-        if (keySkill && !isSkill && !PlayerMovement.isJumping)
+        if (keySkill && !isSkill && !PlayerMovement.isJumping && !skillcooldown.iscoolskill[WelfSelect.iWelfCount - 1])
         {
             isSkill = true;
 
             isFast = true;
             //timer += Time.deltaTime;
+
+            skillcooldown.UseSkill(WelfSelect.iWelfCount);
         }
 
         if (isSkill)

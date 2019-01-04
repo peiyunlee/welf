@@ -115,6 +115,7 @@ public class ChooseElfController : MonoBehaviour
         if (itime == 1)
         {
             Fungus.Flowchart.BroadcastFungusMessage("skillteach2");
+            Debug.Log(GameManager.chooseelf[0] + "+" + GameManager.chooseelf[1]);
         }
         else if (itime == 2)
             AllSceneController.tonextscene = true;

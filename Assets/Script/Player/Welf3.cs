@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Welf3 : SkillSet {
+    //public static bool isSkill = false;
     private float clearTime = 3;
     private float timer = 0;
     //主角相關
@@ -11,6 +12,8 @@ public class Welf3 : SkillSet {
     PlayerHealth playerHealth;
     Rigidbody2D playerRigidbody;
     Transform playerTrans;
+    public GameObject welfuiobject;
+    private SkillCoolDown skillcooldown;
 
     Animator welfAnim;
 
@@ -22,18 +25,23 @@ public class Welf3 : SkillSet {
         playerTrans = player.transform;
 
         welfAnim = GetComponent<Animator>();
+
+        welfuiobject = GameObject.FindWithTag("WelfUI");
+        skillcooldown = welfuiobject.GetComponent<SkillCoolDown>();
     }
 	
 	// Update is called once per frame
 	void Update () {
         GetKey();
 
-        if (keySkill && !isSkill && !PlayerMovement.isJumping)
+        if (keySkill && !isSkill && !PlayerMovement.isJumping && !skillcooldown.iscoolskill[WelfSelect.iWelfCount - 1])
         {
             isSkill = true;
 
             //PlayerMovement.canMove = false;
             //timer += Time.deltaTime;
+
+            skillcooldown.UseSkill(WelfSelect.iWelfCount);
         }
 
         if (isSkill)

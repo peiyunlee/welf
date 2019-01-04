@@ -24,10 +24,17 @@ public class ElderTalk : MonoBehaviour
         vr0 = talkimage.transform.position;
         vr1 = talkimage.transform.position + new Vector3(-fhidespeed, 0f, 0f);
         talkimage.transform.position = vr1; //隱藏talkimage
+        isclickZ = false;
+        isfungus = false;
     }
     // Update is called once per frame
     void Update()
     {
+        //if(flowchart.GetBooleanVariable("elderhasshow") == true)
+        //{
+        //    gameObject.transform.position = new Vector3(122.2f, -5.3f, 0);
+        //    Debug.Log("enter");
+        //}
         if (flowchart.GetBooleanVariable("isplayer") == true)
         {
             PlayerMovement.isMenu = false;
@@ -39,19 +46,23 @@ public class ElderTalk : MonoBehaviour
         if(flowchart.GetBooleanVariable("odeliahasjump") == true)
         {
             odeliahasjump = true;
+            Debug.Log("AAA");
         }
     }
     void OnTriggerStay2D(Collider2D collision)
     {
+        
         if (odeliahasjump)
         {
             if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)
             {
                 isclickZ = true;
+                Debug.Log("BBBB");
             }
             if (isclickZ == false && isfungus == false)
             {
                 talkimage.transform.position = vr0; //顯示talkimage
+                Debug.Log("BBB");
             }
             else
             {
@@ -60,7 +71,9 @@ public class ElderTalk : MonoBehaviour
                 {
                     Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
                     isfungus = true;
+                    Debug.Log("BB");
                 }
+                Debug.Log("B");
             }
         }
         

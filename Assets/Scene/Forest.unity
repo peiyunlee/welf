@@ -342,7 +342,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -863589373
-  m_SortingLayer: 10
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3da1874bd1f696b47837e2ee7fee4629, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.8392157}
@@ -539,7 +539,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -4844277
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 539ca49e95dcb5040814a3c2a5d35b5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -863,7 +863,6 @@ GameObject:
   - component: {fileID: 678599297}
   - component: {fileID: 678599326}
   - component: {fileID: 678599327}
-  - component: {fileID: 678599328}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -896,8 +895,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 678599298}
-  selectedCommands: []
+  - {fileID: 678599294}
+  selectedCommands:
+  - {fileID: 678599297}
   variables:
   - {fileID: 678599306}
   - {fileID: 678599310}
@@ -946,7 +946,6 @@ MonoBehaviour:
   - {fileID: 678599299}
   - {fileID: 678599302}
   - {fileID: 678599327}
-  - {fileID: 678599328}
   - {fileID: 678599297}
   - {fileID: 678599326}
   - {fileID: 678599315}
@@ -1181,7 +1180,7 @@ MonoBehaviour:
     animatorVal: {fileID: 900815833}
   stateName:
     stringRef: {fileID: 0}
-    stringVal: Idle
+    stringVal: Idle0
   layer:
     integerRef: {fileID: 0}
     integerVal: -1
@@ -1672,8 +1671,8 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 678599320}
   commandList:
-  - {fileID: 678599318}
   - {fileID: 678599323}
+  - {fileID: 678599318}
   - {fileID: 678599317}
   - {fileID: 678599316}
   - {fileID: 678599324}
@@ -1785,7 +1784,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 1
+    floatVal: 2
   durationOLD: 0
 --- !u!114 &678599324
 MonoBehaviour:
@@ -1900,23 +1899,6 @@ MonoBehaviour:
     transformRef: {fileID: 0}
     transformVal: {fileID: 640725084}
   inOutVar: {fileID: 678599325}
---- !u!114 &678599328
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 678599292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 40
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  durationOLD: 0
 --- !u!1 &758374524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,6 +2077,11 @@ Prefab:
     - target: {fileID: 1555111851570492, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433391727325952, guid: c3f88811b4e70ac4b8315b13d3a0e18b,
+        type: 2}
+      propertyPath: jumpSpeed
+      value: 2500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3f88811b4e70ac4b8315b13d3a0e18b, type: 2}
@@ -2709,7 +2696,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -4844277
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 539ca49e95dcb5040814a3c2a5d35b5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3234,7 +3221,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -4844277
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 539ca49e95dcb5040814a3c2a5d35b5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3884,7 +3871,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -4844277
-  m_SortingLayer: 8
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 539ca49e95dcb5040814a3c2a5d35b5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

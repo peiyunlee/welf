@@ -45,4 +45,8 @@ public class CleanWater : MonoBehaviour {
     {
         cleanwatercounttext.text = "" + cleanwatercount;
     }
+    //public void Store()
+    //{
+    //     GameManager.cleanwatercount=cleanwatercount;
+    //}
 }
