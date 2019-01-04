@@ -173,7 +173,7 @@ using UnityEngine;
         CancelInvoke("resetanim");
     }
 
-    bool startnewanim = true;
+   
     public void animatestate(int state)
     {
      

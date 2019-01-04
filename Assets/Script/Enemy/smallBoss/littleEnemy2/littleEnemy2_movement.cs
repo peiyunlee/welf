@@ -169,11 +169,7 @@ public class littleEnemy2_movement : MonoBehaviour {
     void Update()
     {
         detectCharacFunc();
-       /* if (stat_dead == false && enemyHealth.isDead)
-        {
-            //anim.SetBool("littleEnemy2_dead", true);
-            stat_dead = true;
-        }*/
+      
 
         if (enemyHealth.isDead)
         {
@@ -182,7 +178,7 @@ public class littleEnemy2_movement : MonoBehaviour {
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
-            Invoke("resetanim", 1f);
+            Invoke("resetanim", 1.5f);
 
 
 
