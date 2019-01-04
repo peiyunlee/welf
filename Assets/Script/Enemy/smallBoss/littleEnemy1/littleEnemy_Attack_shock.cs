@@ -14,7 +14,7 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
     public bool State_right = false;
     public bool State_left = false;
 
-    float shock_time = 3.0f;
+    public float shock_time ;
 
     public void normalAttack_hit_right()
     {

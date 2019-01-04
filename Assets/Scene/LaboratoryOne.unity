@@ -1781,6 +1781,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.69
       objectReference: {fileID: 0}
+    - target: {fileID: 114386816104859308, guid: 8bc75c32976799b4a9cb2079ee73ef43,
+        type: 2}
+      propertyPath: timer
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bc75c32976799b4a9cb2079ee73ef43, type: 2}
   m_IsPrefabAsset: 0
