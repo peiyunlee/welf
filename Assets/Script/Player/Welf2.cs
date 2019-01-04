@@ -52,6 +52,7 @@ public class Welf2 : SkillSet {
                 player.transform.Translate(new Vector2(1, playerRigidbody.velocity.y) * moveSpeed * 0.1f);
             }
 
+            PlayerHealth.isProtect = true;
             //playerRigidbody.velocity = playerMovement.transformValue;
 
             timer += Time.deltaTime;
@@ -77,6 +78,6 @@ public class Welf2 : SkillSet {
     {
         playAnim.SetBool("isFast", isFast);
 
-        welfAnim.SetBool("isSkill", isSkill);
+        welfAnim.SetBool("isSkill", isFast);
     }
 }

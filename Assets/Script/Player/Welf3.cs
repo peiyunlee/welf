@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Welf3 : SkillSet {
-    private float clearTime = 2;
+    private float clearTime = 3;
     private float timer = 0;
     //主角相關
     GameObject player;

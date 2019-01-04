@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Welf1 : SkillSet {
-    public float setTime = 0;
+    public float setTime = 0.00001f;
     private float clearTime = 1;
     private float timer=0;
 
     private bool canUseSkill = true;
     private bool istouch = false;
+    public bool isHurt = false;
 
     //主角相關
     GameObject player;
@@ -45,6 +46,34 @@ public class Welf1 : SkillSet {
         {
             isSkill = true;
             //water.SetActive(true);
+            
+            //skillcooldown.UseSkill(WelfSelect.iWelfCount);
+            PlayerMovement.canMove = false;
+        }
+
+        if (isSkill)
+        {
+            timer += Time.deltaTime;
+        }
+        
+        if (timer >= clearTime)
+        {
+            isSkill = false;
+
+            //water.SetActive(false);
+
+            timer = 0;
+
+            PlayerMovement.canMove = true;
+        }
+        Animation();
+        //isSkill = false;
+        //Debug.Log(canUseSkill);
+        //Debug.Log("touch");
+    }
+
+    void Hurt()
+    {
             if (attackDetect.isTouch)
             {
                 if (attackDetect.health[0])
@@ -64,28 +93,6 @@ public class Welf1 : SkillSet {
                     attackDetect.littleEnemy.TakeDamage(2);
                 }
             }
-            //skillcooldown.UseSkill(WelfSelect.iWelfCount);
-            PlayerMovement.canMove = false;
-        }
-
-        if (isSkill)
-        {
-            timer += Time.deltaTime;        
-        }
-        if (timer >= clearTime)
-        {
-            isSkill = false;
-
-            //water.SetActive(false);
-
-            timer = 0;
-
-            PlayerMovement.canMove = true;
-        }
-        Animation();
-        //isSkill = false;
-        //Debug.Log(canUseSkill);
-        //Debug.Log("touch");
     }
 
     private void OnTriggerStay2D(Collider2D other)

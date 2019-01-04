@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canJumping = true;
     public static bool isMenu = false;
     public static bool canMove = true;
+    private bool change = false;
 
     PlayerHealth playerHealth;
     PlayerAttack playerAttack;
@@ -62,6 +63,10 @@ public class PlayerMovement : MonoBehaviour
 
         Animating();
 
+        //if (Input.GetKey(KeyCode.M))
+        //{
+        //    playerAnim.SetTrigger("change");
+        //}
         //if (keyMenu)
         //{
         //    isMenu = !isMenu;
@@ -122,29 +127,30 @@ public class PlayerMovement : MonoBehaviour
                 canJumping = true;
             }
         }
+
         if (keyJump && canJumping)
         {
+            isJumping = true;
             //Debug.Log("Jump");
-            playerRigidbody.AddForce(new Vector2(0f, jumpSpeed*2f));
+            
+            playerRigidbody.AddForce(new Vector2(0f, jumpSpeed * 2f));
             jumpCount++;
             if (playerRigidbody.velocity.y < -1)
             {
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
             }
             isFall = false;
-
-            isJumping = true;
         }
         canJumping = false;
 
-        if ((playerRigidbody.velocity.y > -3 && playerRigidbody.velocity.y < 3) && !isGround && isJumping)
+        if ((playerRigidbody.velocity.y > -3 && playerRigidbody.velocity.y < 20) && !isGround && isJumping)
         {
             isTop = true;
             playerAnim.SetBool("isTop",isTop);
             Debug.Log("top");
             //playerAnim.SetBool("isTop", isTop);
         }
-        if (playerRigidbody.velocity.y < 0)
+        if (playerRigidbody.velocity.y < -3)
         {
             isTop = false;
             isFall = true;

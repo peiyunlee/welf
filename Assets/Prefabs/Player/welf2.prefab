@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurt: 2
-  moveSpeed: 8
+  moveSpeed: 5
 --- !u!212 &212897856856034014
 SpriteRenderer:
   m_ObjectHideFlags: 1

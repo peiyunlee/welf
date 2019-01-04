@@ -43,7 +43,7 @@ using UnityEngine;
     }
     void detectCharacFunc()//判斷是否位於同一平台
     {
-        if ((main.position.y - transform.position.y) <= 3f && (main.position.y - transform.position.y) >= -10f)
+        if ((main.position.y - transform.position.y) <= 6f && (main.position.y - transform.position.y) >= -10f)
         {
 
             detectCharac = true;

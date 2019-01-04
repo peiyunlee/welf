@@ -146,9 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fbd39d1b88e35341bcba47fca68670a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isSkill: 0
   hurt: 2
   setTime: 1
+  isHurt: 0
   water: {fileID: 1187099070251366}
   welfuiobject: {fileID: 0}
 --- !u!212 &212078207372959766
