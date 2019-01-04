@@ -5029,7 +5029,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4634480632073606, guid: 5e35b11cee155d540acedce9580e7f20, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224213237503594304, guid: 5e35b11cee155d540acedce9580e7f20,
         type: 2}
@@ -5044,7 +5044,7 @@ Prefab:
     - target: {fileID: 224326439528318670, guid: 5e35b11cee155d540acedce9580e7f20,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224213237503594304, guid: 5e35b11cee155d540acedce9580e7f20,
         type: 2}
@@ -17212,7 +17212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 276
+    x: 275
     y: 122
     width: 120
     height: 40
@@ -17296,7 +17296,7 @@ MonoBehaviour:
     animatorVal: {fileID: 1814927855}
   stateName:
     stringRef: {fileID: 0}
-    stringVal: Idle
+    stringVal: Idle1
   layer:
     integerRef: {fileID: 0}
     integerVal: -1
@@ -17420,8 +17420,9 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 1780178403}
-  selectedCommands: []
+  - {fileID: 1780178398}
+  selectedCommands:
+  - {fileID: 1780178395}
   variables:
   - {fileID: 1780178387}
   - {fileID: 1780178401}
@@ -17731,7 +17732,7 @@ MonoBehaviour:
     animatorVal: {fileID: 1814927855}
   stateName:
     stringRef: {fileID: 0}
-    stringVal: Idle
+    stringVal: Idle1
   layer:
     integerRef: {fileID: 0}
     integerVal: -1
