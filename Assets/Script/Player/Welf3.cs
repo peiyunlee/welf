@@ -28,7 +28,7 @@ public class Welf3 : SkillSet {
 	void Update () {
         GetKey();
 
-        if (keySkill && !isSkill)
+        if (keySkill && !isSkill && !PlayerMovement.isJumping)
         {
             isSkill = true;
 

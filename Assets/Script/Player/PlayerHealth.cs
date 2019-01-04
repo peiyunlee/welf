@@ -15,12 +15,12 @@ public class PlayerHealth : MonoBehaviour
     public bool isDamaged = false;
     public bool isDead = false;
 
-    testplayermove playerMovement;
+    PlayerMovement playerMovement;
     Animator playerAnim;
     // Use this for initialization
     void Start()
     {
-        playerMovement = GetComponent<testplayermove>();
+        playerMovement = GetComponent<PlayerMovement>();
         playerAnim = GetComponent<Animator>();
 
         //if (AllSceneController.iscenenumber>=6)
@@ -60,12 +60,12 @@ public class PlayerHealth : MonoBehaviour
             //Debug.Log("health.take");
             Debug.Log("player" + currentHealth);
 
-
+            //PlayerAttack.attackCount = 0;
             //isDamaged = false;
-            //if (currentHealth <= 0 && !isDead)
-            //{
-            //    Death();
-            //}
+            if (currentHealth <= 0 && !isDead)
+            {
+                Death();
+            }
         }
     }
 

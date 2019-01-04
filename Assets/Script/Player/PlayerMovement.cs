@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public static bool faceRight = true;
     private bool isTop = false;
     private bool isFall = false;
-    private bool isJumping = false;
+    public static bool isJumping = false;
     private bool isWalking = false;
     public bool isGround = true;
     private bool canJumping = true;
@@ -131,22 +131,34 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
             }
-            if(playerRigidbody.velocity.y == 0)
-            {
-                isTop = true;
-                playerAnim.SetBool("isTop", isTop);
-            }
-            if (playerRigidbody.velocity.y < 0)
-            {
-                isTop = false;
-                isFall = false;
-                playerAnim.SetBool("isTop", isTop);
-                playerAnim.SetBool("isFall", isFall);
-            }
+            isFall = false;
+
             isJumping = true;
         }
         canJumping = false;
 
+        if ((playerRigidbody.velocity.y > -3 && playerRigidbody.velocity.y < 3) && !isGround && isJumping)
+        {
+            isTop = true;
+            playerAnim.SetBool("isTop",isTop);
+            Debug.Log("top");
+            //playerAnim.SetBool("isTop", isTop);
+        }
+        if (playerRigidbody.velocity.y < 0)
+        {
+            isTop = false;
+            isFall = true;
+            playerAnim.SetBool("isFall",isFall);
+            playerAnim.SetBool("isTop", isTop);
+            Debug.Log("fall");
+            //playerAnim.SetBool("isTop", isTop);
+            //playerAnim.SetBool("isFall", isFall);
+        }
+        if (isGround)
+        {
+            isFall = false;
+        }
+        //isFall = false;
         //Debug.Log(jumpCount);
     }
 
@@ -155,15 +167,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (floor.gameObject.CompareTag("Floor"))
         {
+            isGround = true;
+
             canJumping = true;
 
-            playerAnim.SetTrigger("WaId");
+            //playerAnim.SetTrigger("WaId");
 
             jumpCount = 0;
 
             isJumping = false;
 
-            isFall = false;
+            isTop = false;
         }
     }
 
@@ -219,6 +233,6 @@ public class PlayerMovement : MonoBehaviour
 
         playerAnim.SetBool("isFall", isFall);
 
-        playerAnim.SetBool("isTop", isTop);
+        //playerAnim.SetBool("isTop", isTop);
     }
 }

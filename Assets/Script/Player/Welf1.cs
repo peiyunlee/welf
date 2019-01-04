@@ -40,8 +40,8 @@ public class Welf1 : SkillSet {
 	// Update is called once per frame
 	void Update () {
         GetKey();
-        
-        if (keySkill&&!isSkill)//&& !skillcooldown.iscoolskill[WelfSelect.iWelfCount-1])
+
+        if (keySkill && !isSkill && !PlayerMovement.isJumping)//&& !skillcooldown.iscoolskill[WelfSelect.iWelfCount-1])
         {
             isSkill = true;
             //water.SetActive(true);

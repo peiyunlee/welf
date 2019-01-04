@@ -12,12 +12,12 @@ public class PlayerAttack : AttackDetect
     }
 
     int hurt;
-    int attackCount = 0;
+    public static int attackCount = 0;
     public static bool keyAttack;
 
     //動畫名稱
-    private const string idleState = "Idle";
-    private const string runState = "Run1";
+    private const string idleState = "Idle1";
+    private const string runState = "Run11";
     private const string attack1State = "Attack1";
     private const string attack2State = "Attack2";
 
@@ -42,10 +42,10 @@ public class PlayerAttack : AttackDetect
 
         Animating();
 
-        if (!PlayerMovement.isMenu)
-        {
+        //if (!PlayerMovement.isMenu)
+        //{
             SetAttack();
-        }
+        //}
     }
 
     int Hurt(Attack attack)
@@ -70,27 +70,8 @@ public class PlayerAttack : AttackDetect
         //讀取player動畫狀態
         animSta = playerAnim.GetCurrentAnimatorStateInfo(0);
         //返回idle狀態
-        if (!animSta.IsName(idleState) && animSta.normalizedTime > 1.0f)
+        if (!animSta.IsName(idleState) && animSta.normalizedTime > 0.8f)
         {
-            if (isTouch)
-            {
-                if (health[0])
-                {
-                    healthTest.TakeDamage(Hurt(Attack.idle));
-                }
-                if (health[1])
-                {
-                    enemyHealth.TakeDamage(Hurt(Attack.idle));
-                }
-                if (health[2])
-                {
-                    middleHealth.TakeDamage(Hurt(Attack.idle));
-                }
-                if (health[3])
-                {
-                    littleEnemy.TakeDamage(Hurt(Attack.idle));
-                }
-            }
             attackCount = 0;
             playerAnim.SetInteger("Attack", attackCount);
         }

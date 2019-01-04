@@ -32,7 +32,7 @@ public class Welf2 : SkillSet {
 	void Update () {
         GetKey();
 
-        if (keySkill && !isSkill)
+        if (keySkill && !isSkill && !PlayerMovement.isJumping)
         {
             isSkill = true;
 

@@ -34,7 +34,7 @@ public class WelfSelect : MonoBehaviour
         {
             chooseWelf[i] = GameManager.chooseelf[i];
             chooseWelf[i] = testWelf[i];
-            Debug.Log(chooseWelf[i]);
+            //Debug.Log(chooseWelf[i]);
         }//設定玩家選哪幾隻elf
 
         mainTrans = GameObject.FindWithTag("Player").transform;
