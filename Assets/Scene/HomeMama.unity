@@ -171,7 +171,6 @@ GameObject:
   - component: {fileID: 102825803}
   - component: {fileID: 102825805}
   - component: {fileID: 102825804}
-  - component: {fileID: 102825806}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -260,8 +259,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 102825771}
-  selectedCommands:
-  - {fileID: 102825795}
+  selectedCommands: []
   variables:
   - {fileID: 102825780}
   - {fileID: 102825781}
@@ -365,7 +363,6 @@ MonoBehaviour:
   - {fileID: 102825805}
   - {fileID: 102825796}
   - {fileID: 102825795}
-  - {fileID: 102825806}
 --- !u!114 &102825772
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1271,69 +1268,6 @@ MonoBehaviour:
     transformRef: {fileID: 0}
     transformVal: {fileID: 1718177824}
   inOutVar: {fileID: 102825804}
---- !u!114 &102825806
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 102825765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 51
-  indentLevel: 0
-  variable: {fileID: 102825780}
-  setOperator: 0
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 1
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  stringData:
-    stringRef: {fileID: 0}
-    stringVal: 
-  animatorData:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
-  audioSourceData:
-    audioSourceRef: {fileID: 0}
-    audioSourceVal: {fileID: 0}
-  colorData:
-    colorRef: {fileID: 0}
-    colorVal: {r: 0, g: 0, b: 0, a: 0}
-  gameObjectData:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
-  materialData:
-    materialRef: {fileID: 0}
-    materialVal: {fileID: 0}
-  objectData:
-    objectRef: {fileID: 0}
-    objectVal: {fileID: 0}
-  rigidbody2DData:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 0}
-  spriteData:
-    spriteRef: {fileID: 0}
-    spriteVal: {fileID: 0}
-  textureData:
-    textureRef: {fileID: 0}
-    textureVal: {fileID: 0}
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  vector2Data:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
-  vector3Data:
-    vector3Ref: {fileID: 0}
-    vector3Val: {x: 0, y: 0, z: 0}
 --- !u!1 &263611318
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1343,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -4844277
-  m_SortingLayer: 9
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: de5b4678be5f8d146abe84c1e61c98c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LaboratoryOne : MonoBehaviour {
-    bool enemyalldie;
-    bool isbossdie;  //boss
+    public bool enemyalldie;
+    public bool isbossdie;  //boss
     [SerializeField]
     private Fungus.Flowchart flowchart;
     [SerializeField]

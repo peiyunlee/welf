@@ -24,6 +24,8 @@ public class ChooseElfController : MonoBehaviour
     public Toggle toggle;
     public Flowchart flowchart;
     public int itime = 0;
+
+    public VillageTwo villagetwo;
     //private int scenenumber;
 
     enum ELF
@@ -39,6 +41,7 @@ public class ChooseElfController : MonoBehaviour
         okbtn.SetActive(false);
         textgameobject = GameObject.Find("Choosetext");
         choosetext = textgameobject.GetComponent<Text>();
+        villagetwo= GameObject.Find("VillageTwo").GetComponent<VillageTwo>();
         choosetext.text = "請選擇" + ELFCANCOUNT + "隻水精靈";
     }
 	
@@ -115,7 +118,7 @@ public class ChooseElfController : MonoBehaviour
         if (itime == 1)
         {
             Fungus.Flowchart.BroadcastFungusMessage("skillteach2");
-            Debug.Log(GameManager.chooseelf[0] + "+" + GameManager.chooseelf[1]);
+            villagetwo.Welfdisappear();
         }
         else if (itime == 2)
             AllSceneController.tonextscene = true;

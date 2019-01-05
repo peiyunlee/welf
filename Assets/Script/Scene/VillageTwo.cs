@@ -16,6 +16,7 @@ public class VillageTwo : MonoBehaviour
     [SerializeField]
     public GameObject Playerwelf;
     public GameObject [] UIcanvas;
+    public GameObject[] welf;
     public GameObject playerattackscript;
     public static bool getwelf;
     private PlayerAttack playerattack;
@@ -32,6 +33,8 @@ public class VillageTwo : MonoBehaviour
         if (flowchart.GetBooleanVariable("isplayer") == true&&!flowchart.GetBooleanVariable("istwoend"))
         {
             PlayerMovement.isMenu = false;
+            target[0].GetComponent<BoxCollider2D>().isTrigger = false;
+            target[1].GetComponent<BoxCollider2D>().isTrigger = false;
         }
         else if (flowchart.GetBooleanVariable("isplayer") == false)
         {
@@ -49,14 +52,15 @@ public class VillageTwo : MonoBehaviour
         {
             if (PlayerAttack.keyAttack)
             {
+                flowchart.SetBooleanVariable("isplayer", false);
                 teach1 = true;
                 flowchart.SetBooleanVariable("isteach", false);
                 Fungus.Flowchart.BroadcastFungusMessage("welfteach2");
             }
         }
-        if (flowchart.GetBooleanVariable("isteachskill") == true && !teach2)
+        if (flowchart.GetBooleanVariable("isteachskill") == true )
         {
-            if (SkillSet.keySkill)
+            if (SkillSet.keySkill && !teach2)
             {
                 teach2 = true;
                 flowchart.SetBooleanVariable("isteach", false);
@@ -73,5 +77,10 @@ public class VillageTwo : MonoBehaviour
         {
             target[1].GetComponent<BoxCollider2D>().isTrigger = true;
         }
+    }
+    public void Welfdisappear()
+    {
+        welf[GameManager.chooseelf[0] - 1].SetActive(false);
+        welf[GameManager.chooseelf[1] - 1].SetActive(false);
     }
 }
