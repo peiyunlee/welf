@@ -16,6 +16,7 @@ public class BossTalk : MonoBehaviour
     void Start()
     {
         talkimage.SetActive(false); //隱藏talkimage
+        bosscantalk = false;
     }
 
     // Update is called once per frame

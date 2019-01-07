@@ -236,7 +236,7 @@ MonoBehaviour:
   check: 1
   bighit_state: 0
   idle_speed: 8
-  follow_speed: 10
+  follow_speed: 8
   timer: 0
   timer_bighit: 0
   countAllEnemy1: {fileID: 0}

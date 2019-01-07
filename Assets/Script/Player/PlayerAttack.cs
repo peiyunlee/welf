@@ -99,6 +99,10 @@ public class PlayerAttack : AttackDetect
                     {
                         littleEnemy.TakeDamage(Hurt(Attack.normal));
                     }
+                    if (health[4])
+                    {
+                        box.AttackBox();
+                    }
                 }
                 attackCount = 1;
                 playerAnim.SetInteger("Attack", attackCount);
@@ -123,6 +127,10 @@ public class PlayerAttack : AttackDetect
                     if (health[3])
                     {
                         littleEnemy.TakeDamage(Hurt(Attack.normal));
+                    }
+                    if (health[4])
+                    {
+                        box.AttackBox();
                     }
                 }
                 attackCount = 2;

@@ -46,6 +46,10 @@ public class UIHeart: MonoBehaviour {
     {
         //testcurrentHealth++;  //test
         PlayerHealth.currentHealth++;
+        if (PlayerHealth.currentHealth > 20)
+        {
+            PlayerHealth.currentHealth = 20;
+        }
         anim = lifelove[playercurrentHealth++].GetComponent<Animator>();
         anim.SetTrigger("Add");
         

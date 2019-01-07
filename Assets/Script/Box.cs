@@ -9,6 +9,7 @@ public class Box : MonoBehaviour {
     public int currenthealth;
     public int count;
     Animator m_Animator;
+    bool boxopen=false;
     private void Start()
     {
         gameobject = GameObject.Find("LifeIndicator");
@@ -17,13 +18,13 @@ public class Box : MonoBehaviour {
     }
     private void Update()
     {
-        if (testbool)
-        {
-            AttackBox();
-            testbool = false;
-        }
+        //if (testbool)
+        //{
+            //AttackBox();
+            //testbool = false;
+        //}
     }
-    private void AttackBox()
+    public void AttackBox()
     {
         count++;
         if (count == 1)
@@ -33,10 +34,7 @@ public class Box : MonoBehaviour {
         else if (count == 2)
         {
             BoxDestroy();
-        }
-        else if (count >= 2)
-        {
-            EatHeart();
+            boxopen = true;
         }
     }
     void BoxHurt()
@@ -62,7 +60,7 @@ public class Box : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (count == 2)
+        if (boxopen&&collision.tag=="Player")
         {
             EatHeart();
         }

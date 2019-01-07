@@ -33,7 +33,9 @@ public class EnemyHealth : MonoBehaviour {
 
     public void TakeDamage(int amount = 1)
     {
+        
         currentHealth -= amount;
+        Debug.Log("hurt" + currentHealth);
         if (currentHealth <= 0)
         {
             Death();

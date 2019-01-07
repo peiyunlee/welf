@@ -22,7 +22,7 @@ public class LaboratoryTwo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (testisbossdie)    //boss死掉
+        if (Enemy_count.middleEnemy_allDead)    //boss死掉
         {
             BossTalk.bosscantalk = true;
             //bossstorybtn.interactable = true;

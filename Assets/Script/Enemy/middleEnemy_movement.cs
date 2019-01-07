@@ -41,6 +41,10 @@ public class middleEnemy_movement : MonoBehaviour
 
     float timer_fire = 0f;
 
+    private void Start()
+    {
+        faceright = false;
+    }
     void detectCharacFunc()//判斷是否位於同一平台
     {
         if ((main.position.y - transform.position.y) <= 3f && (main.position.y - transform.position.y) >= -10f)
@@ -55,13 +59,13 @@ public class middleEnemy_movement : MonoBehaviour
         }
 
     }
-
+    public static bool faceright;
     void detectScale()
     {
         if (main.position.x - transform.position.x > 0)
         {
             this.gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
-
+            faceright = false;
         }
 
         else
@@ -69,7 +73,7 @@ public class middleEnemy_movement : MonoBehaviour
 
             this.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
 
-
+            faceright = true;
 
 
         }
@@ -220,8 +224,8 @@ public class middleEnemy_movement : MonoBehaviour
     void resetanim()
     {
         countAllEnemy1.middleEnemy_count--;
-        Destroy(this.gameObject);
-     //anim.SetBool("middleEnemy_Dead", false);
+        
+     
         CancelInvoke("resetanim");
     }
 
@@ -292,13 +296,22 @@ public class middleEnemy_movement : MonoBehaviour
         detectCharacFunc();
         if (enemyHealth.isDead)
         {
-            anim.SetBool("middleEnemy_Dead", true);
+            anim.SetBool("middle_enemy_shock_start", false);
+            anim.SetBool("middle_enemy_normalhit_start", false);
+            anim.SetBool("middle_enemy_bighit_start", false);
+            anim.SetBool("middleEnemy_idle", false);
+            anim.SetBool("middleEnemy_stay_idle", false);
+            anim.SetBool("middleEnemy_hurt",false);
+            anim.SetTrigger("middleEnemy_Dead");
             
-            timer_dead += Time.deltaTime;
+            /*timer_dead += Time.deltaTime;*/
             Vector2 transformValue = new Vector2(0, 0);
+            //countAllEnemy1.middleEnemy_count--;
             playerRigidbody.velocity = transformValue;
+            followDis = 0;
+            attackDis = 0;
             Invoke("resetanim",2f);
-        
+
 
 
         }

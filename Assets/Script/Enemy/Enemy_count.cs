@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Enemy_count : MonoBehaviour {
 
-    public bool littleEnemy1_allDead = false;
-    public bool littleEnemy2_allDead = false;
-    public bool middleEnemy_allDead = false;
+    public static bool littleEnemy1_allDead = false;
+    public static bool littleEnemy2_allDead = false;
+    public static bool middleEnemy_allDead = false;
 
     public int littleEnemy1_count = 10;
     public int littleEnemy2_count = 10;

@@ -12,7 +12,7 @@ using UnityEngine;
     bool border_tag=false;//是否碰到限制範圍
     float followDis = 20f;//達到此距離開始跟隨
     float attackDis = 15f;
-    public float idle_speed = 10f;//移動速度
+    public static float idle_speed = 10f;//移動速度
     public float follow_speed = 15f;//跟隨速度
     private EnemyHealth enemyHealth;
     public  float timer = 0;
@@ -20,7 +20,11 @@ using UnityEngine;
     public Enemy_count countAllEnemy1;
     bool detectCharac;
     float scale = 0.7f;
-
+    bool ishurt=false;
+    private void Start()
+    {
+        idle_speed = 10f;
+    }
     //判斷轉向
     void detectScale()
     {
@@ -105,15 +109,14 @@ using UnityEngine;
         detectIdle();
         timer += Time.deltaTime;
         Vector2 transformValue = new Vector2(idle_speed, 0);
-        
-        i++;
         playerRigidbody.velocity = transformValue;
-        if (i==100)
-        {
+        //i++;
+        //if (i==100)
+        //{
         
-            idle_speed = idle_speed * -1;
-            i = 0;
-        }
+        //    idle_speed = idle_speed * -1;
+        //    i = 0;
+        //}
         /*Debug.Log(i);*/
 
         /*
@@ -132,6 +135,7 @@ using UnityEngine;
     */
 
     }
+    
 
   
     void Awake()
@@ -153,22 +157,25 @@ using UnityEngine;
     float initialx;
 
     bool stat_dead = false;
-
-
+    int triggercount=0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
-
-            playerHealth.TakeDamage(1);
-
+            triggercount++;
+            if (triggercount == 1)
+            {
+                playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+                playerHealth.TakeDamage(1);
+            }
+            if (triggercount == 3)
+                triggercount = 0;
         }
     }
 
     void resetanim()
     {
-       
+        countAllEnemy1.littleEnemy1_count--;
         Destroy(this.gameObject);
         CancelInvoke("resetanim");
     }
@@ -196,7 +203,7 @@ using UnityEngine;
 
     }
     
-    
+  
 
     void Update()
     {
@@ -206,7 +213,6 @@ using UnityEngine;
         if (enemyHealth.isDead)
         {
             anim.SetBool("littleEneny_dead", true);
-            countAllEnemy1.littleEnemy1_count--;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
             Invoke("resetanim", 1f);
@@ -223,6 +229,7 @@ using UnityEngine;
 
                     if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false && detectCharac == true)
                     {
+                        
                         shock.State_right = true;
                         timer += Time.deltaTime;
                         shock.normalAttack_hit_right();
@@ -235,6 +242,7 @@ using UnityEngine;
 
                     else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false && detectCharac == true)
                     {
+                       
                         shock.State_left = true;
                         timer += Time.deltaTime;
                         shock.normalAttack_hit_left();

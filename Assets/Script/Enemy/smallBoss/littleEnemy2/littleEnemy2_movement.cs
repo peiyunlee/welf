@@ -13,7 +13,7 @@ public class littleEnemy2_movement : MonoBehaviour {
     bool border_tag = false;//是否碰到限制範圍
     float followDis = 10f;//達到此距離開始跟隨
     float attackDis = 20f;
-    public float idle_speed = 10f;//移動速度
+    public static float idle_speed = 10f;//移動速度
     public float follow_speed = 15f;//跟隨速度
     private littleEnemy2_health enemyHealth;
     float timer_enlarge=5;
@@ -72,16 +72,16 @@ public class littleEnemy2_movement : MonoBehaviour {
     {
         //timer += Time.deltaTime;
         Vector2 transformValue = new Vector2(idle_speed, 0);
-        i++;
+        //i++;
         playerRigidbody.velocity = transformValue;
-        if (i == 100)
-        {
-            /*Vector2 temp = transform.localScale;
-            temp.x *= -1;
-            transform.localScale = temp;*/
-            idle_speed = idle_speed * -1;
-            i = 0;
-        }
+        //if (i == 100)
+        //{
+        //    /*Vector2 temp = transform.localScale;
+        //    temp.x *= -1;
+        //    transform.localScale = temp;*/
+        //    idle_speed = idle_speed * -1;
+        //    i = 0;
+        //}
         //timer = 0;
         /*Debug.Log(i);*/
 
@@ -123,26 +123,30 @@ public class littleEnemy2_movement : MonoBehaviour {
 
     bool stat_dead = false;
 
-
+    int triggercount = 0;
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            triggercount++;
             playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
 
             timer += Time.deltaTime;
 
-            if (timer >= 1f)
+            if (timer >= 4f&& triggercount==1)
             {
                 playerHealth.TakeDamage(1);
 
                 timer = 0;
-            }  
+            }
+            if(triggercount == 3)
+                triggercount=0;
         }
     }
 
     void resetanim()
     {
+        countAllEnemy1.littleEnemy2_count--;
         Destroy(this.gameObject);
         
         CancelInvoke("resetanim");
@@ -174,7 +178,7 @@ public class littleEnemy2_movement : MonoBehaviour {
 
         if (enemyHealth.isDead)
         {
-            countAllEnemy1.littleEnemy2_count--;
+            
             anim.SetBool("littleEnemy2_dead", true);
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);

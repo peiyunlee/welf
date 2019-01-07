@@ -87,9 +87,8 @@ public class littleEnemy_Attack_shock : MonoBehaviour {
         Enemymovement = GetComponent<Enemymovement>(); //與外部判斷是否fire做連結
         
     }
+    
 
-
-   
 
 
 }
