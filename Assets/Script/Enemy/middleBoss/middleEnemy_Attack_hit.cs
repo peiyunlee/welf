@@ -13,6 +13,7 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
     float timer=0;
     public bool normalhit_state =false;
     PlayerHealth playerHealth;
+    int attackrange=18;
 
     public void middleBoss_hit()
     {
@@ -36,8 +37,13 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
     }
     public void Hurt()
     {
-        Debug.Log("hurt");
-        playerHealth.TakeDamage(1);
+        if (Vector2.Distance(transform.position, main.position)< attackrange) {
+
+            Debug.Log("hurt");
+            playerHealth.TakeDamage(1);
+
+        }
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -56,6 +62,7 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
         anim = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         movement = GetComponent<middleEnemy_movement>(); //與外部判斷是否fire做連結
+        main = GameObject.FindGameObjectWithTag("Player").transform;
     }
 	
 	

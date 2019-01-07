@@ -28,10 +28,12 @@ public class middleEnemy_movement : MonoBehaviour
     public float follow_speed = 15f;//跟隨速度
     private middleEnemy_Health enemyHealth;
 
+    float attackidle_speed = 5f;//移動速度
     public float timer = 0;
     public float timer_bighit = 0;
     float timer_dead = 0;
     bool detectCharac;
+    float attackidle_timer=0;
 
     Animator playerAnim;
     PlayerHealth playerHealth;
@@ -179,7 +181,7 @@ public class middleEnemy_movement : MonoBehaviour
 
     float initialx;
     bool stat_dead = false;
-    int attack_sytle=1;
+    int attack_sytle=5;
     float attack_timer = 0;
     float hurt_timer = 0;
     public bool gethurt = false;
@@ -307,7 +309,7 @@ public class middleEnemy_movement : MonoBehaviour
                         attack_sytle ++;
 
                        
-                        if (attack_sytle==5)
+                        if (attack_sytle==9)
                         {
                             attack_sytle = 1;
 
@@ -315,33 +317,12 @@ public class middleEnemy_movement : MonoBehaviour
                         attack_timer = 0;
                        
                     }
-                   
+                    
+
                     //自動轉換攻擊
                     switch (attack_sytle)
                     {
-                        
-                        case 1 :
-
-                           if (shock.State_left == false && shock.State_right == false && bighit_state == false)
-                            {
-                               
-                                if (Vector2.Distance(transform.position, main.position) <= attackDis/* && (main.position.x - transform.position.x > 0)*/)
-                                {
-                                 
-                                    animatestate(3);
-                                    hit.middleBoss_hit();
-
-
-
-                                }
-                              
-                                break;
-                                
-                            }
-                            
-
-                            break;
-                        case 3:
+                        case 1: //普攻
 
                             if (shock.State_left == false && shock.State_right == false && bighit_state == false)
                             {
@@ -362,41 +343,24 @@ public class middleEnemy_movement : MonoBehaviour
 
 
                             break;
-
-                        case 4:
-
-                            if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false/* && hit.normalhit_state == false*/ && bighit_state == false)
+                        case 2://休息
+                            animatestate(4);
+                            
+                            transformValue = new Vector2(attackidle_speed, 0);
+                            i++;
+                            playerRigidbody.velocity = transformValue;
+                            if (i >= 200)
                             {
-                                animatestate(1);
-                                shock.State_right = true;
-                                timer += Time.deltaTime;
-                                shock.normalAttack_hit_right();
-
-                               
-                               
-                               
-
+                              
+                                attackidle_speed = attackidle_speed * -1;
+                                i = 0;
                             }
-
-
-                            else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false /*&& hit.normalhit_state == false*/ && bighit_state == false)
-                            {
-                                animatestate(1);
-                                shock.State_left = true;
-                                timer += Time.deltaTime;
-                                shock.normalAttack_hit_left();
-
-                                
-                               
-                               
-
-                            }
-
 
 
                             break;
 
-                        case 2:
+
+                        case 3: //前腳踏地衝擊波
                             timer_fire += Time.deltaTime;
                             if (shock.State_left == false && shock.State_right == false)
                             {
@@ -404,7 +368,8 @@ public class middleEnemy_movement : MonoBehaviour
                                 {
                                     animatestate(2);
 
-                                    if (timer_fire>2f) {
+                                    if (timer_fire > 2f)
+                                    {
                                         rightBullet.fire();
                                         timer_fire = 0;
                                     }
@@ -418,12 +383,13 @@ public class middleEnemy_movement : MonoBehaviour
                                 {
                                     animatestate(2);
 
-                                    if(timer_fire > 2f) {
+                                    if (timer_fire > 2f)
+                                    {
                                         leftBullet.fire();
 
                                         timer_fire = 0;
                                     }
-                                   
+
 
                                 }
                                 break;
@@ -431,6 +397,114 @@ public class middleEnemy_movement : MonoBehaviour
 
 
                             break;
+                        case 4://休息
+                            animatestate(4);
+                           
+                            transformValue = new Vector2(attackidle_speed, 0);
+                            i++;
+                            playerRigidbody.velocity = transformValue;
+                            if (i >= 200)
+                            {
+                                
+                                attackidle_speed = attackidle_speed * -1;
+                                i = 0;
+                            }
+
+
+                            break;
+
+                        case 5: //普攻
+
+                            if (shock.State_left == false && shock.State_right == false && bighit_state == false)
+                            {
+
+                                if (Vector2.Distance(transform.position, main.position) <= attackDis/* && (main.position.x - transform.position.x > 0)*/)
+                                {
+
+                                    animatestate(3);
+                                    hit.middleBoss_hit();
+
+
+
+                                }
+
+                                break;
+
+                            }
+
+
+                            break;
+                        case 6: //休息
+                            animatestate(4);
+                            
+                            transformValue = new Vector2(attackidle_speed, 0);
+                            i++;
+                            playerRigidbody.velocity = transformValue;
+                            if (i >= 200)
+                            {
+                              
+                                attackidle_speed = attackidle_speed * -1;
+                                i = 0;
+                            }
+
+
+                            break;
+
+                        case 7://衝擊
+
+                            if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false/* && hit.normalhit_state == false*/ && bighit_state == false)
+                            {
+                                animatestate(1);
+                                shock.State_right = true;
+                                timer += Time.deltaTime;
+                                shock.normalAttack_hit_right();
+
+
+
+
+
+                            }
+
+
+                            else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false /*&& hit.normalhit_state == false*/ && bighit_state == false)
+                            {
+                                animatestate(1);
+                                shock.State_left = true;
+                                timer += Time.deltaTime;
+                                shock.normalAttack_hit_left();
+
+
+
+
+
+                            }
+
+
+
+                            break;
+
+                        case 8: //休息
+                            animatestate(4);
+                           
+                            transformValue = new Vector2(attackidle_speed, 0);
+                            i++;
+                            playerRigidbody.velocity = transformValue;
+                            if (i >= 200)
+                            {
+                               
+                                attackidle_speed = attackidle_speed * -1;
+                                i = 0;
+                            }
+
+
+                            break;
+
+
+                       
+                       
+
+                        
+                      
 
 
 
