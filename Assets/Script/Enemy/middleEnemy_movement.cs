@@ -241,12 +241,14 @@ public class middleEnemy_movement : MonoBehaviour
                 anim.SetBool("middle_enemy_normalhit_start", false);
                 anim.SetBool("middle_enemy_bighit_start", false);
                 anim.SetBool("middleEnemy_idle", false);
+                anim.SetBool("middleEnemy_stay_idle", false);
                 break;
             case 2:  //bithit anim
                 anim.SetBool("middle_enemy_shock_start", false);
                 anim.SetBool("middle_enemy_normalhit_start", false);
                 anim.SetBool("middle_enemy_bighit_start", true);
                 anim.SetBool("middleEnemy_idle", false);
+                anim.SetBool("middleEnemy_stay_idle", false);
                 break;
             case 3:  //normalhit anim
                 manager.bighit_state_left = false;
@@ -255,6 +257,7 @@ public class middleEnemy_movement : MonoBehaviour
                 anim.SetBool("middle_enemy_normalhit_start", true);
                 anim.SetBool("middle_enemy_bighit_start", false);
                 anim.SetBool("middleEnemy_idle", false);
+                anim.SetBool("middleEnemy_stay_idle", false);
                 break;
             case 4:  //idle anim
                 manager.bighit_state_left = false;
@@ -263,6 +266,17 @@ public class middleEnemy_movement : MonoBehaviour
                 anim.SetBool("middle_enemy_normalhit_start", false);
                 anim.SetBool("middle_enemy_bighit_start", false);
                 anim.SetBool("middleEnemy_idle", true);
+                anim.SetBool("middleEnemy_stay_idle", false);
+                break;
+
+            case 5:  //stay_idle anim
+                manager.bighit_state_left = false;
+                manager.bighit_state_right = false;
+                anim.SetBool("middle_enemy_shock_start", false);
+                anim.SetBool("middle_enemy_normalhit_start", false);
+                anim.SetBool("middle_enemy_bighit_start", false);
+                anim.SetBool("middleEnemy_idle", false);
+                anim.SetBool("middleEnemy_stay_idle", true);
                 break;
 
         }
@@ -344,18 +358,11 @@ public class middleEnemy_movement : MonoBehaviour
 
                             break;
                         case 2://休息
-                            animatestate(4);
-                            
-                            transformValue = new Vector2(attackidle_speed, 0);
-                            i++;
-                            playerRigidbody.velocity = transformValue;
-                            if (i >= 200)
-                            {
-                              
-                                attackidle_speed = attackidle_speed * -1;
-                                i = 0;
-                            }
+                            animatestate(5);
 
+
+                            transformValue = new Vector2(0, 0);
+                          
 
                             break;
 
@@ -398,18 +405,10 @@ public class middleEnemy_movement : MonoBehaviour
 
                             break;
                         case 4://休息
-                            animatestate(4);
-                           
-                            transformValue = new Vector2(attackidle_speed, 0);
-                            i++;
-                            playerRigidbody.velocity = transformValue;
-                            if (i >= 200)
-                            {
-                                
-                                attackidle_speed = attackidle_speed * -1;
-                                i = 0;
-                            }
+                            animatestate(5);
 
+                            transformValue = new Vector2(0, 0);
+                          
 
                             break;
 
@@ -435,18 +434,10 @@ public class middleEnemy_movement : MonoBehaviour
 
                             break;
                         case 6: //休息
-                            animatestate(4);
-                            
-                            transformValue = new Vector2(attackidle_speed, 0);
-                            i++;
-                            playerRigidbody.velocity = transformValue;
-                            if (i >= 200)
-                            {
-                              
-                                attackidle_speed = attackidle_speed * -1;
-                                i = 0;
-                            }
+                            animatestate(5);
 
+                            transformValue = new Vector2(0, 0);
+                           
 
                             break;
 
@@ -484,17 +475,10 @@ public class middleEnemy_movement : MonoBehaviour
                             break;
 
                         case 8: //休息
-                            animatestate(4);
-                           
-                            transformValue = new Vector2(attackidle_speed, 0);
-                            i++;
-                            playerRigidbody.velocity = transformValue;
-                            if (i >= 200)
-                            {
-                               
-                                attackidle_speed = attackidle_speed * -1;
-                                i = 0;
-                            }
+                            animatestate(5);
+
+                            transformValue = new Vector2(0, 0);
+                          
 
 
                             break;

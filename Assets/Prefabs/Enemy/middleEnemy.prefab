@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015969155655080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.4, y: 3.2, z: 0}
+  m_LocalPosition: {x: -14.9, y: 5.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4206423867328278}
@@ -140,7 +140,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.82, y: 0.5}
+  m_Offset: {x: 0.19, y: 0.9}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -151,7 +151,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 45, y: 17.89}
+  m_Size: {x: 19, y: 19.1}
   m_EdgeRadius: 0
 --- !u!95 &95773318432351488
 Animator:
@@ -235,12 +235,11 @@ MonoBehaviour:
   leftBullet: {fileID: 0}
   check: 1
   bighit_state: 0
-  idle_speed: 10
-  follow_speed: 15
+  idle_speed: 8
+  follow_speed: 10
   timer: 0
   timer_bighit: 0
   countAllEnemy1: {fileID: 0}
-  attack_sytle: 0
   gethurt: 0
 --- !u!114 &114374589149059190
 MonoBehaviour:
@@ -254,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   main: {fileID: 0}
-  hit_flag: 0
+  hit_flag: 1
   state: 0
   normalhit_state: 0
 --- !u!114 &114549843662792396
