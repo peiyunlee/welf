@@ -16,24 +16,30 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
 
     public void middleBoss_hit()
     {
-        playerHealth.TakeDamage(1);
-        normalhit_state = true;
+       
+        //normalhit_state = true;
       
         timer += Time.deltaTime;
-        Debug.Log(timer);
-        
-        if (timer>4)
+
+      //  Debug.Log(timer);
+       /* if (timer>4f)
         {
-            Debug.Log("normalhit_state = false");
-           
-            normalhit_state = false;
             timer = 0;
-            Debug.Log(timer);
+            
+            normalhit_state = false;
+            
+            
            
           
-        }
+        }*/
 
     }
+    public void Hurt()
+    {
+        Debug.Log("hurt");
+        playerHealth.TakeDamage(1);
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -46,7 +52,7 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         anim = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody2D>();
         movement = GetComponent<middleEnemy_movement>(); //與外部判斷是否fire做連結

@@ -29,9 +29,16 @@ public class PlayerHealth : MonoBehaviour
             uiheart = lifeIndicator.GetComponent<UIHeart>();
         }
 
-        startingHealth = GameManager.playercurrenthealth;
-        //startingHealth = 20;
+        //startingHealth = GameManager.playercurrenthealth;
+        startingHealth = 20;
         currentHealth = startingHealth;
+        isProtect = false;
+        
+    }
+    void Awake()
+    {
+        Debug.Log("health.start");
+
     }
 
     // Update is called once per frame
@@ -46,8 +53,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        //Debug.Log("takedamage out");
         if (!isProtect)
         {
+            //Debug.Log("takedamage in");
             isDamaged = true;
 
             PlayerMovement.canMove = false;
@@ -56,7 +65,7 @@ public class PlayerHealth : MonoBehaviour
 
             playerAnim.SetTrigger("isDamaged");
 
-            uiheart.DecreaseLife(currentHealth);
+            //uiheart.DecreaseLife(currentHealth);
             //Debug.Log("health.take");
             Debug.Log("player" + currentHealth);
 

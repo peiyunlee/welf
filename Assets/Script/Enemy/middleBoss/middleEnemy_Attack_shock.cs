@@ -14,12 +14,13 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
     public bool State_left = false;
     PlayerHealth playerHealth;
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerHealth.TakeDamage(1);
             playerHealth = collision.GetComponent<PlayerHealth>();
+            playerHealth.TakeDamage(1);
+            
 
 
         }

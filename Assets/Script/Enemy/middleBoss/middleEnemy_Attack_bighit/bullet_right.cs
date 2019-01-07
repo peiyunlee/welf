@@ -8,7 +8,7 @@ public class bullet_right: MonoBehaviour {
     PlayerHealth playerhealth;
      float attackRange = 40f;
     // Update is called once per frame
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {

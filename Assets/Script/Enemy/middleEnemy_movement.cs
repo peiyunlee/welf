@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class middleEnemy_movement : MonoBehaviour
 {
+    
     public Animator anim;
     private middleEnemy_Attack_shock shock;
     private middleEnemy_Attack_hit hit;
@@ -32,6 +33,7 @@ public class middleEnemy_movement : MonoBehaviour
     float timer_dead = 0;
     bool detectCharac;
 
+    Animator playerAnim;
     PlayerHealth playerHealth;
     public Enemy_count countAllEnemy1;
 
@@ -153,7 +155,8 @@ public class middleEnemy_movement : MonoBehaviour
 
     void Awake()
     {
-        playerHealth = null;
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+
         playerRigidbody = GetComponent<Rigidbody2D>();
         main = GameObject.FindGameObjectWithTag("Player").transform;
         Transform target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -166,9 +169,11 @@ public class middleEnemy_movement : MonoBehaviour
         count = GameObject.FindGameObjectWithTag("count").transform;
         countAllEnemy1 = count.GetComponent<Enemy_count>();
         manager = GetComponent<EnemyAttack_manager>();
+        playerAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
 
         rightBullet = GameObject.FindGameObjectWithTag("rightbullet").GetComponent<rightBulletController>();
         leftBullet = GameObject.FindGameObjectWithTag("leftbullet").GetComponent<leftBulletController>();
+        Debug.Log("mmove");
     }
 
 
@@ -265,8 +270,8 @@ public class middleEnemy_movement : MonoBehaviour
 
     void Update()
     {
-        
 
+        Debug.Log(PlayerHealth.currentHealth);
         detectCharacFunc();
         if (enemyHealth.isDead)
         {
@@ -308,33 +313,28 @@ public class middleEnemy_movement : MonoBehaviour
 
                         }
                         attack_timer = 0;
-                        Debug.Log(attack_sytle);
+                       // Debug.Log(attack_sytle);
                     }
-                    Debug.Log(attack_sytle);
+                    //Debug.Log(attack_sytle);
                     //自動轉換攻擊
                     switch (attack_sytle)
                     {
 
-                        case 1:
+                        case 2:
 
                            if (shock.State_left == false && shock.State_right == false && bighit_state == false)
                             {
-                                if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
+                               
+                                if (Vector2.Distance(transform.position, main.position) <= attackDis/* && (main.position.x - transform.position.x > 0)*/)
                                 {
+                                 
                                     animatestate(3);
-                                    
                                     hit.middleBoss_hit();
 
 
 
                                 }
-                                else if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x < 0))
-                                {
-                                    animatestate(3);
-                                   
-                                    hit.middleBoss_hit();
-
-                                }
+                              
                                 break;
                                 
                             }
@@ -375,7 +375,7 @@ public class middleEnemy_movement : MonoBehaviour
 
                             break;
 
-                        case 2:
+                        case 1:
                             timer_fire += Time.deltaTime;
                             if (shock.State_left == false && shock.State_right == false/* && hit.normalhit_state == false*/)
                             {
@@ -383,7 +383,7 @@ public class middleEnemy_movement : MonoBehaviour
                                 {
                                     animatestate(2);
 
-                                    if (timer_fire>1f) {
+                                    if (timer_fire>2f) {
                                         rightBullet.fire();
                                         timer_fire = 0;
                                     }
@@ -397,7 +397,7 @@ public class middleEnemy_movement : MonoBehaviour
                                 {
                                     animatestate(2);
 
-                                    if(timer_fire > 1f) {
+                                    if(timer_fire > 2f) {
                                         leftBullet.fire();
 
                                         timer_fire = 0;
