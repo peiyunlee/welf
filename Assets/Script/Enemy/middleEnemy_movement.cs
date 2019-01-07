@@ -174,7 +174,7 @@ public class middleEnemy_movement : MonoBehaviour
 
     float initialx;
     bool stat_dead = false;
-    public int attack_sytle;
+    int attack_sytle=1;
     float attack_timer = 0;
     float hurt_timer = 0;
     public bool gethurt = false;
@@ -268,13 +268,6 @@ public class middleEnemy_movement : MonoBehaviour
         
 
         detectCharacFunc();
-       /*if (stat_dead == false && enemyHealth.isDead)
-        {
-            //anim.SetBool("middleEnemy_hurt", false);
-           // anim.SetBool("middleEnemy_Dead", true);
-            stat_dead = true;
-        }
-        */
         if (enemyHealth.isDead)
         {
             anim.SetBool("middleEnemy_Dead", true);
@@ -300,25 +293,31 @@ public class middleEnemy_movement : MonoBehaviour
                 if ((Vector2.Distance(transform.position, main.position) <= attackDis) )
                 {
                     detectScale();
-                    //anim.SetBool("middleEnemy_idle", false);
+                   
                     Vector2 transformValue = new Vector2(0, 0);
                     playerRigidbody.velocity = transformValue;
                     attack_timer += Time.deltaTime;
-                    if ((int)attack_timer % 4 == 0 && shock.State_left == false && shock.State_right == false && hit.normalhit_state == false && bighit_state == false)
+                    if ((int)attack_timer> 4 && shock.State_left == false && shock.State_right == false && /*hit.normalhit_state == false &&*/ bighit_state == false)
                     {
-                        attack_sytle = Random.Range(1, 5);
+                        attack_sytle ++;
 
+                       
+                        if (attack_sytle==4)
+                        {
+                            attack_sytle = 1;
 
-
+                        }
+                        attack_timer = 0;
+                        Debug.Log(attack_sytle);
                     }
-                   
+                    Debug.Log(attack_sytle);
                     //自動轉換攻擊
                     switch (attack_sytle)
                     {
 
                         case 1:
 
-                            if (shock.State_left == false && shock.State_right == false && bighit_state == false)
+                           if (shock.State_left == false && shock.State_right == false && bighit_state == false)
                             {
                                 if (Vector2.Distance(transform.position, main.position) <= attackDis && (main.position.x - transform.position.x > 0))
                                 {
@@ -337,15 +336,15 @@ public class middleEnemy_movement : MonoBehaviour
 
                                 }
                                 break;
-
+                                
                             }
-
+                            
 
                             break;
+                            
+                        case 3:
 
-                        case 2:
-
-                            if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false && hit.normalhit_state == false && bighit_state == false)
+                            if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false/* && hit.normalhit_state == false*/ && bighit_state == false)
                             {
                                 animatestate(1);
                                 shock.State_right = true;
@@ -359,7 +358,7 @@ public class middleEnemy_movement : MonoBehaviour
                             }
 
 
-                            else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false && hit.normalhit_state == false && bighit_state == false)
+                            else if (((main.position.x < transform.position.x) || shock.State_left == true) && shock.State_right == false /*&& hit.normalhit_state == false*/ && bighit_state == false)
                             {
                                 animatestate(1);
                                 shock.State_left = true;
@@ -376,9 +375,9 @@ public class middleEnemy_movement : MonoBehaviour
 
                             break;
 
-                        case 3:
+                        case 2:
                             timer_fire += Time.deltaTime;
-                            if (shock.State_left == false && shock.State_right == false && hit.normalhit_state == false)
+                            if (shock.State_left == false && shock.State_right == false/* && hit.normalhit_state == false*/)
                             {
                                 if ((main.position.x - transform.position.x > 0))
                                 {
@@ -432,7 +431,7 @@ public class middleEnemy_movement : MonoBehaviour
             else if ((Vector2.Distance(transform.position, main.position) > attackDis))
             {
                 
-                Debug.Log("idle");
+               
                 idle();
                 animatestate(4);
 

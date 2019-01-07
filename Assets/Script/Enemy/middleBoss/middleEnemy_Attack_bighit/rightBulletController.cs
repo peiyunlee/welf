@@ -39,7 +39,7 @@ public class rightBulletController : MonoBehaviour {
     public void fire()
     {
        
-            Debug.Log("rightfire");
+
             GameObject.Instantiate(bullet, transform.position, Quaternion.identity);//複製子彈
             
         

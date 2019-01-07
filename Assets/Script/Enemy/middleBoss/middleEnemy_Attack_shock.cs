@@ -18,6 +18,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            playerHealth.TakeDamage(1);
             playerHealth = collision.GetComponent<PlayerHealth>();
 
 
@@ -37,9 +38,8 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
         }
         else if (timer > 1f)//返回時間
         {
-            playerHealth.TakeDamage(1);
+            
             State_right = false;
-            //Enemymovement.anim.SetBool("middle_enemy_shock_start ", false);
             timer = 0;
 
         }
@@ -47,7 +47,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
         else
 
         {
-            //Enemymovement.anim.SetBool("middle_enemy_shock_start", true);
+          
             transform.Translate(Vector3.right * speed * Time.deltaTime);
 
 
@@ -71,7 +71,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
         }
         else if (timer > 1f)//返回時間
         {
-           playerHealth.TakeDamage(1);
+          
             State_left = false;
             
             timer = 0;
@@ -80,7 +80,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
 
         else
         {
-           // Enemymovement.anim.SetBool("middle_enemy_shock_start", true);
+          
             transform.Translate(Vector3.left * speed * Time.deltaTime);
 
 

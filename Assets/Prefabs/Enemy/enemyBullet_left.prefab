@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  enemy1: {fileID: 4944019397985532, guid: 9e0c580a268e61e41b1acb34e8cb0854, type: 2}
+  enemy1: {fileID: 0}
 --- !u!212 &212232194417870670
 SpriteRenderer:
   m_ObjectHideFlags: 1
