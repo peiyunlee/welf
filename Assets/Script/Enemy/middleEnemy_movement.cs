@@ -219,7 +219,8 @@ public class middleEnemy_movement : MonoBehaviour
     }
     void resetanim()
     {
-       Destroy(this.gameObject);
+        countAllEnemy1.middleEnemy_count--;
+        Destroy(this.gameObject);
      //anim.SetBool("middleEnemy_Dead", false);
         CancelInvoke("resetanim");
     }
@@ -292,7 +293,7 @@ public class middleEnemy_movement : MonoBehaviour
         if (enemyHealth.isDead)
         {
             anim.SetBool("middleEnemy_Dead", true);
-            countAllEnemy1.middleEnemy_count--;
+            
             timer_dead += Time.deltaTime;
             Vector2 transformValue = new Vector2(0, 0);
             playerRigidbody.velocity = transformValue;
