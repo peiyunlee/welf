@@ -307,20 +307,20 @@ public class middleEnemy_movement : MonoBehaviour
                         attack_sytle ++;
 
                        
-                        if (attack_sytle==4)
+                        if (attack_sytle==5)
                         {
                             attack_sytle = 1;
 
                         }
                         attack_timer = 0;
-                       // Debug.Log(attack_sytle);
+                       
                     }
-                    //Debug.Log(attack_sytle);
+                   
                     //自動轉換攻擊
                     switch (attack_sytle)
                     {
-
-                        case 2:
+                        
+                        case 1 :
 
                            if (shock.State_left == false && shock.State_right == false && bighit_state == false)
                             {
@@ -341,8 +341,29 @@ public class middleEnemy_movement : MonoBehaviour
                             
 
                             break;
-                            
                         case 3:
+
+                            if (shock.State_left == false && shock.State_right == false && bighit_state == false)
+                            {
+
+                                if (Vector2.Distance(transform.position, main.position) <= attackDis/* && (main.position.x - transform.position.x > 0)*/)
+                                {
+
+                                    animatestate(3);
+                                    hit.middleBoss_hit();
+
+
+
+                                }
+
+                                break;
+
+                            }
+
+
+                            break;
+
+                        case 4:
 
                             if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false/* && hit.normalhit_state == false*/ && bighit_state == false)
                             {
@@ -375,9 +396,9 @@ public class middleEnemy_movement : MonoBehaviour
 
                             break;
 
-                        case 1:
+                        case 2:
                             timer_fire += Time.deltaTime;
-                            if (shock.State_left == false && shock.State_right == false/* && hit.normalhit_state == false*/)
+                            if (shock.State_left == false && shock.State_right == false)
                             {
                                 if ((main.position.x - transform.position.x > 0))
                                 {
