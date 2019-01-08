@@ -297,6 +297,8 @@ public class middleEnemy_movement : MonoBehaviour
         detectCharacFunc();
         if (enemyHealth.isDead)
         {
+            enemyHealth.isDead = false;
+
             active = false;
             anim.SetBool("middle_enemy_shock_start", false);
             anim.SetBool("middle_enemy_normalhit_start", false);
@@ -313,8 +315,7 @@ public class middleEnemy_movement : MonoBehaviour
             followDis = 0;
             attackDis = 0;
             Invoke("resetanim",1.5f);
-            enemyHealth.isDead = false;
-
+            
 
         }
 

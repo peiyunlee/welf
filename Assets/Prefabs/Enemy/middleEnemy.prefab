@@ -99,9 +99,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015969155655080}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.9, y: 5.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.800005, y: 4.1, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4206423867328278}
   - {fileID: 4001593580689812}
@@ -144,7 +144,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 17.4, y: 17.8}
+    oldSize: {x: 24, y: 18}
     newSize: {x: 17.4, y: 17.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -228,11 +228,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15e17be3e3265b478d610995494d40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 95773318432351488}
   main: {fileID: 0}
   count: {fileID: 0}
-  rightBullet: {fileID: 0}
-  leftBullet: {fileID: 0}
+  rightBullet: {fileID: 114077399069305878}
+  leftBullet: {fileID: 114755925018073386}
   check: 1
   bighit_state: 0
   idle_speed: 8
@@ -268,8 +268,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 5
-  currentHealth: 0
-  enemy_dead: 0
+  currentHealth: -1
+  enemy_dead: 2
   isDead: 0
 --- !u!114 &114755925018073386
 MonoBehaviour:
@@ -321,7 +321,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8bac16f3eb8633842a2f787a93556bb4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe7670aec61f32b4f8bd869d20d6968b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
