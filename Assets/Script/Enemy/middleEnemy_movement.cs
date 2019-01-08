@@ -190,10 +190,10 @@ public class middleEnemy_movement : MonoBehaviour
     float attack_timer = 0;
     float hurt_timer = 0;
     public bool gethurt = false;
-    
 
 
 
+    int triggercount = 0;
     void OnTriggerEnter2D(Collider2D border)
     {
 
@@ -209,9 +209,16 @@ public class middleEnemy_movement : MonoBehaviour
 
         if (border.gameObject.CompareTag("Player")&& active==true)
         {
+            triggercount++;
             playerHealth = border.GetComponent<PlayerHealth>();
-            
-            playerHealth.TakeDamage(1);
+
+            if (triggercount == 1)
+            {
+              
+                playerHealth.TakeDamage(1);
+            }
+            if (triggercount == 3)
+                triggercount = 0;
         }
     }
 

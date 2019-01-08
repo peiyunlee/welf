@@ -12,7 +12,7 @@ public class littleEnemy2_movement : MonoBehaviour {
 
     bool border_tag = false;//是否碰到限制範圍
     float followDis = 10f;//達到此距離開始跟隨
-    float attackDis = 20f;
+    float attackDis = 10f;
     public static float idle_speed = 10f;//移動速度
     public float follow_speed = 15f;//跟隨速度
     private littleEnemy2_health enemyHealth;
@@ -132,12 +132,13 @@ public class littleEnemy2_movement : MonoBehaviour {
             playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
 
             timer += Time.deltaTime;
-
-            if (timer >= 4f&& triggercount==1)
+            Debug.Log(timer);
+            if (timer >= 1.5f&& triggercount==1)
             {
+                timer = 0;
                 playerHealth.TakeDamage(1);
 
-                timer = 0;
+               
             }
             if(triggercount == 3)
                 triggercount=0;
