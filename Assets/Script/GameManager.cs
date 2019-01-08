@@ -35,4 +35,9 @@ public class GameManager : MonoBehaviour {
         //playercurrenthealth = 20;
         //Debug.Log(playercurrenhealth);
     }
+    private void Start()
+    {
+        QualitySettings.vSyncCount = 0;   // 把垂直同步關掉
+        Application.targetFrameRate = 20;
+    }
 }
