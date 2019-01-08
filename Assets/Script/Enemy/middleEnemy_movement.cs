@@ -33,6 +33,7 @@ public class middleEnemy_movement : MonoBehaviour
     public float timer_bighit = 0;
     float timer_dead = 0;
     bool detectCharac;
+    public static bool active = true;
     float attackidle_timer=0;
 
     Animator playerAnim;
@@ -206,7 +207,7 @@ public class middleEnemy_movement : MonoBehaviour
 
         }
 
-        if (border.gameObject.CompareTag("Player"))
+        if (border.gameObject.CompareTag("Player")&& active==true)
         {
             playerHealth = border.GetComponent<PlayerHealth>();
             
@@ -296,6 +297,7 @@ public class middleEnemy_movement : MonoBehaviour
         detectCharacFunc();
         if (enemyHealth.isDead)
         {
+            active = false;
             anim.SetBool("middle_enemy_shock_start", false);
             anim.SetBool("middle_enemy_normalhit_start", false);
             anim.SetBool("middle_enemy_bighit_start", false);
@@ -310,8 +312,8 @@ public class middleEnemy_movement : MonoBehaviour
             playerRigidbody.velocity = transformValue;
             followDis = 0;
             attackDis = 0;
-            Invoke("resetanim",2f);
-
+            Invoke("resetanim",1.5f);
+            enemyHealth.isDead = false;
 
 
         }
@@ -319,7 +321,7 @@ public class middleEnemy_movement : MonoBehaviour
         
 
 
-        else
+        else if(active)
         {
 
             if ((Vector2.Distance(transform.position, main.position) <= followDis) && detectCharac == true)
@@ -516,7 +518,8 @@ public class middleEnemy_movement : MonoBehaviour
                 else if ((Vector2.Distance(transform.position, main.position) > attackDis))
                 {
 
-                    follow(); 
+                    follow();
+                    animatestate(4);
                 }
             }
 

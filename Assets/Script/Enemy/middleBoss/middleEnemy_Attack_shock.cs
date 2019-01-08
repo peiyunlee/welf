@@ -16,7 +16,7 @@ public class middleEnemy_Attack_shock : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && middleEnemy_movement.active)
         {
             playerHealth = collision.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(1);

@@ -48,7 +48,7 @@ public class middleEnemy_Attack_hit : MonoBehaviour {
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player")&&middleEnemy_movement.active)
         {
             playerHealth = collision.GetComponent<PlayerHealth>();
             
