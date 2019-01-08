@@ -99,8 +99,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1015969155655080}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.800005, y: 4.1, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -20.8, y: 4.5, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4206423867328278}
@@ -198,9 +198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   main: {fileID: 0}
   state: 0
-  timer: 0
+  timer: 0.83086276
   State_right: 0
-  State_left: 0
+  State_left: 1
 --- !u!114 &114291196644955450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,7 +237,7 @@ MonoBehaviour:
   bighit_state: 0
   idle_speed: 8
   follow_speed: 8
-  timer: 0
+  timer: 2.4046247
   timer_bighit: 0
   countAllEnemy1: {fileID: 0}
   gethurt: 0
@@ -267,9 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4667a9f8b1dad0c46836242db5509e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 5
+  startingHealth: 20
   currentHealth: -1
-  enemy_dead: 2
+  enemy_dead: 4
   isDead: 0
 --- !u!114 &114755925018073386
 MonoBehaviour:
