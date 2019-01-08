@@ -24,7 +24,8 @@ public class ChooseElfController : MonoBehaviour
     public Toggle toggle;
     public Flowchart flowchart;
     public int itime = 0;
-
+    public static bool choosefinish;
+    SceneDoor scenedoor;
     public VillageTwo villagetwo;
     //private int scenenumber;
 
@@ -43,6 +44,8 @@ public class ChooseElfController : MonoBehaviour
         choosetext = textgameobject.GetComponent<Text>();
         villagetwo= GameObject.Find("VillageTwo").GetComponent<VillageTwo>();
         choosetext.text = "請選擇" + ELFCANCOUNT + "隻水精靈";
+        
+        scenedoor = GameObject.Find("NextSceneDoor").GetComponent<SceneDoor>();
     }
 	
 	// Update is called once per frame
@@ -121,7 +124,10 @@ public class ChooseElfController : MonoBehaviour
             villagetwo.Welfdisappear();
         }
         else if (itime == 2)
+        {
+            scenedoor.TurnAnim();
             AllSceneController.tonextscene = true;
+        }
     }
 
     //public void OnBackBtnClick()

@@ -29,8 +29,8 @@ public class PlayerHealth : MonoBehaviour
             uiheart = lifeIndicator.GetComponent<UIHeart>();
         }
 
-        //startingHealth = GameManager.playercurrenthealth;
-        startingHealth = 20;
+        startingHealth = GameManager.playercurrenthealth;
+        //startingHealth = 20;
         currentHealth = startingHealth;
         isProtect = false;
         

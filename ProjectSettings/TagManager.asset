@@ -105,3 +105,9 @@ TagManager:
   - name: escmenu
     uniqueID: 1601906029
     locked: 0
+  - name: choosecanvas2
+    uniqueID: 714195069
+    locked: 0
+  - name: turn
+    uniqueID: 3110703799
+    locked: 0

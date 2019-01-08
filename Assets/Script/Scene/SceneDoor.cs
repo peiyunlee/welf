@@ -34,21 +34,21 @@ public class SceneDoor : MonoBehaviour {
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        anim0.SetTrigger("Isdown");
-        anim1.SetTrigger("Isup");
+        
         if (this.name == "NextSceneDoor"&& AllSceneController.iscenenumber!=5&& AllSceneController.iscenenumber != 7)
         {
+            TurnAnim();
             Invoke("Tonextscene", 1.0f);
             
         }
         else if (this.name == "PreSceneDoor")
         {
+            TurnAnim();
             Invoke("Toprescene", 1.0f);
         }
         else if (this.name == "NextSceneDoor" && (AllSceneController.iscenenumber == 5|| AllSceneController.iscenenumber == 7))
         {
             choosecanvas.SetActive(true);
-
         }
     }
     void Tonextscene()
@@ -58,5 +58,10 @@ public class SceneDoor : MonoBehaviour {
     void Toprescene()
     {
         AllSceneController.toprescene = true;
+    }
+    public void TurnAnim()
+    {
+        anim0.SetTrigger("Isdown");
+        anim1.SetTrigger("Isup");
     }
 }

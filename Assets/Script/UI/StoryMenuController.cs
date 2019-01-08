@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class StoryMenuController : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class StoryMenuController : MonoBehaviour
 
         }
     }
+    private UnityEvent onStart;
     public void OnStoryMenuBtnClick()
     {
         isstorymenu = !isstorymenu;

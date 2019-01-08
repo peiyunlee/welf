@@ -21,10 +21,10 @@ public class WELFUI : MonoBehaviour {
     void Start () {
         anim[0]=gameobject[0].GetComponent<Animator>();
         anim[1] = gameobject[1].GetComponent<Animator>();
-        //mychooseelf[0] = GameManager.chooseelf[0];
-        //mychooseelf[1] = GameManager.chooseelf[1];
-        mychooseelf[0] = 1;
-        mychooseelf[1] = 3;
+        mychooseelf[0] = GameManager.chooseelf[0];
+        mychooseelf[1] = GameManager.chooseelf[1];
+        //mychooseelf[0] = 1;
+        //mychooseelf[1] = 3;
         anim[0].SetTrigger(mychooseelf[0] + "tobig");
         anim[1].SetTrigger(mychooseelf[1] + "tosmall");
 
