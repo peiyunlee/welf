@@ -232,8 +232,6 @@ public class middleEnemy_movement : MonoBehaviour
     void resetanim()
     {
         countAllEnemy1.middleEnemy_count--;
-        
-     
         CancelInvoke("resetanim");
     }
 

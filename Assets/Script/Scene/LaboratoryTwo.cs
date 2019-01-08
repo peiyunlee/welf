@@ -14,15 +14,17 @@ public class LaboratoryTwo : MonoBehaviour {
     private Collider2D[] wall;
     [SerializeField]
     private Fungus.Flowchart flowchart;
+    Enemy_count enemycount;
     // Use this for initialization
     void Start () {
         wall[0] = GameObject.Find("Rwall").GetComponent<Collider2D>();
         wall[1] = GameObject.Find("Lwall").GetComponent<Collider2D>();
+        enemycount=GameObject.Find("Enemycount").GetComponent<Enemy_count>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (Enemy_count.middleEnemy_allDead)    //boss死掉
+        if (enemycount.middleEnemy_allDead)    //boss死掉
         {
             BossTalk.bosscantalk = true;
             //bossstorybtn.interactable = true;

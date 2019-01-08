@@ -8,6 +8,12 @@ public class SceneStartController : MonoBehaviour {
     private bool isgamestart=false;
     [SerializeField]
     private bool isgameexit= false;
+
+    [SerializeField]
+    public GameObject music;
+    AudioSource startauid;
+    AudioSource btnauid;
+
     /*public void OnStartBtn()
     {
         SceneManager.LoadScene("HomeMama");
@@ -29,6 +35,12 @@ public class SceneStartController : MonoBehaviour {
         LaboratoryThree,
     }
 
+    private void Start()
+    {
+        btnauid = GetComponent<AudioSource>();
+        startauid = music.GetComponent<AudioSource>();
+    }
+
     private void Update()
     {
         if (isgamestart)    //choose button start become true
@@ -42,6 +54,8 @@ public class SceneStartController : MonoBehaviour {
     } 
     public void OnStartBtnClick()
     {
+        startauid.volume = 0.5f;
+        btnauid.PlayOneShot(btnauid.clip);
         isgamestart = true;
     }
     public void OnContinueBtnClick()

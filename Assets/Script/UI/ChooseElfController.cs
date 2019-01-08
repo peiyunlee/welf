@@ -126,10 +126,14 @@ public class ChooseElfController : MonoBehaviour
         else if (itime == 2)
         {
             scenedoor.TurnAnim();
-            AllSceneController.tonextscene = true;
+            Invoke("Toprescene", 1.0f);
+            
         }
     }
-
+    void Toprescene()
+    {
+        AllSceneController.tonextscene = true;
+    }
     //public void OnBackBtnClick()
     //{
     //    count = 0;
@@ -139,6 +143,6 @@ public class ChooseElfController : MonoBehaviour
     //        if(i<2) GameManager.chooseelf[i] = 0;
     //        //取消所有選擇
     //    }
-       
+
     //}
 }

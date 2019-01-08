@@ -17,12 +17,14 @@ public class BossTalk : MonoBehaviour
     {
         talkimage.SetActive(false); //隱藏talkimage
         bosscantalk = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(flowchart.GetBooleanVariable("isplayer") == true)
+        Debug.Log("bosscantalk"+bosscantalk);
+        if (flowchart.GetBooleanVariable("isplayer") == true)
             PlayerMovement.isMenu = false;//主角不行動
         else
             PlayerMovement.isMenu = true;//主角行動

@@ -18,11 +18,13 @@ public class MomTalk : MonoBehaviour
     private Vector3 vr1;
     [SerializeField]
     private Flowchart flowchart;
+    public static bool ismusic;
     // Use this for initialization
     void Start () {
         vr0 = talkimage.transform.position;
         vr1 = talkimage.transform.position + new Vector3(-fhidespeed, 0f, 0f);
         talkimage.transform.position = vr1; //隱藏talkimage
+        ismusic = false;
     }
 	
 	// Update is called once per frame
