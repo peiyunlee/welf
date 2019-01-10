@@ -25,11 +25,11 @@ public class SayDialog : MonoBehaviour {
 	void Update () {
         Vector3 v;
         v = this.gameObject.transform.localScale;
-        if(gameObject.name== "BossSayDialog" || gameObject.name == "Text")
+        if(gameObject.name== "BossSayDialog" )
         {
             faceright = middleEnemy_movement.faceright;
         }
-        else if (gameObject.name == "PlayerSayDialog")
+        else if (gameObject.name == "PlayerSayDialog" || gameObject.name == "Text")
         {
             faceright = PlayerMovement.faceRight;
         }

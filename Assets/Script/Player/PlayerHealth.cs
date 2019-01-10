@@ -54,7 +54,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         //Debug.Log("takedamage out");
-        if (!isProtect)
+        if (!isProtect&&!isDead)
         {
             //Debug.Log("takedamage in");
             isDamaged = true;
