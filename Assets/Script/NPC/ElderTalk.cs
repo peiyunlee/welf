@@ -54,10 +54,17 @@ public class ElderTalk : MonoBehaviour
         
         if (odeliahasjump)
         {
-            if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)
+            if (Input.GetKeyDown("z") && isclickZ == false)
             {
                 isclickZ = true;
                 Debug.Log("BBBB");
+                if (isfungus == false)
+                {
+                    talkimage.transform.position = vr1;
+                    Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
+                    isfungus = true;
+                    Debug.Log("BB");
+                }
             }
             if (isclickZ == false && isfungus == false)
             {
@@ -67,12 +74,7 @@ public class ElderTalk : MonoBehaviour
             else
             {
                 talkimage.transform.position = vr1; //隱藏talkimage
-                if (isfungus == false)
-                {
-                    Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
-                    isfungus = true;
-                    Debug.Log("BB");
-                }
+                
                 Debug.Log("B");
             }
         }

@@ -208,8 +208,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 5242550}
-  selectedCommands:
-  - {fileID: 5242574}
+  selectedCommands: []
   variables:
   - {fileID: 5242536}
   - {fileID: 5242546}
@@ -641,7 +640,6 @@ MonoBehaviour:
   eventHandler: {fileID: 5242551}
   commandList:
   - {fileID: 5242563}
-  - {fileID: 5242553}
   - {fileID: 5242574}
   - {fileID: 5242562}
   - {fileID: 5242557}
@@ -651,6 +649,7 @@ MonoBehaviour:
   - {fileID: 5242561}
   - {fileID: 5242558}
   - {fileID: 5242559}
+  - {fileID: 5242553}
   - {fileID: 5242564}
 --- !u!114 &5242551
 MonoBehaviour:
@@ -2555,7 +2554,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08174944, y: -0.19937515}
+  m_Offset: {x: 0.35191965, y: -0.19937515}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2566,7 +2565,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 20.06403, y: 27.292088}
+  m_Size: {x: 15.560979, y: 27.292088}
   m_EdgeRadius: 0
 --- !u!114 &692423396
 MonoBehaviour:
@@ -4208,7 +4207,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 130.21037, y: -296.25183}
+  m_Offset: {x: 134.60008, y: -296.25183}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4219,7 +4218,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 82.56528, y: 539.93835}
+  m_Size: {x: 61.243553, y: 539.93835}
   m_EdgeRadius: 0
 --- !u!114 &1726636980
 MonoBehaviour:

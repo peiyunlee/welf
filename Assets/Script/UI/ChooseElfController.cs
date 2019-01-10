@@ -132,8 +132,7 @@ public class ChooseElfController : MonoBehaviour
     }
     void Toprescene()
     {
-        AllSceneController.tonextscene = true;
-    }
+        AllSceneController.tonextscene = true;    }
     //public void OnBackBtnClick()
     //{
     //    count = 0;

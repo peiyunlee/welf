@@ -28,7 +28,7 @@ public class VillagerTalk : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (flowchart.GetBooleanVariable("isend") == true)
+        if (flowchart.GetBooleanVariable("isend"+ gameObject.name) == true)
         {
             if (hastalk != true)
             {
@@ -36,17 +36,32 @@ public class VillagerTalk : MonoBehaviour {
                 isclickZ = false;
                 talkimage.transform.position = vr0;
             }
-            flowchart.SetBooleanVariable("isend",false);
+            flowchart.SetBooleanVariable("isend" + gameObject.name, false);
             Debug.Log("a");
         }
-        
-        
+        if (flowchart.GetBooleanVariable("isplayer")){
+            PlayerMovement.isMenu = false;
+        }
+        else if (!flowchart.GetBooleanVariable("isplayer"))
+        {
+            PlayerMovement.isMenu = true;
+        }
     }
     void OnTriggerStay2D(Collider2D collision)
     {
         if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)  //未對話時才可按下z
         {
             isclickZ = true;
+            if (hastalk != true&&isclickZ)
+            {
+                talkimage.transform.position = vr1; //隱藏talkimage
+                Fungus.Flowchart.BroadcastFungusMessage(this.gameObject.name);
+                isfungus = true;
+                if (gameObject.name == "Odeliaspecial")
+                    hastalk = true;
+                isclickZ = false;
+                Debug.Log("S");
+            }
         }
         else if (isclickZ == false && isfungus == false&& flowchart.GetBooleanVariable("isplayer") == true)  //進入未動作
         {
@@ -58,16 +73,16 @@ public class VillagerTalk : MonoBehaviour {
         
         else if(isclickZ==true&&isfungus==false)  //對話
         {
-            if (hastalk != true)
-            {
-                talkimage.transform.position = vr1; //隱藏talkimage
-                Fungus.Flowchart.BroadcastFungusMessage(this.gameObject.name);
-                isfungus = true;
-                if(gameObject.name == "Odeliaspecial")
-                    hastalk = true;
-                isclickZ = false;
-                Debug.Log("S");
-            }
+            //if (hastalk != true)
+            //{
+            //    talkimage.transform.position = vr1; //隱藏talkimage
+            //    Fungus.Flowchart.BroadcastFungusMessage(this.gameObject.name);
+            //    isfungus = true;
+            //    if(gameObject.name == "Odeliaspecial")
+            //        hastalk = true;
+            //    isclickZ = false;
+            //    Debug.Log("S");
+            //}
         }
         else if (isfungus == true && isclickZ == false && flowchart.GetBooleanVariable("isplayer") == true)
         {

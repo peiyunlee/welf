@@ -8,7 +8,7 @@ public class SayDialog : MonoBehaviour {
     public float length;
     // Use this for initialization
     void Start () {
-        if (gameObject.name == "BossSayDialog")
+        if (gameObject.name == "BossSayDialog"|| gameObject.name == "TalkImage")
         {
             faceright = false;
         }
@@ -25,7 +25,7 @@ public class SayDialog : MonoBehaviour {
 	void Update () {
         Vector3 v;
         v = this.gameObject.transform.localScale;
-        if(gameObject.name== "BossSayDialog")
+        if(gameObject.name== "BossSayDialog" || gameObject.name == "Text")
         {
             faceright = middleEnemy_movement.faceright;
         }
@@ -33,13 +33,15 @@ public class SayDialog : MonoBehaviour {
         {
             faceright = PlayerMovement.faceRight;
         }
-        
+        Debug.Log(faceright+"+"+nowfaceright);
         if (nowfaceright!= faceright)  //轉向了
         {
-            v.x *= -1f;
-            this.gameObject.transform.localScale = v;
-            gameObject.transform.position += new Vector3(length, 0f, 0);
-            nowfaceright = faceright;
+            //if (gameObject.name == "Text")
+                
+                v.x *= -1f;
+                this.gameObject.transform.localScale = v;
+                gameObject.transform.position += new Vector3(length, 0f, 0);
+                nowfaceright = faceright;
         }
 	}
 }

@@ -40,9 +40,17 @@ public class Map : MonoBehaviour {
     }
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)
+        if (Input.GetKeyDown("z") && isclickZ == false)
         {
             isclickZ = true;
+            talkimage.transform.position = vr1; //隱藏talkimage
+            if (isfungus == false)
+            {
+                talkimage.transform.position = vr1; //隱藏talkimage
+                Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
+                isfungus = true;
+                PlayerMovement.isMenu = true;//主角不行動
+            }
         }
         if (isclickZ == false && isfungus == false)
         {
@@ -51,10 +59,10 @@ public class Map : MonoBehaviour {
         else
         {
             talkimage.transform.position = vr1; //隱藏talkimage
-            if (isfungus == false)
-                Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
-            isfungus = true;
-            PlayerMovement.isMenu = true;//主角不行動
+            //if (isfungus == false)
+            //    Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
+            //isfungus = true;
+            //PlayerMovement.isMenu = true;//主角不行動
         }
     }
     void OnTriggerExit2D(Collider2D collision)

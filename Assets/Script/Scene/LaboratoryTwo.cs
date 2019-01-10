@@ -46,4 +46,9 @@ public class LaboratoryTwo : MonoBehaviour {
             }
         }
     }
+    public void DoorClose()
+    {
+        wall[0].isTrigger = false;
+        wall[1].isTrigger = false;
+    }
 }

@@ -38,6 +38,6 @@ public class GameManager : MonoBehaviour {
     private void Start()
     {
         QualitySettings.vSyncCount = 0;   // 把垂直同步關掉
-        Application.targetFrameRate = 20;
+        Application.targetFrameRate = 60;
     }
 }

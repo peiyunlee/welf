@@ -41,7 +41,7 @@ public class BossTalk : MonoBehaviour
             {
                 talkimage.SetActive(true); //顯示talkimage
             }
-            else
+            if(isclickZ)
             {
                 talkimage.SetActive(false); //隱藏talkimage
                 if (isfungus == false)

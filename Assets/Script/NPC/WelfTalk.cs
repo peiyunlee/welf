@@ -51,18 +51,24 @@ public class WelfTalk : MonoBehaviour {
             if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)  //未對話時才可按下z
             {
                 isclickZ = true;
+                if (isclickZ == true)  //對話
+                {
+                    talkimage[count].transform.position = vr1[count]; //隱藏talkimage
+                    Fungus.Flowchart.BroadcastFungusMessage("welftalk");
+                    isfungus = true;
+                }
             }
             else if (isclickZ == false && isfungus == false && flowchart.GetBooleanVariable("isplayer") == true)  //進入未動作
             {
                 talkimage[count].transform.position = vr0[count]; //顯示talkimage
             }
 
-            else if (isclickZ == true && isfungus == false)  //對話
-            {
-                talkimage[count].transform.position = vr1[count]; //隱藏talkimage
-                Fungus.Flowchart.BroadcastFungusMessage("welftalk");
-                isfungus = true;
-            }
+            //else if (isclickZ == true && isfungus == false)  //對話
+            //{
+            //    talkimage[count].transform.position = vr1[count]; //隱藏talkimage
+            //    Fungus.Flowchart.BroadcastFungusMessage("welftalk");
+            //    isfungus = true;
+            //}
         }
     }
     void OnTriggerExit2D(Collider2D collision)

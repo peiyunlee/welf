@@ -9,7 +9,7 @@ public class StoryCharacter : MonoBehaviour {
     private int currentstorynumber;
 	// Use this for initialization
 	void Start () {
-        currentstorynumber = 1;
+        currentstorynumber = 0;
     }
 	
 	// Update is called once per frame
@@ -18,10 +18,11 @@ public class StoryCharacter : MonoBehaviour {
 	}
     public void OnCharacterBtnClick(int stroynumber)
     {
-        story[currentstorynumber - 1].SetActive(false);
-        story[stroynumber - 1].SetActive(true);
-        image[currentstorynumber - 1].sprite = Resources.Load("Images/UI/StoryMenu/" + currentstorynumber + "_N", typeof(Sprite)) as Sprite;
-        image[stroynumber - 1].sprite = Resources.Load("Images/UI/StoryMenu/" + stroynumber + "_H", typeof(Sprite)) as Sprite;
+        story[currentstorynumber].SetActive(false);
+        story[stroynumber].SetActive(true);
+        if(currentstorynumber!=0)
+            image[currentstorynumber-1].sprite = Resources.Load("Images/UI/StoryMenu/" + currentstorynumber + "_N", typeof(Sprite)) as Sprite;
+        image[stroynumber-1].sprite = Resources.Load("Images/UI/StoryMenu/" + stroynumber + "_H", typeof(Sprite)) as Sprite;
         currentstorynumber = stroynumber;
     }
 }

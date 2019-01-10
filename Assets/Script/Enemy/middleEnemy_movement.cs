@@ -41,7 +41,7 @@ public class middleEnemy_movement : MonoBehaviour
     public Enemy_count countAllEnemy1;
 
     float timer_fire = 0f;
-
+    public static bool faceright;
     private void Start()
     {
         faceright = false;
@@ -60,7 +60,7 @@ public class middleEnemy_movement : MonoBehaviour
         }
 
     }
-    public static bool faceright;
+    
     void detectScale()
     {
         if (main.position.x - transform.position.x > 0)
@@ -86,13 +86,13 @@ public class middleEnemy_movement : MonoBehaviour
         if (idle_speed > 0)
         {
             this.gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
-
+            faceright = true;
         }
         else
         {
 
             this.gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-
+            faceright = false;
         }
 
 
@@ -345,7 +345,7 @@ public class middleEnemy_movement : MonoBehaviour
                         attack_sytle ++;
 
                        
-                        if (attack_sytle==9)
+                        if (attack_sytle==7)
                         {
                             attack_sytle = 1;
 
@@ -379,7 +379,7 @@ public class middleEnemy_movement : MonoBehaviour
 
 
                             break;
-                        case 2://休息
+                       /* case 2://休息
                             animatestate(5);
 
 
@@ -387,9 +387,9 @@ public class middleEnemy_movement : MonoBehaviour
                           
 
                             break;
+                            */
 
-
-                        case 3: //前腳踏地衝擊波
+                        case 2: //前腳踏地衝擊波
                             timer_fire += Time.deltaTime;
                             if (shock.State_left == false && shock.State_right == false)
                             {
@@ -426,7 +426,7 @@ public class middleEnemy_movement : MonoBehaviour
 
 
                             break;
-                        case 4://休息
+                        case 3://休息
                             animatestate(5);
 
                             transformValue = new Vector2(0, 0);
@@ -434,7 +434,7 @@ public class middleEnemy_movement : MonoBehaviour
 
                             break;
 
-                        case 5: //普攻
+                        case 4: //普攻
 
                             if (shock.State_left == false && shock.State_right == false && bighit_state == false)
                             {
@@ -455,15 +455,15 @@ public class middleEnemy_movement : MonoBehaviour
 
 
                             break;
-                        case 6: //休息
+                        /*case 6: //休息
                             animatestate(5);
 
                             transformValue = new Vector2(0, 0);
                            
 
-                            break;
+                            break;*/
 
-                        case 7://衝擊
+                        case 5://衝擊
 
                             if (((main.position.x > transform.position.x) || shock.State_right == true) && shock.State_left == false/* && hit.normalhit_state == false*/ && bighit_state == false)
                             {
@@ -496,7 +496,7 @@ public class middleEnemy_movement : MonoBehaviour
 
                             break;
 
-                        case 8: //休息
+                        case 6: //休息
                             animatestate(5);
 
                             transformValue = new Vector2(0, 0);

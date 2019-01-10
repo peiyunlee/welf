@@ -41,9 +41,13 @@ public class MomTalk : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (Input.GetKeyDown("z") && isfungus == false && isclickZ == false)
+        if (Input.GetKeyDown("z") && isclickZ == false)
         {
             isclickZ = true;
+            if (isfungus == false)
+            {
+                Fungus.Flowchart.BroadcastFungusMessage(gameObject.name);
+            }
         }
         if (isclickZ==false&&isfungus == false)
         {

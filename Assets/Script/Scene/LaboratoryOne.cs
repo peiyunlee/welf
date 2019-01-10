@@ -35,5 +35,18 @@ public class LaboratoryOne : MonoBehaviour {
                 wall[i].isTrigger = false;
             }
         }
+        if(flowchart.GetBooleanVariable("isplayer") == true)
+        {
+            PlayerMovement.isMenu = false;
+        }
+        else if(flowchart.GetBooleanVariable("isplayer") == false)
+        {
+            PlayerMovement.isMenu = true;
+        }
+    }
+    public void DoorClose()
+    {
+        wall[0].isTrigger = false;
+        wall[1].isTrigger = false;
     }
 }
