@@ -3,7 +3,7 @@
 
 [Demo](https://www.youtube.com/watch?v=rSlw0u-UCIg)
 
-## Information
+## Introduction
 用水精靈被人類綁架的故事隱含水汙染議題，再結合冒險、RPG故事等元素，讓玩家可以透過遊戲並省思環境汙染議題。
 
 ## Members
